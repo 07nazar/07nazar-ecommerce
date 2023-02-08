@@ -1,8 +1,11 @@
+@import './reset.scss';
+@import './App.css';
+
 body {
   margin: 0;
   padding: 0;
   background: #f7fafc;
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
 }
 
@@ -13,3 +16,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+

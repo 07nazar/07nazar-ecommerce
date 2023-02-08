@@ -1,3 +1,4 @@
+import styles from "./style.module.scss";
 export const Categories = () => {
   return (
     <div className={styles.categories}>
@@ -10,17 +11,17 @@ export const Categories = () => {
       <p>Animal and pets</p>
       <p>Machinery tools</p>
     </div>
-  )
-}
+  );
+};
 
 export const Slider = () => {
   return (
     <div className={styles.slide}>
-      <img src={slide} alt="" />
+      <img src="" alt="" />
     </div>
-  )
-}
+  );
+};
 
 export const Offer = () => {
-  return <p>Get US $10 off with a new supplier</p>
-}
+  return <p>Get US $10 off with a new supplier</p>;
+};

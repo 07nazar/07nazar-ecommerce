@@ -1,6 +1,6 @@
-import styles from './Footer.module.scss'
+import styles from "./styles.module.scss";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.brand}>
@@ -49,6 +49,6 @@ const Footer = () => {
         <img src="" alt="" />
       </div>
     </footer>
-  )
-}
-export default Footer
+  );
+};
+export default Footer;

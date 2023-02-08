@@ -1,7 +1,7 @@
-import Home from '../../../pages/Home/Home'
-import Footer from '../Footer/ui'
-import Header from '../Header/ui'
-// import styles from './Layout.module.scss'
+import styles from "./Layout.module.scss";
+import Home from "pages/Home";
+import { Footer } from "shared/ui/Footer";
+import { Header } from "widgets/Header";
 
 export const Layout = () => {
   return (
@@ -12,5 +12,5 @@ export const Layout = () => {
       </main>
       <Footer />
     </div>
-  )
-}
+  );
+};

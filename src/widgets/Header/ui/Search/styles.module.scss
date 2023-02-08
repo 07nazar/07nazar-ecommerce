@@ -1,0 +1,45 @@
+
+.input {
+  max-width: 665px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 2px solid #0d6efd;
+  border-radius: 4px;
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    line-height: 19px;
+    color: #8b96a5;
+
+    &::placeholder {
+      color: #8b96a5;
+    }
+  }
+
+  span {
+    cursor: pointer;
+    border-left: 1px solid #0d6efd;
+    padding: 10px;
+    white-space: nowrap;
+    font-size: 16px;
+    line-height: 19px;
+    color: #1c1c1c;
+  }
+
+  button {
+    cursor: pointer;
+    padding: 10px 23px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    border: none;
+    color: #ffffff;
+    background: linear-gradient(180deg, #127fff 0%, #0067ff 100%);
+  }
+}

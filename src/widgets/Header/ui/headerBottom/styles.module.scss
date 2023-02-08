@@ -1,0 +1,28 @@
+
+.categories {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  a {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #1c1c1c;
+  }
+}
+
+.switchers {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+
+  .lang,
+  .ship {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #1c1c1c;
+  }
+}

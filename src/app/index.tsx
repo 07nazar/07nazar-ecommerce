@@ -1,10 +1,9 @@
-import { Layout } from 'shared/ui/Layout'
+import "./styles/index.css";
+
+import { Layout } from "shared/ui/Layout";
 
 const App = () => {
-  return (
-    <div>
-      <Layout />
-    </div>
-  )
-}
-export default App
+  return <Layout />;
+};
+
+export default App;
