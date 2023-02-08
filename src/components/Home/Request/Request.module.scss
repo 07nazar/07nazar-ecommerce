@@ -1,0 +1,74 @@
+.request {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 30px 40px 44px 30px;
+  margin-bottom: 30px;
+
+  .info {
+    max-width: 369px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    h3 {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 39px;
+      letter-spacing: -0.2px;
+      color: #ffffff;
+    }
+    p {
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.2px;
+      color: #ffffff;
+    }
+  }
+
+  .form {
+    max-width: 491px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 22px 31px 25px 20px;
+    background: #ffffff;
+    box-shadow: 0px 1px 2px rgba(56, 56, 56, 0.25);
+    border-radius: 6px;
+    h5 {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 28px;
+      letter-spacing: -0.2px;
+      color: #1c1c1c;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      background-color: none;
+      outline: none;
+      border: 1px solid #dee2e7;
+      border-radius: 6px;
+    }
+    textarea {
+      width: 100%;
+      min-height: 73px;
+      padding: 11px 37px 11px 11px;
+      resize: none;
+      border: 1px solid #dee2e7;
+      border-radius: 6px;
+    }
+    .quantity {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      border: none;
+      padding: 10px 16px;
+      color: #ffffff;
+      background: linear-gradient(180deg, #127fff 0%, #0067ff 100%);
+      border-radius: 6px;
+    }
+  }
+}
