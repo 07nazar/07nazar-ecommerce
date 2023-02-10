@@ -1,5 +1,3 @@
-import logo from "shared/assets/logo.png";
+import logo from "./assets/logo.png";
 
-export const Logo = () => {
-  return <img src={logo} alt="logo" />;
-};
+export const Logo = () => <img src={logo} alt="logo" />;
