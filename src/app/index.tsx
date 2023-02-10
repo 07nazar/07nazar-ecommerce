@@ -1,9 +1,19 @@
-import "./styles/index.css";
+import { Footer } from "widgets/Footer";
+import { Header } from "widgets/Header";
 
-import { Layout } from "shared/ui/Layout";
+import { Routing } from "pages";
 
-const App = () => {
-  return <Layout />;
-};
+import { withProviders } from "./providers";
+import styles from "./styles/styles.module.scss";
 
-export default App;
+const App = () => (
+  <div className={styles.layout}>
+    <Header />
+    <main className={styles.main}>
+      <Routing />
+    </main>
+    <Footer />
+  </div>
+);
+
+export default withProviders(App);

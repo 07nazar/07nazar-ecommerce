@@ -1,0 +1,19 @@
+@import "reset";
+@import "App";
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f7fafc;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
