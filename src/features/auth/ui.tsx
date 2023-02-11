@@ -1,5 +1,5 @@
-import avatar from "./assets/Avatar.png";
-import styles from "./styles.module.scss";
+import avatar from './assets/Avatar.png'
+import styles from './styles.module.scss'
 
 export const Auth = () => (
   <div className={styles.userAuth}>
@@ -10,4 +10,4 @@ export const Auth = () => (
     <button>Join now</button>
     <button>Log in</button>
   </div>
-);
+)

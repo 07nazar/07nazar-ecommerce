@@ -1,22 +1,33 @@
-import styles from "./styles.module.scss";
+import { Box, Tab } from '@mui/material'
+import { useState } from 'react'
 
-export const Categories = () => (
-  <div className={styles.categories}>
-    <p>Automobiles</p>
-    <p>Clothes and wear</p>
-    <p>Home interiors</p>
-    <p>Computer and tech</p>
-    <p>Tools, equipments</p>
-    <p>Sports and outdoor</p>
-    <p>Animal and pets</p>
-    <p>Machinery tools</p>
-  </div>
-);
+import { TabsBox } from 'shared/ui/TabsBox'
 
-export const Slider = () => (
-  <div className={styles.slide}>
-    <img src="" alt="" />
-  </div>
-);
+const shopTabPanel = (array: Iarr[], value: number): JSX.Element => <h1>{array[value].title}</h1>
 
-export const Offer = () => <p>Get US $10 off with a new supplier</p>;
+export function BasicTabs() {
+  const [value, setValue] = useState(0)
+
+  const handleChange = (e: React.SyntheticEvent, val: number) => {
+    setValue(val)
+  }
+
+  return (
+    <Box sx={{ width: '100%', display: 'flex' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <TabsBox handleChange={handleChange} value={value}>
+          <Tab label="Clothes and wear" />
+          <Tab label="Home interiors" />
+          <Tab label="Computer and tech" />
+          <Tab label="Tools, equipments" />
+          <Tab label="Sports and outdoor" />
+          <Tab label="Animal and pets" />
+          <Tab label="Machinery tools" />
+        </TabsBox>
+      </Box>
+      {shopTabPanel(arr, value)}
+    </Box>
+  )
+}
+
+export const Offer = () => <p>Get US $10 off with a new supplier</p>
