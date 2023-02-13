@@ -1,3 +1,5 @@
+import { Counter } from "shared/ui";
+
 import { Deals } from "widgets/Deals";
 import { ExtraServices } from "widgets/ExtraServices";
 import { Hero } from "widgets/Hero";
@@ -7,6 +9,7 @@ import { Request } from "widgets/Request";
 
 export const Home = () => (
   <div>
+    <Counter />
     <Hero />
     <Deals />
     <Categories />
