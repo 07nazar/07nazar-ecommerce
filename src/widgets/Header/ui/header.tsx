@@ -1,4 +1,4 @@
-import { Logo } from "shared/ui/Logo";
+import { Logo } from "shared/ui";
 
 import { HeaderBottom } from "./headerBottom";
 import { Navigation } from "./Navigation";

@@ -1,14 +1,15 @@
 export interface Iarr {
-  title: string
+  name: string;
+  text: string;
 }
 
 export const tabsLabels: Iarr[] = [
-  { title: '1' },
-  { title: '2' },
-  { title: '3' },
-  { title: '4' },
-  { title: '5' },
-  { title: '6' },
-  { title: '7' },
-  { title: '8' },
-]
+  { name: "Automobiles", text: "1 lorem" },
+  { name: "Automobiles 2", text: "2 lorem" },
+  { name: "Automobiles 3", text: "3 lorem" },
+  { name: "Automobiles 444", text: "4 lorem" },
+  { name: "Automobiles 4444444", text: "5 lorem" },
+  { name: "Automobiles5235", text: "6 lorem" },
+  { name: "Automobiles52435", text: "7 lorem" },
+  { name: "Automobiles5421", text: "8 lorem" },
+];
