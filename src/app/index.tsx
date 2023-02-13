@@ -4,12 +4,12 @@ import { Header } from "widgets/Header";
 import { Routing } from "pages";
 
 import { withProviders } from "./providers";
-import styles from "./styles/styles.module.scss";
+import "./styles/index.css";
 
 const App = () => (
-  <div className={styles.layout}>
+  <div className="container">
     <Header />
-    <main className={styles.main}>
+    <main>
       <Routing />
     </main>
     <Footer />

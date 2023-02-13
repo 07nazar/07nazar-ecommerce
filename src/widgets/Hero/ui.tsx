@@ -5,8 +5,6 @@ import { TabsComponent } from "shared/ui";
 
 import { Offer, modelHero } from "entities/hero";
 
-import styles from "./styles.module.scss";
-
 const TabPanel = ({
   array,
   value,
@@ -23,7 +21,7 @@ export const Hero = () => {
   };
 
   return (
-    <div className={styles.hero}>
+    <div>
       <TabsComponent
         value={value}
         onChange={handleChange}
@@ -36,7 +34,7 @@ export const Hero = () => {
       </TabsComponent>
       <TabPanel array={modelHero.tabsLabels} value={value} />
 
-      <div className={styles.offers}>
+      <div>
         <Offer />
         <Offer />
       </div>
