@@ -1,6 +1,6 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react";
 
-import { withRouter } from './withRouter'
-import { withTheme } from './withTheme'
+import { withRouter } from "./withRouter";
 
-export const withProviders = (component: () => ReactNode) => withTheme(withRouter(component))
+export const withProviders = (component: () => ReactNode) =>
+  withRouter(component);
