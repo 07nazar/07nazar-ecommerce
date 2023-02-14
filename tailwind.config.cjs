@@ -1,7 +1,15 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  safelist: [
+    {
+      pattern: /bg-(primary|light)/
+    }, {
+      pattern: /gap-(sm|md|lg)/
+    }
+  ],
   theme: {
     colors: {
+      white: '#FFFFFF',
       red: '#FA3434',
       orange: "#FF9017",
       biscuit: "#FFE5BF",
