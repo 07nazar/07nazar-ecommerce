@@ -5,6 +5,7 @@ type ButtonProps = {
   onClick?: () => void;
   size?: "sm" | "md" | "lg";
   color?: "primary" | "light";
+  border?: string;
 };
 
 export const Button: FC<ButtonProps> = ({
@@ -12,15 +13,16 @@ export const Button: FC<ButtonProps> = ({
   onClick,
   size = "md",
   color = "primary",
+  border,
 }) => (
   <button
-    className={`bg-${color} ${size} ${
+    className={`${border} bg-${color} ${size} ${
       color === "primary" ? "text-white" : "text-blue"
-    }`}
+    } justify-items-center text-center shrink-0`}
     onClick={onClick}
   >
     <span
-      className={`relative z-10 inline-flex ${
+      className={`relative z-10  text-center ${
         Array.isArray(children) ? `gap-${size}` : ""
       }`}
     >
