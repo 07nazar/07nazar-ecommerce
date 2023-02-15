@@ -8,7 +8,7 @@
   }
 
   button {
-   @apply relative min-w-[42px] font-medium inline-flex rounded-md overflow-hidden
+   @apply relative min-w-[42px] font-medium inline-flex overflow-hidden
   }
 }
 
@@ -18,27 +18,27 @@
   }
 
   .sm {
-    @apply px-[10px] py-[7px] text-[13px] leading-[16px]
+    @apply px-2.5 py-1.75 text-[13px] leading-[16px]
   }
 
   .gap-sm {
-    @apply gap-[16.5px]
+    @apply gap-4
   }
 
   .md {
-    @apply px-[16px] py-[10.5px] leading-[19px]
+    @apply px-4 py-2.5 leading-[19px]
   }
 
   .gap-md {
-    @apply gap-[20px]
+    @apply gap-5
   }
 
   .lg {
-    @apply px-[20px] py-[16px] text-lg leading-[22px]
+    @apply px-5 py-4 text-lg leading-[22px]
   }
 
   .gap-lg {
-    @apply gap-[21px]
+    @apply gap-5
   }
 
 }

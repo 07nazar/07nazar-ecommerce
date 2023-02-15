@@ -36,6 +36,11 @@ module.exports = {
       padding: '20px',
       center: true
     },
+    extend: {
+      padding: {
+        '1.75': '0.4rem',
+      }
+    }
   },
   plugins: [],
 }
