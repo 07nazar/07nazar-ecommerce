@@ -1,17 +1,19 @@
-import "./styles/index.css";
+import './styles/index.css'
 // import { Footer } from "widgets/Footer";
 // import { Header } from "widgets/Header";
 
 // import { Routing } from "pages";
 
-import { Button, InputGroup, TextGroup, Input } from "shared/ui";
+// import { Button, InputGroup, TextGroup, Input } from 'shared/ui'
+import { Pagination } from 'shared/ui/Pagination'
 
-import { withProviders } from "./providers";
+import { withProviders } from './providers'
 
 const App = () => (
   <div className="container ">
     {/* <Header /> */}
-    <Button size="sm" border={"rounded-md"}>
+    <Pagination count={15} maxVisible={5} />
+    {/* <Button size="sm" border={"rounded-md"}>
       btn
     </Button>
     <Input border="rounded-md border-gray-medium" placeholder={"Type here"} />
@@ -39,11 +41,11 @@ const App = () => (
         placeholder="Type"
       />
       <Button border="rounded-r-md border-l-0">Button</Button>
-    </InputGroup>
+    </InputGroup> */}
 
     <main>{/* <Routing /> */}</main>
     {/* <Footer /> */}
   </div>
-);
+)
 
-export default withProviders(App);
+export default withProviders(App)
