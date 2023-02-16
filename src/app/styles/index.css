@@ -8,56 +8,58 @@
   }
 
   button {
-   @apply relative min-w-[42px] font-medium inline-flex overflow-hidden
+    @apply relative min-w-[42px] font-medium inline-flex overflow-hidden;
   }
 }
 
 @layer components {
   .container {
-    @apply max-w-[1220px]
+    @apply max-w-[1220px];
   }
 
   .sm {
-    @apply px-2.5 py-1.75 text-[13px] leading-[16px]
+    @apply px-2.5 py-1.75 text-[13px] leading-[16px];
   }
 
   .gap-sm {
-    @apply gap-4
+    @apply gap-4;
   }
 
   .md {
-    @apply px-4 py-2.5 leading-[19px]
+    @apply px-4 py-2.5 leading-[19px];
   }
 
   .gap-md {
-    @apply gap-5
+    @apply gap-5;
   }
 
   .lg {
-    @apply px-5 py-4 text-lg leading-[22px]
+    @apply px-5 py-4 text-lg leading-[22px];
   }
 
   .gap-lg {
-    @apply gap-5
+    @apply gap-5;
   }
 
+  .paginationItem {
+    @apply first:border-l last:border-r py-2.5 text-blue justify-center border-r border-gray-medium;
+  }
 }
 
 @layer utilities {
-
   .bg-primary {
-    @apply bg-gradient-to-r from-[#127FFF] to-blue before:opacity-0 hover:before:opacity-100
+    @apply bg-gradient-to-r from-[#127FFF] to-blue before:opacity-0 hover:before:opacity-100;
   }
 
   .bg-primary:before {
-    @apply absolute inset-0 bg-gradient-to-r from-[#1169D1] duration-300
+    @apply absolute inset-0 bg-gradient-to-r from-[#1169D1] duration-300;
   }
 
   .bg-light {
-    @apply border border-gray-medium before:opacity-0 hover:before:opacity-100
+    @apply border border-gray-medium before:opacity-0 hover:before:opacity-100;
   }
 
   .bg-light:before {
-    @apply absolute inset-0  bg-lightblue duration-500
+    @apply absolute inset-0  bg-lightblue duration-500;
   }
 }

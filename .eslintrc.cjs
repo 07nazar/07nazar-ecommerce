@@ -46,6 +46,7 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
+    'react-hooks/exhaustive-deps': 'off',
     'react/jsx-filename-extension': [
       1,
       {
@@ -64,8 +65,8 @@ module.exports = {
           `**/*shared/_*`,
           `**/*shared/_*/*`,
           '**/assets/*',
-          '@mui/**/*',
           'react-dom/*',
+          'react-icons/*',
         ],
       },
     ],
