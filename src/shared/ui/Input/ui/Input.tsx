@@ -1,28 +1,27 @@
-import { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC } from 'react'
 
 interface InputProps {
-  placeholder: string;
-  border?: string;
-  borderColor?: string;
+  value: string | number
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void
+  placeholder: string
+  border?: string
+  borderColor?: string
+  styles?: string
 }
 
 export const Input: FC<InputProps> = ({
+  value,
+  handleChange,
   placeholder,
   border,
-  borderColor = "border-gray-medium",
-}) => {
-  const [text, setText] = useState("");
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
-  };
-  return (
-    <input
-      className={`border ${border} ${borderColor} w-full px-[10px] py-[9.5px] leading-[19px] text-black placeholder:text-gray-hot outline-none`}
-      type="text"
-      onChange={handleChange}
-      value={text}
-      placeholder={placeholder}
-    />
-  );
-};
+  borderColor = 'border-gray-medium',
+  styles = '',
+}) => (
+  <input
+    className={`${styles} border ${border} ${borderColor} w-full px-[10px] py-[9.5px] leading-[19px] text-black placeholder:text-gray-hot outline-none`}
+    type="text"
+    onChange={handleChange}
+    value={value}
+    placeholder={placeholder}
+  />
+)

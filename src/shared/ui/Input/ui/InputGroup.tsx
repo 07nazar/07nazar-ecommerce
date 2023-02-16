@@ -1,9 +1,10 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode } from 'react'
 
 interface InputGroupProps {
-  children: ReactNode;
+  children: ReactNode
+  styles?: string
 }
 
-export const InputGroup: FC<InputGroupProps> = ({ children }) => (
-  <form className={"flex h-10"}>{children}</form>
-);
+export const InputGroup: FC<InputGroupProps> = ({ children, styles }) => (
+  <form className={`inline-flex h-10 ${styles}`}>{children}</form>
+)
