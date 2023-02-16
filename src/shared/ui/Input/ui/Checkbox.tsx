@@ -93,7 +93,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   const isCheckRadio = checkedValue === value;
 
   return (
-    <label className={"inline-flex items-center select-none"}>
+    <label className={"inline-flex items-center select-none cursor-pointer"}>
       <CheckboxInput
         isChecked={radio ? isCheckRadio : isChecked}
         value={value}
