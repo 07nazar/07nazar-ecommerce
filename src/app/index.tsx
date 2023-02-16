@@ -5,14 +5,17 @@ import './styles/index.css'
 // import { Routing } from "pages";
 
 // import { Button, InputGroup, TextGroup, Input } from 'shared/ui'
-import { Pagination } from 'shared/ui/Pagination'
+// import { Pagination } from 'shared/ui/Pagination'
+
+import { Counter } from 'features/Counter'
 
 import { withProviders } from './providers'
 
 const App = () => (
   <div className="container ">
+    <Counter />
     {/* <Header /> */}
-    <Pagination count={15} maxVisible={5} />
+    {/* <Pagination count={15} maxVisible={5} /> */}
     {/* <Button size="sm" border={"rounded-md"}>
       btn
     </Button>
