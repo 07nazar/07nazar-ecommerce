@@ -17,6 +17,10 @@
     @apply max-w-[1220px];
   }
 
+  .checkbox {
+    @apply w-5 h-5 bg-white border-2 mr-3 peer-focus-visible:ring-1
+  }
+
   .sm {
     @apply px-2.5 py-1.75 text-[13px] leading-[16px];
   }

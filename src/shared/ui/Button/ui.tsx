@@ -18,7 +18,7 @@ export const Button: FC<ButtonProps> = ({
   <button
     className={`${border} bg-${color} ${size} ${
       color === "primary" ? "text-white" : "text-blue"
-    } justify-items-center text-center shrink-0`}
+    } justify-items-center text-center shrink-0 outline-none focus-visible:ring-1`}
     onClick={onClick}
   >
     <span
