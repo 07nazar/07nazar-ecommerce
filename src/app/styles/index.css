@@ -17,6 +17,10 @@
     @apply max-w-[1220px]
   }
 
+  .checkbox {
+    @apply inline-flex w-5 h-5 bg-white border-2 border-gray-hot rounded-md mr-3
+  }
+
   .sm {
     @apply px-2.5 py-1.75 text-[13px] leading-[16px]
   }
