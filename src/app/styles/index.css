@@ -18,7 +18,7 @@
   }
 
   .checkbox {
-    @apply inline-flex w-5 h-5 bg-white border-2 border-gray-hot rounded-md mr-3
+    @apply w-5 h-5 bg-white border-2 mr-3 peer-focus-visible:ring-1
   }
 
   .sm {
