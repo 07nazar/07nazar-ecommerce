@@ -21,6 +21,28 @@
     @apply w-5 h-5 bg-white border-2 mr-3 peer-focus-visible:ring-1
   }
 
+  .thumb,
+  .thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .thumb {
+    @apply absolute h-0 cursor-pointer pointer-events-none z-[3]
+  }
+
+  .thumb::-webkit-slider-thumb {
+    background: #FFFFFF;
+    border: 1px solid #AFD0FF;
+    box-shadow: 0 2px 4px rgba(16, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    pointer-events: all;
+    position: relative;
+  }
+
   .sm {
     @apply px-2.5 py-1.75 text-[13px] leading-[16px];
   }
