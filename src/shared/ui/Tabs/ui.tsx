@@ -1,63 +1,93 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { FC, useState } from 'react'
+import { useSpring, animated } from "@react-spring/web";
+import { FC, ReactNode } from "react";
 
-interface ITabs {
-  count: number
-  isPill: boolean
-  orientation: 'vertical' | 'horizontal'
-  activeContent: boolean
+import { colors } from "../../lib";
+
+interface OrientationTabs {
+  orientation: "vertical" | "horizontal";
+}
+
+interface ITabs extends OrientationTabs {
+  children: ReactNode;
+  buttons: ReactNode;
+  border?: string;
 }
 
 interface ITabBtnProps {
-  index: number
-  item: string
+  children: ReactNode;
+  index: number;
+  activeTab: number;
+  setActiveTab: (index: number) => void;
+  isPill?: boolean;
+  outlined?: boolean;
 }
 
-const arr = ['Tab active', 'Tab menu', 'Tab menu']
-
-export const Tabs: FC<ITabs> = ({
-  count,
+export const TabBtn: FC<ITabBtnProps> = ({
+  children,
+  index,
+  activeTab,
+  setActiveTab,
   isPill = true,
-  orientation = 'vertical',
-  activeContent = false,
+  outlined = false,
 }) => {
-  const [isActiveTab, setActiveTab] = useState(0)
+  const isActiveTab = activeTab !== null && activeTab === index;
 
-  const TabBtn: FC<ITabBtnProps> = ({ item, index }) => (
-    <button
-      onClick={() => setActiveTab(index)}
-      className={`p-[10px] whitespace-nowrap
-      ${isActiveTab === index && (isPill ? 'bg-gray-pale rounded-md font-medium' : 'text-blue ')}
-      `}>
-      {item}
-    </button>
-  )
+  const animation = useSpring({
+    config: {
+      duration: 600,
+    },
+    borderColor: isActiveTab && outlined ? `${colors.blue}` : "#fff",
+    backgroundColor: isActiveTab && isPill ? `${colors.lightblue}` : "#fff",
+  });
 
-  const indicator = (
-    <span
-      className={`flex border-blue w-[100%] h-[100%] ${
-        orientation === 'horizontal' && 'border-b-2 absolute bottom-[-2px]'
-      }`}></span>
-  )
+  const nonActiveStylesText = isPill ? "text-gray-dark" : "text-gray-hot";
+
+  const activeStylesText = isPill ? "bg-lightblue text-black" : "text-blue";
 
   return (
+    <>
+      <animated.button
+        onClick={() => setActiveTab(index)}
+        style={animation}
+        className={`p-[10px] whitespace-nowrap rounded-md
+      ${isActiveTab ? activeStylesText : nonActiveStylesText}
+      ${
+        isActiveTab && outlined
+          ? "border-b-2 border-blue rounded-none z-[3]"
+          : ""
+      }`}
+      >
+        {children}
+      </animated.button>
+      {outlined && (
+        <span
+          className={
+            "absolute left-[-10px] right-[-10px] bottom-[10px] h-[2px] bg-gray-medium z-[2]"
+          }
+        />
+      )}
+    </>
+  );
+};
+
+export const Tabs: FC<ITabs> = ({
+  children,
+  buttons,
+  orientation = "vertical",
+  border = "",
+}) => (
+  <div
+    className={`inline-flex p-2.5 ${border} rounded-md ${
+      orientation === "horizontal" ? "flex-col" : "flex-row"
+    }`}
+  >
     <div
-      className={`inline-flex border-2 border-gray-deep rounded-md
-      ${activeContent && orientation === 'vertical' ? 'flex-row' : 'flex-col'}`}>
-      <div
-        className={`flex mb-10 
-        ${orientation === 'vertical' ? 'flex-col border-none' : ''}
-        ${!isPill && 'border-b-2 border-gray-deep'}`}>
-        {arr.map((item, index) => (
-          <div
-            key={index}
-            className={` ${orientation === 'vertical' ? 'flex' : 'flex flex-col'} relative `}>
-            <TabBtn index={index} item={item} />
-            {!isPill && isActiveTab === index && indicator}
-          </div>
-        ))}
-      </div>
-      <div>{activeContent && isActiveTab}</div>
+      className={`relative flex ${
+        orientation === "horizontal" ? "flex-row pb-2.5" : "flex-col pr-2.5"
+      }`}
+    >
+      {buttons}
     </div>
-  )
-}
+    {children}
+  </div>
+);
