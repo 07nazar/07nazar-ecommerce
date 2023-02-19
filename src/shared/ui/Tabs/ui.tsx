@@ -30,32 +30,31 @@ export const TabBtn: FC<ITabBtnProps> = ({
   isPill = true,
   outlined = false,
 }) => {
-  const isActiveTab = activeTab !== null && activeTab === index;
+  const isActive = activeTab === index;
 
   const animation = useSpring({
+    borderColor: isActive && outlined ? `${colors.blue}` : "#fff",
+    backgroundColor: isActive && isPill ? `${colors.lightblue}` : "#fff",
     config: {
       duration: 600,
     },
-    borderColor: isActiveTab && outlined ? `${colors.blue}` : "#fff",
-    backgroundColor: isActiveTab && isPill ? `${colors.lightblue}` : "#fff",
   });
 
-  const nonActiveStylesText = isPill ? "text-gray-dark" : "text-gray-hot";
+  const nonActiveTextStyles = isPill ? "text-gray-dark" : "text-gray-hot";
+  const activeTextStyles = isPill ? "bg-lightblue text-black" : "text-blue";
 
-  const activeStylesText = isPill ? "bg-lightblue text-black" : "text-blue";
+  const buttonStyles = `p-2.5 whitespace-nowrap rounded-md ${
+    isActive ? activeTextStyles : nonActiveTextStyles
+  }`;
+  const borderStyles =
+    isActive && outlined ? "border-b-2 border-blue rounded-none z-10" : "";
 
   return (
     <>
       <animated.button
         onClick={() => setActiveTab(index)}
         style={animation}
-        className={`p-[10px] whitespace-nowrap rounded-md
-      ${isActiveTab ? activeStylesText : nonActiveStylesText}
-      ${
-        isActiveTab && outlined
-          ? "border-b-2 border-blue rounded-none z-[3]"
-          : ""
-      }`}
+        className={`${buttonStyles} ${borderStyles}`}
       >
         {children}
       </animated.button>
@@ -75,19 +74,18 @@ export const Tabs: FC<ITabs> = ({
   buttons,
   orientation = "vertical",
   border = "",
-}) => (
-  <div
-    className={`inline-flex p-2.5 ${border} rounded-md ${
-      orientation === "horizontal" ? "flex-col" : "flex-row"
-    }`}
-  >
-    <div
-      className={`relative flex ${
-        orientation === "horizontal" ? "flex-row pb-2.5" : "flex-col pr-2.5"
-      }`}
-    >
-      {buttons}
+}) => {
+  const tabsWrapperStyles = `inline-flex p-2.5 ${border} rounded-md ${
+    orientation === "horizontal" ? "flex-col" : "flex-row"
+  }`;
+  const tabsStyles = `relative flex ${
+    orientation === "horizontal" ? "flex-row pb-2.5" : "flex-col pr-2.5"
+  }`;
+
+  return (
+    <div className={`${tabsWrapperStyles}`}>
+      <div className={`${tabsStyles}`}>{buttons}</div>
+      {children}
     </div>
-    {children}
-  </div>
-);
+  );
+};
