@@ -28,7 +28,7 @@
   }
 
   .thumb {
-    @apply absolute h-0 cursor-pointer pointer-events-none z-[3]
+    @apply absolute h-0 cursor-pointer pointer-events-none z-50
   }
 
   .thumb::-webkit-slider-thumb {
