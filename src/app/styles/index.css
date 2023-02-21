@@ -8,7 +8,7 @@
   }
 
   button {
-    @apply relative min-w-[42px] font-medium inline-flex overflow-hidden;
+    @apply relative font-medium inline-flex overflow-hidden;
   }
 }
 
@@ -28,7 +28,7 @@
   }
 
   .thumb {
-    @apply absolute h-0 cursor-pointer pointer-events-none z-[3]
+    @apply absolute h-0 cursor-pointer pointer-events-none z-50
   }
 
   .thumb::-webkit-slider-thumb {
@@ -43,28 +43,26 @@
     position: relative;
   }
 
-  .sm {
-    @apply px-2.5 py-1.75 text-[13px] leading-[16px];
+  .fixed-block {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 10;
   }
 
-  .gap-sm {
-    @apply gap-4;
+  .sm {
+    @apply px-2.5 py-1.75 text-[13px] leading-[16px];
   }
 
   .md {
     @apply px-4 py-2.5 leading-[19px];
   }
 
-  .gap-md {
-    @apply gap-5;
-  }
-
   .lg {
     @apply px-5 py-4 text-lg leading-[22px];
-  }
-
-  .gap-lg {
-    @apply gap-5;
   }
 
   .paginationItem {
@@ -74,18 +72,10 @@
 
 @layer utilities {
   .bg-primary {
-    @apply bg-gradient-to-r from-[#127FFF] to-blue before:opacity-0 hover:before:opacity-100;
-  }
-
-  .bg-primary:before {
-    @apply absolute inset-0 bg-gradient-to-r from-[#1169D1] duration-300;
+    @apply bg-gradient-to-r from-[#127FFF] to-blue duration-500 hover:saturate-200
   }
 
   .bg-light {
-    @apply border border-gray-medium before:opacity-0 hover:before:opacity-100;
-  }
-
-  .bg-light:before {
-    @apply absolute inset-0  bg-lightblue duration-500;
+    @apply border border-gray-medium duration-500 hover:bg-gray-medium;
   }
 }
