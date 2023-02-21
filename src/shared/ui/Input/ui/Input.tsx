@@ -18,7 +18,7 @@ export const Input: FC<InputProps> = ({
   styles = '',
 }) => (
   <input
-    className={`${styles} border ${border} ${borderColor} w-full px-[10px] py-[9.5px] leading-[19px] text-black placeholder:text-gray-hot outline-none`}
+    className={`${styles} ${border} ${borderColor} w-full px-[10px] py-[9.5px] leading-[19px] text-black placeholder:text-gray-hot outline-none`}
     type="text"
     onChange={handleChange}
     value={value}

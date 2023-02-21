@@ -16,10 +16,9 @@ interface ISelectButton {
 }
 
 const SelectButton: FC<ISelectButton> = ({ onClickHandler, isOpen, selectedValue, isPill }) => {
-  const borderClass = isOpen ? 'border-blue' : 'border-gray-medium'
   const paddingClass = Array.isArray(selectedValue) ? 'p-[10px]' : ''
   const textClass = isPill ? 'p-[6px] leading-[14px]' : ''
-  const containerClass = `relative w-full min-h-[40px] max-h-[40px] flex gap-[5px] items-center rounded-md border cursor-pointer transition-all duration-500 mb-[10px] ${borderClass} ${paddingClass} ${textClass}`
+  const containerClass = `relative w-full min-h-[40px] max-h-[40px] flex gap-[5px] items-center rounded-md border-0 cursor-pointer transition-all duration-500 mb-[10px] ${paddingClass} ${textClass}`
 
   const selectedItemsPills =
     isPill &&

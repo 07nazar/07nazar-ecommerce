@@ -12,6 +12,7 @@ interface ISelectedValue {
 interface ISelect {
   isPill?: boolean
   isOpen: boolean
+  className: string
   setOpen: (isOpen: boolean) => void
   children: ReactNode
   selectedValue: ISelectedValue[] | ISelectedValue
@@ -20,6 +21,7 @@ interface ISelect {
 export const Select: FC<ISelect> = ({
   isPill = true,
   isOpen,
+  className = '',
   selectedValue,
   children,
   setOpen,
@@ -36,7 +38,7 @@ export const Select: FC<ISelect> = ({
   })
 
   return (
-    <div className="flex flex-col">
+    <div className={`${className} flex flex-col`}>
       <SelectButton
         onClickHandler={(e: MouseEvent<HTMLButtonElement>) => onClickHandler(e)}
         isOpen={isOpen}

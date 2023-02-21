@@ -1,12 +1,16 @@
 import { useSpring, animated } from '@react-spring/web'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useState, FC } from 'react'
 import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai'
 
 import { colors } from 'shared/lib'
 
 import { Input } from '../Input'
 
-export const Search = () => {
+interface ISearch {
+  className?: string
+}
+
+export const Search: FC<ISearch> = ({ className = '' }) => {
   const [value, setValue] = useState('')
 
   const styles = useSpring({
@@ -28,7 +32,7 @@ export const Search = () => {
   }
 
   return (
-    <div className="relative max-w-[350px] w-full h-[40px] flex items-center ">
+    <div className={`relative w-full flex items-center  ${className}`}>
       <div className="absolute top-1/2 translate-y-[-50%] left-[11px] z-10">
         <AiOutlineSearch color={colors.gray.hot} />
       </div>
@@ -37,7 +41,9 @@ export const Search = () => {
         placeholder="Search"
         value={value}
         handleChange={onChangeHandler}
-        styles="absolute top-0 left-0 right-0 bottom-0 z-1 pl-[36px] rounded-md focus:border-blue transition-all"
+        border="rounded-md focus:border-blue"
+        borderColor="border-blue"
+        styles="absolute top-0 left-0 right-0 bottom-0 z-1 pl-[36px] transition-all"
       />
 
       <animated.button
