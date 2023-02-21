@@ -1,5 +1,5 @@
 import { useTransition, animated } from '@react-spring/web'
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode, MouseEvent } from 'react'
 
 import SelectButton from './SelectButton'
 
@@ -24,7 +24,8 @@ export const Select: FC<ISelect> = ({
   children,
   setOpen,
 }) => {
-  const onClickHandler = () => {
+  const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
     setOpen(!isOpen)
   }
 
@@ -35,9 +36,9 @@ export const Select: FC<ISelect> = ({
   })
 
   return (
-    <>
+    <div className="flex flex-col">
       <SelectButton
-        onClickHandler={onClickHandler}
+        onClickHandler={(e: MouseEvent<HTMLButtonElement>) => onClickHandler(e)}
         isOpen={isOpen}
         selectedValue={selectedValue}
         isPill={isPill}
@@ -53,6 +54,6 @@ export const Select: FC<ISelect> = ({
           </animated.div>
         ))}
       </div>
-    </>
+    </div>
   )
 }

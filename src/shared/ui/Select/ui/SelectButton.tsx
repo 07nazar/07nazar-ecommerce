@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, MouseEvent } from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
 import { MdClose } from 'react-icons/md'
 
@@ -9,7 +9,7 @@ interface ISelectedValue {
 }
 
 interface ISelectButton {
-  onClickHandler: () => void
+  onClickHandler: (e: MouseEvent<HTMLButtonElement>) => void
   isOpen: boolean
   selectedValue: ISelectedValue[] | ISelectedValue
   isPill: boolean
