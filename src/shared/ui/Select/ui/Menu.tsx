@@ -1,4 +1,4 @@
-import { FC, ReactNode, Dispatch, SetStateAction } from 'react'
+import { FC, ReactNode, Dispatch, SetStateAction, MouseEvent } from 'react'
 
 interface IItem {
   id: number
@@ -38,15 +38,16 @@ export const MenuItem: FC<MenuItemProps> = ({
     setOpen(false)
   }
 
-  const onClickHandler = () => (isMulti ? selectWithMulti() : selectWithOutMulti())
+  const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    return isMulti ? selectWithMulti() : selectWithOutMulti()
+  }
 
   return (
     <button
-      onClick={onClickHandler}
+      onClick={(e: MouseEvent<HTMLButtonElement>) => onClickHandler(e)}
       className={`flex flex-col w-full p-[16px] ${active ? 'bg-gray-pale' : ''}`}>
       {children}
     </button>
   )
 }
-
-export default MenuItem
