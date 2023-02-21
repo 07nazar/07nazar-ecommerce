@@ -2,18 +2,14 @@ import { FC, ReactNode } from "react";
 
 type TextGroupProps = {
   children: ReactNode;
-  border?: string;
-  borderColor?: string;
+  className?: string;
 };
 
 export const TextGroup: FC<TextGroupProps> = ({
   children,
-  border = "rounded-md",
-  borderColor = "bg-gray-medium",
+  className = "border rounded-md bg-gray-medium",
 }) => (
-  <p
-    className={`flex items-center border ${border} ${borderColor} text-gray-hot px-2`}
-  >
+  <p className={`${className} flex items-center text-gray-hot px-2`}>
     {children}
   </p>
 );

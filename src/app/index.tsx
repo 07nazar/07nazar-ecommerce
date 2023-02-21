@@ -1,33 +1,40 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable import/no-internal-modules */
-import { MouseEvent, useState } from 'react'
-import './styles/index.css'
+import { MouseEvent, useState } from "react";
+import "./styles/index.css";
 
-import { Checkbox, Select } from 'shared/ui'
-import { MenuItem } from 'shared/ui/Select/ui/Menu'
+import { Button, Checkbox, InputGroup, Select } from "shared/ui";
+import { MenuItem } from "shared/ui/Select/ui/Menu";
 
-import { withProviders } from './providers'
+import { Search } from "features/Search";
+
+import { withProviders } from "./providers";
 
 interface IItem {
-  id: number
-  text: string
-  subTitle?: string
+  id: number;
+  text: string;
+  subTitle?: string;
 }
 
 const items: IItem[] = [
-  { id: 1, text: 'text1', subTitle: 'subtitle' },
-  { id: 2, text: 'text2', subTitle: 'subtitle' },
-  { id: 3, text: 'text3', subTitle: 'subtitle' },
-]
+  { id: 1, text: "text1", subTitle: "subtitle" },
+  { id: 2, text: "text2", subTitle: "subtitle" },
+  { id: 3, text: "text3", subTitle: "subtitle" },
+];
 
 const App = () => {
-  const [isOpen, setOpen] = useState(false)
-  const [selectedItems, setSelectedItems] = useState<IItem[]>([])
-  const isMulti = true
+  const [isOpen, setOpen] = useState(false);
+  const [selectedItems, setSelectedItems] = useState<IItem[]>([]);
+  const isMulti = true;
 
   return (
     <div className="container">
-      <Select selectedValue={selectedItems} isOpen={isOpen} isPill={false} setOpen={setOpen}>
+      <Select
+        selectedValue={selectedItems}
+        isOpen={isOpen}
+        isPill={false}
+        setOpen={setOpen}
+      >
         {items.map((item: IItem) => (
           <MenuItem
             active={selectedItems.includes(item)}
@@ -35,25 +42,33 @@ const App = () => {
             item={item}
             isMulti={isMulti}
             setSelectedItems={setSelectedItems}
-            setOpen={setOpen}>
+            setOpen={setOpen}
+          >
             {/* <span>{item.text}</span>
             <span>{item.subTitle}</span> */}
             <Checkbox
               onClick={(event: MouseEvent<HTMLElement>) => {
-                event.stopPropagation()
+                event.stopPropagation();
               }}
               onChange={() => setSelectedItems((prev) => [...prev, item])}
-              isChecked={selectedItems.includes(item)}>
+              isChecked={selectedItems.includes(item)}
+            >
               {item.text}
             </Checkbox>
           </MenuItem>
         ))}
       </Select>
-    </div>
-  )
-}
 
-export default withProviders(App)
+      <InputGroup className={"w-full"}>
+        <Search className={"border border-blue"} />
+        <Button>test</Button>
+        <Button>test</Button>
+      </InputGroup>
+    </div>
+  );
+};
+
+export default withProviders(App);
 
 // =================================================
 // const onClickHandler = (item: IItem) => {

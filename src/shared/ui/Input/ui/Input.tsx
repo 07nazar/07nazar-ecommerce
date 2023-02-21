@@ -1,27 +1,23 @@
-import { ChangeEvent, FC } from 'react'
+import { ChangeEvent, FC } from "react";
 
 interface InputProps {
-  value: string | number
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void
-  placeholder: string
-  border?: string
-  borderColor?: string
-  styles?: string
+  value: string | number;
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  placeholder: string;
+  className?: string;
 }
 
 export const Input: FC<InputProps> = ({
   value,
   handleChange,
   placeholder,
-  border,
-  borderColor = 'border-gray-medium',
-  styles = '',
+  className = "",
 }) => (
   <input
-    className={`${styles} border ${border} ${borderColor} w-full px-[10px] py-[9.5px] leading-[19px] text-black placeholder:text-gray-hot outline-none`}
+    className={`${className} w-full px-[10px] py-[9.5px] leading-[19px] text-black placeholder:text-gray-hot outline-none`}
     type="text"
     onChange={handleChange}
     value={value}
     placeholder={placeholder}
   />
-)
+);

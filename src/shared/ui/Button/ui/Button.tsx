@@ -31,7 +31,7 @@ export const Button: FC<ButtonProps> = ({
       className={`${className} ${size} ${
         rounded || ""
       } text-${textColor} bg-${color} 
-      outline-none focus-visible:ring-1 ${disabledStyles}`}
+      outline-none focus-visible:ring-1 shrink-0 ${disabledStyles}`}
       onClick={onClick}
     >
       {children}
