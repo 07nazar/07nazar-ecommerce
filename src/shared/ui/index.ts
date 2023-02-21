@@ -3,5 +3,7 @@ export * from './Tabs'
 export * from './Button'
 export * from './Input'
 export * from './Pagination'
+export * from "./RangeSlider";
+export * from "./Alert";
 export * from './Search'
 export * from './Select'

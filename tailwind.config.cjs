@@ -3,8 +3,6 @@ module.exports = {
   safelist: [
     {
       pattern: /bg-(primary|light)/
-    }, {
-      pattern: /gap-(sm|md|lg)/
     }
   ],
   theme: {
@@ -39,7 +37,10 @@ module.exports = {
     extend: {
       padding: {
         '1.75': '0.4rem',
-      }
+      },
+      width: {
+        '42': '10.5rem',
+      },
     }
   },
   plugins: [],
