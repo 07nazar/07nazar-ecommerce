@@ -1,7 +1,7 @@
 import { animated, useSpring } from "@react-spring/web";
 import { FC, ReactNode } from "react";
 
-import { colors } from "../../../lib";
+import { colors } from "shared/lib";
 
 interface CheckboxProps {
   children: ReactNode;
