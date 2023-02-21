@@ -1,54 +1,96 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable import/no-internal-modules */
+import { MouseEvent, useState } from 'react'
 import './styles/index.css'
-// import { Footer } from "widgets/Footer";
-// import { Header } from "widgets/Header";
 
-// import { Routing } from "pages";
-
-// import { Button, InputGroup, TextGroup, Input } from 'shared/ui'
-// import { Pagination } from 'shared/ui/Pagination'
-
-import { Counter } from 'features/Counter'
+import { Checkbox, Select } from 'shared/ui'
+import { MenuItem } from 'shared/ui/Select/ui/Menu'
 
 import { withProviders } from './providers'
 
-const App = () => (
-  <div className="container ">
-    <Counter />
-    {/* <Header /> */}
-    {/* <Pagination count={15} maxVisible={5} /> */}
-    {/* <Button size="sm" border={"rounded-md"}>
-      btn
-    </Button>
-    <Input border="rounded-md border-gray-medium" placeholder={"Type here"} />
-    <InputGroup>
-      <Input border="rounded-l-md" placeholder="Type" />
-      <Button border="rounded-r-md ">Button</Button>
-    </InputGroup>
+interface IItem {
+  id: number
+  text: string
+  subTitle?: string
+}
 
-    <InputGroup>
-      <Input
-        borderColor="border-blue"
-        border="rounded-l-md border-r-0"
-        placeholder="Type"
-      />
-      <Button>Button</Button>
-      <TextGroup borderColor="border-blue" border="rounded-r-md border-l-0">
-        4124
-      </TextGroup>
-    </InputGroup>
+const items: IItem[] = [
+  { id: 1, text: 'text1', subTitle: 'subtitle' },
+  { id: 2, text: 'text2', subTitle: 'subtitle' },
+  { id: 3, text: 'text3', subTitle: 'subtitle' },
+]
 
-    <InputGroup>
-      <Input
-        borderColor="border-blue"
-        border="rounded-l-md border-r-0"
-        placeholder="Type"
-      />
-      <Button border="rounded-r-md border-l-0">Button</Button>
-    </InputGroup> */}
+const App = () => {
+  const [isOpen, setOpen] = useState(false)
+  const [selectedItems, setSelectedItems] = useState<IItem[]>([])
+  const isMulti = true
 
-    <main>{/* <Routing /> */}</main>
-    {/* <Footer /> */}
-  </div>
-)
+  return (
+    <div className="container">
+      <Select selectedValue={selectedItems} isOpen={isOpen} isPill={false} setOpen={setOpen}>
+        {items.map((item: IItem) => (
+          <MenuItem
+            active={selectedItems.includes(item)}
+            key={item.text}
+            item={item}
+            isMulti={isMulti}
+            setSelectedItems={setSelectedItems}
+            setOpen={setOpen}>
+            {/* <span>{item.text}</span>
+            <span>{item.subTitle}</span> */}
+            <Checkbox
+              onClick={(event: MouseEvent<HTMLElement>) => {
+                event.stopPropagation()
+              }}
+              onChange={() => setSelectedItems((prev) => [...prev, item])}
+              isChecked={selectedItems.includes(item)}>
+              {item.text}
+            </Checkbox>
+          </MenuItem>
+        ))}
+      </Select>
+    </div>
+  )
+}
 
 export default withProviders(App)
+
+// =================================================
+// const onClickHandler = (item: IItem) => {
+//   setSelectedItems((prev) => {
+//     const isSelected = prev.some((selectedItem) => selectedItem.id === item.id)
+//     return isSelected
+//       ? prev.filter((selectedItem) => selectedItem.id !== item.id)
+//       : [...prev, item]
+//   })
+// }
+// =================================================
+
+/* <Checkbox
+              onChange={() => {
+                onClickHandler(item)
+              }}
+              onClick={(event: MouseEvent<HTMLElement>) => {
+                event.stopPropagation()
+              }}
+              isChecked={selectedItems.includes(item)}
+              key={item.id}>
+              {item.text}
+            </Checkbox> */
+
+// const onClickHandler = (item: IItem) => {
+//   setSelected(item)
+//   setOpen(false)
+// }
+
+/* <Select selectedValue={selected.text} isOpen={isOpen} setOpen={setOpen}>
+{items.map((item) => (
+  <MenuItem
+    active={selected.id === item.id}
+    key={item.text}
+    onSelectOption={() => onClickHandler(item)}>
+    <span>{item.text}</span>
+    <span>{item.subTitle}</span>
+  </MenuItem>
+))}
+</Select> */
