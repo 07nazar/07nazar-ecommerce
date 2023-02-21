@@ -3,8 +3,6 @@ module.exports = {
   safelist: [
     {
       pattern: /bg-(primary|light)/
-    }, {
-      pattern: /gap-(sm|md|lg)/
     }
   ],
   theme: {
