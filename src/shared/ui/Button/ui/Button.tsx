@@ -6,7 +6,7 @@ export interface ButtonProps {
   onClick?: (e: SyntheticEvent) => void;
   size?: "sm" | "md" | "lg";
   textColor?: "white" | "blue" | string;
-  color?: "primary" | "light";
+  color?: "primary" | "light" | string;
   disabled?: boolean;
   className?: string;
 }

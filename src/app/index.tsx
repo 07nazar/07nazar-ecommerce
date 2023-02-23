@@ -1,13 +1,9 @@
-import './styles/index.css'
+import "./styles/index.css";
 
-import { HeaderSearch } from 'entities/HeaderSearch'
+import { Header } from "widgets/Header";
 
-import { withProviders } from './providers'
+import { withProviders } from "./providers";
 
-const App = () => (
-    <div className="container">
-      <HeaderSearch />
-    </div>
-)
+const App = () => <Header isNavbar />;
 
-export default withProviders(App)
+export default withProviders(App);

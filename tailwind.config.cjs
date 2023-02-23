@@ -3,6 +3,8 @@ module.exports = {
   safelist: [
     {
       pattern: /bg-(primary|light)/
+    } ,{
+      pattern: /text/
     }
   ],
   theme: {
