@@ -1,9 +1,9 @@
-import "./styles/index.css";
+import './styles/index.css'
 
-import { Header } from "widgets/Header";
+import { Routing } from 'pages'
 
-import { withProviders } from "./providers";
+import { withProviders } from './providers'
 
-const App = () => <Header isNavbar />;
+const App = () => <Routing />
 
-export default withProviders(App);
+export default withProviders(App)
