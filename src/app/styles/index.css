@@ -5,6 +5,8 @@
 @layer base {
   body {
     font-family: Inter, sans-serif;
+
+    @apply bg-gray-light;
   }
 
   button {
@@ -15,6 +17,10 @@
 @layer components {
   .container {
     @apply max-w-[1220px];
+  }
+
+  .container-fluid {
+    @apply w-screen;
   }
 
   .checkbox {
@@ -77,5 +83,13 @@
 
   .bg-light {
     @apply border border-gray-medium duration-500 hover:bg-gray-medium;
+  }
+
+  .beforeLine {
+    @apply before:block before:bg-gray-medium before:h-[1px]
+  }
+
+  .afterLine {
+    @apply after:block after:bg-gray-medium after:h-[1px]
   }
 }

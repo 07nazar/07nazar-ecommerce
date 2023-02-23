@@ -1,1 +1,0 @@
-export { HeaderSearch } from './ui'
