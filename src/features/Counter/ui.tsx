@@ -25,24 +25,19 @@ export const Counter: FC = () => {
   }
 
   return (
-    <InputGroup styles="max-w-[150px] mt-10">
-      <Button
-        disabled={count === 1 && true}
-        border="rounded-l-lg"
-        color="light"
-        onClick={onClickMinus}>
+    <InputGroup className="max-w-[150px] mt-10">
+      <Button disabled={count === 1 && true} color="light" onClick={onClickMinus}>
         <AiOutlineMinus />
       </Button>
 
       <Input
         placeholder="0"
-        border="border-y border-x-0"
-        styles="text-center font-medium"
+        className="text-center font-medium "
         value={count}
         handleChange={changeCountHandler}
       />
 
-      <Button border="rounded-r-lg" color="light" onClick={onClickPlus}>
+      <Button color="light" onClick={onClickPlus}>
         <AiOutlinePlus />
       </Button>
     </InputGroup>
