@@ -43,6 +43,12 @@ module.exports = {
       width: {
         '42': '10.5rem',
       },
+      fontSize: {
+        xs: '0.813rem'
+      },
+      lineHeight: {
+        '6.5': '1.625rem'
+      }
     }
   },
   plugins: [],
