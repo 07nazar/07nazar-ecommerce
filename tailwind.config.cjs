@@ -47,6 +47,12 @@ module.exports = {
       margin: {
         4.5: '1.125',
       },
+      fontSize: {
+        xs: '0.813rem',
+      },
+      lineHeight: {
+        6.5: '1.625rem',
+      },
     },
   },
   plugins: [],
