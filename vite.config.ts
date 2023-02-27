@@ -1,8 +1,8 @@
-import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
-import viteImagemin from "vite-plugin-imagemin";
-import tailwindcss from "tailwindcss";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
+import viteImagemin from 'vite-plugin-imagemin'
+import tailwindcss from 'tailwindcss'
+import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,7 +19,7 @@ export default defineConfig({
         optimizationLevel: 7,
       },
       mozjpeg: {
-        quality: 20,
+        quality: 80,
       },
       pngquant: {
         quality: [0.8, 0.9],
@@ -28,14 +28,14 @@ export default defineConfig({
       svgo: {
         plugins: [
           {
-            name: "removeViewBox",
+            name: 'removeViewBox',
           },
           {
-            name: "removeEmptyAttrs",
+            name: 'removeEmptyAttrs',
             active: false,
           },
         ],
       },
     }),
   ],
-});
+})
