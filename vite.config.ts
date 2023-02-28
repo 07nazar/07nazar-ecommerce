@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import viteImagemin from "vite-plugin-imagemin";
+import svgr from "vite-plugin-svgr";
 import tailwindcss from "tailwindcss";
 import react from "@vitejs/plugin-react";
 
@@ -10,6 +11,7 @@ export default defineConfig({
     react(),
     tsconfigPaths(),
     tailwindcss(),
+    svgr(),
     viteImagemin({
       gifsicle: {
         optimizationLevel: 7,
