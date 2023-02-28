@@ -11,12 +11,7 @@ export const AppLink: FC<AppLinkProps> = ({
   textColor = "text-gray-hot hover:text-gray-dark",
   children,
 }) => (
-  <Link
-    to={to}
-    className={`link 
-    ${className || ""} 
-    ${textColor || ""}`}
-  >
+  <Link to={to} className={`link ${className || ""} ${textColor || ""}`}>
     {children}
   </Link>
 );
