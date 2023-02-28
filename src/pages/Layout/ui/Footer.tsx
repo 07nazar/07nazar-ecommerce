@@ -74,7 +74,7 @@ const externalLinks = [
 ];
 
 export const Footer: FC = () => (
-  <footer className={"container-fluid bg-white mt-2.5 "}>
+  <footer className={"container-fluid bg-white"}>
     <div className={"container pt-10 pb-14"}>
       <div className={"flex gap-14"}>
         <div className={"w-1/4"}>
