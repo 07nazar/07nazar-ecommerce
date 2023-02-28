@@ -1,9 +1,10 @@
-import { Hero } from 'widgets/Hero'
+import { Hero } from "widgets/Hero";
+import { SubscribeNews } from "widgets/SubscribeNews";
 
-import { categoriesHome } from '../lib'
+import { categoriesHome } from "../lib";
 
 import { Categories } from "./Categories";
-import { DealsAndOffers } from './DealsAndOffers'
+import { DealsAndOffers } from "./DealsAndOffers";
 
 export const Home = () => (
   <>
@@ -19,5 +20,7 @@ export const Home = () => (
         {category.items}
       </Categories>
     ))}
+
+    <SubscribeNews />
   </>
 );

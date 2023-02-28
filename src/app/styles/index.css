@@ -17,7 +17,7 @@
 
 @layer components {
   .container {
-    @apply max-w-[1220px] overflow-hidden;
+    @apply max-w-[1220px];
   }
 
   .container-fluid {
@@ -83,6 +83,10 @@
   .timerItem {
     @apply flex flex-col items-center bg-[#606060] w-[45px] h-[50px] rounded-md;
   }
+  
+  .base-input {
+    @apply w-full px-4 leading-5 text-black placeholder:text-gray-hot outline-none;
+  }
 }
 
 @layer utilities {
@@ -112,5 +116,9 @@
 
   .rect-hover rect {
     @apply hover:fill-gray-dark duration-300
+  }
+  
+  .full-screen {
+    margin-left: calc(50% - 50vw);
   }
 }
