@@ -39,8 +39,8 @@
   }
 
   .thumb::-webkit-slider-thumb {
-    background: #FFFFFF;
-    border: 1px solid #AFD0FF;
+    background: #ffffff;
+    border: 1px solid #afd0ff;
     box-shadow: 0 2px 4px rgba(16, 0, 0, 0.1);
     border-radius: 50%;
     cursor: pointer;
@@ -83,7 +83,11 @@
   .timerItem {
     @apply flex flex-col items-center bg-[#606060] w-[45px] h-[50px] rounded-md;
   }
-  
+
+  .formInput {
+    @apply p-2.5 border border-gray-medium rounded-md;
+  }
+
   .base-input {
     @apply w-full px-4 leading-5 text-black placeholder:text-gray-hot outline-none;
   }
@@ -99,7 +103,7 @@
   }
 
   .bg-dark {
-    @apply bg-black hover:bg-gray-dark duration-500
+    @apply bg-black hover:bg-gray-dark duration-500;
   }
 
   .bg-light-red {
@@ -115,9 +119,9 @@
   }
 
   .rect-hover rect {
-    @apply hover:fill-gray-dark duration-300
+    @apply hover:fill-gray-dark duration-300;
   }
-  
+
   .full-screen {
     margin-left: calc(50% - 50vw);
   }
