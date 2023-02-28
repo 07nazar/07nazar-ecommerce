@@ -4,7 +4,7 @@ interface InputProps {
   value: string | number;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
-  type: string;
+  type?: string;
   className?: string;
   icon?: ReactNode;
 }
