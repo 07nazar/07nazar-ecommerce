@@ -5,6 +5,7 @@ import { categoriesHome } from "../lib";
 
 import { Categories } from "./Categories";
 import { DealsAndOffers } from "./DealsAndOffers";
+import { RegionSuppliers } from "./RegionSuppliers";
 
 export const Home = () => (
   <>
@@ -20,7 +21,9 @@ export const Home = () => (
         {category.items}
       </Categories>
     ))}
-
+    <div className={"my-8"}>
+      <RegionSuppliers />
+    </div>
     <SubscribeNews />
   </>
 );
