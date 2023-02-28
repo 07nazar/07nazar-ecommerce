@@ -78,6 +78,10 @@
   .timerItem {
     @apply flex flex-col items-center bg-[#606060] w-[45px] h-[50px] rounded-md;
   }
+
+  .formInput {
+    @apply p-2.5 border border-gray-medium rounded-md;
+  }
 }
 
 @layer utilities {

@@ -1,53 +1,31 @@
-import { FC, ReactNode, Dispatch, SetStateAction, MouseEvent } from 'react'
+import { useTransition, animated } from '@react-spring/web'
+import { FC, ReactNode } from 'react'
 
-interface IItem {
-  id: number
-  text: string
-  subTitle?: string
-}
-
-interface MenuItemProps {
+interface IMenu {
+  isOpen: boolean
+  menuClassName?: string
   children: ReactNode
-  item: IItem
-  active: boolean
-  isMulti: boolean
-  setOpen: Dispatch<SetStateAction<boolean>>
-  setSelectedItems: Dispatch<SetStateAction<IItem[]>>
 }
 
-export const MenuItem: FC<MenuItemProps> = ({
-  children,
-  active,
-  item,
-  setSelectedItems,
-  isMulti = true,
-  setOpen,
-}) => {
-  const selectWithMulti = () => {
-    setSelectedItems((prev: IItem[]) => {
-      const isSelected = prev.some((selectedItem: IItem) => selectedItem.id === item.id)
-
-      return isSelected
-        ? prev.filter((selectedItem: IItem) => selectedItem.id !== item.id)
-        : [...prev, item]
-    })
-  }
-
-  const selectWithOutMulti = () => {
-    setSelectedItems([item])
-    setOpen(false)
-  }
-
-  const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    return isMulti ? selectWithMulti() : selectWithOutMulti()
-  }
-
+const Menu: FC<IMenu> = ({ isOpen, menuClassName, children }) => {
+  const menuAnimation = useTransition(isOpen, {
+    from: { opacity: 0, transform: 'translateY(-10px)' },
+    enter: { opacity: 1, transform: 'translateY(0%)' },
+    leave: { opacity: 0, transform: 'translateY(-10px)' },
+  })
   return (
-    <button
-      onClick={(e: MouseEvent<HTMLButtonElement>) => onClickHandler(e)}
-      className={`flex flex-col w-full p-[16px] ${active ? 'bg-gray-pale' : ''}`}>
-      {children}
-    </button>
+    <div className={`${menuClassName} max-w-[314px]  w-[100%] z-50`}>
+      {menuAnimation((style, isOpenProp) => (
+        <animated.div style={style}>
+          {isOpenProp && (
+            <div className="flex flex-col items-start border border-gray-pale rounded-md shadow-md bg-white">
+              {children}
+            </div>
+          )}
+        </animated.div>
+      ))}
+    </div>
   )
 }
+
+export default Menu
