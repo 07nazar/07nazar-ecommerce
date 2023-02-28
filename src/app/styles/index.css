@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-
   body {
     font-family: Inter, sans-serif;
     overflow-x: hidden;
@@ -26,7 +25,7 @@
   }
 
   .checkbox {
-    @apply w-5 h-5 bg-white border-2 mr-3 peer-focus-visible:ring-1
+    @apply w-5 h-5 bg-white border-2 mr-3 peer-focus-visible:ring-1;
   }
 
   .thumb,
@@ -36,7 +35,7 @@
   }
 
   .thumb {
-    @apply absolute h-0 cursor-pointer pointer-events-none z-50
+    @apply absolute h-0 cursor-pointer pointer-events-none z-50;
   }
 
   .thumb::-webkit-slider-thumb {
@@ -78,13 +77,17 @@
   }
 
   .link {
-    @apply flex items-center flex-col duration-500
+    @apply flex items-center flex-col duration-500;
+  }
+
+  .timerItem {
+    @apply flex flex-col items-center bg-[#606060] w-[45px] h-[50px] rounded-md;
   }
 }
 
 @layer utilities {
   .bg-primary {
-    @apply bg-gradient-to-r from-[#127FFF] to-blue duration-500 hover:saturate-200
+    @apply bg-gradient-to-r from-[#127FFF] to-blue duration-500 hover:saturate-200;
   }
 
   .bg-light {
@@ -95,12 +98,16 @@
     @apply bg-black hover:bg-gray-dark duration-500
   }
 
+  .bg-light-red {
+    @apply bg-[#FFE3E3] rounded-[29px]  duration-500 hover:saturate-200;
+  }
+
   .beforeLine {
-    @apply before:block before:bg-gray-medium before:h-[1px]
+    @apply before:block before:bg-gray-medium before:h-[1px];
   }
 
   .afterLine {
-    @apply after:block after:bg-gray-medium after:h-[1px]
+    @apply after:block after:bg-gray-medium after:h-[1px];
   }
 
   .rect-hover rect {

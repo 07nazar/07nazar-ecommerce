@@ -23,7 +23,7 @@ const btnItems = [
 export const Hero = () => {
   const [activeTab, setActiveTab] = useState(0)
   return (
-    <div className="mt-[20px] flex py-5 pl-3.5 pr-5 gap-5 bg-white border border-gray-medium rounded-md">
+    <div className="mt-[20px] flex py-5 pl-3.5 pr-5 gap-5 mb-8 bg-white border border-gray-medium rounded-md">
       <Tabs
         orientation="vertical"
         buttons={btnItems.map((btn, index) => (
