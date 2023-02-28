@@ -2,8 +2,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   safelist: [
     {
-      pattern: /bg-(primary|light)/
-    } ,{
+      pattern: /bg-([^\s-]+)/
+    },
+    {
       pattern: /text/
     }
   ],
