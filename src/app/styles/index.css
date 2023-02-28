@@ -5,6 +5,7 @@
 @layer base {
   body {
     font-family: Inter, sans-serif;
+    overflow-x: hidden;
 
     @apply bg-gray-light;
   }
@@ -75,12 +76,20 @@
     @apply first:border-l last:border-r py-2.5 text-blue justify-center border-r border-gray-medium;
   }
 
+  .link {
+    @apply flex items-center flex-col duration-500;
+  }
+
   .timerItem {
     @apply flex flex-col items-center bg-[#606060] w-[45px] h-[50px] rounded-md;
   }
 
   .formInput {
     @apply p-2.5 border border-gray-medium rounded-md;
+  }
+
+  .base-input {
+    @apply w-full px-4 leading-5 text-black placeholder:text-gray-hot outline-none;
   }
 }
 
@@ -93,6 +102,10 @@
     @apply border border-gray-medium duration-500 hover:bg-gray-medium;
   }
 
+  .bg-dark {
+    @apply bg-black hover:bg-gray-dark duration-500;
+  }
+
   .bg-light-red {
     @apply bg-[#FFE3E3] rounded-[29px]  duration-500 hover:saturate-200;
   }
@@ -103,5 +116,13 @@
 
   .afterLine {
     @apply after:block after:bg-gray-medium after:h-[1px];
+  }
+
+  .rect-hover rect {
+    @apply hover:fill-gray-dark duration-300;
+  }
+
+  .full-screen {
+    margin-left: calc(50% - 50vw);
   }
 }
