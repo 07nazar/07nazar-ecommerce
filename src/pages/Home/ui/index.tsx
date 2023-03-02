@@ -28,7 +28,7 @@ export const Home = () => (
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
-      className="w-full flex justify-between p-10 mb-40">
+      className="w-full flex justify-between p-10 my-5">
       <div className="flex flex-col  gap-3 ">
         <h2 className="text-4xl text-white font-medium">
           An easy way to send <br /> requests to all suppliers
@@ -40,6 +40,6 @@ export const Home = () => (
       </div>
       <RequestsForm />
     </div>
-    <SubscribeNews />-
+    <SubscribeNews />
   </>
 )

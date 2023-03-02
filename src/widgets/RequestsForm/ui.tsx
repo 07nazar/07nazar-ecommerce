@@ -53,7 +53,7 @@ export const RequestsForm = () => {
         <Input
           value={quantity}
           handleChange={(e) => onInputChange('quantity', e.target.value)}
-          className="formInput max-w-[206px] w-full"
+          className="formInput max-w-[206px] "
           placeholder="Quantity"
         />
         <Select
