@@ -31,7 +31,7 @@ export const Home = () => (
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="w-full flex justify-between p-10 mb-8"
+      className="w-full flex justify-between p-10 mt-5 mb-8 rounded-md"
     >
       <div className="flex flex-col  gap-3 ">
         <h2 className="text-4xl text-white font-medium">
