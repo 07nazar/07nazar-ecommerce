@@ -91,6 +91,10 @@
   .base-input {
     @apply w-full px-4 leading-5 text-black placeholder:text-gray-hot outline-none;
   }
+  
+  .title {
+    @apply text-black text-2xl font-semibold
+  }
 }
 
 @layer utilities {
