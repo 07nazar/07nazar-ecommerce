@@ -34,7 +34,9 @@ const appLinks = [
 export const Header: FC = () => (
   <header className={"container-fluid bg-white"}>
     <div className="container flex items-center justify-between pt-[22px] pb-[24px] ">
-      <Logo />
+      <AppLink to={"/"}>
+        <Logo />
+      </AppLink>
       <HeaderSearch />
       <nav className="flex gap-[18px] ml-4 max-h-[40px]">
         {appLinks.map((link) => (
