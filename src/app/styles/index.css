@@ -10,6 +10,10 @@
     @apply bg-gray-light;
   }
 
+  #root {
+    @apply flex flex-col h-screen;
+  }
+
   button {
     @apply relative font-medium inline-flex overflow-hidden;
   }
@@ -91,9 +95,9 @@
   .base-input {
     @apply w-full px-4 leading-5 text-black placeholder:text-gray-hot outline-none;
   }
-  
+
   .title {
-    @apply text-black text-2xl font-semibold
+    @apply text-black text-2xl font-semibold;
   }
 }
 
