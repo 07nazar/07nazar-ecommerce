@@ -2,8 +2,9 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 
-import img from 'shared/assets/dbPhotos/Home/image35.png'
 import { Button } from 'shared/ui/Button'
+
+import img from '../assets/rasm.png'
 
 import { Timer } from './Timer'
 

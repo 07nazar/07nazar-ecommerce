@@ -1,12 +1,12 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   safelist: [
     {
-      pattern: /bg-([^\s-]+)/
+      pattern: /bg-([^\s-]+)/,
     },
     {
-      pattern: /text/
-    }
+      pattern: /text/,
+    },
   ],
   theme: {
     colors: {
@@ -29,28 +29,28 @@ module.exports = {
       },
     },
     screens: {
-      'lg': { 'max': '992px' },
-      'md': { 'max': '768px' },
-      'sm': { 'max': '480px' }
+      lg: { max: '992px' },
+      md: { max: '768px' },
+      sm: { max: '480px' },
     },
     container: {
       padding: '20px',
-      center: true
+      center: true,
     },
     extend: {
       padding: {
-        '1.75': '0.4rem',
+        1.75: '0.4rem',
       },
       width: {
-        '42': '10.5rem',
+        42: '10.5rem',
       },
       fontSize: {
-        xs: '0.813rem'
+        xs: '0.813rem',
       },
       lineHeight: {
-        '6.5': '1.625rem'
-      }
-    }
+        6.5: '1.625rem',
+      },
+    },
   },
   plugins: [],
 }

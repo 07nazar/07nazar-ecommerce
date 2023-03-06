@@ -14,6 +14,7 @@ export const Home = () => (
   <>
     <Hero />
     <DealsAndOffers />
+
     {categoriesHome.map((category) => (
       <Categories
         key={category.title}
@@ -23,6 +24,7 @@ export const Home = () => (
         {category.items}
       </Categories>
     ))}
+
     <div
       style={{
         backgroundImage: `url("${formBg}")`,
@@ -46,6 +48,6 @@ export const Home = () => (
     <div className={'my-8'}>
       <RegionSuppliers />
     </div>
-    <SubscribeNews />-
+    <SubscribeNews />
   </>
 )
