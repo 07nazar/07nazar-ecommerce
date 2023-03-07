@@ -43,7 +43,7 @@ export const Header: FC = () => (
           <AppLink
             key={link.to}
             to={link.to}
-            className="text-[12px] leading-[15px]"
+            className="text-[12px] leading-[15px] items-center text-gray-hot"
           >
             {link.icon}
             <p className="mt-1">{link.text}</p>

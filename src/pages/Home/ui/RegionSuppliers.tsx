@@ -78,7 +78,7 @@ export const RegionSuppliers: FC = () => (
         <AppLink
           key={country.name}
           to={`https://${country.site}`}
-          className={"flex-row gap-2.5"}
+          className={"flex-row gap-2.5 items-center"}
         >
           <img src={country.flag} alt={country.flag} />
           <div>

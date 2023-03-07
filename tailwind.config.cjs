@@ -5,6 +5,9 @@ module.exports = {
       pattern: /bg-([^\s-]+)/,
     },
     {
+      pattern: /w-(\d+)/,
+    },
+    {
       pattern: /text/,
     },
   ],

@@ -1,17 +1,12 @@
 import { FC } from "react";
 import { Link, LinkProps } from "react-router-dom";
 
-interface AppLinkProps extends LinkProps {
-  textColor?: string;
-}
-
-export const AppLink: FC<AppLinkProps> = ({
+export const AppLink: FC<LinkProps> = ({
   to,
-  className,
-  textColor = "text-gray-hot hover:text-gray-dark",
+  className = "text-gray-hot",
   children,
 }) => (
-  <Link to={to} className={`link ${className || ""} ${textColor || ""}`}>
+  <Link to={to} className={`link ${className || ""}`}>
     {children}
   </Link>
 );
