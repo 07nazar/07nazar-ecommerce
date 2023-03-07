@@ -81,7 +81,7 @@
   }
 
   .link {
-    @apply flex items-center flex-col duration-500;
+    @apply flex flex-col hover:text-gray-dark duration-500;
   }
 
   .timerItem {
