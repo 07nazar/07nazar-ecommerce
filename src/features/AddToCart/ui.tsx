@@ -13,13 +13,7 @@ export const AddToCart: FC<AddToCartProps> = ({ productId }) => {
   };
 
   return (
-    <Button
-      onClick={clickHandler}
-      color={"light"}
-      textColor={"blue"}
-      rounded={"rounded-md"}
-      className={"pl-3"}
-    >
+    <Button onClick={clickHandler} className={"bg-light pl-3 text-blue"}>
       <IoMdCart size={18} />
       <span className={"ml-3"}>Move to cart</span>
     </Button>

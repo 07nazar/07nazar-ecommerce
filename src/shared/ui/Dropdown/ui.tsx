@@ -8,6 +8,7 @@ interface DropdownProps {
   children: ReactNode[];
   title: string;
   maxItems?: number;
+  className?: string;
 }
 
 interface DropdownButtonProps {
@@ -21,14 +22,13 @@ interface DropdownContentProps {
   contentHeight: number;
   children: ReactNode[];
   contentRef: RefObject<HTMLDivElement>;
+  className?: string;
 }
 
 const DropdownButton: FC<DropdownButtonProps> = ({ title, isOpen, toggle }) => (
   <Button
-    className="relative w-full mt-2 font-semibold px-0 py-4"
+    className="relative w-full text-black mt-2 font-semibold px-0 py-4 border-t border-gray-medium rounded-none"
     onClick={toggle}
-    color={"light"}
-    textColor={"black"}
   >
     <span>{title}</span>
     <div
@@ -45,22 +45,41 @@ const DropdownContent: FC<DropdownContentProps> = ({
   contentHeight,
   children,
   contentRef,
+  className,
 }) => {
+  const [isAnimating, setIsAnimating] = useState(false);
   const contentAnimation = useSpring({
-    height: isOpen ? `${contentHeight}px` : "0px",
-    opacity: isOpen ? 1 : 0,
+    from: { height: "0px", opacity: 0 },
+    to: {
+      height: isOpen ? `${contentHeight}px` : "0px",
+      opacity: isOpen ? 1 : 0,
+    },
+    onRest: () => setIsAnimating(false),
   });
+
+  useEffect(() => {
+    if (contentRef.current && !isAnimating) {
+      setIsAnimating(true);
+    }
+  }, [isOpen]);
 
   return (
     <animated.div style={contentAnimation}>
-      <div ref={contentRef} className="flex flex-col">
-        {children}
-      </div>
+      {isOpen && (
+        <div ref={contentRef} className={`flex flex-col ${className || ""}`}>
+          {children}
+        </div>
+      )}
     </animated.div>
   );
 };
 
-export const Dropdown: FC<DropdownProps> = ({ children, title, maxItems }) => {
+export const Dropdown: FC<DropdownProps> = ({
+  children,
+  title,
+  maxItems,
+  className,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const [contentHeight, setContentHeight] = useState<number>(0);
@@ -108,6 +127,7 @@ export const Dropdown: FC<DropdownProps> = ({ children, title, maxItems }) => {
         isOpen={isOpen}
         contentHeight={contentHeight}
         contentRef={contentRef}
+        className={className}
       >
         {renderedChildren}
       </DropdownContent>

@@ -34,7 +34,7 @@ export const SubscribeNews = () => {
             icon={<AiOutlineMail fill={`${colors.gray.hot}`} />}
             className={"pt-2.5 pb-2.5 border border-gray-medium rounded-md"}
           />
-          <Button onClick={sendHandler} rounded={"rounded-md"}>
+          <Button className={"bg-primary"} onClick={sendHandler}>
             Subscribe
           </Button>
         </div>

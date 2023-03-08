@@ -1,12 +1,12 @@
-/* eslint-disable import/no-internal-modules */
 import { useState } from "react";
 
-import decore from "shared/assets/dbPhotos/decore/sliderImg.jpg";
 import { AppLink } from "shared/ui/AppLink";
 import { Button } from "shared/ui/Button";
 import { Tabs, TabBtn } from "shared/ui/Tabs";
 
 import { UserCard } from "entities/UserCard";
+
+import decore from "./assets/sliderImg.jpg";
 
 const btnItems = [
   { text: "Automobiles" },
@@ -43,14 +43,7 @@ export const Hero = () => {
         >
           <h3 className="text-[28px]">Latest trending</h3>
           <h2 className="text-[32px] font-bold mb-4">Electronic items</h2>
-          <Button
-            color="light"
-            className="bg-white"
-            textColor="text-black"
-            rounded="rounded-md"
-          >
-            Learn more
-          </Button>
+          <Button className="bg-white text-black">Learn more</Button>
         </div>
       </Tabs>
 

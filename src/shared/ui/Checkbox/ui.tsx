@@ -1,11 +1,11 @@
 import { animated, useSpring } from "@react-spring/web";
-import { FC, MouseEvent, ReactNode } from "react";
+import { ChangeEventHandler, FC, MouseEvent, ReactNode } from "react";
 
 import { colors } from "shared/lib";
 
 interface CheckboxInputProps {
   isChecked?: boolean;
-  onChange?: () => void;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
   onClick?: (event: MouseEvent<HTMLElement>) => void;
   radio?: boolean;
   value?: string;

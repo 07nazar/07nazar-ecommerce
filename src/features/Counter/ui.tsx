@@ -1,32 +1,36 @@
-import { FC, useState, SyntheticEvent, ChangeEvent } from 'react'
-import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
+import { FC, useState, SyntheticEvent, ChangeEvent } from "react";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
-import { Button } from '../../shared/ui/Button'
-import { Input, InputGroup } from '../../shared/ui/Input'
+import { Button } from "../../shared/ui/Button";
+import { Input, InputGroup } from "../../shared/ui/Input";
 
 export const Counter: FC = () => {
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(1);
 
   const changeCountHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    if (Number.isNaN(+e.target.value)) return
+    if (Number.isNaN(+e.target.value)) return;
 
-    setCount(() => +e.target.value)
-  }
+    setCount(() => +e.target.value);
+  };
 
   const onClickPlus = (e: SyntheticEvent) => {
-    e.preventDefault()
-    setCount((prev) => prev + 1)
-  }
+    e.preventDefault();
+    setCount((prev) => prev + 1);
+  };
   const onClickMinus = (e: SyntheticEvent) => {
-    e.preventDefault()
-    if (count - 1 < 1) return
+    e.preventDefault();
+    if (count - 1 < 1) return;
 
-    setCount((prev) => prev - 1)
-  }
+    setCount((prev) => prev - 1);
+  };
 
   return (
     <InputGroup className="max-w-[150px] mt-10">
-      <Button disabled={count === 1 && true} color="light" onClick={onClickMinus}>
+      <Button
+        disabled={count === 1 && true}
+        className={"bg-light"}
+        onClick={onClickMinus}
+      >
         <AiOutlineMinus />
       </Button>
 
@@ -37,9 +41,9 @@ export const Counter: FC = () => {
         handleChange={changeCountHandler}
       />
 
-      <Button color="light" onClick={onClickPlus}>
+      <Button className={"bg-light"} onClick={onClickPlus}>
         <AiOutlinePlus />
       </Button>
     </InputGroup>
-  )
-}
+  );
+};
