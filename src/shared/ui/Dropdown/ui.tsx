@@ -25,10 +25,8 @@ interface DropdownContentProps {
 
 const DropdownButton: FC<DropdownButtonProps> = ({ title, isOpen, toggle }) => (
   <Button
-    className="relative w-full mt-2 font-semibold px-0 py-4"
+    className="relative w-full text-black mt-2 font-semibold px-0 py-4 border-t border-gray-medium rounded-none"
     onClick={toggle}
-    color={"light"}
-    textColor={"black"}
   >
     <span>{title}</span>
     <div

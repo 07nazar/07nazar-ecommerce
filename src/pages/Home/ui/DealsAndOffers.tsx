@@ -29,7 +29,7 @@ const DealsItem: FC<IDealsItem> = ({ image, promo, title }) => (
         <img src={image} alt={title} className="object-contain" />
       </div>
       <h5 className="mb-2">{title}</h5>
-      <Button color="light-red" size="sm" className="leading-4 text-red">
+      <Button size="sm" className="bg-light-red leading-4 text-red">
         {promo}
       </Button>
     </div>

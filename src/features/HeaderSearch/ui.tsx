@@ -46,7 +46,7 @@ export const HeaderSearch = () => {
           </MenuItem>
         ))}
       </Select>
-      <Button className={"rounded-none"}>Search</Button>
+      <Button className={"bg-primary rounded-none"}>Search</Button>
     </InputGroup>
   );
 };

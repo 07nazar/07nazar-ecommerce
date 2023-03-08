@@ -19,13 +19,7 @@ export const AddFavourite: FC<AddFavouriteProps> = ({ isAuth, id }) => {
   };
 
   return (
-    <Button
-      onClick={clickHandler}
-      rounded={"rounded-md"}
-      className={"p-2.5"}
-      color={"light"}
-      textColor={"blue"}
-    >
+    <Button onClick={clickHandler} className={"bg-light p-2.5 text-blue"}>
       <AiOutlineHeart size={20} />
     </Button>
   );

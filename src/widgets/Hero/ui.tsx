@@ -43,9 +43,7 @@ export const Hero = () => {
         >
           <h3 className="text-[28px]">Latest trending</h3>
           <h2 className="text-[32px] font-bold mb-4">Electronic items</h2>
-          <Button color="light" className="bg-white text-black">
-            Learn more
-          </Button>
+          <Button className="bg-white text-black">Learn more</Button>
         </div>
       </Tabs>
 

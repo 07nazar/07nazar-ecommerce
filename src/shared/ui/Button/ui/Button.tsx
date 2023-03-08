@@ -3,7 +3,6 @@ import { FC, SyntheticEvent, ReactNode } from "react";
 export interface ButtonProps {
   children: ReactNode;
   onClick?: (e: SyntheticEvent) => void;
-  color?: "primary" | "light" | string;
   disabled?: boolean;
   size?: "sm" | "md" | "lg";
   className?: string;
@@ -12,7 +11,6 @@ export interface ButtonProps {
 export const Button: FC<ButtonProps> = ({
   children,
   onClick,
-  color = "primary",
   disabled = false,
   size = "md",
   className = "",
@@ -24,7 +22,7 @@ export const Button: FC<ButtonProps> = ({
   return (
     <button
       disabled={disabled}
-      className={`base-button ${className} bg-${color} ${size} ${disabledStyles}`}
+      className={`base-button ${className} ${size} ${disabledStyles}`}
       onClick={onClick}
     >
       {children}

@@ -28,11 +28,7 @@ export const NavBar: FC = () => (
     <div className={"beforeLine afterLine"}>
       <div className="container flex justify-between pt-[22px] pb-[24px]">
         <nav className="flex gap-[28px]">
-          <Button
-            className="h-[24px] p-0 border-none"
-            color="light"
-            textColor="black"
-          >
+          <Button className="h-[24px] p-0 text-black border-none bg-light">
             <GiHamburgerMenu size={24} className="mr-[6px]" />
             <span className="leading-[24px]">All category</span>
           </Button>

@@ -20,10 +20,10 @@ export const UserCard: FC<IUserCard> = ({ userName = "user", image }) => (
         Hi, {userName} <br /> lets get stated
       </p>
     </div>
-    <Button color="primary" className="mb-2 flex justify-center" size="sm">
+    <Button className="bg-primary mb-2 flex justify-center" size="sm">
       Join now
     </Button>
-    <Button color="light" className="bg-white flex justify-center" size="sm">
+    <Button className="bg-white text-blue flex justify-center" size="sm">
       Log in
     </Button>
   </div>
