@@ -12,10 +12,10 @@ export const Rating: FC<RatingProps> = ({ value }) => {
   return (
     <>
       {[...Array(filledStars)].map((_, index) => (
-        <GoStar key={index} className="filled-star" />
+        <GoStar key={index + 5} className="text-orange" />
       ))}
       {[...Array(emptyStars)].map((_, index) => (
-        <GoStar key={index} className="empty-star" />
+        <GoStar key={index + 5} className="text-gray-medium" />
       ))}
     </>
   );

@@ -115,10 +115,6 @@ export const Sidebar: FC = () => {
     });
   }, [brandsSelected, featuresSelected, conditionSelected, ratingSelected]);
 
-  useEffect(() => {
-    console.log(userFilters);
-  }, [userFilters]);
-
   return (
     <>
       <Dropdown maxItems={3} title={"Category"}>
@@ -160,6 +156,7 @@ export const Sidebar: FC = () => {
         <RangeSlider
           min={price.min}
           max={price.max}
+          userPrice={userPrice}
           onChange={(min, max) => {
             setUserPrice(() => ({
               min,
@@ -172,25 +169,37 @@ export const Sidebar: FC = () => {
         <div className={"flex gap-4 my-4"}>
           <Input
             value={userPrice.min}
-            handleChange={(e) =>
+            onChange={(e) => {
+              const newValue = Math.min(
+                Math.max(+e.target.value, price.min),
+                userPrice.max
+              );
               setUserPrice({
                 ...userPrice,
-                min: +e.target.value,
-              })
-            }
+                min: newValue,
+              });
+            }}
             placeholder={"0"}
             className={"rounded-md py-2.5 bg-light"}
+            min={price.min}
+            max={userPrice.max}
           />
           <Input
             value={userPrice.max}
-            handleChange={(e) =>
+            onChange={(e) => {
+              const newValue = Math.max(
+                Math.min(+e.target.value, price.max),
+                userPrice.min
+              );
               setUserPrice({
                 ...userPrice,
-                max: +e.target.value,
-              })
-            }
+                max: newValue,
+              });
+            }}
             placeholder={"999999"}
             className={"rounded-md py-2.5  bg-light"}
+            min={userPrice.min}
+            max={price.max}
           />
         </div>
         <Button
@@ -215,18 +224,16 @@ export const Sidebar: FC = () => {
         ))}
       </Dropdown>
       <Dropdown maxItems={5} title={"Ratings"} className={"gap-2"}>
-        {Array(5)
-          .fill(0)
-          .map((_, i) => (
-            <Checkbox
-              key={i}
-              value={`${i}`}
-              isChecked={ratingSelected.includes(`${i}`)}
-              onChange={handleRatingChange}
-            >
-              <Rating value={i} />
-            </Checkbox>
-          ))}
+        {[5, 4, 3, 2, 1].map((rating) => (
+          <Checkbox
+            key={rating}
+            value={`${rating}`}
+            isChecked={ratingSelected.includes(`${rating}`)}
+            onChange={handleRatingChange}
+          >
+            <Rating value={rating} />
+          </Checkbox>
+        ))}
       </Dropdown>
     </>
   );
