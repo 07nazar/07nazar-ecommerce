@@ -28,7 +28,7 @@ export const SubscribeNews = () => {
         <div className={"flex gap-2"}>
           <Input
             value={email}
-            handleChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder={`Email`}
             type={"email"}
             icon={<AiOutlineMail fill={`${colors.gray.hot}`} />}

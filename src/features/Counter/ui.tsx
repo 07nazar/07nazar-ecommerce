@@ -38,7 +38,7 @@ export const Counter: FC = () => {
         placeholder="0"
         className="text-center font-medium "
         value={count}
-        handleChange={changeCountHandler}
+        onChange={changeCountHandler}
       />
 
       <Button className={"bg-light"} onClick={onClickPlus}>

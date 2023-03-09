@@ -39,7 +39,7 @@ export const Search: FC<SearchProps> = ({ className }) => {
       <Input
         placeholder="Search"
         value={value}
-        handleChange={onChangeHandler}
+        onChange={onChangeHandler}
         className="pl-9 pr-6 focus:border-blue transition-all"
       />
 

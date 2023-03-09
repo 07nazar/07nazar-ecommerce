@@ -40,13 +40,13 @@ export const RequestsForm = () => {
 
       <Input
         value={firstInput}
-        handleChange={(e) => onInputChange("firstInput", e.target.value)}
+        onChange={(e) => onInputChange("firstInput", e.target.value)}
         className="formInput"
         placeholder="What item you need?"
       />
       <Input
         value={textField}
-        handleChange={(e) => onInputChange("textField", e.target.value)}
+        onChange={(e) => onInputChange("textField", e.target.value)}
         className="formInput"
         placeholder="Type more details"
       />
@@ -54,7 +54,7 @@ export const RequestsForm = () => {
       <div className="flex items-start gap-2">
         <Input
           value={quantity}
-          handleChange={(e) => onInputChange("quantity", e.target.value)}
+          onChange={(e) => onInputChange("quantity", e.target.value)}
           className="formInput max-w-[206px] "
           placeholder="Quantity"
         />
