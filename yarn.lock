@@ -438,11 +438,6 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@feature-sliced/eslint-config@^0.1.0-beta.6":
-  version "0.1.0-beta.6"
-  resolved "https://registry.yarnpkg.com/@feature-sliced/eslint-config/-/eslint-config-0.1.0-beta.6.tgz#ba818d630449c97b802c0e5dda874f12b6b51cf2"
-  integrity sha512-exhyS6DUvAamLlDGS2ToIdm7YTvo3GJD67QNfziHgJrJqCcViMvCW13gmo6QQwFRpXQj6gUnV3QTgPNzLznIsg==
-
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.7"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.10.7.tgz#6d53769fd0c222767e6452e8ebda825c22e9f0dc"
@@ -2176,6 +2171,14 @@ eslint-plugin-boundaries@^3.1.0:
     eslint-module-utils "2.7.4"
     is-core-module "2.11.0"
     micromatch "4.0.5"
+
+eslint-plugin-conarti-fsd@^0.0.24:
+  version "0.0.24"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-conarti-fsd/-/eslint-plugin-conarti-fsd-0.0.24.tgz#601132187d5fefff96b0ffccf0bac6e223bc428e"
+  integrity sha512-A+bKTiaQjJXmVvLEqWSByemqLLTjGyIvKYgDC8fWaakXAYNcAflrFfFDF9fALL4gxpmlOTwbqv+PwTEcGb0Y2g==
+  dependencies:
+    micromatch "^4.0.5"
+    requireindex "^1.2.0"
 
 eslint-plugin-import@^2.27.5:
   version "2.27.5"
@@ -4483,6 +4486,11 @@ replace-ext@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/replace-ext/-/replace-ext-1.0.1.tgz#2d6d996d04a15855d967443631dd5f77825b016a"
   integrity sha512-yD5BHCe7quCgBph4rMQ+0KkIRKwWCrHDOX1p1Gp6HwjPM5kVoCdKGNhN7ydqqsX6lJEnQDKZ/tFMiEdQ1dvPEw==
+
+requireindex@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.2.0.tgz#3463cdb22ee151902635aa6c9535d4de9c2ef1ef"
+  integrity sha512-L9jEkOi3ASd9PYit2cwRfyppc9NoABujTP8/5gFcbERmo5jUoAKovIC3fsF17pkTnGsrByysqX+Kxd2OTNI1ww==
 
 reselect@^4.1.7:
   version "4.1.7"
