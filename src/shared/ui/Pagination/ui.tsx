@@ -2,11 +2,12 @@ import { FC, useState, useEffect } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 interface IPagination {
+  className?: string
   count: number
   maxVisible: 3 | 5
 }
 
-export const Pagination: FC<IPagination> = ({ count, maxVisible }) => {
+export const Pagination: FC<IPagination> = ({ className = '', count, maxVisible }) => {
   const [activePage, setActivePage] = useState(1)
   const [pages, setPages] = useState<number[] | null>(null)
 
@@ -42,20 +43,18 @@ export const Pagination: FC<IPagination> = ({ count, maxVisible }) => {
   }
 
   return (
-    <div className="inline-flex justify-center items-center mt-10 border-2 border-gray-medium rounded-md">
-      <button
-        onClick={onClickPrev}
-        className="align-self stretch justify-center items-center text-blue">
+    <div className={`${className} flex items-center border border-gray-medium rounded-md `}>
+      <button onClick={onClickPrev} disabled={activePage === 1} className="paginationItem">
         <IoIosArrowBack size={20} />
       </button>
 
-      <div className="flex w-full overflow-hidden">
-        <div className={`flex`}>
+      <div className="flex overflow-hidden">
+        <div className={`flex last:border-r border-gray-medium`}>
           {pages?.map((item) => (
             <button
               key={item}
               onClick={() => setActivePage(item)}
-              className={`paginationItem transition-colors duration-300 ${
+              className={`paginationItem transition-colors duration-300 border-l ${
                 activePage === item && 'bg-gray-medium'
               }`}>
               {item}
@@ -64,9 +63,7 @@ export const Pagination: FC<IPagination> = ({ count, maxVisible }) => {
         </div>
       </div>
 
-      <button
-        onClick={onClickNext}
-        className="align-self: stretch justify-center items-center text-blue">
+      <button onClick={onClickNext} disabled={activePage === count} className="paginationItem">
         <IoIosArrowForward size={20} />
       </button>
     </div>
