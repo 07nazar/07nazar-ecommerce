@@ -1,4 +1,6 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode } from 'react';
+
+import { ProductMinType, ProductType } from './model';
 
 interface IProductCardClassNames {
   title?: string;
@@ -8,41 +10,36 @@ interface IProductCardClassNames {
   content?: string;
 }
 
-interface IProductCardProps {
-  image: string;
-  title: string;
-  price: {
-    old?: number;
-    current: number;
-  };
+type IProductCardProps = {
+  product: ProductType | ProductMinType;
   children?: ReactNode;
   between?: ReactNode;
   className?: IProductCardClassNames;
-}
+};
 
 export const ProductCard: FC<IProductCardProps> = ({
-  image,
-  title,
-  price,
+  product,
   between,
   children,
   className = {},
 }) => (
-  <div className={`${className.box || ""} bg-white`}>
+  <div className={`${className.box || ''} bg-white`}>
     <img
-      src={image}
-      className={`${className.image || ""} mx-auto object-cover`}
-      alt=""
+      src={product.mainPhoto.url}
+      className={`${className.image || ''} mx-auto object-cover`}
+      alt={''}
     />
 
-    <div className={className.content || ""}>
-      <h3 className={className.title || ""}>{title}</h3>
+    <div className={className.content || ''}>
+      <h3 className={className.title || ''}>{product.name}</h3>
       {between}
-      <div className="flex items-center gap-2">
-        <p className={className.price || ""}>${price.current}</p>
-        {price.old && (
-          <p className="self-start text-gray-hot text-base line-through">
-            ${price.old}
+      <div className={'flex items-center gap-2'}>
+        <p className={className.price || ''}>
+          ${product.price.current.toFixed(2)}
+        </p>
+        {product.price.old && (
+          <p className={'self-start text-gray-hot text-base line-through'}>
+            ${product.price.old.toFixed(2)}
           </p>
         )}
       </div>
