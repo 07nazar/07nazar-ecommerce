@@ -1,14 +1,14 @@
-import { FC, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { FC, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { ProductType } from "entities/ProductCard";
-import { SellerType } from "entities/UserCard";
-import { TabBtn, Tabs } from "shared/ui/Tabs";
+import { ProductType } from 'entities/ProductCard';
+import { SellerType } from 'entities/UserCard';
+import { TabBtn, Tabs } from 'shared/ui/Tabs';
 
-import { AboutCompany } from "./AboutCompany";
-import { Description } from "./Description";
-import { Reviews } from "./Reviews";
-import { Shipping } from "./Shipping";
+import { AboutCompany } from './AboutCompany';
+import { Description } from './Description';
+import { Reviews } from './Reviews';
+import { Shipping } from './Shipping';
 
 interface ProductContentProps {
   product: ProductType;
@@ -23,12 +23,12 @@ export const ProductContent: FC<ProductContentProps> = ({
   const location = useLocation();
 
   const [activeTab, setActiveTab] = useState<number>(
-    Number(new URLSearchParams(location.search).get("tab")) || 0
+    Number(new URLSearchParams(location.search).get('tab')) || 0
   );
 
   const detailProduct = [
     {
-      buttonText: "Description",
+      buttonText: 'Description',
       content: (
         <Description
           description={product.description}
@@ -38,11 +38,11 @@ export const ProductContent: FC<ProductContentProps> = ({
       ),
     },
     {
-      buttonText: "Reviews",
+      buttonText: 'Reviews',
       content: <Reviews reviews={product.reviews} />,
     },
     {
-      buttonText: "Shipping",
+      buttonText: 'Shipping',
       content: (
         <Shipping
           cost={seller.delivery.cost}
@@ -51,15 +51,15 @@ export const ProductContent: FC<ProductContentProps> = ({
       ),
     },
     {
-      buttonText: "About company",
+      buttonText: 'About company',
       content: <AboutCompany {...seller} />,
     },
   ];
 
   useEffect(() => {
-    const tabParam = new URLSearchParams(location.search).get("tab");
+    const tabParam = new URLSearchParams(location.search).get('tab');
     const tabParamIndex = detailProduct.findIndex(
-      (detail) => detail.buttonText.toLowerCase() === tabParam
+      detail => detail.buttonText.toLowerCase() === tabParam
     );
     if (tabParamIndex !== -1) {
       setActiveTab(tabParamIndex);
@@ -75,24 +75,22 @@ export const ProductContent: FC<ProductContentProps> = ({
 
   return (
     <Tabs
-      border={"border border-gray-medium bg-white"}
-      className={"pl-2"}
+      border={'border border-gray-medium bg-white'}
+      className={'pl-2'}
       buttons={detailProduct.map((detail, i) => (
         <TabBtn
           isPill={false}
-          className={"pt-4 pb-3"}
+          className={'pt-4 pb-3'}
           outlined
           key={detail.buttonText}
           activeTab={activeTab}
           index={i}
-          setActiveTab={handleTabClick}
-        >
+          setActiveTab={handleTabClick}>
           {detail.buttonText}
         </TabBtn>
       ))}
-      orientation={"horizontal"}
-    >
-      <div className={"pt-2 pr-16 pb-7 pl-5"}>
+      orientation={'horizontal'}>
+      <div className={'pt-2 pr-16 pb-7 pl-5'}>
         {detailProduct[activeTab].content}
       </div>
     </Tabs>

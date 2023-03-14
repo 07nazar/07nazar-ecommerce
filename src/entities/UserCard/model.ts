@@ -1,4 +1,4 @@
-import type { SellerReviewType } from "../Review";
+import type { SellerReviewType } from '../Review';
 
 type SocialMediaType = {
   facebook: string;
@@ -33,6 +33,9 @@ export type UserType = {
 };
 
 export type SellerType = UserType & {
+  supplierCompany: string;
+  isVerified: boolean;
+  isWorldwideShipping: boolean;
   description: string;
   delivery: DeliverySellerType;
   paymentMethods: string[]; // Массив способов оплаты

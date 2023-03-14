@@ -1,97 +1,88 @@
-import { FC } from 'react'
-import { AiFillStar } from 'react-icons/ai'
-import { FcCheckmark } from 'react-icons/fc'
-import { IoBagCheckOutline } from 'react-icons/io5'
-import { MdOutlineMessage } from 'react-icons/md'
+import { FC } from 'react';
+import { FcCheckmark } from 'react-icons/fc';
+import { IoMdCart } from 'react-icons/io';
+import { IoBagCheckOutline } from 'react-icons/io5';
+import { MdOutlineFavoriteBorder, MdOutlineMessage } from 'react-icons/md';
 
-import { colors } from 'shared/lib'
-import { Button } from 'shared/ui/Button'
+import { colors } from 'shared/lib';
+import { Button } from 'shared/ui/Button';
+import { Rating } from 'shared/ui/Rating';
 
-interface IProductInfo {
-  quantity: number
-  name: string
-  rating: number
-  reviews: number
-  sold: number
-  params: any
-}
+import type { ProductType } from 'entities/ProductCard';
 
-interface IProductInfoProps {
-  data: IProductInfo
-}
+type ProductInfoType = Pick<
+  ProductType,
+  'quantity' | 'params' | 'rating' | 'reviewsCount' | 'sold' | 'name'
+>;
+type RatingBlockProduct = Pick<ProductType, 'rating' | 'reviewsCount' | 'sold'>;
+type ParamsProduct = Pick<ProductType, 'params'>;
 
-interface IRatingProps {
-  rating: number
-  reviews: number
-  sold: number
-}
-interface IParamsProps {
-  params: string[][]
-}
-
-const Rating: FC<IRatingProps> = ({ rating, reviews, sold }) => {
-  const ratingIcons = Array(5)
-    .fill(0)
-    .map((star, index) => (
-      <AiFillStar key={index} color={index < rating ? colors.orange : colors.gray.medium} />
-    ))
-  return (
-    <div className="flex items-center gap-5 mb-5">
-      <div className="flex items-center gap-2">
-        <div className="flex items-center">{ratingIcons}</div>
-        <span className="text-orange">{rating}</span>
-      </div>
-      <div className="flex items-center gap-2">
-        <MdOutlineMessage size={16} color={colors.gray.dark} />
-        <span className="text-gray-dark">{reviews} reviews</span>
-      </div>
-      <div className="flex items-center gap-2">
-        <IoBagCheckOutline size={18} color={colors.gray.dark} />
-        <span className="text-gray-dark">{sold} sold</span>
-      </div>
-    </div>
-  )
-}
-
-const Params: FC<IParamsProps> = ({ params }) => (
-  <div className="flex flex-col">
-    <div className="flex items-center pb-4 border-b border-b-gray-medium mb-4">
-      <p className="text-gray-hot self-start max-w-[150px] w-full">{params[0][0]}</p>
-      <p className="self-center">{params[0][1]}</p>
-    </div>
-    {params.map(([k, value]: string[], index: number) => {
-      if (index === 0) return null
-      return (
-        <div
-          className={`flex items-center pb-4${
-            index % 3 === 0 ? ' border-b border-b-gray-medium mb-4' : ''
-          }  `}
-          key={k}>
-          <p className="text-gray-hot self-start max-w-[150px] w-full">{k}</p>
-          <p className="self-center max-w-[200px] w-full ">{value}</p>
-        </div>
-      )
-    })}
-  </div>
-)
-
-export const ProductInfo: FC<IProductInfoProps> = ({
-  data: { quantity, params, rating, reviews, sold, name },
+const RatingBlock: FC<RatingBlockProduct> = ({
+  rating,
+  reviewsCount,
+  sold,
 }) => (
-  <div className="flex flex-col">
-    <div className="flex items-start gap-2">
-      <FcCheckmark size={22} />
-      <p className="text-green mb-1">{quantity ? 'In stock' : 'Not available'}</p>
+  <div className={'flex items-center gap-5 mb-5'}>
+    <div className={'flex items-center '}>
+      <Rating value={rating} />
+      <span className={'ml-2 text-orange'}> {rating.toFixed(2)}</span>
     </div>
-    <h3 className="text-2xl mb-2.5 text-black font-semibold">{name}</h3>
+    <div className={'flex items-center gap-2'}>
+      <MdOutlineMessage size={16} color={colors.gray.dark} />
+      <span className={'text-gray-dark'}>{reviewsCount} reviews</span>
+    </div>
+    <div className={'flex items-center gap-2'}>
+      <IoBagCheckOutline size={18} color={colors.gray.dark} />
+      <span className={'text-gray-dark'}>{sold} sold</span>
+    </div>
+  </div>
+);
 
-    <Rating rating={rating} reviews={reviews} sold={sold} />
+const Params: FC<ParamsProduct> = ({ params }) => (
+  <div className={'flex flex-col'}>
+    {params.map((param, index) => (
+      <div
+        className={`flex items-center pb-4 ${
+          index % 3 === 0 ? ' border-b border-b-gray-medium mb-4' : ''
+        }`}
+        key={param.name}>
+        <p className={'text-gray-hot self-start max-w-[150px] w-full'}>
+          {param.name}
+        </p>
+        <p className={'self-center max-w-[200px] w-full '}>{param.value}</p>
+      </div>
+    ))}
+  </div>
+);
 
-    <div className="flex items-center gap-9 mb-11">
-      <Button>Save for later</Button>
-      <Button>Move to cart</Button>
+export const ProductInfo: FC<ProductInfoType> = ({
+  quantity,
+  params,
+  rating,
+  reviewsCount,
+  sold,
+  name,
+}) => (
+  <div className={'flex flex-col'}>
+    <div className={'flex items-start gap-2'}>
+      <FcCheckmark size={22} />
+      <p className={'text-green mb-1'}>
+        {quantity ? 'In stock' : 'Not available'}
+      </p>
+    </div>
+    <h3 className={'text-2xl mb-2.5 text-black font-semibold'}>{name}</h3>
+
+    <RatingBlock rating={rating} reviewsCount={reviewsCount} sold={sold} />
+
+    <div className={'flex items-center gap-9 mb-11'}>
+      <Button className={'bg-blue gap-1 hover:opacity-90 duration-300'}>
+        <MdOutlineFavoriteBorder size={18} /> Save for later
+      </Button>
+      <Button className={'bg-blue gap-1 hover:opacity-90 duration-300'}>
+        <IoMdCart size={18} /> Move to cart
+      </Button>
     </div>
 
     <Params params={params} />
   </div>
-)
+);
