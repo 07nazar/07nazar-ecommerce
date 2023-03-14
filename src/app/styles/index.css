@@ -75,9 +75,9 @@
   .lg {
     @apply px-5 py-4 text-lg leading-[22px];
   }
-
+  /*  */
   .paginationItem {
-    @apply first:border-l last:border-r py-2.5 text-blue justify-center border-r border-gray-medium;
+    @apply w-[44px] py-2.5 text-blue justify-center text-black border-gray-medium;
   }
 
   .link {

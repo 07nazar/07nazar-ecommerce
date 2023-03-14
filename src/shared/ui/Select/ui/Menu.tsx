@@ -14,7 +14,7 @@ const Menu: FC<IMenu> = ({ isOpen, menuClassName, children }) => {
     leave: { opacity: 0, transform: 'translateY(-10px)' },
   })
   return (
-    <div className={`${menuClassName} max-w-[314px]  w-[100%] z-50`}>
+    <div className={`${menuClassName} max-w-[314px] w-[100%] z-50`}>
       {menuAnimation((style, isOpenProp) => (
         <animated.div style={style}>
           {isOpenProp && (

@@ -53,6 +53,7 @@ const SelectButton: FC<ISelectButton> = ({
       ) : (
         <span>{defaultValue}</span>
       )}
+
       <div
         className={`absolute top-1/2 -translate-y-1/2 right-1 transition-all duration-500
           ${isOpen ? 'rotate-180' : ''}`}>
