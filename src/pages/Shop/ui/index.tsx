@@ -7,6 +7,7 @@ import { ConrolPanel } from './ConrolPanel'
 import { PaginationBox } from './PaginationBox'
 import { ProductCol } from './ProductCol'
 import { ProductRow } from './ProductRow'
+import { Sidebar } from './Sidebar'
 
 const items = [
   { text: 'text1' },
@@ -17,31 +18,37 @@ const items = [
   { text: 'text6' },
 ]
 
-export const Shop = () => (
-  <div>
-    <Breadcrumbs />
+export const Shop = () => {
+  const productRow = true
+  return (
+    <div>
+      <Breadcrumbs />
+      <div>
+        <div className={'max-w-[240px] w-full'}>
+          <Sidebar />
+        </div>
+        <div>
+          <ConrolPanel category="Mobile accessory" itemsCount={12199} />
 
-    <ConrolPanel category="Mobile accessory" itemsCount={12199} />
+          <div className="flex gap-2">
+            {items.map(({ text }) => (
+              <Button
+                className="flex items-center p-1.5 gap-2.5 border border-blue bg-white text-gray-dark"
+                key={text}>
+                {text}
+                <IoMdClose size={18} className="text-gray-hot" />
+              </Button>
+            ))}
+            <Button className="text-blue rounded-none">Clear all filter</Button>
+          </div>
 
-    <div className="flex gap-2">
-      {items.map(({ text }) => (
-        <Button
-          className="flex items-center p-1.5 gap-2.5 border border-blue bg-white text-gray-dark"
-          key={text}>
-          {text}
-          <IoMdClose size={18} className="text-gray-hot" />
-        </Button>
-      ))}
-      <Button className="text-blue rounded-none">Clear all filter</Button>
+          <div className="max-w-[926px] w-full grid grid-cols-3 gap-5 bg-white">
+            {!productRow ? <ProductRow /> : <ProductCol />}
+          </div>
+
+          <PaginationBox />
+        </div>
+      </div>
     </div>
-
-    <div className="max-w-[926px] w-full grid grid-cols-3 gap-5 bg-white">
-      <ProductCol />
-    </div>
-    <div className="grid grid-cols-1 gap-2.5 max-w[920px] w-full">
-      <ProductRow />
-    </div>
-
-    <PaginationBox />
-  </div>
-)
+  )
+}

@@ -84,11 +84,7 @@ export const Footer: FC = () => (
           </p>
           <div className={"mt-4 flex gap-2.5"}>
             {externalLinks.map((link) => (
-              <AppLink
-                to={link.to}
-                key={link.to}
-                textColor={"text-gray-deep hover:text-gray-hot"}
-              >
+              <AppLink to={link.to} key={link.to} className={"text-gray-deep"}>
                 {link.icon}
               </AppLink>
             ))}

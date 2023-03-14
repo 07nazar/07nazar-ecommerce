@@ -81,7 +81,7 @@
   }
 
   .link {
-    @apply flex items-center flex-col duration-500;
+    @apply flex flex-col hover:text-gray-dark duration-500;
   }
 
   .timerItem {
@@ -94,6 +94,10 @@
 
   .base-input {
     @apply w-full px-4 leading-5 text-black placeholder:text-gray-hot outline-none;
+  }
+  
+  .base-button {
+    @apply text-white rounded-md outline-none focus-visible:ring-1 shrink-0;
   }
 
   .title {

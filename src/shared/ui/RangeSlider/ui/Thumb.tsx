@@ -17,6 +17,7 @@ export const Thumb: FC<ThumbProps> = ({ value, min, max, onChange, width }) => (
     onChange={(event) => {
       onChange(Number(event.target.value));
     }}
-    className={`thumb w-[${width}px]`}
+    className={`thumb`}
+    style={{ width: `${width}px` }}
   />
 );

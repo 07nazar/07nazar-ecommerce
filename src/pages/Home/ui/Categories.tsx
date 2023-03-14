@@ -76,7 +76,7 @@ export const Categories: FC<CategoriesProps> = ({
         >
           {title}
         </h5>
-        <Button onClick={clickHandler} textColor="black" color="white">
+        <Button onClick={clickHandler} className={"bg-white text-black"}>
           Source now
         </Button>
       </div>

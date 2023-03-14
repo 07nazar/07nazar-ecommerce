@@ -45,8 +45,9 @@ export const ExtraServices: FC = () => (
         <AppLink
           to={service.to}
           key={service.title}
-          className={'relative rounded-md h-52 bg-white items-start'}
-          textColor={'text-black hover:text-gray-dark'}>
+          className={
+            'relative rounded-md h-52 bg-white items-start text-black hover:text-gray-dark'
+          }>
           <img src={service.img} alt="service" className={'w-full max-h-32 h-full bg-black'} />
           <span
             className={
