@@ -1,23 +1,23 @@
-import { FC, ReactNode, MouseEvent } from 'react'
+import { FC, ReactNode, MouseEvent } from 'react';
 
-import Menu from './Menu'
-import SelectButton from './SelectButton'
+import Menu from './Menu';
+import SelectButton from './SelectButton';
 
 interface ISelectedValue {
-  id: number
-  text: string
-  subTitle?: string
+  id: number;
+  text: string;
+  subTitle?: string;
 }
 
 interface ISelect {
-  isPill?: boolean
-  isOpen: boolean
-  className: string
-  setOpen: (isOpen: boolean) => void
-  children: ReactNode
-  selectedValue: ISelectedValue[] | ISelectedValue
-  defaultValue?: string
-  menuClassName?: string
+  isPill?: boolean;
+  isOpen: boolean;
+  className: string;
+  setOpen: (isOpen: boolean) => void;
+  children: ReactNode;
+  selectedValue: ISelectedValue[] | ISelectedValue;
+  defaultValue?: string;
+  menuClassName?: string;
 }
 
 export const Select: FC<ISelect> = ({
@@ -31,9 +31,9 @@ export const Select: FC<ISelect> = ({
   menuClassName = '',
 }) => {
   const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    setOpen(!isOpen)
-  }
+    e.preventDefault();
+    setOpen(!isOpen);
+  };
 
   return (
     <div className={`relative ${className} flex flex-col`}>
@@ -48,5 +48,5 @@ export const Select: FC<ISelect> = ({
         {children}
       </Menu>
     </div>
-  )
-}
+  );
+};

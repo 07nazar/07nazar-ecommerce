@@ -1,8 +1,8 @@
-import { animated, useSpring } from "@react-spring/web";
-import { FC, ReactNode, RefObject, useEffect, useRef, useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
+import { animated, useSpring } from '@react-spring/web';
+import { FC, ReactNode, RefObject, useEffect, useRef, useState } from 'react';
+import { IoIosArrowDown } from 'react-icons/io';
 
-import { Button } from "../Button";
+import { Button } from '../Button';
 
 interface DropdownProps {
   children: ReactNode[];
@@ -27,15 +27,15 @@ interface DropdownContentProps {
 
 const DropdownButton: FC<DropdownButtonProps> = ({ title, isOpen, toggle }) => (
   <Button
-    className="relative w-full text-black mt-2 font-semibold px-0 py-4 border-t border-gray-medium rounded-none"
-    onClick={toggle}
-  >
+    className={
+      'relative w-full text-black mt-2 font-semibold px-0 py-4 border-t border-gray-medium rounded-none'
+    }
+    onClick={toggle}>
     <span>{title}</span>
     <div
       className={`absolute top-1/2 -translate-y-1/2 right-1 transition-all duration-500
-          ${isOpen ? "rotate-180" : ""}`}
-    >
-      <IoIosArrowDown className={"text-gray-hot"} />
+          ${isOpen ? 'rotate-180' : ''}`}>
+      <IoIosArrowDown className={'text-gray-hot'} />
     </div>
   </Button>
 );
@@ -49,9 +49,9 @@ const DropdownContent: FC<DropdownContentProps> = ({
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const contentAnimation = useSpring({
-    from: { height: "0px", opacity: 0 },
+    from: { height: '0px', opacity: 0 },
     to: {
-      height: isOpen ? `${contentHeight}px` : "0px",
+      height: isOpen ? `${contentHeight}px` : '0px',
       opacity: isOpen ? 1 : 0,
     },
     onRest: () => setIsAnimating(false),
@@ -66,7 +66,7 @@ const DropdownContent: FC<DropdownContentProps> = ({
   return (
     <animated.div style={contentAnimation}>
       {isOpen && (
-        <div ref={contentRef} className={`flex flex-col ${className || ""}`}>
+        <div ref={contentRef} className={`flex flex-col ${className || ''}`}>
           {children}
         </div>
       )}
@@ -107,7 +107,7 @@ export const Dropdown: FC<DropdownProps> = ({
 
     if (isShowMoreButton) {
       return (
-        <button key={maxItems} onClick={showMore} className={"text-blue"}>
+        <button key={maxItems} onClick={showMore} className={'text-blue'}>
           See all
         </button>
       );
@@ -127,8 +127,7 @@ export const Dropdown: FC<DropdownProps> = ({
         isOpen={isOpen}
         contentHeight={contentHeight}
         contentRef={contentRef}
-        className={className}
-      >
+        className={className}>
         {renderedChildren}
       </DropdownContent>
     </>

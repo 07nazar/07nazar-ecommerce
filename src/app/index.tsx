@@ -1,9 +1,9 @@
-import './styles/index.css'
+import './styles/index.css';
 
-import { Routing } from 'pages'
+import { Routing } from 'pages';
 
-import { withProviders } from './providers'
+import { withProviders } from './providers';
 
-const App = () => <Routing />
+const App = () => <Routing />;
 
-export default withProviders(App)
+export default withProviders(App);

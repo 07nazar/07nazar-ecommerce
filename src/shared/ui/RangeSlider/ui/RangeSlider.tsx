@@ -1,13 +1,17 @@
-import { FC, SetStateAction, useCallback, useEffect, useState } from "react";
+import { FC, SetStateAction, useCallback, useEffect, useState } from 'react';
 
-import { SliderTrack } from "./SliderTrack";
-import { Thumb } from "./Thumb";
+import { SliderTrack } from './SliderTrack';
+import { Thumb } from './Thumb';
 
 type RangeSliderProps = {
   min: number;
   max: number;
   onChange: (min: number, max: number) => void;
   width: number;
+  userPrice?: {
+    min: number;
+    max: number;
+  };
 };
 
 export const RangeSlider: FC<RangeSliderProps> = ({
@@ -15,6 +19,7 @@ export const RangeSlider: FC<RangeSliderProps> = ({
   max,
   onChange,
   width,
+  userPrice,
 }) => {
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
@@ -23,12 +28,20 @@ export const RangeSlider: FC<RangeSliderProps> = ({
     (value: number) => Math.round(((value - min) / (max - min)) * 100),
     [min, max]
   );
+
   useEffect(() => {
     onChange(minVal, maxVal);
   }, [minVal, maxVal]);
 
+  useEffect(() => {
+    if (userPrice) {
+      setMinVal(userPrice.min);
+      setMaxVal(userPrice.max);
+    }
+  }, [userPrice]);
+
   return (
-    <div className="flex items-center justify-center">
+    <div className={'flex items-center justify-center'}>
       <Thumb
         value={minVal}
         min={min}
