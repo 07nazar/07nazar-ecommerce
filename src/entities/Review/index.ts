@@ -1,2 +1,3 @@
 export * from "./ui";
-export * as RatingLib from "./lib";
+export * from "./lib";
+export * from "./model";
