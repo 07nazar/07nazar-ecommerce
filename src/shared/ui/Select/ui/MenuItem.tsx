@@ -14,9 +14,11 @@ interface IItem {
 interface MenuItemProps {
   children: ReactNode
   item: IItem
+  disabled?: boolean
   active: boolean
   isMulti?: boolean
   setOpen: Dispatch<SetStateAction<boolean>>
+  onClickOptionHandler?: (value: string) => void
   setSelectedItems?: Dispatch<SetStateAction<IItem[]>>
 }
 
@@ -24,9 +26,11 @@ export const MenuItem: FC<MenuItemProps> = ({
   children,
   active,
   item,
+  disabled = false,
   setSelectedItems,
   isMulti = false,
   setOpen,
+  onClickOptionHandler,
 }) => {
   const [isHover, setIsHover] = useState(false)
 
@@ -51,6 +55,10 @@ export const MenuItem: FC<MenuItemProps> = ({
 
   const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
+    if (onClickOptionHandler) {
+      onClickOptionHandler(item.text)
+    }
+
     return isMulti ? selectWithMulti() : selectWithoutMulti()
   }
 
@@ -65,6 +73,7 @@ export const MenuItem: FC<MenuItemProps> = ({
   return (
     <div onMouseEnter={handleMenuHover} onMouseLeave={handleMenuLeave} className="w-full">
       <button
+        disabled={disabled}
         onClick={(e: MouseEvent<HTMLButtonElement>) => onClickHandler(e)}
         className={`flex flex-col w-full p-[16px] ${active ? 'bg-gray-pale' : ''}`}>
         {children}
