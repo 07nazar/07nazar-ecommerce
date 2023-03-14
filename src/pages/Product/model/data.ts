@@ -24,6 +24,8 @@ export const productFromServer: ProductType = {
     old: 3,
   },
   rating: 4,
+  sold: 35,
+  reviewsCount: 12,
   params: [
     { name: 'Model', value: '#5236326' },
     { name: 'Style', value: 'Classic' },

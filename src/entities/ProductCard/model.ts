@@ -1,4 +1,4 @@
-import { ProductReviewType } from "../Review";
+import { ProductReviewType } from '../Review';
 
 type ProductMainPhotoType = {
   url: string;
@@ -25,14 +25,16 @@ export type ProductType = {
   mainPhoto: ProductMainPhotoType;
   price: ProductPriceType;
   rating: number;
+  sold: number;
   description: string;
   orders: number;
   additionalPhotos: ProductAdditionalPhotoType[];
   specifications: ProductSpecificationType[];
   params: ProductSpecificationType[];
   advantages: string[];
+  reviewsCount: number;
   reviews: ProductReviewType[];
   sellerId: string;
 };
 
-export type ProductMinType = Pick<ProductType, "name" | "mainPhoto" | "price">;
+export type ProductMinType = Pick<ProductType, 'name' | 'mainPhoto' | 'price'>;
