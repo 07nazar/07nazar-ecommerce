@@ -1,1 +1,1 @@
-export * from "./useSelectedCheckbox";
+export * from './useSelectedCheckbox';

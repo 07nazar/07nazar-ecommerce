@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC } from 'react';
 
 type ThumbProps = {
   value: number;
@@ -10,11 +10,11 @@ type ThumbProps = {
 
 export const Thumb: FC<ThumbProps> = ({ value, min, max, onChange, width }) => (
   <input
-    type="range"
+    type={'range'}
     min={min}
     max={max}
     value={value}
-    onChange={(event) => {
+    onChange={event => {
       onChange(Number(event.target.value));
     }}
     className={`thumb`}

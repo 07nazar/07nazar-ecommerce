@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes, ReactNode } from "react";
+import { FC, InputHTMLAttributes, ReactNode } from 'react';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: ReactNode;
@@ -8,22 +8,21 @@ export const Input: FC<InputProps> = ({
   value,
   onChange,
   placeholder,
-  type = "text",
-  className = "",
+  type = 'text',
+  className = '',
   icon,
   min,
   max,
 }) => (
-  <div className={"relative"}>
+  <div className={'relative'}>
     <span
       className={
-        "absolute pl-2.5 top-[50%] translate-y-[-50%] pointer-events-none"
-      }
-    >
+        'absolute pl-2.5 top-[50%] translate-y-[-50%] pointer-events-none'
+      }>
       {icon}
     </span>
     <input
-      className={`base-input ${className} ${icon ? "pl-9" : ""}`}
+      className={`base-input ${className} ${icon ? 'pl-9' : ''}`}
       type={type}
       onChange={onChange}
       value={value}

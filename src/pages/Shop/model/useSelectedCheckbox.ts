@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useState } from "react";
+import { ChangeEventHandler, useState } from 'react';
 
 type UseSelectedCheckboxReturnType = [
   string[],
@@ -8,13 +8,13 @@ type UseSelectedCheckboxReturnType = [
 export const useSelectedCheckbox = (): UseSelectedCheckboxReturnType => {
   const [selected, setSelected] = useState<string[]>([]);
 
-  const handleCheckboxChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const handleCheckboxChange: ChangeEventHandler<HTMLInputElement> = e => {
     const { value, checked } = e.target;
 
     if (checked) {
       setSelected([...selected, value]);
     } else {
-      setSelected(selected.filter((val) => val !== value));
+      setSelected(selected.filter(val => val !== value));
     }
   };
 

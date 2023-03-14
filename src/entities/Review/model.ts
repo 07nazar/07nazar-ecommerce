@@ -1,4 +1,4 @@
-import type { UserType } from "../UserCard";
+import type { UserType } from '../UserCard';
 
 type ReviewType = {
   author: UserType;

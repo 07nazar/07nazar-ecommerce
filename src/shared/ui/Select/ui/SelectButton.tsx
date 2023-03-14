@@ -1,19 +1,19 @@
-import { FC, MouseEvent } from 'react'
-import { IoIosArrowDown } from 'react-icons/io'
-import { MdClose } from 'react-icons/md'
+import { FC, MouseEvent } from 'react';
+import { IoIosArrowDown } from 'react-icons/io';
+import { MdClose } from 'react-icons/md';
 
 interface ISelectedValue {
-  id: number
-  text: string
-  subTitle?: string
+  id: number;
+  text: string;
+  subTitle?: string;
 }
 
 interface ISelectButton {
-  onClickHandler: (e: MouseEvent<HTMLButtonElement>) => void
-  isOpen: boolean
-  selectedValue: ISelectedValue[] | ISelectedValue
-  isPill: boolean
-  defaultValue?: string
+  onClickHandler: (e: MouseEvent<HTMLButtonElement>) => void;
+  isOpen: boolean;
+  selectedValue: ISelectedValue[] | ISelectedValue;
+  isPill: boolean;
+  defaultValue?: string;
 }
 
 const SelectButton: FC<ISelectButton> = ({
@@ -23,14 +23,14 @@ const SelectButton: FC<ISelectButton> = ({
   isPill,
   defaultValue = 'Select',
 }) => {
-  const paddingClass = Array.isArray(selectedValue) ? 'p-[10px]' : ''
-  const textClass = isPill ? 'p-[6px] leading-[14px]' : ''
-  const containerClass = `relative w-full min-h-[40px] max-h-[40px] flex gap-[5px] items-center rounded-md border-0 cursor-pointer transition-all duration-500  ${paddingClass} ${textClass}`
+  const paddingClass = Array.isArray(selectedValue) ? 'p-[10px]' : '';
+  const textClass = isPill ? 'p-[6px] leading-[14px]' : '';
+  const containerClass = `relative w-full min-h-[40px] max-h-[40px] flex gap-[5px] items-center rounded-md border-0 cursor-pointer transition-all duration-500  ${paddingClass} ${textClass}`;
 
   const selectedItemsPills =
     isPill &&
     Array.isArray(selectedValue) &&
-    selectedValue?.map((item) => (
+    selectedValue?.map(item => (
       <span
         key={item.id}
         className={`flex items-center gap-[13px] p-[7px] ${
@@ -39,12 +39,14 @@ const SelectButton: FC<ISelectButton> = ({
         {item.text}
         {isPill && <MdClose size={10} />}
       </span>
-    ))
+    ));
 
   const selectedItems =
-    Array.isArray(selectedValue) && !isPill && selectedValue.map((item) => item.text).join(', ')
+    Array.isArray(selectedValue) &&
+    !isPill &&
+    selectedValue.map(item => item.text).join(', ');
 
-  const selectItem = isPill ? selectedItemsPills : selectedItems
+  const selectItem = isPill ? selectedItemsPills : selectedItems;
 
   return (
     <button onClick={onClickHandler} className={containerClass}>
@@ -60,7 +62,7 @@ const SelectButton: FC<ISelectButton> = ({
         <IoIosArrowDown />
       </div>
     </button>
-  )
-}
+  );
+};
 
-export default SelectButton
+export default SelectButton;

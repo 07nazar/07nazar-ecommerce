@@ -1,2 +1,2 @@
-export * from './timer'
-export * from './data'
+export * from './timer';
+export * from './data';

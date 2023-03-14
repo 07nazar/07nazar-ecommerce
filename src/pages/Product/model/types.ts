@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { ProductType } from "entities/ProductCard/model";
-import { SellerType, UserType, AddressType } from "entities/UserCard";
+import { ProductType } from 'entities/ProductCard/model';
+import { SellerType, UserType, AddressType } from 'entities/UserCard';
 
 type OrderItemType = Pick<
   ProductType,
-  "name" | "mainPhoto" | "price" | "sellerId"
+  'name' | 'mainPhoto' | 'price' | 'sellerId'
 > & {
   productId: string;
   quantity: number; // Кол-во товара в заказе
@@ -14,7 +14,7 @@ type OrderItemType = Pick<
 type Order = {
   customer: UserType; // Покупатель
   seller: SellerType; // Продавец
-  status: "created" | "paid" | "shipped" | "delivered" | "canceled"; //  // Статус продажи
+  status: 'created' | 'paid' | 'shipped' | 'delivered' | 'canceled'; //  // Статус продажи
   items: OrderItemType[];
   delivery: {
     address: AddressType;

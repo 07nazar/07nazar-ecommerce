@@ -1,8 +1,8 @@
-import { FC } from "react";
-import { AiOutlineHeart } from "react-icons/ai";
-import { redirect } from "react-router-dom";
+import { FC } from 'react';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { redirect } from 'react-router-dom';
 
-import { Button } from "shared/ui/Button";
+import { Button } from 'shared/ui/Button';
 
 interface AddFavouriteProps {
   isAuth: boolean;
@@ -11,7 +11,7 @@ interface AddFavouriteProps {
 
 export const AddFavourite: FC<AddFavouriteProps> = ({ isAuth, id }) => {
   if (!isAuth) {
-    redirect("/login");
+    redirect('/login');
   }
 
   const clickHandler = () => {
@@ -19,7 +19,7 @@ export const AddFavourite: FC<AddFavouriteProps> = ({ isAuth, id }) => {
   };
 
   return (
-    <Button onClick={clickHandler} className={"bg-light p-2.5 text-blue"}>
+    <Button onClick={clickHandler} className={'bg-light p-2.5 text-blue'}>
       <AiOutlineHeart size={20} />
     </Button>
   );

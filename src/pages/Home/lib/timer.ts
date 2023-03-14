@@ -1,6 +1,6 @@
 export const helper = (deadline: string) => {
-  const date = +new Date()
-  const timeStamp = +new Date(deadline) - date
+  const date = +new Date();
+  const timeStamp = +new Date(deadline) - date;
   return {
     days: Math.floor((timeStamp / (1000 * 60 * 60 * 24)) % 30)
       .toString()
@@ -14,5 +14,5 @@ export const helper = (deadline: string) => {
     sec: Math.floor((timeStamp / 1000) % 60)
       .toString()
       .padStart(2, '0'),
-  }
-}
+  };
+};
