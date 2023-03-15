@@ -3,9 +3,11 @@ import { IoMdClose } from 'react-icons/io';
 import { ProductRow } from 'entities/ProductCard';
 import { Breadcrumbs } from 'shared/ui/Breadcrumbs';
 import { Button } from 'shared/ui/Button';
+import { SubscribeNews } from 'widgets/SubscribeNews';
 
 import { ControlPanel } from './ControlPanel';
 import { PaginationBox } from './Pagination';
+
 import { Sidebar } from './Sidebar';
 
 const items = [

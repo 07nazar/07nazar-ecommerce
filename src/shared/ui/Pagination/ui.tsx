@@ -62,7 +62,7 @@ export const Pagination: FC<IPagination> = ({
         <div className={`flex last:border-r border-gray-medium`}>
           {pages?.map(item => (
             <button
-              key={item}
+              key={`pagination-${item}`}
               onClick={() => setActivePage(item)}
               className={`paginationItem transition-colors duration-300 border-l ${
                 activePage === item && 'bg-gray-medium'
