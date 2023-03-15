@@ -84,7 +84,7 @@ export const MenuItem: FC<MenuItemProps> = ({
     <div
       onMouseEnter={handleMenuHover}
       onMouseLeave={handleMenuLeave}
-      className='w-full'>
+      className={'w-full'}>
       <button
         disabled={disabled}
         onClick={(e: MouseEvent<HTMLButtonElement>) => onClickHandler(e)}
@@ -93,11 +93,16 @@ export const MenuItem: FC<MenuItemProps> = ({
         }`}>
         {children}
         {item.children && (
-          <MdOutlineKeyboardArrowRight className='absolute top-1/2 translate-y-[-50%] right-1' />
+          <MdOutlineKeyboardArrowRight
+            className={'absolute top-1/2 translate-y-[-50%] right-1'}
+          />
         )}
       </button>
       {item.children && isHover && (
-        <div className='absolute w-[130%] top-0 left-full bg-white border-gray-200'>
+        <div
+          className={
+            'absolute w-[130%] top-0 left-full bg-white border-gray-200'
+          }>
           <Menu isOpen={true}>
             {item.children.map(child => (
               <MenuItem
@@ -109,7 +114,9 @@ export const MenuItem: FC<MenuItemProps> = ({
                 <Link to={child.text}>
                   <p>{child.text}</p>
                   {child.children && (
-                    <MdOutlineKeyboardArrowRight className='absolute top-1/2 translate-y-[-50%] right-1' />
+                    <MdOutlineKeyboardArrowRight
+                      className={'absolute top-1/2 translate-y-[-50%] right-1'}
+                    />
                   )}
                 </Link>
               </MenuItem>

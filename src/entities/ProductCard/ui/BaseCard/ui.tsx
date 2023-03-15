@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import { ProductMinType, ProductType } from './model';
+import { ProductMinType, ProductType } from '../../model';
 
 interface IProductCardClassNames {
   title?: string;
@@ -17,7 +17,7 @@ type IProductCardProps = {
   className?: IProductCardClassNames;
 };
 
-export const ProductCard: FC<IProductCardProps> = ({
+export const BaseCard: FC<IProductCardProps> = ({
   product,
   between,
   children,

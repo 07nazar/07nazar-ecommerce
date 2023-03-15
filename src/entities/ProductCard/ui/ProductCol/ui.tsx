@@ -1,14 +1,14 @@
-import { ProductCard } from 'entities/ProductCard';
+import { FC } from 'react';
 
-import img from '../assets/phone.png';
+import { BaseCard } from '../BaseCard';
 
-export const ProductCol = () => (
+export const ProductCol: FC = () => (
   <>
-    <ProductCard
+    <BaseCard
       product={{
         price: { old: 1000, current: 2000 },
         name: 'Canon Cmera EOS 2000, Black 10x zoom',
-        mainPhoto: { url: img, thumbUrl: '' },
+        mainPhoto: { url: 'img', thumbUrl: '' },
       }}
       className={{
         image: 'w-[230px]',

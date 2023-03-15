@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { RequestsForm } from 'widgets/RequestsForm';
 
-import formBg from '../assets/formBg.jpg';
+import formBg from '../../assets/formBg.jpg';
 
 export const SendSuppliers: FC = () => (
   <div

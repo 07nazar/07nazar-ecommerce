@@ -8,7 +8,7 @@ import { Input } from 'shared/ui/Input';
 import { RangeSlider } from 'shared/ui/RangeSlider';
 import { Rating } from 'shared/ui/Rating';
 
-import { useSelectedCheckbox } from '../model';
+import { useSelectedCheckbox } from '../../model';
 
 const categoriesLinks = [
   {
