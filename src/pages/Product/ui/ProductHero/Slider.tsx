@@ -2,11 +2,11 @@ import { useSpring, animated } from '@react-spring/web';
 import { useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 
-import img2 from '../assets/image22.png';
-import img3 from '../assets/image23.png';
-import img4 from '../assets/image32.png';
-import img5 from '../assets/image33.png';
-import img from '../assets/phone.png';
+import img2 from '../../assets/image22.png';
+import img3 from '../../assets/image23.png';
+import img4 from '../../assets/image32.png';
+import img5 from '../../assets/image33.png';
+import img from '../../assets/phone.png';
 
 const images = [img2, img3, img4, img, img5, img2];
 

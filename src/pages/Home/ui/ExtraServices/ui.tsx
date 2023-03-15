@@ -5,10 +5,10 @@ import { MdOutlineSend } from 'react-icons/md';
 
 import { AppLink } from 'shared/ui/AppLink';
 
-import customizeProducts from '../assets/customizeProducts.png';
-import fastAir from '../assets/fastAir.png';
-import hubs from '../assets/hubs.png';
-import inspection from '../assets/inspection.png';
+import customizeProducts from '../../assets/customizeProducts.png';
+import fastAir from '../../assets/fastAir.png';
+import hubs from '../../assets/hubs.png';
+import inspection from '../../assets/inspection.png';
 
 const services = [
   {
@@ -50,7 +50,7 @@ export const ExtraServices: FC = () => (
           }>
           <img
             src={service.img}
-            alt='service'
+            alt={'service'}
             className={'w-full max-h-32 h-full bg-black'}
           />
           <span

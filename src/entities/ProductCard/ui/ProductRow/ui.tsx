@@ -1,8 +1,6 @@
 import { FC } from 'react';
 
-import { ProductCard } from 'entities/ProductCard';
-
-import img from '../assets/phone.png';
+import { BaseCard } from '../BaseCard';
 
 interface IContent {
   rating: {
@@ -29,11 +27,11 @@ const Content: FC<IContent> = ({ description, rating }) => (
 
 export const ProductRow = () => (
   <>
-    <ProductCard
+    <BaseCard
       product={{
         price: { old: 1000, current: 2000 },
         name: 'Canon Cmera EOS 2000, Black 10x zoom',
-        mainPhoto: { url: img, thumbUrl: '' },
+        mainPhoto: { url: 'img', thumbUrl: '' },
       }}
       className={{
         image: 'w-[184px] max-h-[184px] h-full object-cover',
@@ -48,6 +46,6 @@ export const ProductRow = () => (
         }
         rating={{ freeShip: true, orders: 152, rating: 7.6 }}
       />
-    </ProductCard>
+    </BaseCard>
   </>
 );

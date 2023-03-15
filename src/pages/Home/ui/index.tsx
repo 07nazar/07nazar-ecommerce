@@ -6,7 +6,7 @@ import { categoriesHome } from '../lib';
 import { Categories } from './Categories';
 import { DealsAndOffers } from './DealsAndOffers';
 import { ExtraServices } from './ExtraServices';
-import { RecommendedItems } from './RecommendedItems';
+import { RecommendedItems } from './Recommendation';
 import { RegionSuppliers } from './RegionSuppliers';
 import { SendSuppliers } from './SendSuppliers';
 

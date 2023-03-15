@@ -2,15 +2,15 @@ import { FC } from 'react';
 
 import { AppLink } from 'shared/ui/AppLink';
 
-import arabicFlag from '../assets/arabic.png';
-import australiaFlag from '../assets/australia.png';
-import britainFlag from '../assets/britain.png';
-import chinaFlag from '../assets/china.png';
-import denmarkFlag from '../assets/denmark.png';
-import franceFlag from '../assets/france.png';
-import germanyFlag from '../assets/germany.png';
-import italyFlag from '../assets/italy.png';
-import usaFlag from '../assets/usa.png';
+import arabicFlag from '../../assets/arabic.png';
+import australiaFlag from '../../assets/australia.png';
+import britainFlag from '../../assets/britain.png';
+import chinaFlag from '../../assets/china.png';
+import denmarkFlag from '../../assets/denmark.png';
+import franceFlag from '../../assets/france.png';
+import germanyFlag from '../../assets/germany.png';
+import italyFlag from '../../assets/italy.png';
+import usaFlag from '../../assets/usa.png';
 
 interface Country {
   name: string;
