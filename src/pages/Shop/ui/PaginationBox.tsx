@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { Pagination } from 'shared/ui/Pagination';
 import { MenuItem, Select } from 'shared/ui/Select';
@@ -20,8 +20,12 @@ export const PaginationBox = () => {
   const [isOpenSelect, setOpenSelect] = useState(false);
   const [selectedMenuItem, setSelectedMenuItem] = useState<IItem[]>([]);
 
+  const menuRef = useRef<HTMLDivElement>(null);
+  if (isOpenSelect)
+    menuRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
   return (
-    <div className={'self-end flex gap-2.5 items-center'}>
+    <div className={'self-end flex gap-2.5 items-center'} ref={menuRef}>
       <Select
         className={'w-[125px] border border-gray-medium rounded-md bg-white'}
         menuClassName={'absolute top-[50px] right-0'}
@@ -32,7 +36,7 @@ export const PaginationBox = () => {
         {items.map(item => (
           <MenuItem
             setOpen={setOpenSelect}
-            key={item.id}
+            key={item.text}
             active={false}
             setSelectedItems={setSelectedMenuItem}
             item={item}>

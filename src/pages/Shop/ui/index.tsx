@@ -2,9 +2,11 @@ import { IoMdClose } from 'react-icons/io';
 
 import { Breadcrumbs } from 'shared/ui/Breadcrumbs';
 import { Button } from 'shared/ui/Button';
+import { SubscribeNews } from 'widgets/SubscribeNews';
 
 import { ControlPanel } from './ControlPanel';
 import { PaginationBox } from './PaginationBox';
+
 import { ProductCol } from './ProductCol';
 import { ProductRow } from './ProductRow';
 import { Sidebar } from './Sidebar';
@@ -23,7 +25,7 @@ export const Shop = () => {
   return (
     <>
       <Breadcrumbs />
-      <div className={'flex gap-5'}>
+      <div className={'flex gap-5 mb-40'}>
         <div className={'max-w-[240px] w-full shrink-0 grow'}>
           <Sidebar />
         </div>
@@ -54,6 +56,7 @@ export const Shop = () => {
           <PaginationBox />
         </div>
       </div>
+      <SubscribeNews />
     </>
   );
 };
