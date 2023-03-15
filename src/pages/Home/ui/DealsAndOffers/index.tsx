@@ -1,18 +1,9 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 
-import { Button } from 'shared/ui/Button';
+import img from '../../assets/rasm.png';
 
-import img from '../assets/rasm.png';
-
+import { DealsItem, IDealsItem } from './DealsItem';
 import { Timer } from './Timer';
-
-interface IDealsItem {
-  id: number;
-  image: string;
-  title: string;
-  promo: string;
-}
 
 const dealsItems: IDealsItem[] = [
   { id: 1, image: img, promo: '-25%', title: 'Smart watches' },
@@ -22,24 +13,7 @@ const dealsItems: IDealsItem[] = [
   { id: 5, image: img, promo: '-25%', title: 'Smart watches' },
 ];
 
-const DealsItem: FC<IDealsItem> = ({ image, promo, title }) => (
-  <Link to={title}>
-    <div
-      className={
-        'flex flex-col items-center px-5 pt-2 pb-4 border-l border-gray-medium'
-      }>
-      <div className={'w-[140px] h-[140px] flex  justify-center mb-3'}>
-        <img src={image} alt={title} className={'object-contain'} />
-      </div>
-      <h5 className={'mb-2'}>{title}</h5>
-      <Button size={'sm'} className={'bg-light-red leading-4 text-red'}>
-        {promo}
-      </Button>
-    </div>
-  </Link>
-);
-
-export const DealsAndOffers = () => (
+export const DealsAndOffers: FC = () => (
   <div
     className={
       'flex justify-start bg-white border-b border-x border-gray-medium rounded-md'
