@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import { ProductMinType, ProductType } from '../../model';
+import { ProductMinType, ProductType } from './model';
 
 interface IProductCardClassNames {
   title?: string;
@@ -12,13 +12,15 @@ interface IProductCardClassNames {
 
 type IProductCardProps = {
   product: ProductType | ProductMinType;
+  before?: ReactNode;
   children?: ReactNode;
   between?: ReactNode;
   className?: IProductCardClassNames;
 };
 
-export const BaseCard: FC<IProductCardProps> = ({
+export const ProductCard: FC<IProductCardProps> = ({
   product,
+  before,
   between,
   children,
   className = {},
@@ -26,11 +28,12 @@ export const BaseCard: FC<IProductCardProps> = ({
   <div className={`${className.box || ''} bg-white`}>
     <img
       src={product.mainPhoto.url}
-      className={`${className.image || ''} mx-auto object-cover`}
+      className={`${className.image || ''} product-image`}
       alt={''}
     />
 
     <div className={className.content || ''}>
+      {before}
       <h3 className={className.title || ''}>{product.name}</h3>
       {between}
       <div className={'flex items-center gap-2'}>

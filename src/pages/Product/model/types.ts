@@ -1,9 +1,26 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { ProductType } from 'entities/ProductCard/model';
-import { SellerType, UserType, AddressType } from 'entities/UserCard';
+import { ProductType } from 'entities/Product/model';
+import { UserType, AddressType } from 'entities/UserCard';
 
-type OrderItemType = Pick<
+type DeliveryType = {
+  address: AddressType;
+  method: string;
+  trackingNumber?: string;
+};
+
+type PaymentType = {
+  method: string;
+  amount: number;
+  transactionId?: string;
+};
+
+type CouponType = {
+  code: string; // Код купона
+  discount: number; // Скидка в процентах
+};
+
+type CartItemType = Pick<
   ProductType,
   'name' | 'mainPhoto' | 'price' | 'sellerId'
 > & {
@@ -11,21 +28,17 @@ type OrderItemType = Pick<
   quantity: number; // Кол-во товара в заказе
 };
 
-type Order = {
+export type CartType = {
   customer: UserType; // Покупатель
-  seller: SellerType; // Продавец
-  status: 'created' | 'paid' | 'shipped' | 'delivered' | 'canceled'; //  // Статус продажи
-  items: OrderItemType[];
-  delivery: {
-    address: AddressType;
-    method: string; // Способ доставки
-    trackingNumber?: string; // Номер отслеживания
-  };
-  payment: {
-    method: string; // Способ оплаты
-    amount: number; // Сумма оплаты
-    transactionId?: string; // Идентификатор транзакции
-  };
+  status: 'created' | 'paid' | 'shipped' | 'delivered' | 'canceled'; // Статус продажи
+  items: CartItemType[];
+  coupon?: CouponType; // Купон, если применен
+  subtotal: number; // Итоговая стоимость товаров в корзине
+  discount: number; // Скидка по купону (если есть)
+  tax: number; // Налог на товары
+  total: number; // Итоговая стоимость корзины
+  delivery: DeliveryType;
+  payment: PaymentType;
   createdDate: Date; // Дата создания заказа
   updatedDate: Date; // Дата последнего обновления заказа
 };

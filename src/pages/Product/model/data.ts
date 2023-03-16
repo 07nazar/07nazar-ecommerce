@@ -1,9 +1,10 @@
-import { ProductMinType, ProductType } from 'entities/ProductCard';
+import { ProductMinType, ProductType } from 'entities/Product';
 import { SellerType } from 'entities/UserCard';
 
 import img from '../assets/phone.png';
 
 export const productFromServer: ProductType = {
+  id: 13,
   name: 'product name',
   category: ['phone'],
   quantity: 24,
@@ -252,31 +253,37 @@ export const sellerFromServer: SellerType = {
 
 export const productsRelated: ProductMinType[] = [
   {
+    id: 1,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 86 Original',
     price: { current: 32 },
   },
   {
+    id: 1,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 85 Original',
     price: { current: 32 },
   },
   {
+    id: 1,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 84 Original',
     price: { current: 32 },
   },
   {
+    id: 1,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 83 Original',
     price: { current: 32 },
   },
   {
+    id: 1,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 82 Original',
     price: { current: 32 },
   },
   {
+    id: 1,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 81 Original',
     price: { current: 32 },
@@ -285,26 +292,31 @@ export const productsRelated: ProductMinType[] = [
 
 export const productsLikes: ProductMinType[] = [
   {
+    id: 1,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 5 Original',
     price: { current: 32 },
   },
   {
+    id: 1,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 84Original',
     price: { current: 32 },
   },
   {
+    id: 1,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 3 Original',
     price: { current: 32 },
   },
   {
+    id: 1,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 2 Original',
     price: { current: 32 },
   },
   {
+    id: 1,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 1 Original',
     price: { current: 32, old: 99 },

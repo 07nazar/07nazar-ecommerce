@@ -1,13 +1,12 @@
 import { IoMdClose } from 'react-icons/io';
 
-import { ProductRow } from 'entities/ProductCard';
+import { ProductRow } from 'widgets/ProductCard';
+import { SubscribeNews } from 'widgets/SubscribeNews';
 import { Breadcrumbs } from 'shared/ui/Breadcrumbs';
 import { Button } from 'shared/ui/Button';
-import { SubscribeNews } from 'widgets/SubscribeNews';
 
 import { ControlPanel } from './ControlPanel';
 import { PaginationBox } from './Pagination';
-
 import { Sidebar } from './Sidebar';
 
 const items = [
@@ -50,5 +49,6 @@ export const Shop = () => (
         <PaginationBox />
       </div>
     </div>
+    <SubscribeNews />
   </>
 );
