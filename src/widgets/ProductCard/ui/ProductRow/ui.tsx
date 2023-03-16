@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { BaseCard } from '../BaseCard';
+import { ProductCard } from 'entities/Product';
 
 interface IContent {
   rating: {
@@ -27,8 +27,9 @@ const Content: FC<IContent> = ({ description, rating }) => (
 
 export const ProductRow = () => (
   <>
-    <BaseCard
+    <ProductCard
       product={{
+        id: 41,
         price: { old: 1000, current: 2000 },
         name: 'Canon Cmera EOS 2000, Black 10x zoom',
         mainPhoto: { url: 'img', thumbUrl: '' },
@@ -36,7 +37,7 @@ export const ProductRow = () => (
       className={{
         image: 'w-[184px] max-h-[184px] h-full object-cover',
         title: 'w-full font-medium text-black text-base',
-        box: ' max-w-[920px] w-full flex gap-5 border border-gray-medium rounded-md p-5',
+        box: 'max-w-[920px] w-full flex gap-5 border border-gray-medium rounded-md p-5',
         price: 'font-semibold text-xl',
         content: 'flex flex-col pt-5 gap-2',
       }}>
@@ -46,6 +47,6 @@ export const ProductRow = () => (
         }
         rating={{ freeShip: true, orders: 152, rating: 7.6 }}
       />
-    </BaseCard>
+    </ProductCard>
   </>
 );

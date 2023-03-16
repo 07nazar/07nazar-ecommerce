@@ -103,6 +103,10 @@
   .title {
     @apply text-black text-2xl font-semibold;
   }
+  
+  .product-image {
+    @apply mx-auto object-cover;
+  }
 }
 
 @layer utilities {
@@ -132,6 +136,10 @@
 
   .rect-hover rect {
     @apply hover:fill-gray-dark duration-300;
+  }
+  
+  .base-border-gray {
+    @apply border border-gray-medium rounded-md px-4 py-5 bg-white;
   }
 
   .full-screen {
