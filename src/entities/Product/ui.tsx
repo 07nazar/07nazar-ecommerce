@@ -13,14 +13,16 @@ interface IProductCardClassNames {
 type IProductCardProps = {
   product: ProductType | ProductMinType;
   children?: ReactNode;
+  before?: ReactNode;
   between?: ReactNode;
   className?: IProductCardClassNames;
 };
 
-export const BaseCard: FC<IProductCardProps> = ({
+export const ProductCard: FC<IProductCardProps> = ({
   product,
   between,
   children,
+  before,
   className = {},
 }) => (
   <div className={`${className.box || ''} bg-white`}>
@@ -31,6 +33,7 @@ export const BaseCard: FC<IProductCardProps> = ({
     />
 
     <div className={className.content || ''}>
+      {before}
       <h3 className={className.title || ''}>{product.name}</h3>
       {between}
       <div className={'flex items-center gap-2'}>
