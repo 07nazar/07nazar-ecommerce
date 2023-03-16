@@ -12,23 +12,23 @@ interface IProductCardClassNames {
 
 type IProductCardProps = {
   product: ProductType | ProductMinType;
-  before?: ReactNode;
   children?: ReactNode;
+  before?: ReactNode;
   between?: ReactNode;
   className?: IProductCardClassNames;
 };
 
 export const ProductCard: FC<IProductCardProps> = ({
   product,
-  before,
   between,
   children,
+  before,
   className = {},
 }) => (
   <div className={`${className.box || ''} bg-white`}>
     <img
       src={product.mainPhoto.url}
-      className={`${className.image || ''} product-image`}
+      className={`${className.image || ''} mx-auto object-cover`}
       alt={''}
     />
 

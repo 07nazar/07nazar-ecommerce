@@ -25,7 +25,7 @@ export const PaginationBox = () => {
     menuRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
   return (
-    <div className={'self-end flex gap-2.5 items-center'} ref={menuRef}>
+    <div className={'self-end flex gap-2.5 mb-20 items-center'} ref={menuRef}>
       <Select
         className={'w-[125px] border border-gray-medium rounded-md bg-white'}
         menuClassName={'absolute top-[50px] right-0'}
