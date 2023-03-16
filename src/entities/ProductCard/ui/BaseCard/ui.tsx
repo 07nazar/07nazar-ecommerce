@@ -26,7 +26,8 @@ export const BaseCard: FC<IProductCardProps> = ({
   <div className={`${className.box || ''} bg-white`}>
     <img
       src={product.mainPhoto.url}
-      className={`${className.image || ''} mx-auto object-cover`}
+      // mx-auto
+      className={`${className.image || ''}  object-cover`}
       alt={''}
     />
 

@@ -1,0 +1,158 @@
+import { FC, useState } from 'react';
+import { BaseCard } from '../BaseCard';
+import img from 'shared/assets/dbPhotos/Electronics/image22.png';
+import { MenuItem, Select } from 'shared/ui/Select';
+import { Button } from 'shared/ui/Button';
+
+interface IContentProps {
+  params: any[];
+}
+
+const quantityItems = [
+  { id: 1, text: '1' },
+  { id: 2, text: '10' },
+  { id: 3, text: '20' },
+  { id: 4, text: '30' },
+  { id: 5, text: '40' },
+];
+
+const Content: FC<IContentProps> = ({ params }) => {
+  const [isOpen, setOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState([]);
+
+  const paramsString = params
+    .map(([key, value]: string[]) => `${key} : ${value.toLowerCase()}`)
+    .join(', ');
+
+  return (
+    <div className='flex grow justify-between items-center mb-2.5'>
+      <p className='max-w-[429px] w-full text-gray-hot'>{paramsString}</p>
+      <Select
+        className='max-w-[123px] w-full justify-center border rounded-md border-gray-deep px-2.5'
+        menuClassName='absolute top-11 left-0'
+        isOpen={isOpen}
+        selectedValue={selectedValue[0]}
+        setOpen={setOpen}
+        defaultValue='Qty: 1'>
+        {quantityItems.map(item => {
+          return (
+            <MenuItem
+              active={false}
+              key={item.id}
+              item={item}
+              setOpen={setOpen}>
+              {item.text}
+            </MenuItem>
+          );
+        })}
+      </Select>
+    </div>
+  );
+};
+
+const Buttons = () => {
+  return (
+    <div className='flex gap-2'>
+      <Button className='text-red border border-gray-medium rounded-md py-2 px-2.5 hover:bg-red hover:text-white transition-all duration-500'>
+        Remove
+      </Button>
+      <Button className='text-blue border border-gray-medium rounded-md py-2 px-2.5 hover:bg-blue hover:text-white transition-all duration-500'>
+        Save for later
+      </Button>
+    </div>
+  );
+};
+
+export const ProductCart = () => {
+  return (
+    <div className=''>
+      <BaseCard
+        className={{
+          box: 'relative flex pb-5 mb-5 border-b border-b-gray-medium',
+          price: 'absolute top-0 right-0',
+          content: 'flex flex-col justify-between grow',
+          image:
+            'border border-gray-deep bg-white w-[80px] h-[80px] p-2 mr-2.5 rounded-md',
+          title: 'max-w-[462px] w-full mb-1.5 font-medium text-black',
+        }}
+        between={
+          <Content
+            params={[
+              ['Size', 'medium'],
+              ['Color', 'blue'],
+              ['Material', 'Plastic'],
+              ['Seller', ' Artel Market'],
+            ]}
+          />
+        }
+        children={<Buttons />}
+        product={{
+          name: 'T-shirts with multiple colors, for men and lady',
+          mainPhoto: {
+            url: img,
+            thumbUrl: img,
+          },
+          price: { current: 100 },
+        }}
+      />
+      <BaseCard
+        className={{
+          box: 'relative flex pb-5 mb-5 border-b border-b-gray-medium',
+          price: 'absolute top-0 right-0',
+          content: 'flex flex-col justify-between grow',
+          image:
+            'border border-gray-deep bg-white w-[80px] h-[80px] p-2 mr-2.5 rounded-md',
+          title: 'max-w-[462px] w-full mb-1.5 font-medium text-black',
+        }}
+        between={
+          <Content
+            params={[
+              ['Size', 'medium'],
+              ['Color', 'blue'],
+              ['Material', 'Plastic'],
+              ['Seller', ' Artel Market'],
+            ]}
+          />
+        }
+        children={<Buttons />}
+        product={{
+          name: 'T-shirts with multiple colors, for men and lady',
+          mainPhoto: {
+            url: img,
+            thumbUrl: img,
+          },
+          price: { current: 100 },
+        }}
+      />
+      <BaseCard
+        className={{
+          box: 'relative flex pb-5 mb-5 border-b border-b-gray-medium',
+          price: 'absolute top-0 right-0',
+          content: 'flex flex-col justify-between grow',
+          image:
+            'border border-gray-deep bg-white w-[80px] h-[80px] p-2 mr-2.5 rounded-md',
+          title: 'max-w-[462px] w-full mb-1.5 font-medium text-black',
+        }}
+        between={
+          <Content
+            params={[
+              ['Size', 'medium'],
+              ['Color', 'blue'],
+              ['Material', 'Plastic'],
+              ['Seller', ' Artel Market'],
+            ]}
+          />
+        }
+        children={<Buttons />}
+        product={{
+          name: 'T-shirts with multiple colors, for men and lady',
+          mainPhoto: {
+            url: img,
+            thumbUrl: img,
+          },
+          price: { current: 100 },
+        }}
+      />
+    </div>
+  );
+};

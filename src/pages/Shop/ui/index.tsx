@@ -50,5 +50,7 @@ export const Shop = () => (
         <PaginationBox />
       </div>
     </div>
+
+    <SubscribeNews />
   </>
 );

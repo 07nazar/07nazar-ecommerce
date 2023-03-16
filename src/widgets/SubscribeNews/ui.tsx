@@ -13,7 +13,7 @@ export const SubscribeNews = () => {
   };
 
   return (
-    <div className={'relative py-10 '}>
+    <div className={'relative py-10'}>
       <span
         className={'-z-10 absolute inset-0 full-screen w-screen bg-gray-pale'}
       />

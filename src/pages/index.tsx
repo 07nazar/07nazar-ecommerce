@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { Cart } from './Cart';
 
 import { Home } from './Home';
 import { Layout } from './Layout';
@@ -12,6 +13,7 @@ export const Routing = () => (
       <Route index element={<Home />} />
       <Route path='shop' element={<Shop />} />
       <Route path='product/:id' element={<Product />} />
+      <Route path='cart' element={<Cart />} />
       <Route path='*' element={<NotFound />} />
     </Route>
   </Routes>
