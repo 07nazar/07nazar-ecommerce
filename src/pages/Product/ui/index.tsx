@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { ProductLiked, ProductRelated } from 'entities/ProductCard';
+import { ProductLiked, ProductRelated } from 'widgets/ProductCard';
 import { Breadcrumbs } from 'shared/ui/Breadcrumbs';
 import { DiscountBanner } from 'shared/ui/DiscountBanner';
 
@@ -24,6 +24,7 @@ const AsideLikeItems: FC = () => (
       {productsLikes.map(liked => (
         <ProductLiked
           key={liked.name}
+          id={liked.id}
           name={liked.name}
           mainPhoto={liked.mainPhoto}
           price={liked.price}
@@ -42,6 +43,7 @@ const RelatedItems: FC = () => (
       {productsRelated.map(relate => (
         <ProductRelated
           key={relate.name}
+          id={relate.id}
           name={relate.name}
           mainPhoto={relate.mainPhoto}
           price={relate.price}

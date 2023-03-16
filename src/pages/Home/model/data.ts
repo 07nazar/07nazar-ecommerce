@@ -1,4 +1,4 @@
-import { ProductMinType } from 'entities/ProductCard';
+import { ProductMinType } from 'entities/Product';
 
 import img from '../assets/phone.png';
 
