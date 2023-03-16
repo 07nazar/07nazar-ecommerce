@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import { ProductMinType, ProductType } from '../../model';
+import { ProductMinType, ProductType } from './model';
 
 interface IProductCardClassNames {
   title?: string;
@@ -26,8 +26,7 @@ export const BaseCard: FC<IProductCardProps> = ({
   <div className={`${className.box || ''} bg-white`}>
     <img
       src={product.mainPhoto.url}
-      // mx-auto
-      className={`${className.image || ''}  object-cover`}
+      className={`${className.image || ''} mx-auto object-cover`}
       alt={''}
     />
 

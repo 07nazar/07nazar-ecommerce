@@ -1,9 +1,10 @@
-import { ProductMinType } from 'entities/ProductCard';
+import { ProductMinType } from 'entities/Product';
 
 import img from '../assets/phone.png';
 
 export const products: ProductMinType[] = [
   {
+    id: 12,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Brown winter coat medium size',
     price: {
@@ -11,6 +12,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
+    id: 12,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Leather wallet',
     price: {
@@ -18,6 +20,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
+    id: 12,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'product 3',
     price: {
@@ -26,6 +29,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
+    id: 12,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'product 4',
     price: {
@@ -33,6 +37,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
+    id: 12,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'product 5',
     price: {
@@ -40,6 +45,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
+    id: 12,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'product6',
     price: {
@@ -48,6 +54,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
+    id: 12,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'product7',
     price: {
@@ -55,6 +62,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
+    id: 12,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'product88',
     price: {
@@ -62,6 +70,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
+    id: 12,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'product73',
     price: {
@@ -69,6 +78,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
+    id: 12,
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'product8841',
     price: {

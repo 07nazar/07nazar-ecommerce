@@ -8,7 +8,7 @@ import { colors } from 'shared/lib';
 import { Button } from 'shared/ui/Button';
 import { Rating } from 'shared/ui/Rating';
 
-import type { ProductType } from 'entities/ProductCard';
+import type { ProductType } from 'entities/Product';
 
 type ProductInfoType = Pick<
   ProductType,

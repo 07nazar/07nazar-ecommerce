@@ -20,8 +20,9 @@ type ProductPriceType = {
 };
 
 export type ProductType = {
+  id: number;
   name: string;
-  category: string[]; // ['phones', 'mobile']
+  category: string[]; // ['clothing', 'men's wear', 'summer wear']
   quantity: number;
   mainPhoto: ProductMainPhotoType;
   price: ProductPriceType;
@@ -37,7 +38,7 @@ export type ProductType = {
   reviews: ProductReviewType[];
   sellerId: string;
 };
-
+// shop / categoryName / category
 type Menu = {
   id: number;
   text: string;
@@ -277,6 +278,7 @@ const menus: Menu = {
     },
   ],
 };
+
 function getUrlById(obj: Menu, id: number, parentUrl = ''): string | null {
   if (!obj.children) {
     return null;
@@ -303,4 +305,7 @@ function getUrlById(obj: Menu, id: number, parentUrl = ''): string | null {
 const url = getUrlById(menus, 8);
 console.log(url);
 
-export type ProductMinType = Pick<ProductType, 'name' | 'mainPhoto' | 'price'>;
+export type ProductMinType = Pick<
+  ProductType,
+  'id' | 'name' | 'mainPhoto' | 'price'
+>;
