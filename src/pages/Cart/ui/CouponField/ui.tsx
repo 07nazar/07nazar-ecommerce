@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Button } from 'shared/ui/Button';
+import { ApplyCoupon } from 'features/ApplyCoupon';
 import { Input, InputGroup } from 'shared/ui/Input';
 
 export const CouponField: FC = () => (
@@ -11,7 +11,7 @@ export const CouponField: FC = () => (
         className={'h-full border border-gray-medium border-r-0'}
         placeholder={'Add coupon'}
       />
-      <Button className={'text-blue bg-light rounded-none'}>Apply</Button>
+      <ApplyCoupon />
     </InputGroup>
   </div>
 );

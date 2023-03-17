@@ -5,11 +5,16 @@ import { redirect } from 'react-router-dom';
 import { Button } from 'shared/ui/Button';
 
 interface AddFavouriteProps {
+  classNames?: string;
   isAuth: boolean;
   id: number;
 }
 
-export const AddFavourite: FC<AddFavouriteProps> = ({ isAuth, id }) => {
+export const AddFavourite: FC<AddFavouriteProps> = ({
+  isAuth,
+  id,
+  classNames = '',
+}) => {
   if (!isAuth) {
     redirect('/login');
   }
@@ -19,7 +24,9 @@ export const AddFavourite: FC<AddFavouriteProps> = ({ isAuth, id }) => {
   };
 
   return (
-    <Button onClick={clickHandler} className={'bg-light p-2.5 text-blue'}>
+    <Button
+      onClick={clickHandler}
+      className={`${classNames} bg-light p-2.5 text-blue`}>
       <AiOutlineHeart size={20} />
     </Button>
   );

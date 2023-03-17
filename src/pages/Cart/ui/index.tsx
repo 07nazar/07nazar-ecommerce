@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { HiOutlineArrowLeft } from 'react-icons/hi';
 
 import { ProductCart } from 'widgets/ProductCard';
+import { RemoveAllFromCart } from 'features/RemoveAllFromCart';
 import { Button } from 'shared/ui/Button';
 import { DiscountBanner } from 'shared/ui/DiscountBanner';
 
@@ -27,12 +28,8 @@ export const Cart: FC = () => (
             }>
             <HiOutlineArrowLeft /> Back to shop
           </Button>
-          <Button
-            className={
-              'border rounded-md border-gray-medium bg-white text-blue hover:bg-blue hover:text-white transition-all duration-500'
-            }>
-            Remove all
-          </Button>
+
+          <RemoveAllFromCart />
         </div>
       </div>
       <div>
