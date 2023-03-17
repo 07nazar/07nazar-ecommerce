@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { ProductCard } from 'entities/Product';
+import { AddFavourite } from 'features/AddFavourite';
 
 interface IContent {
   rating: {
@@ -34,12 +35,15 @@ export const ProductRow = () => (
         name: 'Canon Cmera EOS 2000, Black 10x zoom',
         mainPhoto: { url: 'img', thumbUrl: '' },
       }}
+      before={
+        <AddFavourite isAuth id={1} classNames='absolute top-0 right-0' />
+      }
       className={{
         image: 'w-[184px] max-h-[184px] h-full object-cover',
         title: 'w-full font-medium text-black text-base',
         box: 'max-w-[920px] w-full flex gap-5 border border-gray-medium rounded-md p-5',
         price: 'font-semibold text-xl',
-        content: 'flex flex-col pt-5 gap-2',
+        content: 'relative flex flex-col pt-5 gap-2',
       }}>
       <Content
         description={
