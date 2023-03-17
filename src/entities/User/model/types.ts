@@ -25,11 +25,17 @@ export type DeliverySellerType = {
   regions: string[]; // Массив регионов, в которые осуществляется доставка
 };
 
+export type ItemCart = {
+  id: number; // id продукта
+  quantity: number;
+};
+
 export type UserType = {
   name: string;
   photo: string;
   address?: Partial<AddressType>;
   contacts?: Partial<ContactDetailsType>;
+  cart?: ItemCart[];
 };
 
 export type SellerType = UserType & {
