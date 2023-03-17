@@ -1,4 +1,4 @@
-import type { SellerReviewType } from '../Review';
+import type { SellerReviewType } from 'entities/Review';
 
 type SocialMediaType = {
   facebook: string;

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { SellerType } from 'entities/UserCard';
+import { SellerType } from 'entities/User';
 import { Rating } from 'shared/ui/Rating';
 
 type Props = SellerType;

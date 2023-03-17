@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { ProductType } from 'entities/Product';
-import { SellerType } from 'entities/UserCard';
+import { SellerType } from 'entities/User';
 import { TabBtn, Tabs } from 'shared/ui/Tabs';
 
 import { AboutCompany } from './AboutCompany';

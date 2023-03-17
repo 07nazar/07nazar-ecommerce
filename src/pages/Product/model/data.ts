@@ -1,5 +1,5 @@
-import { ProductMinType, ProductType } from 'entities/Product';
-import { SellerType } from 'entities/UserCard';
+import type { ProductMinType, ProductType } from 'entities/Product';
+import type { SellerType } from 'entities/User';
 
 import img from '../assets/phone.png';
 
