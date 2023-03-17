@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
+import { SendInquiry } from 'features/SendInquiry';
 import { Button } from 'shared/ui/Button';
 
 import type { SellerType } from 'entities/User';
-import { SendInquiry } from 'features/SendInquiry';
 
 type SellerProps = Pick<
   SellerType,
@@ -48,7 +48,10 @@ export const SellerCard: FC<SellerProps> = ({
     </div>
     <div className={'flex flex-col gap-2'}>
       <SendInquiry />
-      <Button className={'bg-white justify-center text-blue border border-gray-medium rounded-md gap-1 hover:opacity-90 duration-300'}>
+      <Button
+        className={
+          'bg-white justify-center text-blue border border-gray-medium rounded-md gap-1 hover:opacity-90 duration-300'
+        }>
         Seller’s profile
       </Button>
     </div>
