@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { HiOutlineArrowLeft } from 'react-icons/hi';
-import { Button } from 'shared/ui/Button';
 
-import { DiscountBanner } from 'shared/ui/DiscountBanner';
 import { ProductCart } from 'widgets/ProductCard';
+import { Button } from 'shared/ui/Button';
+import { DiscountBanner } from 'shared/ui/DiscountBanner';
 
 import { CheckoutForm } from './CheckoutForm';
 import { CouponField } from './CouponField';
@@ -12,16 +12,25 @@ import { SavedProducts } from './SavedProducts';
 
 export const Cart: FC = () => (
   <>
-    <h3 className='my-6 font-semibold text-2xl text-black'>My cart (3)</h3>
+    <h3 className={'my-6 font-semibold text-2xl text-black'}>My cart (3)</h3>
     <div className={'flex gap-5 my-5 justify-between'}>
-      <div className='max-w-[880px] w-full flex flex-col shrink-0 gap-5 mb-5 p-5 border rounded-md border-gray-medium bg-white '>
+      <div
+        className={
+          'max-w-[880px] w-full flex flex-col shrink-0 gap-5 mb-5 p-5 border rounded-md border-gray-medium bg-white '
+        }>
         <ProductCart />
 
-        <div className='flex w-full justify-between'>
-          <Button className='border rounded-md border-blue bg-blue text-white flex items-center gap-4 hover:bg-white hover:text-blue transition-all duration-500'>
+        <div className={'flex w-full justify-between'}>
+          <Button
+            className={
+              'border rounded-md border-blue bg-blue text-white flex items-center gap-4 hover:bg-white hover:text-blue transition-all duration-500'
+            }>
             <HiOutlineArrowLeft /> Back to shop
           </Button>
-          <Button className='border rounded-md border-gray-medium bg-white text-blue hover:bg-blue hover:text-white transition-all duration-500'>
+          <Button
+            className={
+              'border rounded-md border-gray-medium bg-white text-blue hover:bg-blue hover:text-white transition-all duration-500'
+            }>
             Remove all
           </Button>
         </div>

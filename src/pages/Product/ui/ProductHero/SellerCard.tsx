@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Button } from 'shared/ui/Button';
 
-import type { SellerType } from 'entities/UserCard';
+import type { SellerType } from 'entities/User';
 
 type SellerProps = Pick<
   SellerType,

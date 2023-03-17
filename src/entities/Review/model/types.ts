@@ -1,4 +1,4 @@
-import type { UserType } from '../UserCard';
+import type { UserType } from 'entities/User';
 
 type ReviewType = {
   author: UserType;

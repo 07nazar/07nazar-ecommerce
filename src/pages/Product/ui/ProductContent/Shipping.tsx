@@ -1,7 +1,7 @@
 import { FC, Fragment } from 'react';
 import { FaTruck } from 'react-icons/fa';
 
-import { DeliverySellerType } from 'entities/UserCard';
+import { DeliverySellerType } from 'entities/User';
 
 export const Shipping: FC<DeliverySellerType> = ({ cost, regions }) => (
   <div className={'flex gap-1 flex-col items-center p-4 bg-white'}>
