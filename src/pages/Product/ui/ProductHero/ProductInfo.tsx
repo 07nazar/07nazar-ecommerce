@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { FcCheckmark } from 'react-icons/fc';
-import { IoMdCart } from 'react-icons/io';
 import { IoBagCheckOutline } from 'react-icons/io5';
-import { MdOutlineFavoriteBorder, MdOutlineMessage } from 'react-icons/md';
+import { MdOutlineMessage } from 'react-icons/md';
 
+import { MoveToCart } from 'features/MoveToCart';
+import { SaveForLater } from 'features/SaveForLater';
 import { colors } from 'shared/lib';
-import { Button } from 'shared/ui/Button';
 import { Rating } from 'shared/ui/Rating';
 
 import type { ProductType } from 'entities/Product';
@@ -75,12 +75,10 @@ export const ProductInfo: FC<ProductInfoType> = ({
     <RatingBlock rating={rating} reviewsCount={reviewsCount} sold={sold} />
 
     <div className={'flex items-center gap-9 mb-11'}>
-      <Button className={'bg-blue gap-1 hover:opacity-90 duration-300'}>
-        <MdOutlineFavoriteBorder size={18} /> Save for later
-      </Button>
-      <Button className={'bg-blue gap-1 hover:opacity-90 duration-300'}>
-        <IoMdCart size={18} /> Move to cart
-      </Button>
+      <SaveForLater
+        classNames={'bg-blue gap-1 hover:opacity-90 duration-300'}
+      />
+      <MoveToCart classNames={'bg-blue gap-1 hover:opacity-90 duration-300'} />
     </div>
 
     <Params params={params} />

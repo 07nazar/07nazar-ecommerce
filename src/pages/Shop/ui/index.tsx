@@ -1,6 +1,6 @@
 import { IoMdClose } from 'react-icons/io';
-
-import { ProductRow } from 'widgets/ProductCard';
+import img from '../assets/phone.png';
+import { ProductCol, ProductRow } from 'widgets/ProductCard';
 import { SubscribeNews } from 'widgets/SubscribeNews';
 import { Breadcrumbs } from 'shared/ui/Breadcrumbs';
 import { Button } from 'shared/ui/Button';
@@ -43,7 +43,14 @@ export const Shop = () => (
           ))}
           <Button className={'text-blue rounded-none'}>Clear all filter</Button>
         </div>
-        <div className={'mb-8 grid grid-cols-3 gap-5 bg-white'}>
+
+        <div className={'mb-8   {/*grid grid-cols-3 gap-5 */}  bg-white'}>
+          <ProductCol
+            mainPhoto={{ url: img, thumbUrl: img }}
+            id={2}
+            name='product'
+            price={{ current: 100, old: 100 }}
+          />
           <ProductRow />
         </div>
         <PaginationBox />

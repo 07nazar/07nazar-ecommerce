@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { AddToCart } from 'features/AddToCart';
+import { MoveToCart } from 'features/MoveToCart';
 import { ProductCard, ProductMinType } from 'entities/Product';
 
 export const ProductSaved: FC<ProductMinType> = ({
@@ -18,6 +18,12 @@ export const ProductSaved: FC<ProductMinType> = ({
       price: 'text-black font-semibold mb-2.5',
       content: 'inline-flex flex-col-reverse items-start',
     }}
-    before={<AddToCart productId={id} />}
+    before={
+      <MoveToCart
+        classNames={
+          'flex border rounded-md border-gray-medium text-blue gap-1 hover:bg-blue hover:text-white duration-300'
+        }
+      />
+    }
   />
 );
