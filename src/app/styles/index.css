@@ -107,6 +107,10 @@
   .product-image {
     @apply mx-auto object-cover;
   }
+  
+  .modal {
+    @apply bg-white p-6 rounded-lg shadow-lg;
+  }
 }
 
 @layer utilities {
