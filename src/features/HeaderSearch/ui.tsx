@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
+import { useMatchMedia } from 'shared/lib';
 import { Button } from 'shared/ui/Button';
 import { InputGroup } from 'shared/ui/Input';
 import { Search } from 'shared/ui/Search';
@@ -17,33 +18,46 @@ const items: IItem[] = [
   { id: 3, text: 'text3', subTitle: 'title3' },
 ];
 
-export const HeaderSearch = () => {
+export const HeaderSearch: FC = () => {
   const [isOpen, setOpen] = useState(false);
   const [selectedItems, setSelectedItems] = useState<IItem[]>([]);
+  const { isDesktop, isMobile } = useMatchMedia();
+
+  if (isMobile) {
+    return (
+      <Search
+        className={
+          'mt-2.5 order-3 h-[40px] bg-[#F7FAFC] border border-gray-medium grow rounded-md'
+        }
+      />
+    );
+  }
 
   return (
-    <InputGroup className={'w-[650px]'}>
+    <InputGroup className={'max-w-[650px] w-full'}>
       <Search className={'border border-blue border-r-0 grow'} />
-      <Select
-        menuClassName={''}
-        isOpen={isOpen}
-        selectedValue={selectedItems}
-        className={'border border-blue min-w-[145px]'}
-        setOpen={setOpen}
-        isPill={false}
-        defaultValue={'All categories'}>
-        {items.map(item => (
-          <MenuItem
-            active={selectedItems.includes(item)}
-            isMulti={false}
-            item={item}
-            setOpen={setOpen}
-            setSelectedItems={setSelectedItems}
-            key={item.id}>
-            <span>{item.text}</span>
-          </MenuItem>
-        ))}
-      </Select>
+      {isDesktop && (
+        <Select
+          menuClassName={''}
+          isOpen={isOpen}
+          selectedValue={selectedItems}
+          className={'border border-blue whitespace-nowrap w-36 shrink-0'}
+          setOpen={setOpen}
+          isPill={false}
+          defaultValue={'All categories'}>
+          {items.map(item => (
+            <MenuItem
+              active={selectedItems.includes(item)}
+              isMulti={false}
+              item={item}
+              setOpen={setOpen}
+              setSelectedItems={setSelectedItems}
+              key={item.id}>
+              <span>{item.text}</span>
+            </MenuItem>
+          ))}
+        </Select>
+      )}
       <Button className={'bg-primary rounded-none'}>Search</Button>
     </InputGroup>
   );
