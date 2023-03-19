@@ -9,9 +9,9 @@ type ReviewType = {
 };
 
 type ProductReviewTextType = {
-  pluses?: string;
-  minus?: string;
-  commentary: string;
+  advantages?: string;
+  disadvantages?: string;
+  comment: string;
 };
 
 export type ProductReviewType = ReviewType & {
