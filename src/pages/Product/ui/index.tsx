@@ -75,7 +75,7 @@ export const Product = () => (
         address={sellerFromServer.address}
         photo={sellerFromServer.photo}
         isVerified={sellerFromServer.isVerified}
-        isWorldwideShipping={sellerFromServer.isWorldwideShipping}
+        isWorldwideShipped={sellerFromServer.isWorldwideShipped}
       />
     </div>
     <div className={'flex items-start gap-5 mb-5'}>

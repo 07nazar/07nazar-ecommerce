@@ -8,7 +8,7 @@ import { TabBtn, Tabs } from 'shared/ui/Tabs';
 import { AboutCompany } from './AboutCompany';
 import { Description } from './Description';
 import { Reviews } from './Reviews';
-import { Shipping } from './Shipping';
+import { Shipment } from './Shipment';
 
 interface ProductContentProps {
   product: ProductType;
@@ -42,9 +42,9 @@ export const ProductContent: FC<ProductContentProps> = ({
       content: <Reviews reviews={product.reviews} />,
     },
     {
-      buttonText: 'Shipping',
+      buttonText: 'Shipment',
       content: (
-        <Shipping
+        <Shipment
           cost={seller.delivery.cost}
           regions={seller.delivery.regions}
         />

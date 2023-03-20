@@ -41,7 +41,7 @@ export type UserType = {
 export type SellerType = UserType & {
   supplierCompany: string;
   isVerified: boolean;
-  isWorldwideShipping: boolean;
+  isWorldwideShipped: boolean;
   description: string;
   delivery: DeliverySellerType;
   paymentMethods: string[]; // Массив способов оплаты

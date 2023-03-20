@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { ProductCard } from 'entities/Product';
 import { AddFavourite } from 'features/AddFavourite';
+import { ProductCard } from 'entities/Product';
 
 interface IContent {
   rating: {
@@ -17,7 +17,7 @@ const Content: FC<IContent> = ({ description, rating }) => (
     <div className={'flex items-center gap-2'}>
       <p>{rating.rating}</p>
       <p>{rating.orders} orders</p>
-      {rating.freeShip && <p> Free Shipping</p>}
+      {rating.freeShip && <p> Free Shipment</p>}
     </div>
     <p className={'text-base text-gray-dark pr-20'}>{description}</p>
     <a href={'/'} className={'text-blue'}>
@@ -36,7 +36,7 @@ export const ProductRow = () => (
         mainPhoto: { url: 'img', thumbUrl: '' },
       }}
       before={
-        <AddFavourite isAuth id={1} classNames='absolute top-0 right-0' />
+        <AddFavourite isAuth id={1} classNames={'absolute top-0 right-0'} />
       }
       className={{
         image: 'w-[184px] max-h-[184px] h-full object-cover',
