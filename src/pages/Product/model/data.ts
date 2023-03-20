@@ -54,9 +54,9 @@ export const productFromServer: ProductType = {
     {
       author: { name: 'John Smith', photo: '' },
       text: {
-        pluses: '',
-        minus: 'A bit short',
-        commentary: 'Recommended for sci-fi fans',
+        advantages: '',
+        disadvantages: 'A bit short',
+        comment: 'Recommended for sci-fi fans',
       },
       rating: 2,
       likes: 12,
@@ -66,9 +66,9 @@ export const productFromServer: ProductType = {
     {
       author: { name: 'Jane Doe', photo: '' },
       text: {
-        pluses: 'Excellent restaurant with amazing food',
-        minus: '',
-        commentary: 'Great place for special occasions',
+        advantages: 'Excellent restaurant with amazing food',
+        disadvantages: '',
+        comment: 'Great place for special occasions',
       },
       rating: 5,
       likes: 27,
@@ -78,9 +78,9 @@ export const productFromServer: ProductType = {
     {
       author: { name: 'Alex Johnson', photo: '' },
       text: {
-        pluses: 'Excellent sound quality and ease of use',
-        minus: 'Expensive',
-        commentary: 'Highly recommended for music lovers',
+        advantages: 'Excellent sound quality and ease of use',
+        disadvantages: 'Expensive',
+        comment: 'Highly recommended for music lovers',
       },
       rating: 5,
       likes: 5,
@@ -90,9 +90,9 @@ export const productFromServer: ProductType = {
     {
       author: { name: 'Emily Brown', photo: '' },
       text: {
-        pluses: 'Great work, very professionally done',
-        minus: 'Slightly delayed with deadlines',
-        commentary: 'Overall, satisfied with the result',
+        advantages: 'Great work, very professionally done',
+        disadvantages: 'Slightly delayed with deadlines',
+        comment: 'Overall, satisfied with the result',
       },
       rating: 3,
       likes: 1,
@@ -102,9 +102,9 @@ export const productFromServer: ProductType = {
     {
       author: { name: 'Mike Wilson', photo: '' },
       text: {
-        pluses: 'Great vacation, beautiful ocean view',
-        minus: 'Pool is a bit small',
-        commentary: 'Highly recommend for a peaceful and relaxing vacation',
+        advantages: 'Great vacation, beautiful ocean view',
+        disadvantages: 'Pool is a bit small',
+        comment: 'Highly recommend for a peaceful and relaxing vacation',
       },
       rating: 5,
       likes: 9,
@@ -114,9 +114,9 @@ export const productFromServer: ProductType = {
     {
       author: { name: 'Sarah Johnson', photo: '' },
       text: {
-        pluses: 'Excellent customer service',
-        minus: 'Limited product selection',
-        commentary: 'Would recommend for the quality of service',
+        advantages: 'Excellent customer service',
+        disadvantages: 'Limited product selection',
+        comment: 'Would recommend for the quality of service',
       },
       rating: 4,
       likes: 3,
@@ -126,9 +126,9 @@ export const productFromServer: ProductType = {
     {
       author: { name: 'Michael Lee', photo: '' },
       text: {
-        pluses: 'Great gym with excellent equipment',
-        minus: 'A bit crowded during peak hours',
-        commentary: 'Would recommend for serious fitness enthusiasts',
+        advantages: 'Great gym with excellent equipment',
+        disadvantages: 'A bit crowded during peak hours',
+        comment: 'Would recommend for serious fitness enthusiasts',
       },
       rating: 4,
       likes: 6,
@@ -138,9 +138,9 @@ export const productFromServer: ProductType = {
     {
       author: { name: 'Nancy Chen', photo: '' },
       text: {
-        pluses: 'Delicious food and great ambiance',
-        minus: 'Service was a bit slow',
-        commentary: 'Highly recommend for a date night',
+        advantages: 'Delicious food and great ambiance',
+        disadvantages: 'Service was a bit slow',
+        comment: 'Highly recommend for a date night',
       },
       rating: 4,
       likes: 12,
@@ -151,9 +151,9 @@ export const productFromServer: ProductType = {
       author: { name: 'David Kim', photo: '' },
 
       text: {
-        pluses: 'Great customer service and fast shipping',
-        minus: 'Product was a bit overpriced',
-        commentary: 'Overall, satisfied with the purchase',
+        advantages: 'Great customer service and fast shipping',
+        disadvantages: 'Product was a bit overpriced',
+        comment: 'Overall, satisfied with the purchase',
       },
       rating: 3,
       likes: 2,
@@ -164,9 +164,9 @@ export const productFromServer: ProductType = {
       author: { name: 'Lisa Johnson', photo: '' },
 
       text: {
-        pluses: 'Beautiful and spacious apartment',
-        minus: 'A bit noisy due to nearby construction',
-        commentary: 'Overall, a great place to live',
+        advantages: 'Beautiful and spacious apartment',
+        disadvantages: 'A bit noisy due to nearby construction',
+        comment: 'Overall, a great place to live',
       },
       rating: 4,
       likes: 8,
@@ -177,9 +177,9 @@ export const productFromServer: ProductType = {
       author: { name: 'Jane Johnson', photo: '' },
 
       text: {
-        pluses: 'Excellent restaurant with amazing food',
-        minus: 'Prices are a bit higher than average',
-        commentary: 'Great place for special occasions',
+        advantages: 'Excellent restaurant with amazing food',
+        disadvantages: 'Prices are a bit higher than average',
+        comment: 'Great place for special occasions',
       },
       rating: 5,
       likes: 27,
@@ -190,9 +190,9 @@ export const productFromServer: ProductType = {
       author: { name: 'Alex Johnsond', photo: '' },
 
       text: {
-        pluses: 'Excellent sound quality and ease of use',
-        minus: 'Expensive',
-        commentary: 'Highly recommended for music lovers',
+        advantages: 'Excellent sound quality and ease of use',
+        disadvantages: 'Expensive',
+        comment: 'Highly recommended for music lovers',
       },
       rating: 5,
       likes: 5,
