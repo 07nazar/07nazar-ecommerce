@@ -10,7 +10,7 @@ type SellerProps = Pick<
   | 'address'
   | 'photo'
   | 'isVerified'
-  | 'isWorldwideShipping'
+  | 'isWorldwideShipped'
   | 'name'
   | 'supplierCompany'
 >;
@@ -19,7 +19,7 @@ export const SellerCard: FC<SellerProps> = ({
   address,
   photo,
   isVerified,
-  isWorldwideShipping,
+  isWorldwideShipped,
   name,
   supplierCompany,
 }) => (
@@ -43,7 +43,7 @@ export const SellerCard: FC<SellerProps> = ({
       </p>
       <p>{isVerified ? 'Verified Seller' : 'Not Verified Seller'}</p>
       <p>
-        {isWorldwideShipping ? 'Worldwide shipping' : 'Not Worldwide shipping'}
+        {isWorldwideShipped ? 'Worldwide shipment' : 'Not Worldwide shipment'}
       </p>
     </div>
     <div className={'flex flex-col gap-2'}>

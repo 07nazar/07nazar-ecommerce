@@ -27,7 +27,7 @@ const services = [
     to: '/',
     img: fastAir,
     icon: <MdOutlineSend size={20} />,
-    title: 'Fast, reliable shipping by ocean or air',
+    title: 'Fast, reliable shipment by ocean or air',
   },
   {
     to: '/',

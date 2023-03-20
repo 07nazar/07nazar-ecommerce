@@ -35,7 +35,7 @@ const footerLinks = [
     links: [
       { text: 'Help Center', to: '/help-center' },
       { text: 'Money Refund', to: '/money-refund' },
-      { text: 'Shipping', to: '/shipping' },
+      { text: 'Shipment', to: '/shipment' },
       { text: 'Contact us', to: '/contact-us' },
     ],
   },

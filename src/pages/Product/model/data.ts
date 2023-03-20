@@ -151,7 +151,7 @@ export const productFromServer: ProductType = {
       author: { name: 'David Kim', photo: '' },
 
       text: {
-        advantages: 'Great customer service and fast shipping',
+        advantages: 'Great customer service and fast shipment',
         disadvantages: 'Product was a bit overpriced',
         comment: 'Overall, satisfied with the purchase',
       },
@@ -206,7 +206,7 @@ export const productFromServer: ProductType = {
 export const sellerFromServer: SellerType = {
   supplierCompany: 'Guanjoi Trading LLC',
   isVerified: true,
-  isWorldwideShipping: true,
+  isWorldwideShipped: true,
   name: 'Seller name',
   photo: img,
   description:
