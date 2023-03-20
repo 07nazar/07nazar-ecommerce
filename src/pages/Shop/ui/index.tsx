@@ -1,9 +1,11 @@
 import { IoMdClose } from 'react-icons/io';
-import img from '../assets/phone.png';
+
 import { ProductCol, ProductRow } from 'widgets/ProductCard';
 import { SubscribeNews } from 'widgets/SubscribeNews';
 import { Breadcrumbs } from 'shared/ui/Breadcrumbs';
 import { Button } from 'shared/ui/Button';
+
+import img from '../assets/phone.png';
 
 import { ControlPanel } from './ControlPanel';
 import { PaginationBox } from './Pagination';
@@ -48,7 +50,7 @@ export const Shop = () => (
           <ProductCol
             mainPhoto={{ url: img, thumbUrl: img }}
             id={2}
-            name='product'
+            name={'product'}
             price={{ current: 100, old: 100 }}
           />
           <ProductRow />
