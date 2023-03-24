@@ -11,7 +11,7 @@ import { AppLink } from 'shared/ui/AppLink';
 import { countries } from './model';
 
 export const RegionSuppliers: FC = () => (
-  <>
+  <div className={'my-8 lg:my-6 md:my-4'}>
     <h3 className={'title mb-6 sm:text-center z-10'}>Suppliers by region</h3>
     <Swiper
       slidesPerView={'auto'}
@@ -37,5 +37,5 @@ export const RegionSuppliers: FC = () => (
         </SwiperSlide>
       ))}
     </Swiper>
-  </>
+  </div>
 );
