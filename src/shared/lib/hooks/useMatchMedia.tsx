@@ -8,7 +8,7 @@ type MatchMediaValues = {
 
 const queries = [
   '(max-width: 480px)',
-  '(max-width: 768px)',
+  '(min-width: 481px) and (max-width: 768px)',
   '(min-width: 769px)',
 ];
 
