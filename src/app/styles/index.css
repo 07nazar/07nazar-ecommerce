@@ -101,7 +101,7 @@
   }
 
   .title {
-    @apply text-black text-2xl font-semibold;
+    @apply text-black text-2xl font-semibold md:text-xl sm:px-5;
   }
   
   .product-image {
