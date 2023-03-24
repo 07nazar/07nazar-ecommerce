@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Button } from 'shared/ui/Button';
 
 type SendInquiryProps = {
-  className: string;
+  className?: string;
 };
 
 export const SendInquiry: FC<SendInquiryProps> = ({ className }) => (
