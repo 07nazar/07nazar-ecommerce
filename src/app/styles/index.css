@@ -149,6 +149,10 @@
   .full-screen {
     margin-left: calc(50% - 50vw);
   }
+  
+  .slide-w-auto {
+    width: auto !important;
+  }
 }
 
 
