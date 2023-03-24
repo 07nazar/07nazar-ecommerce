@@ -48,17 +48,6 @@ const Content: FC<IContentProps> = ({ params }) => {
   );
 };
 
-const Buttons = () => (
-  <div className={'flex gap-2'}>
-    <RemoveProduct />
-    <SaveForLater
-      classNames={
-        'bg-white text-blue border rounded-md border-gray-medium gap-1 hover:bg-blue hover:text-white duration-300'
-      }
-    />
-  </div>
-);
-
 export const ProductCart = () => (
   <ProductCard
     className={{
@@ -88,6 +77,11 @@ export const ProductCart = () => (
       },
       price: { current: 100 },
     }}>
-    <Buttons />
+    <div className={'flex gap-2'}>
+      <RemoveProduct />
+      <SaveForLater
+        className={'text-blue bg-light hover:bg-blue hover:text-white'}
+      />
+    </div>
   </ProductCard>
 );
