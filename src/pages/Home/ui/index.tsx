@@ -26,9 +26,7 @@ export const Home = () => (
     <SendSuppliers />
     <RecommendedItems />
     <ExtraServices />
-    <div className={'my-8'}>
-      <RegionSuppliers />
-    </div>
+    <RegionSuppliers />
     <SubscribeNews />
   </>
 );

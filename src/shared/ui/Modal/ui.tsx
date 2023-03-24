@@ -87,7 +87,7 @@ export const Modal: FC<ModalProps> = ({
       </animated.div>
       <animated.div
         style={{ opacity }}
-        className={`fixed inset-0 ${isOpen ? 'visible' : 'invisible'}`}>
+        className={`fixed inset-0 ${isOpen ? 'visible' : 'invisible'} z-30`}>
         <div className={`h-full w-full`} style={{ backgroundColor }} />
       </animated.div>
     </>,

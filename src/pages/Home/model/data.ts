@@ -22,7 +22,7 @@ export const products: ProductMinType[] = [
   {
     id: 12,
     mainPhoto: { url: img, thumbUrl: '' },
-    name: 'product 3',
+    name: 'Brown winter coat medium size 2',
     price: {
       current: 22.35,
       old: 25,
@@ -31,7 +31,7 @@ export const products: ProductMinType[] = [
   {
     id: 12,
     mainPhoto: { url: img, thumbUrl: '' },
-    name: 'product 4',
+    name: 'Brown winter coat medium size 4',
     price: {
       current: 51.34,
     },
@@ -39,7 +39,7 @@ export const products: ProductMinType[] = [
   {
     id: 12,
     mainPhoto: { url: img, thumbUrl: '' },
-    name: 'product 5',
+    name: 'Brown winter coat medium size 5',
     price: {
       current: 518.32,
     },

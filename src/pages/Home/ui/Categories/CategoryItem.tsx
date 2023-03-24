@@ -13,15 +13,15 @@ export const CategoryItem: FC<CategoryItemProps> = ({
   title,
   className,
 }) => (
-  <div className={`py-5 px-4 ${className}`}>
-    <h6 className={'leading-5'}>{title}</h6>
-    <div className={'flex flex-nowrap justify-between'}>
-      <p className={'mt-2 text-xs text-gray-hot'}>
-        From <br /> <span className={'whitespace-nowrap'}> USD {price}</span>
+  <div
+    className={`flex flex-col sm:flex-col-reverse max-w-[225px] py-5 md:py-3 px-4 ${className}`}>
+    <h6 className={'leading-5 sm:text-center'}>{title}</h6>
+    <div className={'flex sm:flex-col-reverse  justify-between'}>
+      <p className={'w-full mt-2 text-xs text-gray-hot sm:text-center'}>
+        <span className={'block sm:inline-block '}>From</span> USD {price}
       </p>
-
       <img
-        className={'max-w-[75px] max-h-[75px] object-contain'}
+        className={'sm:mx-auto max-w-[75px] max-h-[75px] object-contain'}
         src={image}
         alt={'category'}
       />

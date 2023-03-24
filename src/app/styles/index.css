@@ -101,7 +101,7 @@
   }
 
   .title {
-    @apply text-black text-2xl font-semibold;
+    @apply text-black text-2xl font-semibold md:text-xl sm:px-5;
   }
   
   .product-image {
@@ -148,5 +148,27 @@
 
   .full-screen {
     margin-left: calc(50% - 50vw);
+  }
+  
+  .slide-w-auto {
+    width: auto !important;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0;
+  }
+  
+  .swiper {
+    padding-left: 5px !important;
   }
 }
