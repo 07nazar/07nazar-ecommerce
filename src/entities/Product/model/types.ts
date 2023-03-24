@@ -9,7 +9,7 @@ type ProductAdditionalPhotoType = {
   url: string;
 };
 
-type ProductSpecificationType = {
+export type ProductSpecificationType = {
   name: string;
   value: string;
 };

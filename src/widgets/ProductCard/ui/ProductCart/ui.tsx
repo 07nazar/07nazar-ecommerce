@@ -1,13 +1,16 @@
-import { FC, useState } from 'react';
+import { FC, useMemo, useState } from 'react';
 
 import { RemoveProduct } from 'features/RemoveProduct';
 import { SaveForLater } from 'features/SaveForLater';
-import { ProductCard } from 'entities/Product';
+import { ProductCard, ProductSpecificationType } from 'entities/Product';
 import img from 'shared/assets/dbPhotos/Electronics/image22.png';
 import { MenuItem, Select } from 'shared/ui/Select';
 
+import { capitalize } from '../../lib';
+
 interface IContentProps {
-  params: any[];
+  params: ProductSpecificationType[];
+  sellerName: string;
 }
 
 const quantityItems = [
@@ -18,17 +21,30 @@ const quantityItems = [
   { id: 5, text: '40' },
 ];
 
-const Content: FC<IContentProps> = ({ params }) => {
+const Content: FC<IContentProps> = ({ params, sellerName }) => {
   const [isOpen, setOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState([]);
 
-  const paramsString = params
-    .map(([key, value]: string[]) => `${key} : ${value.toLowerCase()}`)
-    .join(', ');
+  // Todo Доделать выбор кол-ва товара
+
+  const paramsString = useMemo(() => {
+    let result = '';
+    params.forEach(({ name, value }: ProductSpecificationType, index) => {
+      if (index === 0) {
+        result += `${capitalize(name)}: ${value.toLowerCase()}`;
+      } else {
+        result += `, ${name.toLowerCase()}: ${value.toLowerCase()}`;
+      }
+    });
+    return result;
+  }, [params]);
 
   return (
     <div className={'flex grow justify-between items-center mb-2.5'}>
-      <p className={'max-w-[429px] w-full text-gray-hot'}>{paramsString}</p>
+      <div className={'flex flex-col text-gray-hot'}>
+        <p className={'max-w-[429px] w-full'}>{paramsString}</p>
+        <p>Seller: {sellerName}</p>
+      </div>
       <Select
         className={
           'max-w-[123px] w-full justify-center border rounded-md border-gray-deep px-2.5'
@@ -61,11 +77,11 @@ export const ProductCart = () => (
     between={
       <Content
         params={[
-          ['Size', 'medium'],
-          ['Color', 'blue'],
-          ['Material', 'Plastic'],
-          ['Seller', ' Artel Market'],
+          { name: 'Size', value: 'medium' },
+          { name: 'Color', value: 'blue' },
+          { name: 'Material', value: 'Plastic' },
         ]}
+        sellerName={'Artel Market'}
       />
     }
     product={{
