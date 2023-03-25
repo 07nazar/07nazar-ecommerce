@@ -94,7 +94,7 @@ export const ProductCart = () => (
       price: { current: 100 },
     }}>
     <div className={'flex gap-2'}>
-      <RemoveProduct />
+      <RemoveProduct productId={1} />
       <SaveForLater
         className={'text-blue bg-light hover:bg-blue hover:text-white'}
       />
