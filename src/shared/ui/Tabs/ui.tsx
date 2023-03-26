@@ -46,7 +46,7 @@ export const TabBtn: FC<ITabBtnProps> = ({
   const nonActiveTextStyles = isPill ? 'text-gray-dark' : 'text-gray-hot';
   const activeTextStyles = isPill ? 'bg-lightblue text-black' : 'text-blue';
 
-  const buttonStyles = `p-2.5 whitespace-nowrap rounded-md ${
+  const buttonStyles = `p-2.5 lg:p-1.5 whitespace-nowrap rounded-md ${
     isActive ? activeTextStyles : nonActiveTextStyles
   }`;
   const borderStyles =

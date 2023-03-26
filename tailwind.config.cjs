@@ -32,7 +32,7 @@ module.exports = {
       },
     },
     screens: {
-      xl: { max: '1200px'},
+      xl: { max: '1220px' },
       lg: { max: '992px' },
       md: { max: '768px' },
       sm: { max: '480px' },
@@ -57,4 +57,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};
