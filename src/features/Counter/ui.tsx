@@ -1,46 +1,60 @@
-import { FC, useState, SyntheticEvent, ChangeEvent } from 'react';
+import { FC, useState, ChangeEvent, useEffect } from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
-import { Button } from '../../shared/ui/Button';
-import { Input, InputGroup } from '../../shared/ui/Input';
+import { Button } from 'shared/ui/Button';
+import { Input, InputGroup } from 'shared/ui/Input';
 
-export const Counter: FC = () => {
-  const [count, setCount] = useState(1);
+type CounterProps = {
+  value: number;
+  setValue: (prev: number) => void;
+};
+
+export const Counter: FC<CounterProps> = ({ value, setValue }) => {
+  const [count, setCount] = useState(value);
 
   const changeCountHandler = (e: ChangeEvent<HTMLInputElement>) => {
     if (Number.isNaN(+e.target.value)) return;
 
-    setCount(() => +e.target.value);
+    setCount(+e.target.value);
   };
 
-  const onClickPlus = (e: SyntheticEvent) => {
-    e.preventDefault();
+  const onClickPlus = () => {
     setCount(prev => prev + 1);
   };
-  const onClickMinus = (e: SyntheticEvent) => {
-    e.preventDefault();
-    if (count - 1 < 1) return;
-
+  const onClickMinus = () => {
     setCount(prev => prev - 1);
   };
 
+  useEffect(() => {
+    setValue(count);
+  }, [count]);
+
   return (
-    <InputGroup className={'max-w-[150px] mt-10'}>
+    <InputGroup
+      className={
+        'max-w-[150px] border border-gray-medium rounded-md items-center mt-10'
+      }>
       <Button
-        disabled={count === 1 && true}
-        className={'bg-light'}
+        disabled={value === 0 && true}
+        className={
+          'w-10 p-2 text-gray-hot h-full items-center justify-center border-r border-gray-medium rounded-none'
+        }
         onClick={onClickMinus}>
         <AiOutlineMinus />
       </Button>
 
       <Input
-        placeholder={'0'}
-        className={'text-center font-medium '}
-        value={count}
+        placeholder={value.toString()}
+        className={'text-center text-black font-medium'}
+        value={value}
         onChange={changeCountHandler}
       />
 
-      <Button className={'bg-light'} onClick={onClickPlus}>
+      <Button
+        className={
+          'w-10 p-2 text-gray-hot h-full items-center justify-center border-l border-gray-medium rounded-none'
+        }
+        onClick={onClickPlus}>
         <AiOutlinePlus />
       </Button>
     </InputGroup>
