@@ -43,3 +43,8 @@ export type ProductMinType = Pick<
   ProductType,
   'id' | 'name' | 'mainPhoto' | 'price'
 >;
+
+export type ProductInCartType = Pick<
+  ProductType,
+  'id' | 'name' | 'mainPhoto' | 'price' | 'params' | 'sellerId'
+>;
