@@ -85,7 +85,7 @@
   }
 
   .timerItem {
-    @apply flex flex-col items-center bg-[#606060] w-[45px] h-[50px] rounded-md;
+    @apply flex flex-col items-center bg-[#606060] w-[45px] h-[50px] rounded-md lg:text-xs xl:w-[35px] xl:h-[40px] md:w-[35px] sm:w-[30px] sm:h-[35px] sm:text-[11px];
   }
 
   .formInput {
@@ -103,7 +103,7 @@
   .title {
     @apply text-black text-2xl font-semibold;
   }
-  
+
   .product-image {
     @apply mx-auto object-cover;
   }
@@ -137,7 +137,7 @@
   .rect-hover rect {
     @apply hover:fill-gray-dark duration-300;
   }
-  
+
   .base-border-gray {
     @apply border border-gray-medium rounded-md px-4 py-5 bg-white;
   }
