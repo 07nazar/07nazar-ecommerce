@@ -34,7 +34,7 @@ export const Search: FC<SearchProps> = ({ className }) => {
     <div className={`${className} relative flex items-center`}>
       <div
         className={
-          'absolute top-1/2 translate-y-[-50%] left-[11px] z-10 pointer-events-none'
+          'absolute top-1/2 translate-y-[-50%] left-[11px] pointer-events-none'
         }>
         <AiOutlineSearch color={colors.gray.hot} />
       </div>
@@ -43,7 +43,9 @@ export const Search: FC<SearchProps> = ({ className }) => {
         placeholder={'Search'}
         value={value}
         onChange={onChangeHandler}
-        className={'pl-9 pr-6 focus:border-blue transition-all'}
+        className={
+          'pl-9 pr-6 focus:border-blue transition-all bg-[transparent]'
+        }
       />
 
       <animated.button

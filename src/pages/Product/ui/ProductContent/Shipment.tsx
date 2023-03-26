@@ -1,23 +1,23 @@
 import { FC, Fragment } from 'react';
 import { FaTruck } from 'react-icons/fa';
 
-import { DeliverySellerType } from 'entities/UserCard';
+import { DeliverySellerType } from 'entities/User';
 
-export const Shipping: FC<DeliverySellerType> = ({ cost, regions }) => (
+export const Shipment: FC<DeliverySellerType> = ({ cost, regions }) => (
   <div className={'flex gap-1 flex-col items-center p-4 bg-white'}>
     <FaTruck className={'w-12 h-12 mb-4 text-gray-dark'} />
     <h3 className={'text-lg font-medium text-gray-dark'}>
-      Shipping Information
+      Shipment Information
     </h3>
     <p className={'text-gray-hot'}>
       Estimated Delivery:
       <span className={'font-medium'}>2-7 days</span>
     </p>
     <p className={'text-gray-hot'}>
-      Shipping Cost: <span className={'font-medium'}>{cost} $</span>
+      Shipment Cost: <span className={'font-medium'}>{cost} $</span>
     </p>
     <p className={'text-gray-hot'}>
-      Shipping regions:
+      Shipment regions:
       {regions.map((region, index) => (
         <Fragment key={region}>
           {region}

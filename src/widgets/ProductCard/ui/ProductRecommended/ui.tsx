@@ -13,9 +13,9 @@ export const ProductRecommended: FC<ProductMinType> = ({
     className={{
       box: 'border border-gray-medium rounded-md',
       image: 'max-h-[200px]',
-      content: 'flex flex-col-reverse p-4',
-      price: 'text-black font-medium mb-1',
-      title: 'text-gray-hot',
+      content: 'flex flex-col-reverse p-4 md:p-2.5',
+      price: 'text-black font-medium mb-1 sm:mb-0.5',
+      title: 'text-gray-hot sm:text-sm',
     }}
   />
 );

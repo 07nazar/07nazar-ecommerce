@@ -20,12 +20,12 @@ export const Review: FC<ProductReviewType> = ({
       <span>{rating}</span>
     </p>
     <div>
-      <h6 className={'text-lg font-medium mb-1 mt-3'}>Pluses</h6>
-      <p>{text.pluses || '-'}</p>
-      <h6 className={'text-lg font-medium mb-1 mt-3'}>Minuses</h6>
-      <p>{text.minus || '-'}</p>
-      <h6 className={'text-lg font-medium mb-1 mt-3'}>Commentary</h6>
-      <p>{text.commentary}</p>
+      <h6 className={'text-lg font-medium mb-1 mt-3'}>Advantages</h6>
+      <p>{text.advantages || '-'}</p>
+      <h6 className={'text-lg font-medium mb-1 mt-3'}>Disadvantages</h6>
+      <p>{text.disadvantages || '-'}</p>
+      <h6 className={'text-lg font-medium mb-1 mt-3'}>Comment</h6>
+      <p>{text.comment}</p>
     </div>
     <div className={'flex'}>
       <Button className={'flex text-gray-hot px-0 py-1 items-center mr-3'}>

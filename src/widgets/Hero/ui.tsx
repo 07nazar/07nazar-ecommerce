@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { UserCard } from 'entities/UserCard';
+import { UserCard } from 'entities/User';
 import { AppLink } from 'shared/ui/AppLink';
 import { Button } from 'shared/ui/Button';
 import { Tabs, TabBtn } from 'shared/ui/Tabs';

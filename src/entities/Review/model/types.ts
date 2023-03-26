@@ -1,4 +1,4 @@
-import type { UserType } from '../UserCard';
+import type { UserType } from 'entities/User';
 
 type ReviewType = {
   author: UserType;
@@ -9,9 +9,9 @@ type ReviewType = {
 };
 
 type ProductReviewTextType = {
-  pluses?: string;
-  minus?: string;
-  commentary: string;
+  advantages?: string;
+  disadvantages?: string;
+  comment: string;
 };
 
 export type ProductReviewType = ReviewType & {

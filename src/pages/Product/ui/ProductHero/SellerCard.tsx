@@ -1,16 +1,16 @@
 import { FC } from 'react';
 
+import { SendInquiry } from 'features/SendInquiry';
 import { Button } from 'shared/ui/Button';
 
-import type { SellerType } from 'entities/UserCard';
-import { SendInquiry } from 'features/SendInquiry';
+import type { SellerType } from 'entities/User';
 
 type SellerProps = Pick<
   SellerType,
   | 'address'
   | 'photo'
   | 'isVerified'
-  | 'isWorldwideShipping'
+  | 'isWorldwideShipped'
   | 'name'
   | 'supplierCompany'
 >;
@@ -19,7 +19,7 @@ export const SellerCard: FC<SellerProps> = ({
   address,
   photo,
   isVerified,
-  isWorldwideShipping,
+  isWorldwideShipped,
   name,
   supplierCompany,
 }) => (
@@ -43,12 +43,15 @@ export const SellerCard: FC<SellerProps> = ({
       </p>
       <p>{isVerified ? 'Verified Seller' : 'Not Verified Seller'}</p>
       <p>
-        {isWorldwideShipping ? 'Worldwide shipping' : 'Not Worldwide shipping'}
+        {isWorldwideShipped ? 'Worldwide shipment' : 'Not Worldwide shipment'}
       </p>
     </div>
     <div className={'flex flex-col gap-2'}>
       <SendInquiry />
-      <Button className='bg-white justify-center text-blue border border-gray-medium rounded-md gap-1 hover:opacity-90 duration-300'>
+      <Button
+        className={
+          'bg-white justify-center text-blue border border-gray-medium rounded-md gap-1 hover:opacity-90 duration-300'
+        }>
         Seller’s profile
       </Button>
     </div>

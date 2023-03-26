@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { FC, ReactNode, useState } from 'react';
 
-import { Button } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
 import { MenuItem, Select } from 'shared/ui/Select';
 
@@ -19,7 +18,11 @@ const selectItems: IItem[] = [
   { id: 312412, text: 'centners', subTitle: 'title3' },
 ];
 
-export const RequestsForm = () => {
+type RequestFormProps = {
+  button: ReactNode;
+};
+
+export const RequestsForm: FC<RequestFormProps> = ({ button }) => {
   const [{ firstInput, textField, quantity }, setInputValue] = useState({
     firstInput: '',
     textField: '',
@@ -35,7 +38,7 @@ export const RequestsForm = () => {
   return (
     <form
       className={
-        'w-[491px] h-[346px] flex flex-col gap-5 justify-between p-5 bg-white rounded-md'
+        'max-w-[491px] w-full h-[346px] flex flex-col gap-5 justify-between p-5 bg-white rounded-md'
       }>
       <h3 className={'font-medium text-xl text-black'}>
         Send quote to suppliers
@@ -82,12 +85,7 @@ export const RequestsForm = () => {
           ))}
         </Select>
       </div>
-
-      <Button className={'bg-primary max-w-[128px] w-full'}>
-        Send inquiry
-      </Button>
+      {button}
     </form>
   );
 };
-
-// 1 / 2 / 3 / product

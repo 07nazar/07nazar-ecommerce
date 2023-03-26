@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
+import { CartType } from 'entities/Cart';
 import { Button } from 'shared/ui/Button';
 
-import { CartType } from '../../../Product/model/types';
 import payment1 from '../../assets/payment-1.png';
 import payment2 from '../../assets/payment-2.png';
 import payment3 from '../../assets/payment-3.png';

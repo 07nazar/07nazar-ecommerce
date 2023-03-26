@@ -1,4 +1,4 @@
-import type { SellerReviewType } from '../Review';
+import type { SellerReviewType } from 'entities/Review';
 
 type SocialMediaType = {
   facebook: string;
@@ -25,17 +25,23 @@ export type DeliverySellerType = {
   regions: string[]; // Массив регионов, в которые осуществляется доставка
 };
 
+export type ItemCart = {
+  id: number; // id продукта
+  quantity: number;
+};
+
 export type UserType = {
   name: string;
   photo: string;
   address?: Partial<AddressType>;
   contacts?: Partial<ContactDetailsType>;
+  cart?: ItemCart[];
 };
 
 export type SellerType = UserType & {
   supplierCompany: string;
   isVerified: boolean;
-  isWorldwideShipping: boolean;
+  isWorldwideShipped: boolean;
   description: string;
   delivery: DeliverySellerType;
   paymentMethods: string[]; // Массив способов оплаты

@@ -1,9 +1,13 @@
+import { FC } from 'react';
+
 import { Button } from 'shared/ui/Button';
 
-export const SendInquiry = () => {
-  return (
-    <Button className='justify-center bg-blue gap-1 hover:opacity-90 duration-300'>
-      Send inquiry
-    </Button>
-  );
+type SendInquiryProps = {
+  className?: string;
 };
+
+export const SendInquiry: FC<SendInquiryProps> = ({ className }) => (
+  <Button className={`${className || ''} justify-center bg-primary`}>
+    Send inquiry
+  </Button>
+);

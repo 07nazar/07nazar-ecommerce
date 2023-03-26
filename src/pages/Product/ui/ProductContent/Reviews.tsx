@@ -95,7 +95,7 @@ export const Reviews: FC<RatingProps> = ({ reviews }) => {
         <div className={'flex flex-col'}>
           {reviews.map(review => (
             <Review
-              key={review.author.name + review.text.commentary.length}
+              key={review.author.name + review.text.comment.length}
               author={review.author}
               text={review.text}
               rating={review.rating}
