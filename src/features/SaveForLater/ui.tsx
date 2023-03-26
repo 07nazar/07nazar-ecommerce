@@ -4,11 +4,11 @@ import { MdOutlineFavoriteBorder } from 'react-icons/md';
 import { Button } from 'shared/ui/Button';
 
 interface ISaveForLaterProps {
-  classNames?: string;
+  className?: string;
 }
 
-export const SaveForLater: FC<ISaveForLaterProps> = ({ classNames = '' }) => (
-  <Button className={`${classNames}`}>
+export const SaveForLater: FC<ISaveForLaterProps> = ({ className = '' }) => (
+  <Button className={`${className || ''} gap-1 duration-300`}>
     <MdOutlineFavoriteBorder size={18} /> Save for later
   </Button>
 );

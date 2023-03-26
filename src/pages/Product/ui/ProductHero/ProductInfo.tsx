@@ -75,9 +75,7 @@ export const ProductInfo: FC<ProductInfoType> = ({
     <RatingBlock rating={rating} reviewsCount={reviewsCount} sold={sold} />
 
     <div className={'flex items-center gap-9 mb-11'}>
-      <SaveForLater
-        classNames={'bg-blue gap-1 hover:opacity-90 duration-300'}
-      />
+      <SaveForLater className={'bg-blue hover:opacity-90'} />
       <MoveToCart classNames={'bg-blue gap-1 hover:opacity-90 duration-300'} />
     </div>
 

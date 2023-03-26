@@ -9,7 +9,7 @@ type ProductAdditionalPhotoType = {
   url: string;
 };
 
-type ProductSpecificationType = {
+export type ProductSpecificationType = {
   name: string;
   value: string;
 };
@@ -42,4 +42,9 @@ export type ProductType = {
 export type ProductMinType = Pick<
   ProductType,
   'id' | 'name' | 'mainPhoto' | 'price'
+>;
+
+export type ProductInCartType = Pick<
+  ProductType,
+  'id' | 'name' | 'mainPhoto' | 'price' | 'params' | 'sellerId'
 >;

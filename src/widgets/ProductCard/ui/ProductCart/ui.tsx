@@ -1,16 +1,31 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 
+import { Counter } from 'features/Counter';
 import { RemoveProduct } from 'features/RemoveProduct';
 import { SaveForLater } from 'features/SaveForLater';
-import { ProductCard } from 'entities/Product';
+import {
+  ProductCard,
+  ProductInCartType,
+  ProductSpecificationType,
+} from 'entities/Product';
 import img from 'shared/assets/dbPhotos/Electronics/image22.png';
+import { useMatchMedia } from 'shared/lib';
 import { MenuItem, Select } from 'shared/ui/Select';
 
+import { capitalize } from '../../lib';
+
 interface IContentProps {
-  params: any[];
+  params: ProductSpecificationType[];
+  sellerId: string;
 }
 
-const quantityItems = [
+type ItemDropdown = {
+  id: number;
+  text: string;
+  subTitle?: string;
+};
+
+const quantityItems: ItemDropdown[] = [
   { id: 1, text: '1' },
   { id: 2, text: '10' },
   { id: 3, text: '20' },
@@ -18,76 +33,187 @@ const quantityItems = [
   { id: 5, text: '40' },
 ];
 
-const Content: FC<IContentProps> = ({ params }) => {
+const Content: FC<IContentProps> = ({ params, sellerId }) => {
+  const { isDesktop } = useMatchMedia();
   const [isOpen, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState([]);
+  const [selectedValue, setSelectedValue] = useState<ItemDropdown[]>([]);
 
-  const paramsString = params
-    .map(([key, value]: string[]) => `${key} : ${value.toLowerCase()}`)
-    .join(', ');
+  // Todo Доделать выбор кол-ва товара
+
+  const paramsElements = useMemo(
+    () =>
+      params.map(({ name, value }: ProductSpecificationType, index) => (
+        <span className={'inline-block mr-0.5'} key={name}>
+          {index === 0 ? capitalize(name) : name}: {value.toLowerCase()}
+          {index !== params.length - 1 && ', '}
+        </span>
+      )),
+    [params]
+  );
 
   return (
     <div className={'flex grow justify-between items-center mb-2.5'}>
-      <p className={'max-w-[429px] w-full text-gray-hot'}>{paramsString}</p>
-      <Select
-        className={
-          'max-w-[123px] w-full justify-center border rounded-md border-gray-deep px-2.5'
-        }
-        menuClassName={'absolute top-11 left-0'}
-        isOpen={isOpen}
-        selectedValue={selectedValue[0]}
-        setOpen={setOpen}
-        defaultValue={'Qty: 1'}>
-        {quantityItems.map(item => (
-          <MenuItem active={false} key={item.id} item={item} setOpen={setOpen}>
-            {item.text}
-          </MenuItem>
-        ))}
-      </Select>
+      <div
+        className={'flex flex-col text-gray-hot sm:text-xs sm:leading-[19px]'}>
+        <p className={'max-w-[429px] w-full'}>{paramsElements}</p>
+        <p>Seller: {sellerId}</p>
+      </div>
+      {!isDesktop && (
+        <div className={'absolute top-0 right-0'}>
+          {/* mobile 3 dots select */}
+        </div>
+      )}
+      {isDesktop && (
+        <Select
+          className={
+            'max-w-[123px] w-full justify-center border rounded-md border-gray-deep px-2.5'
+          }
+          menuClassName={'absolute top-11 left-0'}
+          isOpen={isOpen}
+          selectedValue={selectedValue}
+          setOpen={setOpen}
+          defaultValue={'Qty: 1'}>
+          {quantityItems.map(item => (
+            <MenuItem
+              setSelectedItems={setSelectedValue}
+              active={false}
+              key={item.id}
+              item={item}
+              setOpen={setOpen}>
+              {item.text}
+            </MenuItem>
+          ))}
+        </Select>
+      )}
     </div>
   );
 };
 
-const Buttons = () => (
-  <div className={'flex gap-2'}>
-    <RemoveProduct />
-    <SaveForLater
-      classNames={
-        'bg-white text-blue border rounded-md border-gray-medium gap-1 hover:bg-blue hover:text-white duration-300'
-      }
-    />
-  </div>
-);
+type ProductCartType = {
+  product: ProductInCartType;
+  quantity: number;
+};
 
-export const ProductCart = () => (
-  <ProductCard
-    className={{
-      box: 'relative flex pb-5 mb-5 border-b border-b-gray-medium',
-      price: 'absolute top-0 right-0',
-      content: 'flex flex-col justify-between grow',
-      image:
-        'border border-gray-deep bg-white w-[80px] h-[80px] p-2 mr-2.5 rounded-md',
-      title: 'max-w-[462px] w-full mb-1.5 font-medium text-black',
-    }}
-    between={
-      <Content
-        params={[
-          ['Size', 'medium'],
-          ['Color', 'blue'],
-          ['Material', 'Plastic'],
-          ['Seller', ' Artel Market'],
-        ]}
-      />
-    }
-    product={{
-      id: 1,
-      name: 'T-shirts with multiple colors, for men and lady',
-      mainPhoto: {
-        url: img,
-        thumbUrl: img,
+export const ProductCart: FC = () => {
+  // получаем с редакса все продукты в виде [{id: 1, quantity: 2}, {id: 3, quantity: 1}]
+  const { isDesktop } = useMatchMedia();
+  const [productsCart, setProductsCart] = useState<ProductCartType[]>([]);
+
+  useEffect(() => {
+    // делаем запрос на сервер по id [{id: 1, quantity: 2}, {id: 3, quantity: 1}]
+
+    const fakeDataFromServer = [
+      {
+        product: {
+          id: 2,
+          sellerId: 'Seller name',
+          name: 'Product name max 30 length asd',
+          price: { current: 333, old: 5151 },
+          params: [
+            { name: 'color', value: 'blue' },
+            { name: 'brand', value: 'samsung' },
+            { name: 'memory', value: '128' },
+          ],
+          mainPhoto: {
+            url: img,
+            thumbUrl: img,
+          },
+        },
+        quantity: 10,
       },
-      price: { current: 100 },
-    }}>
-    <Buttons />
-  </ProductCard>
-);
+      {
+        product: {
+          id: 23,
+          sellerId: 'Seller name3322',
+          name: 'Product name max 30 length asd',
+          price: { current: 333 },
+          params: [
+            { name: 'color', value: 'blue' },
+            { name: 'brand', value: 'samsung' },
+            { name: 'memory', value: '128' },
+          ],
+          mainPhoto: {
+            url: img,
+            thumbUrl: img,
+          },
+        },
+        quantity: 2,
+      },
+    ];
+
+    setProductsCart(fakeDataFromServer);
+  }, []);
+
+  const changeProductQuantity = (id: number, newQuantity: number) => {
+    setProductsCart(prevProductsCart => {
+      const productIndex = prevProductsCart.findIndex(
+        product => product.product.id === id
+      );
+
+      if (productIndex === -1) return prevProductsCart;
+
+      const updatedProduct = {
+        ...prevProductsCart[productIndex],
+        quantity: newQuantity,
+      };
+      const updatedProductsCart = [...prevProductsCart];
+      updatedProductsCart[productIndex] = updatedProduct;
+      return updatedProductsCart;
+    });
+  };
+
+  // if (productsCart.length === 0) {
+  //   // Todo лоадер
+  // }
+
+  return (
+    <>
+      {productsCart.map(({ product, quantity }) => (
+        <ProductCard
+          key={product.id}
+          className={{
+            box: 'relative flex pb-5 mb-5 sm:mb-4 md:pb-16 last:border-none last:mb-0 border-b border-b-gray-medium',
+            price: 'hidden',
+            content: 'flex flex-col justify-between grow',
+            image:
+              'border border-gray-deep bg-white w-[80px] h-[80px] p-2 mr-2.5 lg:mr-1.5 rounded-md',
+            title:
+              'max-w-fit mb-1.5 font-medium sm:font-normal leading-[19px] text-black',
+          }}
+          before={
+            <p
+              className={
+                'text-black font-medium absolute top-0 md:top-auto md:bottom-6 right-0'
+              }>
+              ${(product.price.current * quantity).toFixed(2)}
+            </p>
+          }
+          between={
+            <Content params={product.params} sellerId={product.sellerId} />
+          }
+          product={{
+            ...product,
+            price: { ...product.price, old: undefined },
+          }}>
+          {isDesktop ? (
+            <div className={'flex gap-2'}>
+              <RemoveProduct productId={product.id} />
+              <SaveForLater
+                className={'text-blue bg-light hover:bg-blue hover:text-white'}
+              />
+            </div>
+          ) : (
+            <div className={'absolute left-0 bottom-4'}>
+              <Counter
+                value={quantity}
+                setValue={newQuantity =>
+                  changeProductQuantity(product.id, newQuantity)
+                }
+              />
+            </div>
+          )}
+        </ProductCard>
+      ))}
+    </>
+  );
+};
