@@ -15,7 +15,7 @@ import { SavedProducts } from './SavedProducts';
 
 export const Cart: FC = () => {
   const navigate = useNavigate();
-  const { isMobile } = useMatchMedia();
+  const { isMobile, isDesktop } = useMatchMedia();
 
   // это уйдет в редакс
   const fromRedux = {
@@ -70,9 +70,11 @@ export const Cart: FC = () => {
           />
         </div>
       </div>
-      <div className={'mb-8'}>
-        <FeaturesShop />
-      </div>
+      {isDesktop && (
+        <div className={'mb-8 lg:mb-6 md:mb-4'}>
+          <FeaturesShop />
+        </div>
+      )}
       <div className={'mb-5'}>
         <SavedProducts />
       </div>
