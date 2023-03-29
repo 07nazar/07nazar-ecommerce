@@ -153,6 +153,33 @@
   .slide-w-auto {
     width: auto !important;
   }
+  
+  .dots {
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+
+  }
+  
+  .dots:before, .dots:after {
+    content: '';
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #DEE2E7;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+  
+  .dots:before {
+    left: 0;
+  }
+  
+  .dots:after {
+    right: 0;
+  }
 }
 
 
