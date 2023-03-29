@@ -1,40 +1,58 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { AddFavourite } from 'features/AddFavourite';
-import { ProductCard } from 'entities/Product';
+import { ProductCard, ProductRowType } from 'entities/Product';
+import { Rating } from 'shared/ui/Rating';
 
 interface IContent {
-  rating: {
-    rating: number;
-    orders: number;
-    freeShip: boolean;
-  };
+  rating: number;
+  orders: number;
+  deliveryCost: string;
   description: string;
+  id: number;
 }
 
-const Content: FC<IContent> = ({ description, rating }) => (
-  <>
-    <div className={'flex items-center gap-2'}>
-      <p>{rating.rating}</p>
-      <p>{rating.orders} orders</p>
-      {rating.freeShip && <p> Free Shipment</p>}
-    </div>
-    <p className={'text-base text-gray-dark pr-20'}>{description}</p>
-    <a href={'/'} className={'text-blue'}>
-      View details
-    </a>
-  </>
-);
+const Content: FC<IContent> = ({
+  description,
+  rating,
+  orders,
+  deliveryCost,
+  id,
+}) => {
+  const navigate = useNavigate();
 
-export const ProductRow = () => (
+  const detailsHandler = () => {
+    navigate(`/product/${id}?tab=description`);
+  };
+
+  return (
+    <>
+      <div className={'flex items-center gap-2 leading-[19px]'}>
+        <Rating value={rating} showValue />
+        <p className={'text-gray-hot dots'}>{orders} orders</p>
+        {deliveryCost === '0' && <p className={'text-green'}>Free Shipment</p>}
+      </div>
+      <p className={'text-base text-gray-dark pr-20'}>{description}</p>
+      <button onClick={detailsHandler} className={'text-blue'}>
+        View details
+      </button>
+    </>
+  );
+};
+
+export const ProductRow: FC<ProductRowType> = ({
+  id,
+  mainPhoto,
+  price,
+  name,
+  orders,
+  deliveryCost,
+  rating,
+}) => (
   <>
     <ProductCard
-      product={{
-        id: 41,
-        price: { old: 1000, current: 2000 },
-        name: 'Canon Cmera EOS 2000, Black 10x zoom',
-        mainPhoto: { url: 'img', thumbUrl: '' },
-      }}
+      product={{ id, mainPhoto, price, name }}
       before={
         <AddFavourite isAuth id={1} classNames={'absolute top-0 right-0'} />
       }
@@ -49,7 +67,10 @@ export const ProductRow = () => (
         description={
           'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit '
         }
-        rating={{ freeShip: true, orders: 152, rating: 7.6 }}
+        id={id}
+        deliveryCost={deliveryCost}
+        orders={orders}
+        rating={rating}
       />
     </ProductCard>
   </>
