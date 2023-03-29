@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react';
-import { useNavigate } from 'react-router-dom';
+
+import { AppLink } from 'shared/ui/AppLink';
 
 import { ProductMinType, ProductType } from './model';
 
@@ -8,6 +9,7 @@ interface IProductCardClassNames {
   image?: string;
   price?: string;
   box?: string;
+  boxImage?: string;
   content?: string;
 }
 
@@ -25,39 +27,36 @@ export const ProductCard: FC<IProductCardProps> = ({
   children,
   before,
   className = {},
-}) => {
-  const navigate = useNavigate();
+}) => (
+  <div className={`${className.box || ''} bg-white`}>
+    <AppLink
+      className={`${className.boxImage || ''} h-full`}
+      to={`/product/${product.id}`}>
+      <img
+        src={product.mainPhoto.url}
+        className={`${className.image || ''} mx-auto object-cover`}
+        alt={product.name}
+      />
+    </AppLink>
 
-  const navigateHandler = () => {
-    navigate(`/product/${product.id}`);
-  };
-
-  return (
-    <div className={`${className.box || ''} bg-white`}>
-      <button onClick={navigateHandler}>
-        <img
-          src={product.mainPhoto.url}
-          className={`${className.image || ''} mx-auto object-cover`}
-          alt={product.name}
-        />
-      </button>
-
-      <div className={className.content || ''}>
-        {before}
-        <h3 className={className.title || ''}>{product.name}</h3>
-        {between}
-        <div className={'flex items-center gap-2'}>
-          <p className={className.price || ''}>
-            ${product.price.current.toFixed(2)}
+    <div className={className.content || ''}>
+      {before}
+      <h3 className={className.title || ''}>{product.name}</h3>
+      {between}
+      <div className={'flex items-center gap-2 md:gap-1'}>
+        <p className={className.price || ''}>
+          ${product.price.current.toFixed(2)}
+        </p>
+        {product.price.old && (
+          <p
+            className={
+              'self-start text-gray-hot text-base sm:text-xs line-through'
+            }>
+            ${product.price.old.toFixed(2)}
           </p>
-          {product.price.old && (
-            <p className={'self-start text-gray-hot text-base line-through'}>
-              ${product.price.old.toFixed(2)}
-            </p>
-          )}
-        </div>
-        {children}
+        )}
       </div>
+      {children}
     </div>
-  );
-};
+  </div>
+);
