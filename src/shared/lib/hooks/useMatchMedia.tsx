@@ -3,19 +3,22 @@ import { useState, useLayoutEffect } from 'react';
 type MatchMediaValues = {
   isMobile: boolean;
   isTablet: boolean;
+  isLaptop: boolean;
   isDesktop: boolean;
 };
 
 const queries = [
   '(max-width: 480px)',
   '(min-width: 481px) and (max-width: 768px)',
-  '(min-width: 769px)',
+  '(min-width: 769px) and (max-width: 991px)',
+  '(min-width: 992px)',
 ];
 
 const getValues = (mediaQueryLists: MediaQueryList[]): MatchMediaValues => ({
   isMobile: mediaQueryLists[0].matches,
   isTablet: mediaQueryLists[1].matches,
-  isDesktop: mediaQueryLists[2].matches,
+  isLaptop: mediaQueryLists[2].matches,
+  isDesktop: mediaQueryLists[3].matches,
 });
 
 export const useMatchMedia = (): MatchMediaValues => {
