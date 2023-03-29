@@ -20,7 +20,7 @@ export const Shop = () => {
       {!isMobile && <Breadcrumbs />}
       <div className={'flex gap-5'}>
         {(isDesktop || isLaptop) && (
-          <div className={'max-w-[240px] lg:max-w-[200px] w-full'}>
+          <div className={'max-w-[240px] lg:max-w-[160px] w-full'}>
             <SidebarFilters />
           </div>
         )}

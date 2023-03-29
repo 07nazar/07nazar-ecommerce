@@ -11,7 +11,7 @@ export const Rating: FC<RatingProps> = ({ value, showValue }) => {
   const emptyStars = 5 - filledStars;
 
   return (
-    <div className={'flex items-center '}>
+    <div className={'inline-flex items-center '}>
       {[...Array(filledStars)].map((_, index) => (
         <GoStar key={index + 5} className={'text-orange'} />
       ))}
@@ -19,7 +19,9 @@ export const Rating: FC<RatingProps> = ({ value, showValue }) => {
         <GoStar key={index + 5} className={'text-gray-medium'} />
       ))}
       {showValue && (
-        <span className={'ml-1 text-orange'}>{value.toFixed(1)}</span>
+        <span className={'ml-1 text-orange sm:text-xs'}>
+          {value.toFixed(1)}
+        </span>
       )}
     </div>
   );

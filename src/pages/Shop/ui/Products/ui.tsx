@@ -18,9 +18,11 @@ export const Products: FC<ProductsProps> = ({ showMode }) => {
 
   return (
     <div
-      className={`mb-8 grid ${
-        showMode === 'column' ? 'grid-cols-3 gap-5' : 'gap-2.5'
-      }`}>
+      className={`mb-8 md:mb-4 grid ${
+        showMode === 'column'
+          ? 'grid-cols-3 md:grid-cols-2 md:justify-items-center gap-5 lg:gap-2'
+          : 'gap-2.5 md:gap-1.5'
+      } sm:mx-2.5`}>
       {products.map(product => {
         if (showMode === 'row') {
           return (

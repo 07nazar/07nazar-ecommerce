@@ -21,7 +21,7 @@ export const FeaturesBlock: FC = () => {
   ];
 
   return (
-    <Dropdown maxItems={5} title={'FeaturesProduct'} className={'gap-2'}>
+    <Dropdown maxItems={5} title={'Features'} className={'gap-2'}>
       {features.map(option => (
         <Checkbox
           key={option.value}
