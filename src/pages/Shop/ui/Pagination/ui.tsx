@@ -25,9 +25,15 @@ export const PaginationBox = () => {
     menuRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
   return (
-    <div className={'self-end flex gap-2.5 mb-20 items-center'} ref={menuRef}>
+    <div
+      className={
+        'flex sm:flex-wrap-reverse self-end sm:justify-center gap-2.5 md:gap-1.5 mb-20 lg:mb-14 md:mb-8 items-center'
+      }
+      ref={menuRef}>
       <Select
-        className={'w-[125px] border border-gray-medium rounded-md bg-white'}
+        className={
+          'w-[125px] md:mx-1 border border-gray-medium rounded-md bg-white'
+        }
         menuClassName={'absolute top-[50px] right-0'}
         isOpen={isOpenSelect}
         selectedValue={selectedMenuItem}
@@ -44,7 +50,7 @@ export const PaginationBox = () => {
           </MenuItem>
         ))}
       </Select>
-      <Pagination className={'bg-white'} count={15} maxVisible={3} />
+      <Pagination className={'bg-white md:mx-1'} count={15} maxVisible={3} />
     </div>
   );
 };

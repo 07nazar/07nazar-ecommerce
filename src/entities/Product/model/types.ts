@@ -36,8 +36,14 @@ export type ProductType = {
   advantages: string[];
   reviewsCount: number;
   reviews: ProductReviewType[];
+  deliveryCost: string;
   sellerId: string;
 };
+
+export type ProductRowType = Pick<
+  ProductType,
+  'id' | 'name' | 'mainPhoto' | 'price' | 'orders' | 'rating' | 'deliveryCost'
+>;
 
 export type ProductMinType = Pick<
   ProductType,
