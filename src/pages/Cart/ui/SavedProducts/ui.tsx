@@ -30,10 +30,21 @@ const products = [
 ];
 
 export const SavedProducts = () => (
-  <div className={'base-border-gray'}>
-    <h6>Saved for later</h6>
+  <div
+    className={
+      'base-border-gray sm:bg-[transparent] sm:border-none md:py-3 md:px-1 sm:p-0'
+    }>
+    <h6
+      className={
+        'title md:text-lg md:leading-5 md:ml-2 sm:ml-0 sm:pl-2.5 mb-5'
+      }>
+      Saved for later
+    </h6>
 
-    <div className={'flex gap-5'}>
+    <div
+      className={
+        'flex md:grid md:grid-cols-2 sm:grid-cols-1 gap-5 lg:gap-4 md:gap-2'
+      }>
       {products.map(product => (
         <ProductSaved
           key={product.id}

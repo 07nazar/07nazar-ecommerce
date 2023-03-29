@@ -21,12 +21,12 @@ const features = [
 ];
 
 export const FeaturesShop: FC = () => (
-  <div className={'flex gap-14'}>
+  <div className={'flex gap-14 lg:gap-1 lg:justify-between'}>
     {features.map(feature => (
-      <div className={'flex gap-2.5'} key={feature.title}>
+      <div className={'flex gap-2.5 lg:gap-1 items-center'} key={feature.title}>
         <div
           className={
-            'flex w-12 justify-center items-center rounded-full bg-gray-medium'
+            'flex w-12 lg:w-10 h-12 lg:h-10 justify-center items-center rounded-full bg-gray-medium'
           }>
           {feature.icon}
         </div>
