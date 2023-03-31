@@ -49,7 +49,7 @@ export const ControlPanel: FC<IControlPanelProps> = ({
   return (
     <div
       className={
-        'mb-5 md:mb-2.5 flex items-center gap-3 sm:gap-1 p-2.5 lg:p-1.5 sm:py-2.5 bg-white border rounded-md sm:rounded-none border-gray-medium'
+        'mb-5 md:mb-2.5 flex items-center gap-3 sm:gap-1 p-2.5 bg-white border rounded-md sm:rounded-none border-gray-medium'
       }>
       {!isMobile && !isTablet && (
         <p className={'flex grow lg:whitespace-nowrap gap-1'}>
