@@ -1,12 +1,15 @@
-import { FC, ReactNode, MouseEvent } from 'react';
+import { FC, ReactNode, MouseEvent, useEffect } from 'react';
 
 import Menu from './Menu';
 import SelectButton from './SelectButton';
+
+type Timeout = ReturnType<typeof setTimeout>;
 
 interface ISelectedValue {
   id: number;
   text: string;
   subTitle?: string;
+  to?: string;
 }
 
 interface ISelect {
@@ -18,6 +21,7 @@ interface ISelect {
   selectedValue: ISelectedValue[] | ISelectedValue;
   defaultValue?: string;
   menuClassName?: string;
+  openOnHover?: boolean;
 }
 
 export const Select: FC<ISelect> = ({
@@ -29,14 +33,36 @@ export const Select: FC<ISelect> = ({
   setOpen,
   defaultValue,
   menuClassName = '',
+  openOnHover = false,
 }) => {
+  let timeout: Timeout;
   const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setOpen(!isOpen);
   };
 
+  useEffect(() => () => clearTimeout(timeout), []);
+
+  const handleMouseEnter = () => {
+    if (openOnHover) {
+      setOpen(true);
+      clearTimeout(timeout);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (openOnHover) {
+      timeout = setTimeout(() => {
+        setOpen(false);
+      }, 500);
+    }
+  };
+
   return (
-    <div className={`relative ${className} flex flex-col`}>
+    <div
+      className={`relative ${className} flex flex-col`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}>
       <SelectButton
         onClickHandler={(e: MouseEvent<HTMLButtonElement>) => onClickHandler(e)}
         isOpen={isOpen}
