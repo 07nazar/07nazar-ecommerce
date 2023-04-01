@@ -1,8 +1,10 @@
 import { FC } from 'react';
-import { GiHamburgerMenu } from 'react-icons/all';
 
 import { AppLink } from 'shared/ui/AppLink';
-import { Button } from 'shared/ui/Button';
+
+import { ChangeCountry } from './ChangeCountry';
+import { ChangeLanguage } from './ChangeLanguage';
+import { MultiCategories } from './MultiCategories';
 
 const categoriesLinks = [
   {
@@ -28,10 +30,7 @@ export const NavBar: FC = () => (
     <div className={'beforeLine afterLine'}>
       <div className={'container flex justify-between pt-[22px] pb-[24px]'}>
         <nav className={'flex gap-[28px]'}>
-          <Button className={'h-[24px] p-0 text-black border-none bg-light'}>
-            <GiHamburgerMenu size={24} className={'mr-[6px]'} />
-            <span className={'leading-[24px]'}>All category</span>
-          </Button>
+          <MultiCategories />
           {categoriesLinks.map(link => (
             <AppLink
               key={link.to}
@@ -42,8 +41,8 @@ export const NavBar: FC = () => (
           ))}
         </nav>
         <div className={'flex items-center gap-[15px]'}>
-          <p>English, USD</p>
-          <p>Ship to</p>
+          <ChangeCountry />
+          <ChangeLanguage />
         </div>
       </div>
     </div>
