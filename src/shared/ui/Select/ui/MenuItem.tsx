@@ -8,7 +8,6 @@ import {
   useCallback,
 } from 'react';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
-import { Link } from 'react-router-dom';
 
 import Menu from './Menu';
 
@@ -16,6 +15,7 @@ interface IItem {
   id: number;
   text: string;
   subTitle?: string;
+  to?: string;
   children?: IItem[];
 }
 
@@ -26,12 +26,61 @@ interface MenuItemProps {
   active: boolean;
   isMulti?: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
-  onClickOptionHandler?: (value: string) => void;
+  onClickOptionHandler?: (item: IItem) => void;
   setSelectedItems?: Dispatch<SetStateAction<IItem[]>>;
 }
 
-export const MenuItem: FC<MenuItemProps> = ({
+const MenuButton: FC<MenuItemProps> = ({
   children,
+  item,
+  active,
+  disabled = false,
+  setSelectedItems,
+  isMulti = false,
+  setOpen,
+  onClickOptionHandler,
+}) => {
+  const select = useCallback(() => {
+    if (setSelectedItems) {
+      setSelectedItems(prev => {
+        const index = prev.findIndex(
+          selectedItem => selectedItem.id === item.id
+        );
+        const isSelected = index !== -1;
+
+        if (isMulti) {
+          return isSelected
+            ? prev.filter(selectedItem => selectedItem.id !== item.id)
+            : [...prev, item];
+        }
+        return isSelected ? prev : [item];
+      });
+      setOpen(false);
+    }
+  }, [setSelectedItems, setOpen, item, isMulti]);
+
+  const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    onClickOptionHandler?.(item);
+    select();
+  };
+
+  return (
+    <button
+      disabled={disabled}
+      onClick={onClickHandler}
+      className={`flex flex-col w-full p-4 ${active ? 'bg-gray-pale' : ''}`}>
+      {children}
+      {item.children && (
+        <MdOutlineKeyboardArrowRight
+          className={'absolute top-1/2 translate-y-[-50%] right-1'}
+        />
+      )}
+    </button>
+  );
+};
+
+export const MenuItem: FC<MenuItemProps> = ({
   active,
   item,
   disabled = false,
@@ -41,36 +90,6 @@ export const MenuItem: FC<MenuItemProps> = ({
   onClickOptionHandler,
 }) => {
   const [isHover, setIsHover] = useState(false);
-
-  const selectWithMulti = useCallback(() => {
-    if (setSelectedItems) {
-      setSelectedItems(prev => {
-        const index = prev.findIndex(
-          selectedItem => selectedItem.id === item.id
-        );
-
-        return index !== -1
-          ? prev.filter(selectedItem => selectedItem.id !== item.id)
-          : [...prev, item];
-      });
-    }
-  }, [setSelectedItems, item]);
-
-  const selectWithoutMulti = useCallback(() => {
-    if (setSelectedItems) {
-      setSelectedItems([item]);
-      setOpen(false);
-    }
-  }, [setSelectedItems, setOpen, item]);
-
-  const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    if (onClickOptionHandler) {
-      onClickOptionHandler(item.text);
-    }
-
-    return isMulti ? selectWithMulti() : selectWithoutMulti();
-  };
 
   const handleMenuHover = () => {
     setIsHover(true);
@@ -84,20 +103,17 @@ export const MenuItem: FC<MenuItemProps> = ({
     <div
       onMouseEnter={handleMenuHover}
       onMouseLeave={handleMenuLeave}
-      className={'w-full'}>
-      <button
+      className={'w-full relative'}>
+      <MenuButton
+        active={active}
+        item={item}
+        setOpen={setOpen}
         disabled={disabled}
-        onClick={(e: MouseEvent<HTMLButtonElement>) => onClickHandler(e)}
-        className={`flex flex-col w-full p-[16px] ${
-          active ? 'bg-gray-pale' : ''
-        }`}>
-        {children}
-        {item.children && (
-          <MdOutlineKeyboardArrowRight
-            className={'absolute top-1/2 translate-y-[-50%] right-1'}
-          />
-        )}
-      </button>
+        setSelectedItems={setSelectedItems}
+        isMulti={isMulti}
+        onClickOptionHandler={onClickOptionHandler}>
+        {item.text}
+      </MenuButton>
       {item.children && isHover && (
         <div
           className={
@@ -110,15 +126,18 @@ export const MenuItem: FC<MenuItemProps> = ({
                 active={false}
                 isMulti={false}
                 item={child}
+                onClickOptionHandler={onClickOptionHandler}
                 setOpen={setOpen}>
-                <Link to={child.text}>
-                  <p>{child.text}</p>
-                  {child.children && (
-                    <MdOutlineKeyboardArrowRight
-                      className={'absolute top-1/2 translate-y-[-50%] right-1'}
-                    />
-                  )}
-                </Link>
+                <MenuButton
+                  active={active}
+                  item={child}
+                  setOpen={setOpen}
+                  disabled={disabled}
+                  setSelectedItems={setSelectedItems}
+                  isMulti={isMulti}
+                  onClickOptionHandler={onClickOptionHandler}>
+                  {child.text}
+                </MenuButton>
               </MenuItem>
             ))}
           </Menu>
