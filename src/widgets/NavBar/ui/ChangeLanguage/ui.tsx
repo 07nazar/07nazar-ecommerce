@@ -30,11 +30,7 @@ export const ChangeLanguage: FC = () => {
       selectedValue={selectedMenuLang}
       isOpen={isOpenLang}
       setOpen={setOpenLang}
-      defaultValue={
-        <span>
-          Ship to <img src={flagEn} alt={''} />
-        </span>
-      }>
+      defaultValue={'Ship to'}>
       {items.map(item => (
         <MenuItem
           key={item.id}
