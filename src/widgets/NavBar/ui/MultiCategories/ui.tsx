@@ -2,20 +2,15 @@ import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { getRoutes } from 'shared/api';
-import { MenuItem, Select } from 'shared/ui/Select';
-
-interface IItem {
-  id: number;
-  text: string;
-  to?: string;
-  children?: IItem[];
-}
+import { ISelectedValue, MenuItem, Select } from 'shared/ui/Select';
 
 export const MultiCategories: FC = () => {
   const navigate = useNavigate();
   const [isOpenCategories, setOpenCategories] = useState<boolean>(false);
-  const [selectedMenuCategory, setSelectedMenuCategory] = useState<IItem[]>([]);
-  const routes: IItem[] = getRoutes();
+  const [selectedMenuCategory, setSelectedMenuCategory] = useState<
+    ISelectedValue[]
+  >([]);
+  const routes: ISelectedValue[] = getRoutes();
 
   return (
     <Select

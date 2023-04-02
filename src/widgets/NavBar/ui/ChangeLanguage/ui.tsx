@@ -1,27 +1,43 @@
 import { FC, useState } from 'react';
 
-import { MenuItem, Select } from 'shared/ui/Select';
+import { ISelectedValue, MenuItem, Select } from 'shared/ui/Select';
 
 import flagRu from '../../assets/flags/ru.png';
 import flagUk from '../../assets/flags/ukr.png';
 import flagEn from '../../assets/flags/us.png';
 
-interface IItem {
-  id: number;
-  text: string;
-  subTitle?: string;
-  children?: IItem[];
-}
-// Todo флаги стран не отображаются
-const items = [
-  { id: 1, text: `English ${(<img src={flagEn} alt={'english'} />)}` },
-  { id: 2, text: `Ukrainian ${(<img src={flagUk} alt={'ukrainian'} />)}` },
-  { id: 3, text: `Russian ${(<img src={flagRu} alt={'russian'} />)}` },
+const items: ISelectedValue[] = [
+  {
+    id: 1,
+    text: (
+      <p className={'flex items-center gap-1'}>
+        Ship to <img className={'w-6 h-full'} src={flagEn} alt={''} />
+      </p>
+    ),
+  },
+  {
+    id: 2,
+    text: (
+      <p className={'flex items-center gap-1'}>
+        Ship to <img className={'w-6 h-full'} src={flagUk} alt={''} />
+      </p>
+    ),
+  },
+  {
+    id: 3,
+    text: (
+      <p className={'flex items-center gap-1'}>
+        Ship to <img className={'w-6 h-full'} src={flagRu} alt={''} />
+      </p>
+    ),
+  },
 ];
 
 export const ChangeLanguage: FC = () => {
   const [isOpenLang, setOpenLang] = useState<boolean>(false);
-  const [selectedMenuLang, setSelectedMenuLang] = useState<IItem[]>([]);
+  const [selectedMenuLang, setSelectedMenuLang] = useState<ISelectedValue[]>(
+    []
+  );
 
   return (
     <Select
@@ -30,7 +46,11 @@ export const ChangeLanguage: FC = () => {
       selectedValue={selectedMenuLang}
       isOpen={isOpenLang}
       setOpen={setOpenLang}
-      defaultValue={'Ship to'}>
+      defaultValue={
+        <p className={'flex items-center gap-1'}>
+          Ship to <img className={'w-6 h-full'} src={flagEn} alt={''} />
+        </p>
+      }>
       {items.map(item => (
         <MenuItem
           key={item.id}
@@ -38,7 +58,9 @@ export const ChangeLanguage: FC = () => {
           active={false}
           setSelectedItems={setSelectedMenuLang}
           item={item}>
-          <p className={'whitespace-nowrap'}>{item.text}</p>
+          <p className={'flex items-center gap-1'}>
+            Ship to <img className={'w-6 h-full'} src={flagEn} alt={''} />
+          </p>
         </MenuItem>
       ))}
     </Select>

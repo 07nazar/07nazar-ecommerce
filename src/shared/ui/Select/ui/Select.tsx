@@ -5,24 +5,24 @@ import SelectButton from './SelectButton';
 
 type Timeout = ReturnType<typeof setTimeout>;
 
-interface ISelectedValue {
+export type ISelectedValue = {
   id: number;
-  text: string;
+  text: string | JSX.Element;
   subTitle?: string;
   to?: string;
-}
+};
 
-interface ISelect {
+type ISelect = {
   isPill?: boolean;
   isOpen: boolean;
   className: string;
   setOpen: (isOpen: boolean) => void;
   children: ReactNode;
   selectedValue: ISelectedValue[] | ISelectedValue;
-  defaultValue?: string;
+  defaultValue?: ReactNode;
   menuClassName?: string;
   openOnHover?: boolean;
-}
+};
 
 export const Select: FC<ISelect> = ({
   isPill = false,

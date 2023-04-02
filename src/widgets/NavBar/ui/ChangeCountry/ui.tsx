@@ -1,15 +1,8 @@
 import { FC, useState } from 'react';
 
-import { MenuItem, Select } from 'shared/ui/Select';
+import { ISelectedValue, MenuItem, Select } from 'shared/ui/Select';
 
-interface IItem {
-  id: number;
-  text: string;
-  subTitle?: string;
-  children?: IItem[];
-}
-
-const items = [
+const items: ISelectedValue[] = [
   { id: 1, text: 'English, USD' },
   { id: 2, text: 'Ukrainian, UAH' },
   { id: 3, text: 'Russian, RUB' },
@@ -17,7 +10,9 @@ const items = [
 
 export const ChangeCountry: FC = () => {
   const [isOpenLang, setOpenLang] = useState<boolean>(false);
-  const [selectedMenuLang, setSelectedMenuLang] = useState<IItem[]>([]);
+  const [selectedMenuLang, setSelectedMenuLang] = useState<ISelectedValue[]>(
+    []
+  );
 
   return (
     <Select

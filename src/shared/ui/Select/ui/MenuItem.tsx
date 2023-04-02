@@ -13,7 +13,7 @@ import Menu from './Menu';
 
 interface IItem {
   id: number;
-  text: string;
+  text: string | JSX.Element;
   subTitle?: string;
   to?: string;
   children?: IItem[];

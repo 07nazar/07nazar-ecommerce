@@ -28,9 +28,9 @@ const categoriesLinks = [
 export const NavBar: FC = () => (
   <div className={'container-fluid bg-white'}>
     <div className={'beforeLine afterLine'}>
-      <div className={'container flex justify-between pt-[22px] pb-[24px]'}>
-        <nav className={'flex gap-[28px]'}>
-          <MultiCategories />
+      <div className={'container flex gap-7 py-5'}>
+        <MultiCategories />
+        <nav className={'flex items-center gap-7'}>
           {categoriesLinks.map(link => (
             <AppLink
               key={link.to}
@@ -40,7 +40,7 @@ export const NavBar: FC = () => (
             </AppLink>
           ))}
         </nav>
-        <div className={'flex items-center gap-[15px]'}>
+        <div className={'flex ml-auto items-center gap-4'}>
           <ChangeCountry />
           <ChangeLanguage />
         </div>
