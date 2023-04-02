@@ -10,7 +10,7 @@ import {
 } from 'entities/Product';
 import img from 'shared/assets/dbPhotos/Electronics/image22.png';
 import { useMatchMedia } from 'shared/lib';
-import { MenuItem, Select } from 'shared/ui/Select';
+import { ISelectedValue, MenuItem, Select } from 'shared/ui/Select';
 
 import { capitalize } from '../../lib';
 
@@ -19,13 +19,7 @@ interface IContentProps {
   sellerId: string;
 }
 
-type ItemDropdown = {
-  id: number;
-  text: string;
-  subTitle?: string;
-};
-
-const quantityItems: ItemDropdown[] = [
+const quantityItems: ISelectedValue[] = [
   { id: 1, text: '1' },
   { id: 2, text: '10' },
   { id: 3, text: '20' },
@@ -36,7 +30,7 @@ const quantityItems: ItemDropdown[] = [
 const Content: FC<IContentProps> = ({ params, sellerId }) => {
   const { isDesktop } = useMatchMedia();
   const [isOpen, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState<ItemDropdown[]>([]);
+  const [selectedValue, setSelectedValue] = useState<ISelectedValue[]>([]);
 
   // Todo Доделать выбор кол-ва товара
 

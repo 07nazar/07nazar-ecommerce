@@ -11,7 +11,8 @@ const items: ISelectedValue[] = [
     id: 1,
     text: (
       <p className={'flex items-center gap-1'}>
-        Ship to <img className={'w-6 h-full'} src={flagEn} alt={''} />
+        Ship to
+        <img className={'w-5 ml-0.5 mb-0.5 h-full'} src={flagEn} alt={''} />
       </p>
     ),
   },
@@ -19,7 +20,8 @@ const items: ISelectedValue[] = [
     id: 2,
     text: (
       <p className={'flex items-center gap-1'}>
-        Ship to <img className={'w-6 h-full'} src={flagUk} alt={''} />
+        Ship to
+        <img className={'w-5 ml-0.5 mb-0.5 h-full'} src={flagUk} alt={''} />
       </p>
     ),
   },
@@ -27,7 +29,8 @@ const items: ISelectedValue[] = [
     id: 3,
     text: (
       <p className={'flex items-center gap-1'}>
-        Ship to <img className={'w-6 h-full'} src={flagRu} alt={''} />
+        Ship to
+        <img className={'w-5 ml-0.5 mb-0.5 h-full'} src={flagRu} alt={''} />
       </p>
     ),
   },
@@ -41,14 +44,13 @@ export const ChangeLanguage: FC = () => {
 
   return (
     <Select
-      className={'w-[150px]'}
       menuClassName={'absolute top-[40px] right-0'}
       selectedValue={selectedMenuLang}
       isOpen={isOpenLang}
       setOpen={setOpenLang}
       defaultValue={
         <p className={'flex items-center gap-1'}>
-          Ship to <img className={'w-6 h-full'} src={flagEn} alt={''} />
+          Ship to <img className={'w-5 h-full'} src={flagEn} alt={'flagEn'} />
         </p>
       }>
       {items.map(item => (
@@ -58,9 +60,7 @@ export const ChangeLanguage: FC = () => {
           active={false}
           setSelectedItems={setSelectedMenuLang}
           item={item}>
-          <p className={'flex items-center gap-1'}>
-            Ship to <img className={'w-6 h-full'} src={flagEn} alt={''} />
-          </p>
+          {item.text}
         </MenuItem>
       ))}
     </Select>

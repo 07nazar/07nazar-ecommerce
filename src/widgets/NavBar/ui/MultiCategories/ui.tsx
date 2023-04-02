@@ -15,8 +15,7 @@ export const MultiCategories: FC = () => {
   return (
     <Select
       openOnHover
-      className={'w-[150px]'}
-      menuClassName={'absolute top-[40px] right-0'}
+      menuClassName={'absolute top-[40px] left-0'}
       selectedValue={selectedMenuCategory}
       isOpen={isOpenCategories}
       setOpen={setOpenCategories}

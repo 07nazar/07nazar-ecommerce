@@ -16,7 +16,6 @@ export const ChangeCountry: FC = () => {
 
   return (
     <Select
-      className={'w-[150px]'}
       menuClassName={'absolute top-[40px] right-0'}
       selectedValue={selectedMenuLang}
       isOpen={isOpenLang}

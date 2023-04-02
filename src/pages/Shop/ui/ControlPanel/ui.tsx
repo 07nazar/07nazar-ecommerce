@@ -8,16 +8,10 @@ import { useMatchMedia } from 'shared/lib';
 import { Button, ButtonGroup } from 'shared/ui/Button';
 import { Checkbox } from 'shared/ui/Checkbox';
 import { Modal } from 'shared/ui/Modal';
-import { MenuItem, Select } from 'shared/ui/Select';
+import { ISelectedValue, MenuItem, Select } from 'shared/ui/Select';
 
 import { formatNumber } from '../../lib';
 
-interface IItem {
-  id: number;
-  text: string;
-  subTitle?: string;
-  children?: IItem[];
-}
 interface IControlPanelProps {
   showMode: 'row' | 'column';
   setShowMode: (mode: 'row' | 'column') => void;
@@ -25,7 +19,7 @@ interface IControlPanelProps {
   category: string;
 }
 
-const items: IItem[] = [
+const items: ISelectedValue[] = [
   { id: 1, text: 'Newest' },
   { id: 2, text: 'Oldest' },
   { id: 3, text: 'Recommended' },
@@ -40,7 +34,9 @@ export const ControlPanel: FC<IControlPanelProps> = ({
   itemsCount = 0,
 }) => {
   const [isOpenSelect, setOpenSelect] = useState(false);
-  const [selectedMenuItem, setSelectedMenuItem] = useState<IItem[]>([]);
+  const [selectedMenuItem, setSelectedMenuItem] = useState<ISelectedValue[]>(
+    []
+  );
   const [isVerified, setIsVerified] = useState(false);
   const appliedFilters = 3;
   const [isFiltersModal, setIsFiltersModal] = useState<boolean>(false);
