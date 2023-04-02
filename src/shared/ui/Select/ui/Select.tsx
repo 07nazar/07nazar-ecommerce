@@ -15,7 +15,7 @@ export type ISelectedValue = {
 type ISelect = {
   isPill?: boolean;
   isOpen: boolean;
-  className: string;
+  className?: string;
   setOpen: (isOpen: boolean) => void;
   children: ReactNode;
   selectedValue: ISelectedValue[] | ISelectedValue;

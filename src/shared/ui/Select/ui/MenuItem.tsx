@@ -69,12 +69,12 @@ const MenuButton: FC<MenuItemProps> = ({
     <button
       disabled={disabled}
       onClick={onClickHandler}
-      className={`flex flex-col w-full p-4 ${active ? 'bg-gray-pale' : ''}`}>
+      className={`flex items-center justify-between w-full p-4 lg:p-3 text-left ${
+        active ? 'bg-gray-pale' : ''
+      } `}>
       {children}
       {item.children && (
-        <MdOutlineKeyboardArrowRight
-          className={'absolute top-1/2 translate-y-[-50%] right-1'}
-        />
+        <MdOutlineKeyboardArrowRight className={'w-[16px] ml-2  shrink-0'} />
       )}
     </button>
   );
@@ -115,10 +115,7 @@ export const MenuItem: FC<MenuItemProps> = ({
         {item.text}
       </MenuButton>
       {item.children && isHover && (
-        <div
-          className={
-            'absolute w-[130%] top-0 left-full bg-white border-gray-200'
-          }>
+        <div className={'absolute top-0 left-full bg-white border-gray-200'}>
           <Menu isOpen={true}>
             {item.children.map(child => (
               <MenuItem
