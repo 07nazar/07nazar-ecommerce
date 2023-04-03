@@ -1,16 +1,9 @@
 import { useRef, useState } from 'react';
 
 import { Pagination } from 'shared/ui/Pagination';
-import { MenuItem, Select } from 'shared/ui/Select';
+import { ISelectedValue, MenuItem, Select } from 'shared/ui/Select';
 
-interface IItem {
-  id: number;
-  text: string;
-  subTitle?: string;
-  children?: IItem[];
-}
-
-const items: IItem[] = [
+const items: ISelectedValue[] = [
   { id: 1, text: 'Show 10' },
   { id: 2, text: 'Show 20' },
   { id: 2, text: 'Show 30' },
@@ -18,7 +11,9 @@ const items: IItem[] = [
 
 export const PaginationBox = () => {
   const [isOpenSelect, setOpenSelect] = useState(false);
-  const [selectedMenuItem, setSelectedMenuItem] = useState<IItem[]>([]);
+  const [selectedMenuItem, setSelectedMenuItem] = useState<ISelectedValue[]>(
+    []
+  );
 
   const menuRef = useRef<HTMLDivElement>(null);
   if (isOpenSelect)
@@ -42,7 +37,7 @@ export const PaginationBox = () => {
         {items.map(item => (
           <MenuItem
             setOpen={setOpenSelect}
-            key={item.text}
+            key={`${item.id}-${item.text.toString()}`}
             active={false}
             setSelectedItems={setSelectedMenuItem}
             item={item}>

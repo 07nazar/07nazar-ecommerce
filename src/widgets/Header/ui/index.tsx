@@ -14,7 +14,7 @@ export const Header: FC = () => {
   const items = isDesktop ? appLinks : appLinksMobile;
 
   return (
-    <header className={'container-fluid bg-white flex sm:px-5'}>
+    <header className={'container-fluid bg-white flex sm:px-2.5'}>
       <div className={'container flex items-center  pt-5 pb-6 sm:flex-wrap'}>
         {isMobile && <BurgerMenu />}
         <AppLink to={'/'} className={'mr-auto'}>
