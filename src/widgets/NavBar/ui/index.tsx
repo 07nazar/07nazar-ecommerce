@@ -1,50 +1,34 @@
 import { FC } from 'react';
 
-import { AppLink } from 'shared/ui/AppLink';
+import { useMatchMedia } from 'shared/lib';
+import { MobileSlider } from 'shared/ui/Slider';
 
+import { CategoriesList } from './CategoriesList';
 import { ChangeCountry } from './ChangeCountry';
 import { ChangeLanguage } from './ChangeLanguage';
 import { MultiCategories } from './MultiCategories';
 
-const categoriesLinks = [
-  {
-    to: 'shop',
-    text: 'Shop',
-  },
-  {
-    to: 'gifts',
-    text: 'Gift boxes',
-  },
-  {
-    to: 'mobiles',
-    text: 'Mobiles',
-  },
-  {
-    to: 'pc',
-    text: 'Laptops & PC',
-  },
-];
+export const NavBar: FC = () => {
+  const { isTablet, isMobile } = useMatchMedia();
 
-export const NavBar: FC = () => (
-  <div className={'container-fluid bg-white'}>
-    <div className={'beforeLine afterLine'}>
-      <div className={'container flex gap-7 py-5'}>
-        <MultiCategories />
-        <nav className={'flex items-center gap-7'}>
-          {categoriesLinks.map(link => (
-            <AppLink
-              key={link.to}
-              to={link.to}
-              className={'text-black font-medium'}>
-              {link.text}
-            </AppLink>
-          ))}
-        </nav>
-        <div className={'flex ml-auto items-center gap-4'}>
-          <ChangeCountry />
-          <ChangeLanguage />
-        </div>
+  const notMobile = !(isMobile || isTablet);
+
+  return (
+    <div className={'container-fluid bg-white'}>
+      <div className={'beforeLine sm:before:hidden  afterLine'}>
+        <MobileSlider>
+          <div className={'container flex gap-7 lg:gap-2 py-5 lg:py-4'}>
+            {notMobile && <MultiCategories />}
+            <CategoriesList />
+            {notMobile && (
+              <div className={'flex ml-auto items-center gap-4 lg:gap-0'}>
+                <ChangeCountry />
+                <ChangeLanguage />
+              </div>
+            )}
+          </div>
+        </MobileSlider>
       </div>
     </div>
-  </div>
-);
+  );
+};
