@@ -166,11 +166,11 @@ export const ProductCart: FC = () => {
         <ProductCard
           key={product.id}
           className={{
-            box: 'relative flex pb-5 mb-5 sm:mb-4 md:pb-16 last:border-none last:mb-0 border-b border-b-gray-medium',
+            box: 'relative flex pb-5 mb-5 lg:pb-16 sm:mb-4 last:border-none last:mb-0 border-b border-b-gray-medium',
             price: 'hidden',
             content: 'flex flex-col justify-between grow',
-            image:
-              'border border-gray-deep bg-white w-[80px] h-[80px] p-2 mr-2.5 lg:mr-1.5 rounded-md',
+            boxImage:
+              'border border-gray-deep bg-white p-2 rounded-md w-[80px] h-[80px] mr-2.5 lg:mr-1.5',
             title:
               'max-w-fit mb-1.5 font-medium sm:font-normal leading-[19px] text-black',
           }}
