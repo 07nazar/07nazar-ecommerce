@@ -12,7 +12,7 @@ import type { ProductType } from 'entities/Product';
 
 type ProductInfoType = Pick<
   ProductType,
-  'quantity' | 'params' | 'rating' | 'reviewsCount' | 'sold' | 'name'
+  'id' | 'quantity' | 'params' | 'rating' | 'reviewsCount' | 'sold' | 'name'
 >;
 type RatingBlockProduct = Pick<ProductType, 'rating' | 'reviewsCount' | 'sold'>;
 type ParamsProduct = Pick<ProductType, 'params'>;
@@ -62,6 +62,7 @@ export const ProductInfo: FC<ProductInfoType> = ({
   reviewsCount,
   sold,
   name,
+  id,
 }) => (
   <div className={'flex flex-col'}>
     <div className={'flex items-start gap-2'}>
@@ -76,7 +77,10 @@ export const ProductInfo: FC<ProductInfoType> = ({
 
     <div className={'flex items-center gap-9 mb-11'}>
       <SaveForLater className={'bg-blue hover:opacity-90'} />
-      <MoveToCart className={'bg-blue gap-1 hover:opacity-90 duration-300'} />
+      <MoveToCart
+        productId={id}
+        className={'bg-blue gap-1 hover:opacity-90 duration-300'}
+      />
     </div>
 
     <Params params={params} />
