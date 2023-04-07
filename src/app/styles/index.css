@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html,
   body {
     font-family: Inter, sans-serif;
     overflow-x: hidden;
-
     @apply bg-gray-light;
   }
 
@@ -107,7 +107,7 @@
   .product-image {
     @apply mx-auto object-cover;
   }
-  
+
   .modal {
     @apply bg-white p-6 rounded-lg shadow-lg;
   }
@@ -149,12 +149,17 @@
   .full-screen {
     margin-left: calc(50% - 50vw);
   }
-  
+
   .slide-w-auto {
     width: auto !important;
   }
-}
 
+  .slide-center {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .container {
@@ -165,9 +170,9 @@
 
 @media screen and (max-width: 480px) {
   .container {
-    padding: 0;
+    /* padding: 0; */
   }
-  
+
   .swiper {
     padding-left: 5px !important;
   }
