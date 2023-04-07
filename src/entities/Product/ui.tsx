@@ -1,5 +1,7 @@
 import { FC, ReactNode } from 'react';
 
+import { AppLink } from 'shared/ui/AppLink';
+
 import { ProductMinType, ProductType } from './model';
 
 interface IProductCardClassNames {
@@ -7,6 +9,7 @@ interface IProductCardClassNames {
   image?: string;
   price?: string;
   box?: string;
+  boxImage?: string;
   content?: string;
 }
 
@@ -26,22 +29,29 @@ export const ProductCard: FC<IProductCardProps> = ({
   className = {},
 }) => (
   <div className={`${className.box || ''} bg-white`}>
-    <img
-      src={product.mainPhoto.url}
-      className={`${className.image || ''} mx-auto object-cover`}
-      alt={''}
-    />
+    <AppLink
+      className={`${className.boxImage || ''} h-full`}
+      to={`/product/${product.id}`}>
+      <img
+        src={product.mainPhoto.url}
+        className={`${className.image || ''} mx-auto object-cover`}
+        alt={product.name}
+      />
+    </AppLink>
 
     <div className={className.content || ''}>
       {before}
       <h3 className={className.title || ''}>{product.name}</h3>
       {between}
-      <div className={'flex items-center gap-2'}>
+      <div className={'flex items-center gap-2 md:gap-1'}>
         <p className={className.price || ''}>
           ${product.price.current.toFixed(2)}
         </p>
         {product.price.old && (
-          <p className={'self-start text-gray-hot text-base line-through'}>
+          <p
+            className={
+              'self-start text-gray-hot text-base sm:text-xs line-through'
+            }>
             ${product.price.old.toFixed(2)}
           </p>
         )}

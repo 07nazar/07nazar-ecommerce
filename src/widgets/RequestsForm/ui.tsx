@@ -1,15 +1,9 @@
 import { FC, ReactNode, useState } from 'react';
 
 import { Input } from 'shared/ui/Input';
-import { MenuItem, Select } from 'shared/ui/Select';
+import { ISelectedValue, MenuItem, Select } from 'shared/ui/Select';
 
-interface IItem {
-  id: number;
-  text: string;
-  subTitle?: string;
-}
-
-const selectItems: IItem[] = [
+const selectItems: ISelectedValue[] = [
   {
     id: 1,
     text: 'kilograms',
@@ -28,7 +22,7 @@ export const RequestsForm: FC<RequestFormProps> = ({ button }) => {
     textField: '',
     quantity: '',
   });
-  const [selectedValue, setSelectedValue] = useState<IItem[]>([]);
+  const [selectedValue, setSelectedValue] = useState<ISelectedValue[]>([]);
   const [isOpen, setOpen] = useState(false);
 
   const onInputChange = (key: string, value: string) => {

@@ -58,17 +58,17 @@ export const Modal: FC<ModalProps> = ({
       setClose(false);
     }
   };
-
+  // Todo убрать синее выделение при клике не в области/закрытии
   return createPortal(
     <>
       <animated.div
         style={{
           transform,
         }}
-        className={`fixed inset-0 z-40 overflow-x-hidden overflow-y-auto outline-none focus:outline-none 
+        className={`fixed inset-0 z-40 overflow-x-hidden overflow-y-auto
       ${isOpen ? 'visible' : 'invisible'} `}>
         <div
-          className={'fixed inset-0 '}
+          className={'fixed inset-0'}
           ref={modalRef}
           onClick={e => e.stopPropagation()}
           onKeyDown={clickClose}

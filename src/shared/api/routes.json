@@ -59,8 +59,16 @@
           "text": "Men",
           "to": "/clothing/men",
           "children": [
-            { "id": 12, "text": "T-Shirts", "to": "/clothing/men/t-shirts" },
-            { "id": 13, "text": "Jeans", "to": "/clothing/men/jeans" }
+            {
+              "id": 12,
+              "text": "T-Shirts",
+              "to": "/clothing/men/t-shirts"
+            },
+            {
+              "id": 13,
+              "text": "Jeans",
+              "to": "/clothing/men/jeans"
+            }
           ]
         },
         {
@@ -68,8 +76,16 @@
           "text": "Women",
           "to": "/clothing/women",
           "children": [
-            { "id": 15, "text": "Dresses", "to": "/clothing/women/dresses" },
-            { "id": 16, "text": "Skirts", "to": "/clothing/women/skirts" }
+            {
+              "id": 15,
+              "text": "Dresses",
+              "to": "/clothing/women/dresses"
+            },
+            {
+              "id": 16,
+              "text": "Skirts",
+              "to": "/clothing/women/skirts"
+            }
           ]
         }
       ]
@@ -169,14 +185,26 @@
           "text": "Kids",
           "to": "/kids",
           "children": [
-            { "id": 41, "text": "Toys & Games", "to": "/kids/toys-games" },
+            {
+              "id": 41,
+              "text": "Toys & Games",
+              "to": "/kids/toys-games"
+            },
             {
               "id": 42,
               "text": "Clothing",
               "to": "/kids/clothing",
               "children": [
-                { "id": 421, "text": "Boys", "to": "/kids/clothing/boys" },
-                { "id": 422, "text": "Girls", "to": "/kids/clothing/girls" }
+                {
+                  "id": 421,
+                  "text": "Boys",
+                  "to": "/kids/clothing/boys"
+                },
+                {
+                  "id": 422,
+                  "text": "Girls",
+                  "to": "/kids/clothing/girls"
+                }
               ]
             },
             {
@@ -189,7 +217,11 @@
                   "text": "Nursery Furniture",
                   "to": "/kids/baby/nursery-furniture"
                 },
-                { "id": 432, "text": "Strollers", "to": "/kids/baby/strollers" }
+                {
+                  "id": 432,
+                  "text": "Strollers",
+                  "to": "/kids/baby/strollers"
+                }
               ]
             }
           ]
