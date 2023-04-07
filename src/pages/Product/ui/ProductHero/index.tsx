@@ -11,6 +11,7 @@ export const ProductHero = () => (
     }>
     <Slider />
     <ProductInfo
+      id={productFromServer.id}
       name={productFromServer.name}
       rating={productFromServer.rating}
       sold={productFromServer.sold}

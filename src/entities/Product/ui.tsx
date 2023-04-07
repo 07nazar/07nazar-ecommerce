@@ -29,12 +29,10 @@ export const ProductCard: FC<IProductCardProps> = ({
   className = {},
 }) => (
   <div className={`${className.box || ''} bg-white`}>
-    <AppLink
-      className={`${className.boxImage || ''} h-full`}
-      to={`/product/${product.id}`}>
+    <AppLink className={className.boxImage || ''} to={`/product/${product.id}`}>
       <img
         src={product.mainPhoto.url}
-        className={`${className.image || ''} mx-auto object-cover`}
+        className={`${className.image || ''} product-image`}
         alt={product.name}
       />
     </AppLink>
