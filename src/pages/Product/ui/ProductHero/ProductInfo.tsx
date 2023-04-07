@@ -19,6 +19,7 @@ type ProductInfoType = Pick<
   | 'sold'
   | 'name'
   | 'description'
+  | 'id'
 >;
 type RatingBlockProduct = Pick<ProductType, 'rating' | 'reviewsCount' | 'sold'>;
 type ParamsProduct = Pick<ProductType, 'params'>;
@@ -107,7 +108,7 @@ export const ProductInfo: FC<ProductInfoType> = ({
         <MoveToCart
           productId={id}
           className={
-            'bg-blue gap-1 hover:opacity-90 duration-300 lg:grow lg:justify-center'
+            'bg-blue text-white gap-1 hover:opacity-90 duration-300 lg:grow lg:justify-center'
           }
         />
       </div>

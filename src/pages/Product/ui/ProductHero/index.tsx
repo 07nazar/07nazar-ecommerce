@@ -45,6 +45,7 @@ export const ProductHero = () => {
       </Slider>
       <div className={'w-full flex justify-between gap-3 lg:gap-0 lg:flex-col'}>
         <ProductInfo
+          id={productFromServer.id}
           name={productFromServer.name}
           description={productFromServer.description}
           rating={productFromServer.rating}

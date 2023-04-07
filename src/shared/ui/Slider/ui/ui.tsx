@@ -1,8 +1,9 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, Children } from 'react';
+import { FreeMode } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useMatchMedia } from 'shared/lib';
 
-import { MobileSlider } from './MobileSlider';
 import { SliderDesktop } from './SliderDesktop';
 
 interface SliderProps {
@@ -23,9 +24,18 @@ export const Slider: FC<SliderProps> = ({
       {isDesktop ? (
         <SliderDesktop>{children}</SliderDesktop>
       ) : (
-        <MobileSlider slideClassNames={slideClassNames}>
-          {children}
-        </MobileSlider>
+        <Swiper
+          modules={[FreeMode]}
+          slidesPerView={'auto'}
+          spaceBetween={7}
+          freeMode
+          className={'w-full h-full overflow-hidden'}>
+          {Children.map(children, (child, i) => (
+            <SwiperSlide className={`${slideClassNames}`} key={i}>
+              {child}
+            </SwiperSlide>
+          ))}
+        </Swiper>
       )}
     </div>
   );
