@@ -1,61 +1,70 @@
 import { useState, FC } from 'react';
+import { BiFilterAlt } from 'react-icons/all';
 import { HiViewGrid } from 'react-icons/hi';
 import { MdTableRows } from 'react-icons/md';
 
+import { SidebarFilters } from 'widgets/SidebarFilters';
+import { useMatchMedia } from 'shared/lib';
 import { Button, ButtonGroup } from 'shared/ui/Button';
 import { Checkbox } from 'shared/ui/Checkbox';
-import { MenuItem, Select } from 'shared/ui/Select';
+import { Modal } from 'shared/ui/Modal';
+import { ISelectedValue, MenuItem, Select } from 'shared/ui/Select';
 
-interface IItem {
-  id: number;
-  text: string;
-  subTitle?: string;
-  children?: IItem[];
-}
-interface IConrolPanelProps {
+import { formatNumber } from '../../lib';
+
+interface IControlPanelProps {
+  showMode: 'row' | 'column';
+  setShowMode: (mode: 'row' | 'column') => void;
   itemsCount: number;
   category: string;
 }
 
-const items: IItem[] = [
-  { id: 1, text: 'text1' },
-  { id: 2, text: 'text2' },
-  { id: 3, text: 'text3' },
+const items: ISelectedValue[] = [
+  { id: 1, text: 'Newest' },
+  { id: 2, text: 'Oldest' },
+  { id: 3, text: 'Recommended' },
   { id: 4, text: 'text4' },
   { id: 5, text: 'text5' },
 ];
 
-export const ControlPanel: FC<IConrolPanelProps> = ({
+export const ControlPanel: FC<IControlPanelProps> = ({
+  showMode,
+  setShowMode,
   category = '',
   itemsCount = 0,
 }) => {
   const [isOpenSelect, setOpenSelect] = useState(false);
-  const [selectedMenuItem, setSelectedMenuItem] = useState<IItem[]>([]);
+  const [selectedMenuItem, setSelectedMenuItem] = useState<ISelectedValue[]>(
+    []
+  );
   const [isVerified, setIsVerified] = useState(false);
+  const appliedFilters = 3;
+  const [isFiltersModal, setIsFiltersModal] = useState<boolean>(false);
 
-  const smartFloatRegex = /\B(?=(\d{3})+(?!\d))/g;
-  const numberWithSmartFloat = itemsCount
-    .toString()
-    .replace(smartFloatRegex, ',');
+  const { isMobile, isTablet, isDesktop } = useMatchMedia();
   return (
     <div
       className={
-        'flex items-center gap-4 p-2.5 bg-white border rounded-md border-gray-medium'
+        'mb-5 md:mb-2.5 flex items-center gap-3 sm:gap-1 p-2.5 bg-white border rounded-md sm:rounded-none border-gray-medium'
       }>
-      <p className={'flex grow gap-1'}>
-        {numberWithSmartFloat} items in{' '}
-        <span className={'font-medium'}>{category}</span>
-      </p>
+      {!isMobile && !isTablet && (
+        <p className={'flex grow lg:whitespace-nowrap gap-1'}>
+          {formatNumber(itemsCount)} items in
+          <span className={'font-medium'}>{category}</span>
+        </p>
+      )}
 
-      <Checkbox
-        isChecked={isVerified}
-        onChange={() => setIsVerified(!isVerified)}>
-        <p>Verified only</p>
-      </Checkbox>
+      {isDesktop && (
+        <Checkbox
+          isChecked={isVerified}
+          onChange={() => setIsVerified(!isVerified)}>
+          <p>Verified only</p>
+        </Checkbox>
+      )}
 
       <Select
         className={
-          'relative max-w-[171.81px] w-full border border-gray-medium rounded-md'
+          'relative max-w-[170px] lg:h-[32px] sm:text-xs w-full border border-gray-medium rounded-md'
         }
         menuClassName={'absolute top-[40px] right-0'}
         isOpen={isOpenSelect}
@@ -74,12 +83,41 @@ export const ControlPanel: FC<IConrolPanelProps> = ({
         ))}
       </Select>
 
-      <ButtonGroup className={'border border-gray-medium rounded-md'}>
-        <Button className={'p-[5px]'}>
-          <HiViewGrid size={28} color={'black'} />
+      {(isMobile || isTablet) && (
+        <>
+          <Button
+            onClick={() => setIsFiltersModal(true)}
+            className={
+              'border h-[32px] border-gray-medium text-black sm:text-xs items-center gap-2'
+            }>
+            Filter ({appliedFilters})
+            <BiFilterAlt className={'text-gray-hot'} />
+          </Button>
+          <Modal
+            className={'top-0 right-0 w-1/2 sm:w-full sm:h-full pt-10'}
+            position={'right'}
+            isOpen={isFiltersModal}
+            setClose={() => setIsFiltersModal(false)}>
+            <SidebarFilters />
+          </Modal>
+        </>
+      )}
+
+      <ButtonGroup
+        className={'border md:ml-auto border-gray-medium rounded-md'}>
+        <Button
+          className={`flex items-center justify-center p-1 lg:p-0.5 md:h-[30px] border-r border-gray-medium rounded-none hover:bg-gray-pale ${
+            showMode === 'column' && 'bg-gray-medium'
+          } duration-300`}
+          onClick={() => setShowMode('column')}>
+          <HiViewGrid size={isDesktop ? 28 : 24} color={'black'} />
         </Button>
-        <Button className={'p-[5px] '}>
-          <MdTableRows size={28} color={'black'} />
+        <Button
+          className={`flex items-center justify-center p-1 lg:p-0.5 md:h-[30px] rounded-none hover:bg-gray-pale ${
+            showMode === 'row' && 'bg-gray-medium'
+          } duration-300`}
+          onClick={() => setShowMode('row')}>
+          <MdTableRows size={isDesktop ? 28 : 24} color={'black'} />
         </Button>
       </ButtonGroup>
     </div>

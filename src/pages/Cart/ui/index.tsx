@@ -15,7 +15,7 @@ import { SavedProducts } from './SavedProducts';
 
 export const Cart: FC = () => {
   const navigate = useNavigate();
-  const { isMobile } = useMatchMedia();
+  const { isMobile, isDesktop } = useMatchMedia();
 
   // это уйдет в редакс
   const fromRedux = {
@@ -30,9 +30,10 @@ export const Cart: FC = () => {
     <>
       <h3
         className={
-          'my-6 lg:my-5 md:my-4 font-semibold text-2xl md:text-xl text-black'
+          'my-6 lg:my-5 md:my-4 font-semibold text-2xl md:text-xl text-black sm:ml-6'
         }>
-        My cart ({fromRedux.totalQuantity})
+        {isMobile && <span>Shopping cart</span>}
+        {!isMobile && <span>My cart ({fromRedux.totalQuantity})</span>}
       </h3>
       <div
         className={
@@ -58,7 +59,7 @@ export const Cart: FC = () => {
         </div>
         <div
           className={
-            'min-w-[200px] sm:w-full flex flex-col gap-3 lg:gap-1 sm:gap-0 mb-10'
+            'min-w-[200px] sm:w-full flex flex-col gap-3 lg:gap-1 sm:gap-0 mb-10 md:mb-5'
           }>
           <CouponField />
           <CheckoutForm
@@ -70,9 +71,11 @@ export const Cart: FC = () => {
           />
         </div>
       </div>
-      <div className={'mb-8'}>
-        <FeaturesShop />
-      </div>
+      {isDesktop && (
+        <div className={'mb-8 lg:mb-6 md:mb-4'}>
+          <FeaturesShop />
+        </div>
+      )}
       <div className={'mb-5'}>
         <SavedProducts />
       </div>

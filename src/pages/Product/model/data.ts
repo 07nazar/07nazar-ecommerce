@@ -6,6 +6,7 @@ import img from '../assets/phone.png';
 export const productFromServer: ProductType = {
   id: 13,
   name: 'product name',
+  deliveryCost: '0',
   category: ['phone'],
   quantity: 24,
   orders: 43,

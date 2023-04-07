@@ -17,17 +17,8 @@ const dealsItems: IDealsItem[] = [
   { id: 5, image: img, promo: '-25%', title: 'Smart watches' },
 ];
 
-// screens: {
-//   xl: { max: '1220px' },
-//   lg: { max: '992px' },
-//   md: { max: '768px' },
-//   sm: { max: '480px' },
-// },
-
 export const DealsAndOffers: FC = () => {
   const { isDesktop } = useMatchMedia();
-
-  if (!isDesktop) console.log('mobile');
 
   return (
     <div

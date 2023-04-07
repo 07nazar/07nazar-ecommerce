@@ -107,7 +107,7 @@ export const ProductInfo: FC<ProductInfoType> = ({
           className={'bg-blue hover:opacity-90 lg:grow  lg:justify-center'}
         />
         <MoveToCart
-          classNames={
+          className={
             'bg-blue gap-1 hover:opacity-90 duration-300 lg:grow lg:justify-center'
           }
         />
