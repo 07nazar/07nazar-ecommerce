@@ -105,7 +105,7 @@
   }
 
   .product-image {
-    @apply mx-auto object-cover;
+    @apply mx-auto h-full w-full object-cover;
   }
 
   .modal {

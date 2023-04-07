@@ -82,6 +82,7 @@ export const ProductInfo: FC<ProductInfoType> = ({
   reviewsCount,
   sold,
   name,
+  id,
   description,
 }) => {
   const { isDesktop, isLaptop } = useMatchMedia();
@@ -93,12 +94,9 @@ export const ProductInfo: FC<ProductInfoType> = ({
           {quantity ? 'In stock' : 'Not available'}
         </p>
       </div>
-
       <h3 className={'text-2xl mb-2.5 text-black font-semibold '}>{name}</h3>
       <span className={'hidden lg:block lg:mb-2.5'}>$129.95 (50-100 pcs)</span>
-
       <RatingBlock rating={rating} reviewsCount={reviewsCount} sold={sold} />
-
       <div
         className={
           'flex items-center gap-9 mb-11 lg:mb-5 xl:gap-2 lg:items-start md:items-center md:flex-row md:flex-wrap md:max-w-[500px] md:w-full md:mx-auto md:justify-between md:gap-5 md:mb-7'
@@ -107,6 +105,7 @@ export const ProductInfo: FC<ProductInfoType> = ({
           className={'bg-blue hover:opacity-90 lg:grow  lg:justify-center'}
         />
         <MoveToCart
+          productId={id}
           className={
             'bg-blue gap-1 hover:opacity-90 duration-300 lg:grow lg:justify-center'
           }
