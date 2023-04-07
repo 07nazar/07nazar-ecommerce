@@ -15,7 +15,7 @@ export const AboutCompany: FC<Props> = ({
   reviews,
 }) => (
   <>
-    <div className={'flex'}>
+    <div className={'flex lg:flex-col-reverse lg:gap-3'}>
       <div>
         <h2 className={'text-2xl text-gray-dark font-bold mb-4'}>
           About company:
@@ -54,7 +54,9 @@ export const AboutCompany: FC<Props> = ({
         </div>
       </div>
       <div
-        className={'flex flex-col items-end justify-between whitespace-nowrap'}>
+        className={
+          'flex flex-col items-end justify-between whitespace-nowrap lg:items-start'
+        }>
         <div className={'text-gray-dark'}>
           <h3 className={'text-xl text-gray-dark font-bold mb-2'}>
             Customer Rating

@@ -32,10 +32,10 @@ module.exports = {
       },
     },
     screens: {
-      xl: { max: '1220px' },
-      lg: { max: '992px' },
+      xl: { max: '1219px' },
+      lg: { max: '991px' },
       md: { max: '768px' },
-      sm: { max: '480px' },
+      sm: { max: '479px' },
     },
     container: {
       padding: '20px',

@@ -90,7 +90,7 @@ export const ProductContent: FC<ProductContentProps> = ({
         </TabBtn>
       ))}
       orientation={'horizontal'}>
-      <div className={'pt-2 pr-16 pb-7 pl-5'}>
+      <div className={'pt-2 pr-16 pb-7 pl-5 lg:pr-5'}>
         {detailProduct[activeTab].content}
       </div>
     </Tabs>
