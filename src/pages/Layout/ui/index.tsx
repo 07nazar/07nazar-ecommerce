@@ -8,7 +8,7 @@ import { Footer } from './Footer';
 
 export const Layout: FC = () => {
   const { pathname } = useLocation();
-  const routesWithoutNavBar = ['cart', 'checkout'];
+  const routesWithoutNavBar = ['cart', 'checkout', 'admin'];
 
   const isMatch = routesWithoutNavBar.some(path => matchPath(path, pathname));
 
