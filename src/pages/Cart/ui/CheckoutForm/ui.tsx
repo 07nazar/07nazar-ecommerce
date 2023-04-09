@@ -26,7 +26,7 @@ export const CheckoutForm: FC<CheckoutProps> = ({
 }) => {
   const { isMobile } = useMatchMedia();
 
-  // Todo +- должны замениться на $
+  // TODO +- должны замениться на $
 
   return (
     <div className={'base-border-gray sm:border-y sm:rounded-none'}>

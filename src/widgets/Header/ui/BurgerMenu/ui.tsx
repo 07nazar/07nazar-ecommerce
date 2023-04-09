@@ -8,7 +8,7 @@ import { Modal } from 'shared/ui/Modal';
 import avatar from './assets/avatar.png';
 import { mobileMenuLinks, MobileMenuLinkType } from './lib';
 
-// Todo по высоте не на весь экран белый фон
+// TODO по высоте не на весь экран белый фон
 
 const MobileMenu: FC = () => (
   <div className={'w-60 h-full'}>

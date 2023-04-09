@@ -44,7 +44,7 @@ export const mobileMenuLinks: MobileMenuLinkType[][] = [
       icon: TfiWorld,
       title: 'English | USD',
       handler: () => {
-        // Todo обработка смены языка
+        // TODO обработка смены языка
         console.log('change language handler');
       },
     },

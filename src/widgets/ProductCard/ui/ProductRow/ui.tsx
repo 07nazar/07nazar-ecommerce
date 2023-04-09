@@ -68,6 +68,7 @@ export const ProductRow: FC<ProductRowType> = ({
   deliveryCost,
   rating,
 }) => {
+  // TODO Поправить картинку 480-768
   const { isMobile } = useMatchMedia();
 
   return (
