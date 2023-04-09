@@ -58,7 +58,7 @@ export const Modal: FC<ModalProps> = ({
       setClose(false);
     }
   };
-  // Todo убрать синее выделение при клике не в области/закрытии
+  // TODO убрать синее выделение при клике не в области/закрытии
   return createPortal(
     <>
       <animated.div
