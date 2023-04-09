@@ -1,8 +1,8 @@
-import { FC, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { FC } from 'react';
 
 import { ProductType } from 'entities/Product';
 import { SellerType } from 'entities/User';
+import { useQueryTabs } from 'shared/lib';
 import { TabBtn, Tabs } from 'shared/ui/Tabs';
 
 import { AboutCompany } from './AboutCompany';
@@ -19,13 +19,6 @@ export const ProductContent: FC<ProductContentProps> = ({
   product,
   seller,
 }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const [activeTab, setActiveTab] = useState<number>(
-    Number(new URLSearchParams(location.search).get('tab')) || 0
-  );
-
   const detailProduct = [
     {
       buttonText: 'Description',
@@ -56,22 +49,7 @@ export const ProductContent: FC<ProductContentProps> = ({
     },
   ];
 
-  useEffect(() => {
-    const tabParam = new URLSearchParams(location.search).get('tab');
-    const tabParamIndex = detailProduct.findIndex(
-      detail => detail.buttonText.toLowerCase() === tabParam
-    );
-    if (tabParamIndex !== -1) {
-      setActiveTab(tabParamIndex);
-    }
-  }, [detailProduct, location.search]);
-
-  const handleTabClick = (index: number) => {
-    setActiveTab(index);
-    navigate(`?tab=${detailProduct[index].buttonText.toLowerCase()}`, {
-      replace: true,
-    });
-  };
+  const { activeTab, handleTabClick } = useQueryTabs(detailProduct);
 
   return (
     <Tabs
