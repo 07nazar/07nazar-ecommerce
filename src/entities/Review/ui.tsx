@@ -13,7 +13,7 @@ export const Review: FC<ProductReviewType> = ({
   likes,
   dislikes,
 }) => (
-  <div className={'mb-4 p-3 border border-gray-pale rounded-md'}>
+  <div className={'mb-4 p-3 border border-gray-pale rounded-md lg:mb-1 '}>
     <p className={'flex items-center text-black'}>
       <span>{author.name}</span>
       <GoStar className={'ml-2 text-orange inline-block'} />

@@ -2,7 +2,9 @@ import { FC, useState } from 'react';
 import { GoStar } from 'react-icons/go';
 
 import { calculateRating, ProductReviewType, Review } from 'entities/Review';
+import { useMatchMedia } from 'shared/lib';
 import { Button } from 'shared/ui/Button';
+import { Slider } from 'shared/ui/Slider/ui/ui';
 
 interface RatingProps {
   reviews: ProductReviewType[];
@@ -37,7 +39,7 @@ const RatingPercent: FC<RatingProps> = ({ reviews }) => {
 
 export const Reviews: FC<RatingProps> = ({ reviews }) => {
   const [sortingType, setSortingType] = useState('useful');
-
+  const { isDesktop } = useMatchMedia();
   const ratings = reviews.map(review => review.rating);
   const averageRating = calculateRating(ratings);
 
@@ -64,20 +66,23 @@ export const Reviews: FC<RatingProps> = ({ reviews }) => {
     },
   ];
   return (
-    <div className={'flex gap-5'}>
+    <div
+      className={'flex gap-5 lg:overflow-hidden lg:flex-col-reverse lg:gap-1'}>
       <div className={'flex flex-col'}>
-        <p className={'flex items-center'}>
+        <p className={'flex items-center lg:hidden'}>
           <GoStar className={'text-orange mr-1'} />
           <span className={'mr-4'}>{averageRating.toFixed(2)}</span>
           <span>{reviews.length} reviews</span>
         </p>
-        <div className={'mt-4'}>
+        <div className={'mt-4 lg:hidden'}>
           <RatingPercent reviews={reviews} />
         </div>
-        <Button className={'bg-light mt-4 p-1 text-orange justify-center'}>
+        <Button
+          className={'bg-light mt-4 lg:mt-1 p-1 text-orange justify-center'}>
           Write a review
         </Button>
       </div>
+
       <div className={'w-full'}>
         <div className={'flex mb-5'}>
           {buttons.map(button => (
@@ -92,18 +97,37 @@ export const Reviews: FC<RatingProps> = ({ reviews }) => {
             </Button>
           ))}
         </div>
-        <div className={'flex flex-col'}>
-          {reviews.map(review => (
-            <Review
-              key={review.author.name + review.text.comment.length}
-              author={review.author}
-              text={review.text}
-              rating={review.rating}
-              likes={review.likes}
-              dislikes={review.dislikes}
-              date={review.date}
-            />
-          ))}
+
+        <div className={'w-auto flex flex-col lg:flex-row'}>
+          {isDesktop ? (
+            reviews.map(review => (
+              <Review
+                key={review.author.name + review.text.comment.length}
+                author={review.author}
+                text={review.text}
+                rating={review.rating}
+                likes={review.likes}
+                dislikes={review.dislikes}
+                date={review.date}
+              />
+            ))
+          ) : (
+            <Slider
+              slideClassNames={'slide-w-auto'}
+              wrapperClassNames={'w-full'}>
+              {reviews.map(review => (
+                <Review
+                  key={review.author.name + review.text.comment.length}
+                  author={review.author}
+                  text={review.text}
+                  rating={review.rating}
+                  likes={review.likes}
+                  dislikes={review.dislikes}
+                  date={review.date}
+                />
+              ))}
+            </Slider>
+          )}
         </div>
       </div>
     </div>

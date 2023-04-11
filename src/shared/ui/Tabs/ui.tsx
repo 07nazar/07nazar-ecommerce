@@ -78,7 +78,7 @@ export const Tabs: FC<ITabs> = ({
   border = '',
   className = '',
 }) => {
-  const tabsWrapperStyles = `inline-flex w-full ${border} rounded-md ${
+  const tabsWrapperStyles = `inline-flex w-full  ${border} rounded-md ${
     orientation === 'horizontal' ? 'flex-col' : 'flex-row'
   }`;
   const tabsStyles = `relative flex grow ${

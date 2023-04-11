@@ -32,7 +32,7 @@ const Content: FC<IContentProps> = ({ params, sellerId }) => {
   const [isOpen, setOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState<ISelectedValue[]>([]);
 
-  // Todo Доделать выбор кол-ва товара
+  // TODO Доделать выбор кол-ва товара
 
   const paramsElements = useMemo(
     () =>
@@ -157,7 +157,7 @@ export const ProductCart: FC = () => {
   };
 
   // if (productsCart.length === 0) {
-  //   // Todo лоадер
+  //   // TODO лоадер
   // }
 
   return (

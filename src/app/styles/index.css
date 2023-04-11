@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html,
   body {
     font-family: Inter, sans-serif;
     overflow-x: hidden;
-
     @apply bg-gray-light;
   }
 
@@ -107,7 +107,7 @@
   .product-image {
     @apply mx-auto h-full w-full object-cover;
   }
-  
+
   .modal {
     @apply bg-white p-6 rounded-lg shadow-lg;
   }
@@ -149,39 +149,44 @@
   .full-screen {
     margin-left: calc(50% - 50vw);
   }
-  
+
   .slide-w-auto {
     width: auto !important;
   }
-  
+
   .dots {
     position: relative;
     padding-right: 15px;
     padding-left: 15px;
-
   }
-  
-  .dots:before, .dots:after {
+
+  .dots:before,
+  .dots:after {
     content: '';
     position: absolute;
 
     top: 50%;
     transform: translateY(-50%);
-    background-color: #DEE2E7;
+    background-color: #dee2e7;
     width: 6px;
     height: 6px;
     border-radius: 50%;
   }
-  
+
   .dots:before {
     left: 0;
   }
-  
+
   .dots:after {
     right: 0;
   }
 }
 
+.slide-center {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
 
 @media screen and (max-width: 768px) {
   .container {
@@ -192,9 +197,9 @@
 
 @media screen and (max-width: 480px) {
   .container {
-    padding: 0;
+    /* padding: 0; */
   }
-  
+
   .swiper {
     padding-left: 5px !important;
     padding-right: 5px !important;
