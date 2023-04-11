@@ -11,10 +11,10 @@ export const Routing = () => (
   <Routes>
     <Route path={'/'} element={<Layout />}>
       <Route index element={<Home />} />
-      <Route path='cart' element={<Cart />} />
-      <Route path='shop' element={<Shop />} />
-      <Route path='product/:id' element={<Product />} />
-      <Route path='*' element={<NotFound />} />
+      <Route path={'cart'} element={<Cart />} />
+      <Route path={'shop'} element={<Shop />} />
+      <Route path={'product/:id'} element={<Product />} />
+      <Route path={'*'} element={<NotFound />} />
     </Route>
   </Routes>
 );
