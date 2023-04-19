@@ -6,10 +6,11 @@ import { colors } from 'shared/lib';
 import { Input } from 'shared/ui/Input';
 
 interface SearchProps {
+  handleChange?: (value: string) => void;
   className?: string;
 }
 
-export const Search: FC<SearchProps> = ({ className }) => {
+export const Search: FC<SearchProps> = ({ className, handleChange }) => {
   const [value, setValue] = useState('');
 
   const styles = useSpring({
@@ -23,10 +24,16 @@ export const Search: FC<SearchProps> = ({ className }) => {
   });
 
   const clickHandler = () => {
+    if (handleChange) {
+      handleChange('');
+    }
     setValue('');
   };
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    if (handleChange) {
+      handleChange(e.target.value);
+    }
     setValue(e.target.value);
   };
 
