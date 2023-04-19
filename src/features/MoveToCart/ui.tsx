@@ -5,7 +5,7 @@ import { useMatchMedia } from 'shared/lib';
 import { Button } from 'shared/ui/Button';
 
 interface IMoveToCartProps {
-  productId: number;
+  productId: string;
   className?: string;
 }
 

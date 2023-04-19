@@ -2,19 +2,18 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { AddFavourite } from 'features/AddFavourite';
-import { ProductCard, ProductRowType } from 'entities/Product';
+import { ProductCard } from 'entities/Product';
 import { useMatchMedia } from 'shared/lib';
 import { Rating } from 'shared/ui/Rating';
 
-interface IContent {
-  rating: number;
-  orders: number;
-  deliveryCost: string;
-  description: string;
-  id: number;
-}
+import type { ProductRowType, ProductType } from 'entities/Product';
 
-const Content: FC<IContent> = ({
+type ContentProps = Pick<
+  ProductType,
+  'description' | 'rating' | 'orders' | 'deliveryCost' | 'id'
+>;
+
+const Content: FC<ContentProps> = ({
   description,
   rating,
   orders,

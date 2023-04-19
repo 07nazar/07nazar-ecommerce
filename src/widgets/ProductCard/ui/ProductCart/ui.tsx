@@ -96,17 +96,17 @@ export const ProductCart: FC = () => {
   useEffect(() => {
     // делаем запрос на сервер по id [{id: 1, quantity: 2}, {id: 3, quantity: 1}]
 
-    const fakeDataFromServer = [
+    const fakeDataFromServer: ProductCartType[] = [
       {
         product: {
-          id: 2,
+          id: 'dasda4211',
           sellerId: 'Seller name',
           name: 'Product name max 30 length asd',
           price: { current: 333, old: 5151 },
           params: [
-            { name: 'color', value: 'blue' },
-            { name: 'brand', value: 'samsung' },
-            { name: 'memory', value: '128' },
+            { name: 'color', value: 'blue', order: 1 },
+            { name: 'brand', value: 'samsung', order: 1 },
+            { name: 'memory', value: '128', order: 1 },
           ],
           mainPhoto: {
             url: img,
@@ -117,14 +117,14 @@ export const ProductCart: FC = () => {
       },
       {
         product: {
-          id: 23,
+          id: 'asc24v412',
           sellerId: 'Seller name3322',
           name: 'Product name max 30 length asd',
           price: { current: 333 },
           params: [
-            { name: 'color', value: 'blue' },
-            { name: 'brand', value: 'samsung' },
-            { name: 'memory', value: '128' },
+            { name: 'color', value: 'blue', order: 1 },
+            { name: 'brand', value: 'samsung', order: 1 },
+            { name: 'memory', value: '128', order: 1 },
           ],
           mainPhoto: {
             url: img,
@@ -138,7 +138,9 @@ export const ProductCart: FC = () => {
     setProductsCart(fakeDataFromServer);
   }, []);
 
-  const changeProductQuantity = (id: number, newQuantity: number) => {
+  // TODO вынести фичи
+
+  const changeProductQuantity = (id: string, newQuantity: number) => {
     setProductsCart(prevProductsCart => {
       const productIndex = prevProductsCart.findIndex(
         product => product.product.id === id

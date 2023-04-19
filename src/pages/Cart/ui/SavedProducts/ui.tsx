@@ -4,25 +4,25 @@ import productImage from '../../assets/phone.png';
 
 const products = [
   {
-    id: 14,
+    id: 'das14512sdafs',
     price: { current: 41 },
     name: 'GoPro HERO6 4K Action Camera - Black',
     mainPhoto: { url: productImage, thumbUrl: '' },
   },
   {
-    id: 145,
+    id: 'das14512sdafs5',
     price: { current: 41 },
     name: 'GoPro HERO6 4K Action Camera - Black',
     mainPhoto: { url: productImage, thumbUrl: '' },
   },
   {
-    id: 143,
+    id: 'das14512sdafs3',
     price: { current: 41 },
     name: 'GoPro HERO6 4K Action Camera - Black',
     mainPhoto: { url: productImage, thumbUrl: '' },
   },
   {
-    id: 144,
+    id: 'das14512sdafs4',
     price: { current: 41 },
     name: 'GoPro HERO6 4K Action Camera - Black',
     mainPhoto: { url: productImage, thumbUrl: '' },

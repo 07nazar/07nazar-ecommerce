@@ -4,7 +4,7 @@ import img from '../assets/phone.png';
 
 export const productsFromServer: ProductRowType[] = [
   {
-    id: 11,
+    id: '1dasda622v3',
     price: { current: 41, old: 599 },
     name: 'GoPro HERO6 4K Action Camera - Black',
     mainPhoto: { url: img, thumbUrl: img },
@@ -13,7 +13,7 @@ export const productsFromServer: ProductRowType[] = [
     rating: 2.3,
   },
   {
-    id: 12,
+    id: 'da1dasda622v3',
     price: { current: 41 },
     name: 'GoPro HERO6 4K Action Camera - Black',
     mainPhoto: { url: img, thumbUrl: img },
@@ -22,7 +22,7 @@ export const productsFromServer: ProductRowType[] = [
     rating: 4.1,
   },
   {
-    id: 13,
+    id: '1dafsda622v3',
     price: { current: 41, old: 1999 },
     name: 'GoPro HERO6 4K Action Camera - Black',
     mainPhoto: { url: img, thumbUrl: img },
@@ -31,7 +31,7 @@ export const productsFromServer: ProductRowType[] = [
     rating: 2.5,
   },
   {
-    id: 14,
+    id: '1daxdassda622v3',
     price: { current: 41 },
     name: 'GoPro HERO6 4K Action Camera - Black',
     mainPhoto: { url: img, thumbUrl: img },
@@ -40,7 +40,7 @@ export const productsFromServer: ProductRowType[] = [
     rating: 5,
   },
   {
-    id: 15,
+    id: '161dasda622v3',
     price: { current: 41 },
     name: 'GoPro HERO6 4K Action Camera - Black',
     mainPhoto: { url: img, thumbUrl: img },
@@ -49,7 +49,7 @@ export const productsFromServer: ProductRowType[] = [
     rating: 1.2,
   },
   {
-    id: 16,
+    id: 'dasdas1dasda622v3',
     price: { current: 41 },
     name: 'GoPro HERO6 4K Action Camera - Black',
     mainPhoto: { url: img, thumbUrl: img },
@@ -58,7 +58,7 @@ export const productsFromServer: ProductRowType[] = [
     rating: 0.7,
   },
   {
-    id: 17,
+    id: '1dfasda622v3',
     price: { current: 41 },
     name: 'GoPro HERO6 4K Action Camera - Black',
     mainPhoto: { url: img, thumbUrl: img },
@@ -67,7 +67,7 @@ export const productsFromServer: ProductRowType[] = [
     rating: 4,
   },
   {
-    id: 18,
+    id: 'xcz1dasda622v3',
     price: { current: 41 },
     name: 'GoPro HERO6 4K Action Camera - Black',
     mainPhoto: { url: img, thumbUrl: img },
@@ -76,7 +76,7 @@ export const productsFromServer: ProductRowType[] = [
     rating: 4,
   },
   {
-    id: 19,
+    id: '1mvbndasda622v3',
     price: { current: 41 },
     name: 'GoPro HERO6 4K Action Camera - Black',
     mainPhoto: { url: img, thumbUrl: img },
