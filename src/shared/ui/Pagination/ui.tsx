@@ -2,14 +2,16 @@ import { FC, useState, useEffect } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 interface IPagination {
-  className?: string;
   count: number;
+  changePageHandler: (page: number) => void;
   maxVisible: 3 | 5;
+  className?: string;
 }
 
 export const Pagination: FC<IPagination> = ({
   className = '',
   count,
+  changePageHandler,
   maxVisible,
 }) => {
   const [activePage, setActivePage] = useState(1);
@@ -36,6 +38,8 @@ export const Pagination: FC<IPagination> = ({
     } else {
       setPages(() => arr.slice(curLeft, curRight));
     }
+
+    changePageHandler(activePage);
   }, [activePage]);
 
   const onClickNext = () => {
@@ -54,11 +58,11 @@ export const Pagination: FC<IPagination> = ({
       <button
         onClick={onClickPrev}
         disabled={activePage === 1}
-        className='paginationItem'>
+        className={'paginationItem'}>
         <IoIosArrowBack size={20} />
       </button>
 
-      <div className='flex overflow-hidden'>
+      <div className={'flex overflow-hidden'}>
         <div className={`flex last:border-r border-gray-medium`}>
           {pages?.map(item => (
             <button
@@ -76,7 +80,7 @@ export const Pagination: FC<IPagination> = ({
       <button
         onClick={onClickNext}
         disabled={activePage === count}
-        className='paginationItem'>
+        className={'paginationItem'}>
         <IoIosArrowForward size={20} />
       </button>
     </div>
