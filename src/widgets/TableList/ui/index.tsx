@@ -21,7 +21,7 @@ export const TableList = ({
   activeSort,
   actions,
 }: TableListProps) => {
-  const [productPerPage, setProductsPerPage] = useState<number>(3);
+  const [productPerPage, setProductsPerPage] = useState<number>(10);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const indexOfLastProduct = currentPage * productPerPage;
