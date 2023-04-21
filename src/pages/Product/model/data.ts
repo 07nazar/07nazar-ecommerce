@@ -279,7 +279,7 @@ export const productsRelated: ProductMinType[] = [
   {
     id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
-    name: 'Xiaomi Redmi 84 Original',
+    name: 'Xiaomi Redmi 841 Original',
     price: { current: 32 },
   },
 ];
