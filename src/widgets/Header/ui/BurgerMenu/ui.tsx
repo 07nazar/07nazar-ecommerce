@@ -1,4 +1,4 @@
-import { createElement, FC, Fragment, useState } from 'react';
+import { FC, Fragment, useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 import { AppLink } from 'shared/ui/AppLink';
@@ -37,11 +37,8 @@ const MobileMenu: FC = () => (
                   className={
                     'text-black font-normal p-0 pl-2.5 h-12 items-center w-full'
                   }>
-                  {link.icon &&
-                    createElement(link.icon, {
-                      className: 'text-gray-hot',
-                    })}
-                  {createElement('span', { className: 'ml-4' }, link.title)}
+                  {link.icon && <link.icon className={'text-gray-hot'} />}
+                  <span className={'ml-4'}>{link.title}</span>
                 </Button>
               );
             }
@@ -49,17 +46,12 @@ const MobileMenu: FC = () => (
             return (
               <AppLink
                 key={link.title}
-                className={'flex-row  items-center pl-2.5 h-12 text-black'}
+                className={'flex-row items-center pl-2.5 h-12 text-black'}
                 to={link.to ?? ''}>
-                {link.icon &&
-                  createElement(link.icon, {
-                    className: 'text-gray-hot',
-                  })}
-                {createElement(
-                  'span',
-                  { className: !link.icon ? 'ml-8' : 'ml-4' },
-                  link.title
-                )}
+                {link.icon && <link.icon className={'text-gray-hot'} />}
+                <span className={!link.icon ? 'ml-8' : 'ml-4'}>
+                  {link.title}
+                </span>
               </AppLink>
             );
           })}

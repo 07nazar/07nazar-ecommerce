@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Button } from 'shared/ui/Button';
 
 type RemoveProductType = {
-  productId: number;
+  productId: string;
 };
 
 export const RemoveProduct: FC<RemoveProductType> = ({ productId }) => (

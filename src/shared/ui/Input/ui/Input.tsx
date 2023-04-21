@@ -14,7 +14,7 @@ export const Input: FC<InputProps> = ({
   min,
   max,
 }) => (
-  <div className={'relative'}>
+  <div className={'relative w-full'}>
     <span
       className={
         'absolute pl-2.5 top-[50%] translate-y-[-50%] pointer-events-none'

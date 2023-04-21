@@ -1,21 +1,18 @@
 import { FC } from 'react';
 import { AiOutlineCheck } from 'react-icons/ai';
 
-interface ProductSpecification {
-  name: string;
-  value: string;
-}
+import type { ProductParamsType } from 'entities/Product';
 
 interface ProductDescriptionProps {
   description: string;
   advantages: string[];
-  specifications: ProductSpecification[];
+  params: ProductParamsType[];
 }
 
 export const Description: FC<ProductDescriptionProps> = ({
   description,
   advantages,
-  specifications,
+  params,
 }) => (
   <>
     <p className={'mb-5 text-gray-dark'}>{description}</p>
@@ -23,7 +20,7 @@ export const Description: FC<ProductDescriptionProps> = ({
       className={
         'max-w-[567px] border border-collapse border-gray-medium text-gray-dark'
       }>
-      {specifications.map(spec => (
+      {params.map(spec => (
         <div
           key={spec.name}
           className={

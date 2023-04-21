@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 
 import { Pagination } from 'shared/ui/Pagination';
 import { ISelectedValue, MenuItem, Select } from 'shared/ui/Select';
@@ -9,7 +9,17 @@ const items: ISelectedValue[] = [
   { id: 2, text: 'Show 30' },
 ];
 
-export const PaginationBox = () => {
+type PaginationBoxProps = {
+  setSelectedOption: (val: ISelectedValue[]) => void;
+  count: number;
+  changePageHandler: (page: number) => void;
+};
+
+export const PaginationBox: FC<PaginationBoxProps> = ({
+  setSelectedOption,
+  count,
+  changePageHandler,
+}) => {
   const [isOpenSelect, setOpenSelect] = useState(false);
   const [selectedMenuItem, setSelectedMenuItem] = useState<ISelectedValue[]>(
     []
@@ -18,6 +28,10 @@ export const PaginationBox = () => {
   const menuRef = useRef<HTMLDivElement>(null);
   if (isOpenSelect)
     menuRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  useEffect(() => {
+    setSelectedOption(selectedMenuItem);
+  }, [selectedMenuItem]);
 
   return (
     <div
@@ -41,11 +55,16 @@ export const PaginationBox = () => {
             active={false}
             setSelectedItems={setSelectedMenuItem}
             item={item}>
-            <p>{item.text}</p>
+            <p>Show {item.text}</p>
           </MenuItem>
         ))}
       </Select>
-      <Pagination className={'bg-white md:mx-1'} count={15} maxVisible={3} />
+      <Pagination
+        changePageHandler={changePageHandler}
+        className={'bg-white md:mx-1'}
+        count={count}
+        maxVisible={3}
+      />
     </div>
   );
 };

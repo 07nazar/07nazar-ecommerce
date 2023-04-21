@@ -3,19 +3,18 @@ import { FC, useEffect, useMemo, useState } from 'react';
 import { Counter } from 'features/Counter';
 import { RemoveProduct } from 'features/RemoveProduct';
 import { SaveForLater } from 'features/SaveForLater';
-import {
-  ProductCard,
-  ProductInCartType,
-  ProductSpecificationType,
-} from 'entities/Product';
+import { ProductCard } from 'entities/Product';
 import img from 'shared/assets/dbPhotos/Electronics/image22.png';
 import { useMatchMedia } from 'shared/lib';
-import { ISelectedValue, MenuItem, Select } from 'shared/ui/Select';
+import { MenuItem, Select } from 'shared/ui/Select';
+
+import type { ProductInCartType, ProductParamsType } from 'entities/Product';
+import type { ISelectedValue } from 'shared/ui/Select';
 
 import { capitalize } from '../../lib';
 
 interface IContentProps {
-  params: ProductSpecificationType[];
+  params: ProductParamsType[];
   sellerId: string;
 }
 
@@ -36,7 +35,7 @@ const Content: FC<IContentProps> = ({ params, sellerId }) => {
 
   const paramsElements = useMemo(
     () =>
-      params.map(({ name, value }: ProductSpecificationType, index) => (
+      params.map(({ name, value }: ProductParamsType, index) => (
         <span className={'inline-block mr-0.5'} key={name}>
           {index === 0 ? capitalize(name) : name}: {value.toLowerCase()}
           {index !== params.length - 1 && ', '}
@@ -96,17 +95,17 @@ export const ProductCart: FC = () => {
   useEffect(() => {
     // делаем запрос на сервер по id [{id: 1, quantity: 2}, {id: 3, quantity: 1}]
 
-    const fakeDataFromServer = [
+    const fakeDataFromServer: ProductCartType[] = [
       {
         product: {
-          id: 2,
+          id: 'dasda4211',
           sellerId: 'Seller name',
           name: 'Product name max 30 length asd',
           price: { current: 333, old: 5151 },
           params: [
-            { name: 'color', value: 'blue' },
-            { name: 'brand', value: 'samsung' },
-            { name: 'memory', value: '128' },
+            { name: 'color', value: 'blue', order: 1 },
+            { name: 'brand', value: 'samsung', order: 1 },
+            { name: 'memory', value: '128', order: 1 },
           ],
           mainPhoto: {
             url: img,
@@ -117,14 +116,14 @@ export const ProductCart: FC = () => {
       },
       {
         product: {
-          id: 23,
+          id: 'asc24v412',
           sellerId: 'Seller name3322',
           name: 'Product name max 30 length asd',
           price: { current: 333 },
           params: [
-            { name: 'color', value: 'blue' },
-            { name: 'brand', value: 'samsung' },
-            { name: 'memory', value: '128' },
+            { name: 'color', value: 'blue', order: 1 },
+            { name: 'brand', value: 'samsung', order: 1 },
+            { name: 'memory', value: '128', order: 1 },
           ],
           mainPhoto: {
             url: img,
@@ -138,7 +137,9 @@ export const ProductCart: FC = () => {
     setProductsCart(fakeDataFromServer);
   }, []);
 
-  const changeProductQuantity = (id: number, newQuantity: number) => {
+  // TODO вынести фичи
+
+  const changeProductQuantity = (id: string, newQuantity: number) => {
     setProductsCart(prevProductsCart => {
       const productIndex = prevProductsCart.findIndex(
         product => product.product.id === id

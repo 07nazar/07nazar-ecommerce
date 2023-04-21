@@ -26,7 +26,7 @@ export const ProductContent: FC<ProductContentProps> = ({
         <Description
           description={product.description}
           advantages={product.advantages}
-          specifications={product.specifications}
+          params={product.params}
         />
       ),
     },

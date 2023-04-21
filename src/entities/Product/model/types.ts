@@ -9,9 +9,10 @@ type ProductAdditionalPhotoType = {
   url: string;
 };
 
-export type ProductSpecificationType = {
+export type ProductParamsType = {
   name: string;
   value: string;
+  order: number;
 };
 
 type ProductPriceType = {
@@ -20,7 +21,7 @@ type ProductPriceType = {
 };
 
 export type ProductType = {
-  id: number;
+  id: string;
   name: string;
   category: string[]; // ['clothing', 'men's wear', 'summer wear']
   quantity: number;
@@ -31,8 +32,7 @@ export type ProductType = {
   description: string;
   orders: number;
   additionalPhotos: ProductAdditionalPhotoType[];
-  specifications: ProductSpecificationType[];
-  params: ProductSpecificationType[];
+  params: ProductParamsType[];
   advantages: string[];
   reviewsCount: number;
   reviews: ProductReviewType[];
@@ -48,6 +48,11 @@ export type ProductRowType = Pick<
 export type ProductMinType = Pick<
   ProductType,
   'id' | 'name' | 'mainPhoto' | 'price'
+>;
+
+export type ProductAdminType = Pick<
+  ProductType,
+  'id' | 'name' | 'mainPhoto' | 'price' | 'sellerId'
 >;
 
 export type ProductInCartType = Pick<

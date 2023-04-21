@@ -180,6 +180,18 @@
   .dots:after {
     right: 0;
   }
+  
+  .scrollbar::-webkit-scrollbar {
+    @apply h-1 duration-300;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-lightblue duration-300;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-blue/50 duration-300;
+  }
 }
 
 .slide-center {

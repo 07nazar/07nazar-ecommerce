@@ -4,7 +4,7 @@ import img from '../assets/phone.png';
 
 export const products: ProductMinType[] = [
   {
-    id: 12,
+    id: 'das2wtgv412',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Brown winter coat medium size',
     price: {
@@ -12,7 +12,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
-    id: 12,
+    id: 'das2wtgv412',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Leather wallet',
     price: {
@@ -20,7 +20,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
-    id: 12,
+    id: 'das2wtgv412',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Brown winter coat medium size 2',
     price: {
@@ -29,7 +29,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
-    id: 12,
+    id: 'das2wtgv412',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Brown winter coat medium size 4',
     price: {
@@ -37,7 +37,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
-    id: 12,
+    id: 'das2wtgv412',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Brown winter coat medium size 5',
     price: {
@@ -45,7 +45,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
-    id: 12,
+    id: 'das2wtgv412',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'product6',
     price: {
@@ -54,7 +54,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
-    id: 12,
+    id: 'das2wtgv412',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'product7',
     price: {
@@ -62,7 +62,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
-    id: 12,
+    id: 'das2wtgv412',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'product88',
     price: {
@@ -70,7 +70,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
-    id: 12,
+    id: 'das2wtgv412',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'product73',
     price: {
@@ -78,7 +78,7 @@ export const products: ProductMinType[] = [
     },
   },
   {
-    id: 12,
+    id: 'das2wtgv412',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'product8841',
     price: {

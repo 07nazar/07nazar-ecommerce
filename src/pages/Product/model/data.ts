@@ -4,7 +4,7 @@ import type { SellerType } from 'entities/User';
 import img from '../assets/phone.png';
 
 export const productFromServer: ProductType = {
-  id: 13,
+  id: 'das2wtgv412',
   name: 'product name',
   deliveryCost: '0',
   category: ['phone'],
@@ -30,18 +30,11 @@ export const productFromServer: ProductType = {
   sold: 35,
   reviewsCount: 12,
   params: [
-    { name: 'Model', value: '#5236326' },
-    { name: 'Style', value: 'Classic' },
-    { name: 'Type', value: '#5236326' },
-    { name: 'Color', value: 'Classic' },
-    { name: 'Weight', value: 'Classic' },
-  ],
-  specifications: [
-    { name: 'Model', value: '#5236326' },
-    { name: 'Style', value: 'Classic' },
-    { name: 'Type', value: '#5236326' },
-    { name: 'Color', value: 'Classic' },
-    { name: 'Weight', value: 'Classic' },
+    { name: 'Model', value: '#5236326', order: 1 },
+    { name: 'Style', value: 'Classic', order: 3 },
+    { name: 'Type', value: '#5236326', order: 2 },
+    { name: 'Color', value: 'Classic', order: 5 },
+    { name: 'Weight', value: 'Classic', order: 4 },
   ],
   advantages: [
     'Some great feature name here',
@@ -254,72 +247,72 @@ export const sellerFromServer: SellerType = {
 
 export const productsRelated: ProductMinType[] = [
   {
-    id: 1,
+    id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 86 Original',
     price: { current: 32 },
   },
   {
-    id: 1,
+    id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 85 Original',
     price: { current: 32 },
   },
   {
-    id: 1,
+    id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 84 Original',
     price: { current: 32 },
   },
   {
-    id: 1,
+    id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 83 Original',
     price: { current: 32 },
   },
   {
-    id: 1,
+    id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 82 Original',
     price: { current: 32 },
   },
   {
-    id: 1,
+    id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
-    name: 'Xiaomi Redmi 81 Original',
+    name: 'Xiaomi Redmi 84 Original',
     price: { current: 32 },
   },
 ];
 
 export const productsLikes: ProductMinType[] = [
   {
-    id: 1,
+    id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 5 Original',
     price: { current: 32 },
   },
   {
-    id: 1,
+    id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 84Original',
     price: { current: 32 },
   },
   {
-    id: 1,
+    id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 3 Original',
     price: { current: 32 },
   },
   {
-    id: 1,
+    id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
     name: 'Xiaomi Redmi 2 Original',
     price: { current: 32 },
   },
   {
-    id: 1,
+    id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
-    name: 'Xiaomi Redmi 1 Original',
+    name: 'Xiaomi Redmi das Original',
     price: { current: 32, old: 99 },
   },
 ];

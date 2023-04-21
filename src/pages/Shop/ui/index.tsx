@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { PaginationBox } from 'widgets/Pagination';
 import { SidebarFilters } from 'widgets/SidebarFilters';
 import { SubscribeNews } from 'widgets/SubscribeNews';
 import { useMatchMedia } from 'shared/lib';
@@ -7,7 +8,6 @@ import { Breadcrumbs } from 'shared/ui/Breadcrumbs';
 
 import { ActiveCategories } from './ActiveCategories';
 import { ControlPanel } from './ControlPanel';
-import { PaginationBox } from './Pagination';
 import { Products } from './Products';
 
 export const Shop = () => {
@@ -33,7 +33,11 @@ export const Shop = () => {
           />
           <ActiveCategories />
           <Products showMode={showMode} />
-          <PaginationBox />
+          <PaginationBox
+            changePageHandler={() => console.log('todooo')}
+            count={54}
+            setSelectedOption={() => console.log('selected')}
+          />
         </div>
       </div>
       <SubscribeNews />
