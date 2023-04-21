@@ -1,31 +1,26 @@
-import { useState } from 'react';
-import { AiOutlineDelete, AiOutlineEdit, AiOutlineEye } from 'react-icons/ai';
+import { FC, ReactNode, useState } from 'react';
 
 import { AppLink } from 'shared/ui/AppLink';
-import { Button } from 'shared/ui/Button';
 import { Checkbox } from 'shared/ui/Checkbox';
 
 export type TableItemLinkType = {
-  name: string | number;
-  sortable?: boolean;
-  to?: string;
+  name: string;
+  sortable: boolean;
   className: string;
   width: string;
+  id?: string;
+  to?: string;
 };
 
-type TableItemProps<T> = {
-  item: T;
+type TableItemProps = {
+  item: Record<string, TableItemLinkType>;
+  actions: ReactNode;
 };
 
-export const TableItem = <
-  T extends { [key: string]: string | number | TableItemLinkType }
->({
-  item,
-}: TableItemProps<T>) => {
+export const TableItem: FC<TableItemProps> = ({ item, actions }) => {
   const [isActive, setActive] = useState(false);
 
   // TODO добавить тултипы при наводке на actions
-
   return (
     <div
       className={`flex w-full p-2 border-t border-gray-medium hover:bg-gray-light duration-300 ${
@@ -36,41 +31,27 @@ export const TableItem = <
       </Checkbox>
 
       {Object.entries(item).map(([key, value]) => {
-        if (typeof value === 'object') {
-          if (value.to) {
-            return (
-              <AppLink
-                key={`table-link-${key}`}
-                to={value.to}
-                className={`${value.className || ''} + ${value.width || ''}`}>
-                {value.name}
-              </AppLink>
-            );
-          }
-
+        if (value.to) {
           return (
-            <p
-              key={`table-text-${key}`}
-              className={`${value.className || ''} + ${value.width || ''}`}>
+            <AppLink
+              key={`table-link-${key}`}
+              to={`/${value.to}`}
+              className={`${value.className} ${value.width}`}>
               {value.name}
-            </p>
+            </AppLink>
           );
         }
 
-        return null;
+        return (
+          <p
+            key={`table-text-${key}`}
+            className={`${value.className} ${value.width}`}>
+            {value.name}
+          </p>
+        );
       })}
 
-      <div className={'w-1/12 flex'}>
-        <Button className={'text-black p-1.5 hover:text-blue duration-300'}>
-          <AiOutlineEye />
-        </Button>
-        <Button className={'text-black p-1.5 hover:text-green duration-300'}>
-          <AiOutlineEdit />
-        </Button>
-        <Button className={'text-black p-1.5 hover:text-red duration-300'}>
-          <AiOutlineDelete />
-        </Button>
-      </div>
+      {actions}
     </div>
   );
 };

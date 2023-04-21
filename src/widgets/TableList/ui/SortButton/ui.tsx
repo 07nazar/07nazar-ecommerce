@@ -56,7 +56,7 @@ export const SortButton: FC<SortButtonProps> = ({
             className={`h-5 w-5 mt-1 ${
               disabled ? 'text-gray-medium' : 'text-black'
             }  ${
-              activeType === 'desc' ? 'rotate-0' : 'rotate-180 mt-2.5'
+              activeType === 'desc' ? 'rotate-0 mt-1.5' : 'rotate-180 mt-3'
             } duration-200`}
           />
         )}

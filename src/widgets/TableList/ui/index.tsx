@@ -8,22 +8,20 @@ import { PaginationBox } from '../../Pagination';
 import { TableHeading } from './Heading';
 import { TableItem } from './Item';
 
-type TableItemData = {
-  [key: string]: string | number | TableItemLinkType;
-};
-
-type TableListProps<T extends TableItemData> = {
-  items: T[];
+type TableListProps = {
+  items: { [key: string]: TableItemLinkType }[];
   activeSort: SortActiveType;
   onSortChange: (active: SortActiveType) => void;
+  actions: (name: string, id: string) => JSX.Element;
 };
 
-export const TableList = <T extends TableItemData>({
+export const TableList = ({
   items,
   onSortChange,
   activeSort,
-}: TableListProps<T>) => {
-  const [productPerPage, setProductsPerPage] = useState<number>(5);
+  actions,
+}: TableListProps) => {
+  const [productPerPage, setProductsPerPage] = useState<number>(3);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const indexOfLastProduct = currentPage * productPerPage;
@@ -32,26 +30,29 @@ export const TableList = <T extends TableItemData>({
 
   const headingKeys =
     items[0] &&
-    Object.entries(items[0]).map(([key, value]) => {
-      if (typeof value === 'object' && value.sortable) {
-        return { name: key, width: value.width, sortable: value.sortable };
-      }
-
-      return { name: key, width: 'w-1/12', sortable: false };
-    });
+    Object.entries(items[0]).map(([key, value]) => ({
+      name: key,
+      width: value.width,
+      sortable: value.sortable,
+    }));
 
   return (
-    <div className={'w-full bg-white rounded-md mb-4'}>
-      <TableHeading
-        headingKeys={headingKeys}
-        activeSort={activeSort}
-        handleSortChange={onSortChange}
-      />
+    <>
+      <div className={'w-full bg-white rounded-md mb-4'}>
+        <TableHeading
+          headingKeys={headingKeys}
+          activeSort={activeSort}
+          handleSortChange={onSortChange}
+        />
 
-      {currentProducts.map((item, index) => (
-        <TableItem<T> item={item} key={`table-item-${index}`} />
-      ))}
-
+        {currentProducts.map((item, index) => (
+          <TableItem
+            item={item}
+            key={`table-item-${index}`}
+            actions={actions(item.name.name, item.id.id || '')}
+          />
+        ))}
+      </div>
       {items.length > productPerPage && (
         <PaginationBox
           changePageHandler={page => setCurrentPage(page)}
@@ -65,6 +66,6 @@ export const TableList = <T extends TableItemData>({
           }}
         />
       )}
-    </div>
+    </>
   );
 };
