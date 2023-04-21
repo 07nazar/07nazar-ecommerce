@@ -1,5 +1,6 @@
-import { useSpring, animated } from '@react-spring/web';
+import { animated, useSpring } from '@react-spring/web';
 import { FC, ReactElement, ReactNode } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { colors } from '../../lib';
 
@@ -33,6 +34,9 @@ export const TabBtn: FC<ITabBtnProps> = ({
   outlined = false,
   className = '',
 }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const isActive = activeTab === index;
 
   const animation = useSpring({
@@ -52,10 +56,18 @@ export const TabBtn: FC<ITabBtnProps> = ({
   const borderStyles =
     isActive && outlined ? 'border-b-2 border-blue rounded-none z-10' : '';
 
+  const handleClick = () => {
+    navigate(location.pathname + location.search, {
+      state: { tab: index },
+    });
+
+    setActiveTab(index);
+  };
+
   return (
     <>
       <animated.button
-        onClick={() => setActiveTab(index)}
+        onClick={handleClick}
         style={animation}
         className={`${buttonStyles} ${borderStyles} ${className} leading-5`}>
         {children}
