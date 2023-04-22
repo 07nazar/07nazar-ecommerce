@@ -3,7 +3,7 @@ const getEnvVar = (key: string) => {
     throw new Error(`Env variable ${key} is required`);
   }
 
-  return import.meta.env[key] || '';
+  return import.meta.env[key];
 };
 export const NODE_ENV = getEnvVar('VITE_NODE_ENV');
 
