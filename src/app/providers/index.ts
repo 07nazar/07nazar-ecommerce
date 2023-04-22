@@ -1,6 +1,7 @@
-import { ReactNode } from 'react';
+import { ComponentType } from 'react';
 
 import { withRouter } from './withRouter';
+import { withStore } from './withStore';
 
-export const withProviders = (component: () => ReactNode) =>
-  withRouter(component);
+export const withProviders = (Component: ComponentType) =>
+  withRouter(withStore(Component));
