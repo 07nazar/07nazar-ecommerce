@@ -1,4 +1,4 @@
-import type { ProductType } from 'entities/Product';
+import type { productTypes } from 'entities/Product';
 
 type CouponType = {
   code: string; // Код купона
@@ -6,7 +6,7 @@ type CouponType = {
 };
 
 type CartItemType = Pick<
-  ProductType,
+  productTypes.ProductType,
   'id' | 'name' | 'mainPhoto' | 'price' | 'sellerId'
 > & {
   quantity: number; // Кол-во товара в заказе

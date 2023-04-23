@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { CartType } from 'entities/Cart';
+import { cartTypes } from 'entities/Cart';
 import { useMatchMedia } from 'shared/lib';
 import { Button } from 'shared/ui/Button';
 
@@ -11,7 +11,7 @@ import payment4 from '../../assets/payment-4.png';
 import payment from '../../assets/payment.png';
 
 type CheckoutProps = Pick<
-  CartType,
+  cartTypes.CartType,
   'subtotal' | 'discount' | 'tax' | 'total'
 > & {
   countItems: number;

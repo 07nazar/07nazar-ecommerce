@@ -4,7 +4,7 @@ import { GoStar } from 'react-icons/go';
 
 import { Button } from 'shared/ui/Button';
 
-import { ProductReviewType } from './model';
+import type { ProductReviewType } from './types';
 
 export const Review: FC<ProductReviewType> = ({
   author,

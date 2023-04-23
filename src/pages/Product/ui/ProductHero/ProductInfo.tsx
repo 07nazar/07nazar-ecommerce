@@ -5,13 +5,12 @@ import { MdOutlineMessage } from 'react-icons/md';
 
 import { MoveToCart } from 'features/MoveToCart';
 import { SaveForLater } from 'features/SaveForLater';
+import { productTypes } from 'entities/Product';
 import { colors, useMatchMedia } from 'shared/lib';
 import { Rating } from 'shared/ui/Rating';
 
-import type { ProductType } from 'entities/Product';
-
 type ProductInfoType = Pick<
-  ProductType,
+  productTypes.ProductType,
   | 'quantity'
   | 'params'
   | 'rating'
@@ -21,8 +20,11 @@ type ProductInfoType = Pick<
   | 'description'
   | 'id'
 >;
-type RatingBlockProduct = Pick<ProductType, 'rating' | 'reviewsCount' | 'sold'>;
-type ParamsProduct = Pick<ProductType, 'params'>;
+type RatingBlockProduct = Pick<
+  productTypes.ProductType,
+  'rating' | 'reviewsCount' | 'sold'
+>;
+type ParamsProduct = Pick<productTypes.ProductType, 'params'>;
 
 const RatingBlock: FC<RatingBlockProduct> = ({
   rating,

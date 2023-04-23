@@ -3,9 +3,9 @@ import { AiOutlineEdit, AiOutlineEye } from 'react-icons/ai';
 
 import { TableList } from 'widgets/TableList';
 import { DeleteProduct } from 'features/DeleteProduct';
+import { productTypes } from 'entities/Product';
 import { AppLink } from 'shared/ui/AppLink';
 
-import type { ProductAdminType } from 'entities/Product';
 import type { SortActiveType } from 'widgets/TableList';
 
 import { createUrlSlug } from '../../../../lib';
@@ -55,7 +55,7 @@ export const SearchResult: FC<SearchResultProps> = () => {
   useEffect(() => {
     // запрос по value, name и type
 
-    const products: ProductAdminType[] = productsFromServer;
+    const products: productTypes.ProductAdminType[] = productsFromServer;
     const data: ProductResult[] = products.map(product => ({
       id: {
         id: product.id,

@@ -1,7 +1,7 @@
-import type { UserType } from 'entities/User';
+import type { userTypes } from 'entities/User';
 
 type ReviewType = {
-  author: UserType;
+  author: userTypes.UserType;
   rating: number;
   likes: number;
   dislikes: number;

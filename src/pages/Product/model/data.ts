@@ -1,9 +1,9 @@
-import type { ProductMinType, ProductType } from 'entities/Product';
-import type { SellerType } from 'entities/User';
+import { productTypes } from 'entities/Product';
+import { userTypes } from 'entities/User';
 
 import img from '../assets/phone.png';
 
-export const productFromServer: ProductType = {
+export const productFromServer: productTypes.ProductType = {
   id: 'das2wtgv412',
   name: 'product name',
   deliveryCost: '0',
@@ -197,7 +197,7 @@ export const productFromServer: ProductType = {
   sellerId: '2d65dx3zs463',
 };
 
-export const sellerFromServer: SellerType = {
+export const sellerFromServer: userTypes.SellerType = {
   supplierCompany: 'Guanjoi Trading LLC',
   isVerified: true,
   isWorldwideShipped: true,
@@ -245,7 +245,7 @@ export const sellerFromServer: SellerType = {
   },
 };
 
-export const productsRelated: ProductMinType[] = [
+export const productsRelated: productTypes.ProductMinType[] = [
   {
     id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
@@ -284,7 +284,7 @@ export const productsRelated: ProductMinType[] = [
   },
 ];
 
-export const productsLikes: ProductMinType[] = [
+export const productsLikes: productTypes.ProductMinType[] = [
   {
     id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },

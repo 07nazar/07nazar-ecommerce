@@ -1,13 +1,13 @@
 import { FC, useState } from 'react';
 import { GoStar } from 'react-icons/go';
 
-import { calculateRating, ProductReviewType, Review } from 'entities/Review';
+import { reviewTypes, reviewLib, Review } from 'entities/Review';
 import { useMatchMedia } from 'shared/lib';
 import { Button } from 'shared/ui/Button';
 import { Slider } from 'shared/ui/Slider/ui/ui';
 
 interface RatingProps {
-  reviews: ProductReviewType[];
+  reviews: reviewTypes.ProductReviewType[];
 }
 
 const RatingPercent: FC<RatingProps> = ({ reviews }) => {
@@ -41,7 +41,7 @@ export const Reviews: FC<RatingProps> = ({ reviews }) => {
   const [sortingType, setSortingType] = useState('useful');
   const { isDesktop } = useMatchMedia();
   const ratings = reviews.map(review => review.rating);
-  const averageRating = calculateRating(ratings);
+  const averageRating = reviewLib.calculateRating(ratings);
 
   const handleSort = (type: string) => {
     setSortingType(type);

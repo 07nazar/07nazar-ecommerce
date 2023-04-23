@@ -2,10 +2,10 @@ import { FC } from 'react';
 
 import { MoveToCart } from 'features/MoveToCart';
 import { RemoveProduct } from 'features/RemoveProduct';
-import { ProductCard, ProductMinType } from 'entities/Product';
+import { ProductCard, productTypes } from 'entities/Product';
 import { useMatchMedia } from 'shared/lib';
 
-export const ProductSaved: FC<ProductMinType> = ({
+export const ProductSaved: FC<productTypes.ProductMinType> = ({
   id,
   mainPhoto,
   price,

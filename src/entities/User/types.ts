@@ -1,4 +1,4 @@
-import type { SellerReviewType } from 'entities/Review';
+import type { reviewTypes } from 'entities/Review';
 
 type SocialMediaType = {
   facebook: string;
@@ -49,5 +49,5 @@ export type SellerType = UserType & {
   categories: string[]; // Массив категорий товаров
   brands: string[]; // Массив брендов товаров
   rating: number;
-  reviews: SellerReviewType[]; // Массив отзывов покупателей
+  reviews: reviewTypes.SellerReviewType[]; // Массив отзывов покупателей
 };

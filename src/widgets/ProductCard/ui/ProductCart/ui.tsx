@@ -3,18 +3,17 @@ import { FC, useEffect, useMemo, useState } from 'react';
 import { Counter } from 'features/Counter';
 import { RemoveProduct } from 'features/RemoveProduct';
 import { SaveForLater } from 'features/SaveForLater';
-import { ProductCard } from 'entities/Product';
+import { ProductCard, productTypes } from 'entities/Product';
 import img from 'shared/assets/dbPhotos/Electronics/image22.png';
 import { useMatchMedia } from 'shared/lib';
 import { MenuItem, Select } from 'shared/ui/Select';
 
-import type { ProductInCartType, ProductParamsType } from 'entities/Product';
 import type { ISelectedValue } from 'shared/ui/Select';
 
 import { capitalize } from '../../lib';
 
 interface IContentProps {
-  params: ProductParamsType[];
+  params: productTypes.ProductParamsType[];
   sellerId: string;
 }
 
@@ -35,7 +34,7 @@ const Content: FC<IContentProps> = ({ params, sellerId }) => {
 
   const paramsElements = useMemo(
     () =>
-      params.map(({ name, value }: ProductParamsType, index) => (
+      params.map(({ name, value }: productTypes.ProductParamsType, index) => (
         <span className={'inline-block mr-0.5'} key={name}>
           {index === 0 ? capitalize(name) : name}: {value.toLowerCase()}
           {index !== params.length - 1 && ', '}
@@ -83,7 +82,7 @@ const Content: FC<IContentProps> = ({ params, sellerId }) => {
 };
 
 type ProductCartType = {
-  product: ProductInCartType;
+  product: productTypes.ProductInCartType;
   quantity: number;
 };
 

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { ProductCard, ProductMinType } from 'entities/Product';
+import { ProductCard, productTypes } from 'entities/Product';
 
-export const ProductRelated: FC<ProductMinType> = ({
+export const ProductRelated: FC<productTypes.ProductMinType> = ({
   mainPhoto,
   id,
   price,

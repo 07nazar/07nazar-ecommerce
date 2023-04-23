@@ -1,8 +1,8 @@
-import type { CartType } from 'entities/Cart';
-import type { AddressType, UserType } from 'entities/User';
+import type { cartTypes } from 'entities/Cart';
+import type { userTypes } from 'entities/User';
 
 type DeliveryType = {
-  address: AddressType;
+  address: userTypes.AddressType;
   method: string;
   trackingNumber?: string;
 };
@@ -13,9 +13,9 @@ type PaymentType = {
   transactionId?: string;
 };
 
-export type OrderType = CartType & {
+export type OrderType = cartTypes.CartType & {
   id: string;
-  customer: UserType; // Покупатель
+  customer: userTypes.UserType; // Покупатель
   status: 'created' | 'paid' | 'shipped' | 'delivered' | 'canceled'; // Статус продажи
   delivery: DeliveryType;
   payment: PaymentType;

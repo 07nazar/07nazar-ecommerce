@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { SellerType } from 'entities/User';
+import { userTypes } from 'entities/User';
 import { Rating } from 'shared/ui/Rating';
 
-type Props = SellerType;
+type Props = userTypes.SellerType;
 
 export const AboutCompany: FC<Props> = ({
   description,

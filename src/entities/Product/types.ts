@@ -1,4 +1,4 @@
-import type { ProductReviewType } from 'entities/Review';
+import type { reviewTypes } from 'entities/Review';
 
 type ProductMainPhotoType = {
   url: string;
@@ -35,7 +35,7 @@ export type ProductType = {
   params: ProductParamsType[];
   advantages: string[];
   reviewsCount: number;
-  reviews: ProductReviewType[];
+  reviews: reviewTypes.ProductReviewType[];
   deliveryCost: string;
   sellerId: string;
 };

@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 import { AppLink } from 'shared/ui/AppLink';
 
-import { ProductMinType, ProductType } from './model';
+import type { ProductMinType, ProductType } from './types';
 
 interface IProductCardClassNames {
   title?: string;

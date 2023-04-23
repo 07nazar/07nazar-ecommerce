@@ -1,13 +1,12 @@
 import { FC } from 'react';
 
 import { SendInquiry } from 'features/SendInquiry';
+import { userTypes } from 'entities/User';
 import { useMatchMedia } from 'shared/lib';
 import { Button } from 'shared/ui/Button';
 
-import type { SellerType } from 'entities/User';
-
 type SellerProps = Pick<
-  SellerType,
+  userTypes.SellerType,
   | 'address'
   | 'photo'
   | 'isVerified'
