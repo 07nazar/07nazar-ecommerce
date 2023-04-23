@@ -5,9 +5,9 @@ const getEnvVar = (key: string) => {
 
   return import.meta.env[key];
 };
-export const NODE_ENV = getEnvVar('VITE_NODE_ENV');
+export const APP_MODE = getEnvVar('VITE_APP_MODE');
 
 export const API_URL = getEnvVar('VITE_API_URL');
 
-export const isDevEnv = NODE_ENV === 'development';
-export const isProdEnv = NODE_ENV === 'production';
+export const isDevEnv = APP_MODE === 'development';
+export const isProdEnv = APP_MODE === 'production';
