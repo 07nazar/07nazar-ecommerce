@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 import { AppLink } from 'shared/ui/AppLink';
 
-import { ProductMinType, ProductType } from './model';
+import type { ProductMin, Product } from './types';
 
 interface IProductCardClassNames {
   title?: string;
@@ -14,7 +14,7 @@ interface IProductCardClassNames {
 }
 
 type IProductCardProps = {
-  product: ProductType | ProductMinType;
+  product: Product | ProductMin;
   children?: ReactNode;
   before?: ReactNode;
   between?: ReactNode;
@@ -29,7 +29,9 @@ export const ProductCard: FC<IProductCardProps> = ({
   className = {},
 }) => (
   <div className={`${className.box || ''} bg-white`}>
-    <AppLink className={className.boxImage || ''} to={`/product/${product.id}`}>
+    <AppLink
+      className={className.boxImage || ''}
+      to={{ pathname: `/product/${product.id}`, search: '?tab=description' }}>
       <img
         src={product.mainPhoto.url}
         className={`${className.image || ''} product-image`}

@@ -1,9 +1,9 @@
 import { FC, Fragment } from 'react';
 import { FaTruck } from 'react-icons/fa';
 
-import { DeliverySellerType } from 'entities/User';
+import { userTypes } from 'entities/User';
 
-export const Shipment: FC<DeliverySellerType> = ({ cost, regions }) => (
+export const Shipment: FC<userTypes.DeliverySeller> = ({ cost, regions }) => (
   <div className={'flex gap-1 flex-col items-center p-4 bg-white'}>
     <FaTruck className={'w-12 h-12 mb-4 text-gray-dark'} />
     <h3 className={'text-lg font-medium text-gray-dark'}>

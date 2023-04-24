@@ -1,1 +1,1 @@
-export * from './getRoutes';
+export * from './apiInstance';

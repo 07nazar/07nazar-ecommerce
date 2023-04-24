@@ -2,14 +2,12 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { AddFavourite } from 'features/AddFavourite';
-import { ProductCard } from 'entities/Product';
+import { ProductCard, productTypes } from 'entities/Product';
 import { useMatchMedia } from 'shared/lib';
 import { Rating } from 'shared/ui/Rating';
 
-import type { ProductRowType, ProductType } from 'entities/Product';
-
 type ContentProps = Pick<
-  ProductType,
+  productTypes.Product,
   'description' | 'rating' | 'orders' | 'deliveryCost' | 'id'
 >;
 
@@ -58,7 +56,7 @@ const Content: FC<ContentProps> = ({
   );
 };
 
-export const ProductRow: FC<ProductRowType> = ({
+export const ProductRow: FC<productTypes.ProductRow> = ({
   id,
   mainPhoto,
   price,

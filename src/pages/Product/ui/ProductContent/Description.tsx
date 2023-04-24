@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { AiOutlineCheck } from 'react-icons/ai';
 
-import type { ProductParamsType } from 'entities/Product';
+import { productTypes } from 'entities/Product';
 
 interface ProductDescriptionProps {
   description: string;
   advantages: string[];
-  params: ProductParamsType[];
+  params: productTypes.ProductParams[];
 }
 
 export const Description: FC<ProductDescriptionProps> = ({

@@ -3,17 +3,22 @@ import { AiOutlineEdit, AiOutlineEye } from 'react-icons/ai';
 
 import { TableList } from 'widgets/TableList';
 import { DeleteProduct } from 'features/DeleteProduct';
+import { productTypes } from 'entities/Product';
 import { AppLink } from 'shared/ui/AppLink';
 
-import type { ProductAdminType } from 'entities/Product';
 import type { SortActiveType } from 'widgets/TableList';
 
-import { createUrlSlug } from '../../../../lib';
+import { normalizeStringToURL } from '../../../../lib';
 import { productsFromServer } from '../../model';
 
 type SearchResultProps = {
   value: string;
 };
+
+type ProductAdmin = Pick<
+  productTypes.Product,
+  'id' | 'name' | 'mainPhoto' | 'price' | 'sellerId'
+>;
 
 type ProductResult = {
   id: {
@@ -55,13 +60,13 @@ export const SearchResult: FC<SearchResultProps> = () => {
   useEffect(() => {
     // запрос по value, name и type
 
-    const products: ProductAdminType[] = productsFromServer;
+    const products: ProductAdmin[] = productsFromServer;
     const data: ProductResult[] = products.map(product => ({
       id: {
         id: product.id,
         name: `#${product.id.substring(0, 5)}`,
         sortable: false,
-        to: `products/${createUrlSlug(product.name)}`,
+        to: `products/${normalizeStringToURL(product.name)}`,
         className: 'text-blue/70 mr-1',
         width: 'w-1/12',
       },
@@ -80,7 +85,7 @@ export const SearchResult: FC<SearchResultProps> = () => {
       seller: {
         name: product.sellerId,
         sortable: true,
-        to: `sellers/${createUrlSlug(product.sellerId)}`,
+        to: `sellers/${normalizeStringToURL(product.sellerId)}`,
         className: 'hover:text-blue duration-200',
         width: 'w-4/12',
       },
@@ -96,12 +101,12 @@ export const SearchResult: FC<SearchResultProps> = () => {
   const handleActions = (name: string, id: string) => (
     <div className={'w-1/12 flex'}>
       <AppLink
-        to={`/products/${createUrlSlug(name)}`}
+        to={`/products/${normalizeStringToURL(name)}`}
         className={'text-black p-1.5 hover:text-blue '}>
         <AiOutlineEye />
       </AppLink>
       <AppLink
-        to={`/edit/${createUrlSlug(name)}`}
+        to={`/edit/${normalizeStringToURL(name)}`}
         className={'text-black p-1.5 hover:text-green '}>
         <AiOutlineEdit />
       </AppLink>

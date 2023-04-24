@@ -1,3 +1,4 @@
 export * from './ui';
-export * from './lib';
-export * from './model';
+export * as reviewLib from './lib';
+export * as reviewTypes from './types';
+export * as reviewModel from './model';

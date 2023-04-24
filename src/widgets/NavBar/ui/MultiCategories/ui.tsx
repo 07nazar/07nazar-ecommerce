@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { getRoutes } from 'shared/api';
 import { ISelectedValue, MenuItem, Select } from 'shared/ui/Select';
 
 export const MultiCategories: FC = () => {
@@ -10,7 +9,10 @@ export const MultiCategories: FC = () => {
   const [selectedMenuCategory, setSelectedMenuCategory] = useState<
     ISelectedValue[]
   >([]);
-  const routes: ISelectedValue[] = getRoutes();
+  const routes: ISelectedValue[] = [
+    { id: 41, to: '/', text: 'home' },
+    { id: 411, to: '/shop', text: 'shop' },
+  ];
 
   return (
     <Select

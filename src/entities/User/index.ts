@@ -1,2 +1,3 @@
 export * from './ui';
-export * from './model';
+export * as userTypes from './types';
+export * as userModel from './model';

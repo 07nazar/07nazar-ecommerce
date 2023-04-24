@@ -13,8 +13,6 @@ import {
   DropResult,
 } from 'react-beautiful-dnd';
 
-import { getRoutes } from 'shared/api';
-
 interface IMenuItem {
   id: number;
   text: string;
@@ -32,7 +30,7 @@ type ICategoryItemProps = {
   bgColor?: string;
 };
 
-const routes = getRoutes();
+const routes: IMenuItem[] = [{ id: 1, text: 'text', to: '/', children: [] }];
 
 export const CategoriesBase = () => {
   const [categories, setCategories] = useState<IMenuItem[]>(routes);

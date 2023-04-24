@@ -1,1 +1,1 @@
-export * from './createUrlSlug';
+export * from './normalizeStringToURL';

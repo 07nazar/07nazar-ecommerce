@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { ProductType } from 'entities/Product';
-import { SellerType } from 'entities/User';
+import { productTypes } from 'entities/Product';
+import { userTypes } from 'entities/User';
 import { useQueryTabs } from 'shared/lib';
 import { TabBtn, Tabs } from 'shared/ui/Tabs';
 
@@ -11,8 +11,8 @@ import { Reviews } from './Reviews';
 import { Shipment } from './Shipment';
 
 interface ProductContentProps {
-  product: ProductType;
-  seller: SellerType;
+  product: productTypes.Product;
+  seller: userTypes.Seller;
 }
 
 export const ProductContent: FC<ProductContentProps> = ({

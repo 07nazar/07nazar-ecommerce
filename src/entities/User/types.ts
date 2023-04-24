@@ -1,18 +1,18 @@
-import type { SellerReviewType } from 'entities/Review';
+import type { reviewTypes } from 'entities/Review';
 
-type SocialMediaType = {
+type SocialMedia = {
   facebook: string;
   twitter: string;
   instagram: string;
 };
 
-type ContactDetailsType = {
+type ContactDetails = {
   phone: string;
   email: string;
-  socialMedia?: Partial<SocialMediaType>;
+  socialMedia?: Partial<SocialMedia>;
 };
 
-export type AddressType = {
+export type Address = {
   country: string;
   city: string;
   street: string;
@@ -20,34 +20,29 @@ export type AddressType = {
   postalCode: string;
 };
 
-export type DeliverySellerType = {
+export type DeliverySeller = {
   cost: number;
   regions: string[]; // Массив регионов, в которые осуществляется доставка
 };
 
-export type ItemCart = {
-  id: number; // id продукта
-  quantity: number;
-};
-
-export type UserType = {
+export type User = {
+  id: string;
   name: string;
   photo: string;
-  address?: Partial<AddressType>;
-  contacts?: Partial<ContactDetailsType>;
-  cart?: ItemCart[];
+  address?: Partial<Address>;
+  contacts?: Partial<ContactDetails>;
 };
 
-export type SellerType = UserType & {
+export type Seller = User & {
   supplierCompany: string;
   isVerified: boolean;
   isWorldwideShipped: boolean;
   description: string;
-  delivery: DeliverySellerType;
+  delivery: DeliverySeller;
   paymentMethods: string[]; // Массив способов оплаты
   returnPolicy: string; // Описание политики возврата товара
   categories: string[]; // Массив категорий товаров
   brands: string[]; // Массив брендов товаров
   rating: number;
-  reviews: SellerReviewType[]; // Массив отзывов покупателей
+  reviews: reviewTypes.SellerReview[]; // Массив отзывов покупателей
 };
