@@ -1,3 +1,11 @@
 import routes from './routes.json';
 
-export const getRoutes = () => JSON.parse(JSON.stringify(routes)).children;
+interface MenuItem {
+  id: number;
+  text: string;
+  to: string;
+  children?: MenuItem[];
+}
+
+export const getRoutes = (): MenuItem[] =>
+  JSON.parse(JSON.stringify(routes)).children;

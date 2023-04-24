@@ -6,6 +6,7 @@ import { MdOutlineLocalShipping } from 'react-icons/md';
 import { useQueryTabs } from 'shared/lib';
 import { TabBtn, Tabs } from 'shared/ui/Tabs';
 
+import { Categories } from './Categories';
 import { Customers } from './Customers';
 import { Dashboard } from './Dashboard';
 import { Logout } from './Logout';
@@ -20,6 +21,11 @@ const AdminData = [
     icon: BsGrid,
     buttonText: 'Dashboard',
     content: <Dashboard />,
+  },
+  {
+    icon: BsGrid,
+    buttonText: 'Categories',
+    content: <Categories />,
   },
   {
     icon: BsGrid,
