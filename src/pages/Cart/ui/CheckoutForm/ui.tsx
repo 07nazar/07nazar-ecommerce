@@ -11,7 +11,7 @@ import payment4 from '../../assets/payment-4.png';
 import payment from '../../assets/payment.png';
 
 type CheckoutProps = Pick<
-  cartTypes.CartType,
+  cartTypes.Cart,
   'subtotal' | 'discount' | 'tax' | 'total'
 > & {
   countItems: number;

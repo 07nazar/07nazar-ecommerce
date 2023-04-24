@@ -11,8 +11,8 @@ import { Reviews } from './Reviews';
 import { Shipment } from './Shipment';
 
 interface ProductContentProps {
-  product: productTypes.ProductType;
-  seller: userTypes.SellerType;
+  product: productTypes.Product;
+  seller: userTypes.Seller;
 }
 
 export const ProductContent: FC<ProductContentProps> = ({

@@ -1,61 +1,48 @@
 import type { reviewTypes } from 'entities/Review';
 
-type ProductMainPhotoType = {
+type ProductMainPhoto = {
   url: string;
   thumbUrl: string;
 };
 
-type ProductAdditionalPhotoType = {
+type ProductAdditionalPhoto = {
   url: string;
 };
 
-export type ProductParamsType = {
+export type ProductParams = {
   name: string;
   value: string;
   order: number;
 };
 
-type ProductPriceType = {
+type ProductPrice = {
   current: number;
   old?: number;
 };
 
-export type ProductType = {
+export type Product = {
   id: string;
   name: string;
   category: string[]; // ['clothing', 'men's wear', 'summer wear']
   quantity: number;
-  mainPhoto: ProductMainPhotoType;
-  price: ProductPriceType;
+  mainPhoto: ProductMainPhoto;
+  price: ProductPrice;
   rating: number;
   sold: number;
   description: string;
   orders: number;
-  additionalPhotos: ProductAdditionalPhotoType[];
-  params: ProductParamsType[];
+  additionalPhotos: ProductAdditionalPhoto[];
+  params: ProductParams[];
   advantages: string[];
   reviewsCount: number;
-  reviews: reviewTypes.ProductReviewType[];
+  reviews: reviewTypes.ProductReview[];
   deliveryCost: string;
   sellerId: string;
 };
 
-export type ProductRowType = Pick<
-  ProductType,
+export type ProductRow = Pick<
+  Product,
   'id' | 'name' | 'mainPhoto' | 'price' | 'orders' | 'rating' | 'deliveryCost'
 >;
 
-export type ProductMinType = Pick<
-  ProductType,
-  'id' | 'name' | 'mainPhoto' | 'price'
->;
-
-export type ProductAdminType = Pick<
-  ProductType,
-  'id' | 'name' | 'mainPhoto' | 'price' | 'sellerId'
->;
-
-export type ProductInCartType = Pick<
-  ProductType,
-  'id' | 'name' | 'mainPhoto' | 'price' | 'params' | 'sellerId'
->;
+export type ProductMin = Pick<Product, 'id' | 'name' | 'mainPhoto' | 'price'>;

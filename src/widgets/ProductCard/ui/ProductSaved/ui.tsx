@@ -5,7 +5,7 @@ import { RemoveProduct } from 'features/RemoveProduct';
 import { ProductCard, productTypes } from 'entities/Product';
 import { useMatchMedia } from 'shared/lib';
 
-export const ProductSaved: FC<productTypes.ProductMinType> = ({
+export const ProductSaved: FC<productTypes.ProductMin> = ({
   id,
   mainPhoto,
   price,

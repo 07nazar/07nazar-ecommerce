@@ -2,7 +2,7 @@ import { productTypes } from 'entities/Product';
 
 import img from '../assets/phone.png';
 
-export const products: productTypes.ProductMinType[] = [
+export const products: productTypes.ProductMin[] = [
   {
     id: 'das2wtgv412',
     mainPhoto: { url: img, thumbUrl: '' },

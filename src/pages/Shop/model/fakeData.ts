@@ -2,7 +2,7 @@ import { productTypes } from 'entities/Product';
 
 import img from '../assets/phone.png';
 
-export const productsFromServer: productTypes.ProductRowType[] = [
+export const productsFromServer: productTypes.ProductRow[] = [
   {
     id: '1dasda622v3',
     price: { current: 41, old: 599 },

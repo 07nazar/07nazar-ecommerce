@@ -10,7 +10,7 @@ import { colors, useMatchMedia } from 'shared/lib';
 import { Rating } from 'shared/ui/Rating';
 
 type ProductInfoType = Pick<
-  productTypes.ProductType,
+  productTypes.Product,
   | 'quantity'
   | 'params'
   | 'rating'
@@ -21,10 +21,10 @@ type ProductInfoType = Pick<
   | 'id'
 >;
 type RatingBlockProduct = Pick<
-  productTypes.ProductType,
+  productTypes.Product,
   'rating' | 'reviewsCount' | 'sold'
 >;
-type ParamsProduct = Pick<productTypes.ProductType, 'params'>;
+type ParamsProduct = Pick<productTypes.Product, 'params'>;
 
 const RatingBlock: FC<RatingBlockProduct> = ({
   rating,

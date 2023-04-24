@@ -3,7 +3,7 @@ import { userTypes } from 'entities/User';
 
 import img from '../assets/phone.png';
 
-export const productFromServer: productTypes.ProductType = {
+export const productFromServer: productTypes.Product = {
   id: 'das2wtgv412',
   name: 'product name',
   deliveryCost: '0',
@@ -46,7 +46,7 @@ export const productFromServer: productTypes.ProductType = {
     'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   reviews: [
     {
-      author: { name: 'John Smith', photo: '' },
+      author: { id: '6136dasd', name: 'John Smith', photo: '' },
       text: {
         advantages: '',
         disadvantages: 'A bit short',
@@ -58,7 +58,7 @@ export const productFromServer: productTypes.ProductType = {
       date: new Date('1995-12-17T03:24:00'),
     },
     {
-      author: { name: 'Jane Doe', photo: '' },
+      author: { id: '6136dasdd', name: 'Jane Doe', photo: '' },
       text: {
         advantages: 'Excellent restaurant with amazing food',
         disadvantages: '',
@@ -70,7 +70,7 @@ export const productFromServer: productTypes.ProductType = {
       date: new Date('1995-12-17T03:24:00'),
     },
     {
-      author: { name: 'Alex Johnson', photo: '' },
+      author: { id: '6136dazsd', name: 'Alex Johnson', photo: '' },
       text: {
         advantages: 'Excellent sound quality and ease of use',
         disadvantages: 'Expensive',
@@ -82,7 +82,7 @@ export const productFromServer: productTypes.ProductType = {
       date: new Date('1995-12-17T03:24:00'),
     },
     {
-      author: { name: 'Emily Brown', photo: '' },
+      author: { id: '61v36dasd', name: 'Emily Brown', photo: '' },
       text: {
         advantages: 'Great work, very professionally done',
         disadvantages: 'Slightly delayed with deadlines',
@@ -94,7 +94,7 @@ export const productFromServer: productTypes.ProductType = {
       date: new Date('1995-12-17T03:24:00'),
     },
     {
-      author: { name: 'Mike Wilson', photo: '' },
+      author: { id: '6136dxcbasd', name: 'Mike Wilson', photo: '' },
       text: {
         advantages: 'Great vacation, beautiful ocean view',
         disadvantages: 'Pool is a bit small',
@@ -106,7 +106,7 @@ export const productFromServer: productTypes.ProductType = {
       date: new Date('1995-12-17T03:24:00'),
     },
     {
-      author: { name: 'Sarah Johnson', photo: '' },
+      author: { id: '61h6dasd', name: 'Sarah Johnson', photo: '' },
       text: {
         advantages: 'Excellent customer service',
         disadvantages: 'Limited product selection',
@@ -118,7 +118,7 @@ export const productFromServer: productTypes.ProductType = {
       date: new Date('1995-12-17T03:24:00'),
     },
     {
-      author: { name: 'Michael Lee', photo: '' },
+      author: { id: '6136hdfdasd', name: 'Michael Lee', photo: '' },
       text: {
         advantages: 'Great gym with excellent equipment',
         disadvantages: 'A bit crowded during peak hours',
@@ -130,7 +130,7 @@ export const productFromServer: productTypes.ProductType = {
       date: new Date('1995-12-17T03:24:00'),
     },
     {
-      author: { name: 'Nancy Chen', photo: '' },
+      author: { id: '6136dasdaasd', name: 'Nancy Chen', photo: '' },
       text: {
         advantages: 'Delicious food and great ambiance',
         disadvantages: 'Service was a bit slow',
@@ -142,7 +142,7 @@ export const productFromServer: productTypes.ProductType = {
       date: new Date('1995-12-17T03:24:00'),
     },
     {
-      author: { name: 'David Kim', photo: '' },
+      author: { id: '6136dczxczasd', name: 'David Kim', photo: '' },
 
       text: {
         advantages: 'Great customer service and fast shipment',
@@ -155,7 +155,7 @@ export const productFromServer: productTypes.ProductType = {
       date: new Date('1995-12-17T03:24:00'),
     },
     {
-      author: { name: 'Lisa Johnson', photo: '' },
+      author: { id: '61dasdaw36dasd', name: 'Lisa Johnson', photo: '' },
 
       text: {
         advantages: 'Beautiful and spacious apartment',
@@ -168,7 +168,7 @@ export const productFromServer: productTypes.ProductType = {
       date: new Date('1995-12-17T03:24:00'),
     },
     {
-      author: { name: 'Jane Johnson', photo: '' },
+      author: { id: 'dasdawd', name: 'Jane Johnson', photo: '' },
 
       text: {
         advantages: 'Excellent restaurant with amazing food',
@@ -181,7 +181,7 @@ export const productFromServer: productTypes.ProductType = {
       date: new Date('1995-12-17T03:24:00'),
     },
     {
-      author: { name: 'Alex Johnsond', photo: '' },
+      author: { id: 'dax', name: 'Alex Johnsond', photo: '' },
 
       text: {
         advantages: 'Excellent sound quality and ease of use',
@@ -197,7 +197,8 @@ export const productFromServer: productTypes.ProductType = {
   sellerId: '2d65dx3zs463',
 };
 
-export const sellerFromServer: userTypes.SellerType = {
+export const sellerFromServer: userTypes.Seller = {
+  id: 'das63g4b5bs3w4',
   supplierCompany: 'Guanjoi Trading LLC',
   isVerified: true,
   isWorldwideShipped: true,
@@ -217,6 +218,7 @@ export const sellerFromServer: userTypes.SellerType = {
   reviews: [
     {
       author: {
+        id: '6136dascd',
         name: 'John Doe',
         photo: 'url',
       },
@@ -245,7 +247,7 @@ export const sellerFromServer: userTypes.SellerType = {
   },
 };
 
-export const productsRelated: productTypes.ProductMinType[] = [
+export const productsRelated: productTypes.ProductMin[] = [
   {
     id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },
@@ -284,7 +286,7 @@ export const productsRelated: productTypes.ProductMinType[] = [
   },
 ];
 
-export const productsLikes: productTypes.ProductMinType[] = [
+export const productsLikes: productTypes.ProductMin[] = [
   {
     id: '1dasda622v3',
     mainPhoto: { url: img, thumbUrl: '' },

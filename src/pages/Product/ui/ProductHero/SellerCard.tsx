@@ -6,7 +6,7 @@ import { useMatchMedia } from 'shared/lib';
 import { Button } from 'shared/ui/Button';
 
 type SellerProps = Pick<
-  userTypes.SellerType,
+  userTypes.Seller,
   | 'address'
   | 'photo'
   | 'isVerified'

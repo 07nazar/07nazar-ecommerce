@@ -3,6 +3,7 @@ import { FC, useEffect, useMemo, useState } from 'react';
 import { Counter } from 'features/Counter';
 import { RemoveProduct } from 'features/RemoveProduct';
 import { SaveForLater } from 'features/SaveForLater';
+import { cartTypes } from 'entities/Cart';
 import { ProductCard, productTypes } from 'entities/Product';
 import img from 'shared/assets/dbPhotos/Electronics/image22.png';
 import { useMatchMedia } from 'shared/lib';
@@ -13,7 +14,7 @@ import type { ISelectedValue } from 'shared/ui/Select';
 import { capitalize } from '../../lib';
 
 interface IContentProps {
-  params: productTypes.ProductParamsType[];
+  params: productTypes.ProductParams[];
   sellerId: string;
 }
 
@@ -34,7 +35,7 @@ const Content: FC<IContentProps> = ({ params, sellerId }) => {
 
   const paramsElements = useMemo(
     () =>
-      params.map(({ name, value }: productTypes.ProductParamsType, index) => (
+      params.map(({ name, value }: productTypes.ProductParams, index) => (
         <span className={'inline-block mr-0.5'} key={name}>
           {index === 0 ? capitalize(name) : name}: {value.toLowerCase()}
           {index !== params.length - 1 && ', '}
@@ -82,7 +83,7 @@ const Content: FC<IContentProps> = ({ params, sellerId }) => {
 };
 
 type ProductCartType = {
-  product: productTypes.ProductInCartType;
+  product: cartTypes.CartItem;
   quantity: number;
 };
 
@@ -92,8 +93,6 @@ export const ProductCart: FC = () => {
   const [productsCart, setProductsCart] = useState<ProductCartType[]>([]);
 
   useEffect(() => {
-    // делаем запрос на сервер по id [{id: 1, quantity: 2}, {id: 3, quantity: 1}]
-
     const fakeDataFromServer: ProductCartType[] = [
       {
         product: {
@@ -110,8 +109,9 @@ export const ProductCart: FC = () => {
             url: img,
             thumbUrl: img,
           },
+          quantity: 15,
         },
-        quantity: 10,
+        quantity: 1,
       },
       {
         product: {
@@ -128,6 +128,7 @@ export const ProductCart: FC = () => {
             url: img,
             thumbUrl: img,
           },
+          quantity: 515,
         },
         quantity: 2,
       },

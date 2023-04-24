@@ -6,7 +6,7 @@ import { productTypes } from 'entities/Product';
 interface ProductDescriptionProps {
   description: string;
   advantages: string[];
-  params: productTypes.ProductParamsType[];
+  params: productTypes.ProductParams[];
 }
 
 export const Description: FC<ProductDescriptionProps> = ({

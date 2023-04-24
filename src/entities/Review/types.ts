@@ -1,23 +1,23 @@
 import type { userTypes } from 'entities/User';
 
-type ReviewType = {
-  author: userTypes.UserType;
+type Review = {
+  author: Pick<userTypes.User, 'id' | 'name' | 'photo'>;
   rating: number;
   likes: number;
   dislikes: number;
   date: Date;
 };
 
-type ProductReviewTextType = {
+type ProductReviewText = {
   advantages?: string;
   disadvantages?: string;
   comment: string;
 };
 
-export type ProductReviewType = ReviewType & {
-  text: ProductReviewTextType;
+export type ProductReview = Review & {
+  text: ProductReviewText;
 };
 
-export type SellerReviewType = ReviewType & {
+export type SellerReview = Review & {
   text: string;
 };

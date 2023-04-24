@@ -7,7 +7,7 @@ import { useMatchMedia } from 'shared/lib';
 import { Rating } from 'shared/ui/Rating';
 
 type ContentProps = Pick<
-  productTypes.ProductType,
+  productTypes.Product,
   'description' | 'rating' | 'orders' | 'deliveryCost' | 'id'
 >;
 
@@ -56,7 +56,7 @@ const Content: FC<ContentProps> = ({
   );
 };
 
-export const ProductRow: FC<productTypes.ProductRowType> = ({
+export const ProductRow: FC<productTypes.ProductRow> = ({
   id,
   mainPhoto,
   price,

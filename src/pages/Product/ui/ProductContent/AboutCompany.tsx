@@ -3,9 +3,18 @@ import { FC } from 'react';
 import { userTypes } from 'entities/User';
 import { Rating } from 'shared/ui/Rating';
 
-type Props = userTypes.SellerType;
+type AboutCompanyProps = Pick<
+  userTypes.Seller,
+  | 'description'
+  | 'paymentMethods'
+  | 'returnPolicy'
+  | 'categories'
+  | 'brands'
+  | 'rating'
+  | 'reviews'
+>;
 
-export const AboutCompany: FC<Props> = ({
+export const AboutCompany: FC<AboutCompanyProps> = ({
   description,
   paymentMethods,
   returnPolicy,

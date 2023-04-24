@@ -7,7 +7,7 @@ import { Button } from 'shared/ui/Button';
 import { Slider } from 'shared/ui/Slider/ui/ui';
 
 interface RatingProps {
-  reviews: reviewTypes.ProductReviewType[];
+  reviews: reviewTypes.ProductReview[];
 }
 
 const RatingPercent: FC<RatingProps> = ({ reviews }) => {

@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 
 import { AppLink } from 'shared/ui/AppLink';
 
-import type { ProductMinType, ProductType } from './types';
+import type { ProductMin, Product } from './types';
 
 interface IProductCardClassNames {
   title?: string;
@@ -14,7 +14,7 @@ interface IProductCardClassNames {
 }
 
 type IProductCardProps = {
-  product: ProductType | ProductMinType;
+  product: Product | ProductMin;
   children?: ReactNode;
   before?: ReactNode;
   between?: ReactNode;

@@ -5,7 +5,7 @@ import { ProductCard, productTypes } from 'entities/Product';
 import { useMatchMedia } from 'shared/lib';
 import { Rating } from 'shared/ui/Rating';
 
-export const ProductCol: FC<productTypes.ProductMinType> = ({
+export const ProductCol: FC<productTypes.ProductMin> = ({
   id,
   mainPhoto,
   price,

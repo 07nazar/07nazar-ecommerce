@@ -4,16 +4,23 @@ import { GoStar } from 'react-icons/go';
 
 import { Button } from 'shared/ui/Button';
 
-import type { ProductReviewType } from './types';
+import type { ProductReview } from './types';
 
-export const Review: FC<ProductReviewType> = ({
+type ReviewProps = Pick<
+  ProductReview,
+  'author' | 'text' | 'rating' | 'likes' | 'dislikes' | 'date'
+>;
+
+export const Review: FC<ReviewProps> = ({
   author,
   text,
   rating,
   likes,
   dislikes,
+  date,
 }) => (
   <div className={'mb-4 p-3 border border-gray-pale rounded-md lg:mb-1 '}>
+    <p>{date.toDateString()}</p>
     <p className={'flex items-center text-black'}>
       <span>{author.name}</span>
       <GoStar className={'ml-2 text-orange inline-block'} />
