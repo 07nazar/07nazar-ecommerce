@@ -15,6 +15,11 @@ type SearchResultProps = {
   value: string;
 };
 
+type ProductAdmin = Pick<
+  productTypes.Product,
+  'id' | 'name' | 'mainPhoto' | 'price' | 'sellerId'
+>;
+
 type ProductResult = {
   id: {
     id: string;
@@ -55,7 +60,7 @@ export const SearchResult: FC<SearchResultProps> = () => {
   useEffect(() => {
     // запрос по value, name и type
 
-    const products: productTypes.ProductAdminType[] = productsFromServer;
+    const products: ProductAdmin[] = productsFromServer;
     const data: ProductResult[] = products.map(product => ({
       id: {
         id: product.id,
