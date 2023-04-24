@@ -1,7 +1,7 @@
 import { store } from './index';
 
-declare type RootState = ReturnType<typeof store.getState>;
-
-declare type SliceNames = keyof RootState;
-
-declare type AppDispatch = typeof store.dispatch;
+declare global {
+  type RootState = ReturnType<typeof store.getState>;
+  type SliceNames = keyof RootState;
+  type AppDispatch = typeof store.dispatch;
+}

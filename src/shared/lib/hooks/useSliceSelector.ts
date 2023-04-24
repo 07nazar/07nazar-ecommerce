@@ -1,7 +1,5 @@
 import { useSelector } from 'react-redux';
 
-import type { RootState, SliceNames } from 'app/store/types';
-
 type SliceState<T extends SliceNames> = RootState[T];
 
 type SliceSelector<T extends SliceNames, U> = (state: SliceState<T>) => U;
