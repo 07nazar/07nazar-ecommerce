@@ -54,5 +54,6 @@ module.exports = {
       'error',
       { props: 'always', children: 'never' },
     ],
+    "no-param-reassign": ["error", { "props": false }]
   },
 };
