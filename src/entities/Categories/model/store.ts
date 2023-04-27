@@ -15,7 +15,7 @@ export const categoriesApi = createApi({
   reducerPath: CATEGORIES_KEY,
   baseQuery: baseQueryFactory('/category'),
   endpoints: builder => ({
-    getCategories: builder.query<Category, void>({
+    getCategories: builder.query<Category[], void>({
       query: () => '/all',
     }),
     deleteCategory: builder.mutation<void, number>({
