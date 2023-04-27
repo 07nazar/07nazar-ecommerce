@@ -34,9 +34,9 @@ export const Shop = () => {
           <ActiveCategories />
           <Products showMode={showMode} />
           <PaginationBox
-            changePageHandler={() => console.log('todooo')}
+            changePageHandler={() => 1}
             count={54}
-            setSelectedOption={() => console.log('selected')}
+            setSelectedOption={() => 2}
           />
         </div>
       </div>
