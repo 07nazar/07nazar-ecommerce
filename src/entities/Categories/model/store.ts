@@ -11,15 +11,13 @@ const initialState: Category[] = [];
 
 // query actions ( async )
 
-const categoriesApi = createApi({
-  reducerPath: 'categoriesApi',
-  baseQuery: baseQueryFactory('/categories'),
+export const categoriesApi = createApi({
+  reducerPath: CATEGORIES_KEY,
+  baseQuery: baseQueryFactory('/category'),
   endpoints: builder => ({
-    getCategories: builder.query({
-      query: () => '/',
-      extraOptions: {},
+    getCategories: builder.query<Category, void>({
+      query: () => '/all',
     }),
-
     deleteCategory: builder.mutation<void, number>({
       query: id => ({
         url: `/${id}`,
@@ -28,20 +26,16 @@ const categoriesApi = createApi({
     }),
   }),
 });
-
+// TODO данные все равно записываются в стор, хотя нигде не указывал этого
 const categoriesSlice = createSlice({
   name: CATEGORIES_KEY,
   initialState,
-  reducers: {},
-  extraReducers: builder => {
-    builder.addMatcher(
-      categoriesApi.endpoints.getCategories.matchFulfilled,
-      (state, { payload }) => payload
-    );
+  reducers: {
+    setCategories: (state, { payload }) => payload,
   },
 });
 
-// export const {} = categoriesSlice.actions;
+export const { setCategories } = categoriesSlice.actions;
 
 export const { useGetCategoriesQuery, useDeleteCategoryMutation } =
   categoriesApi;

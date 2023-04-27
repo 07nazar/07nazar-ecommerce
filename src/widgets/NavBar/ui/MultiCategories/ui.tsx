@@ -1,19 +1,28 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { ISelectedValue, MenuItem, Select } from 'shared/ui/Select';
+import { categoriesModel, categoriesTypes } from 'entities/Categories';
+import { useAppDispatch } from 'shared/lib';
+import { MenuItem, Select } from 'shared/ui/Select';
 
 export const MultiCategories: FC = () => {
   const navigate = useNavigate();
   const [isOpenCategories, setOpenCategories] = useState<boolean>(false);
   const [selectedMenuCategory, setSelectedMenuCategory] = useState<
-    ISelectedValue[]
+    categoriesTypes.Category[]
   >([]);
-  const routes: ISelectedValue[] = [
-    { id: 41, to: '/', text: 'home' },
-    { id: 411, to: '/shop', text: 'shop' },
-  ];
+  const { data, isLoading, isSuccess } =
+    categoriesModel.useGetCategoriesQuery();
+  const dispatch = useAppDispatch();
+  const dataArray: categoriesTypes.Category[] = isSuccess ? [data] : [];
 
+  useEffect(() => {
+    if (data) {
+      dispatch(categoriesModel.setCategories(data));
+    }
+  }, [data]);
+
+  // TODO слишком большая запись выходит для получения и записи
   return (
     <Select
       openOnHover
@@ -22,19 +31,21 @@ export const MultiCategories: FC = () => {
       isOpen={isOpenCategories}
       setOpen={setOpenCategories}
       defaultValue={'All category'}>
-      {routes.map(route => (
-        <MenuItem
-          key={`${route.id}-${route.text}`}
-          setOpen={setOpenCategories}
-          active={false}
-          setSelectedItems={setSelectedMenuCategory}
-          onClickOptionHandler={item => {
-            navigate(item.to?.toLowerCase() || '/');
-          }}
-          item={route}>
-          {route.text}
-        </MenuItem>
-      ))}
+      {isLoading && <p>loader</p>}
+      {isSuccess &&
+        dataArray.map(route => (
+          <MenuItem
+            key={`${route.id}-${route.text}`}
+            setOpen={setOpenCategories}
+            active={false}
+            setSelectedItems={setSelectedMenuCategory}
+            onClickOptionHandler={item => {
+              navigate(item.to?.toLowerCase() || '/catalog');
+            }}
+            item={route}>
+            {route.text}
+          </MenuItem>
+        ))}
     </Select>
   );
 };
