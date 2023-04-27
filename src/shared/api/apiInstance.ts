@@ -5,6 +5,7 @@ import { API_URL } from '../config';
 export const baseQueryFactory = (basePath: string) =>
   fetchBaseQuery({
     baseUrl: API_URL + basePath,
+    mode: 'cors',
     prepareHeaders: headers => {
       // get token from localstorage
       const token = true;
