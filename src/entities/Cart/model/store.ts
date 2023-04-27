@@ -11,8 +11,8 @@ const initialState: Cart = {
   discount: 0,
   tax: 0,
   total: 0,
-  createdDate: new Date(),
-  updatedDate: new Date(),
+  createdDate: new Date().toISOString(),
+  updatedDate: new Date().toISOString(),
 };
 
 // query actions ( async )

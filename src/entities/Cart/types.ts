@@ -19,6 +19,6 @@ export type Cart = {
   discount: number;
   tax: number;
   total: number;
-  createdDate: Date;
-  updatedDate: Date;
+  createdDate: string;
+  updatedDate: string;
 };
