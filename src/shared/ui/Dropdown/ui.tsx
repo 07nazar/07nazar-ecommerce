@@ -9,6 +9,7 @@ interface DropdownProps {
   title: string;
   maxItems?: number;
   className?: string;
+  isOpened?: boolean;
 }
 
 interface DropdownButtonProps {
@@ -64,7 +65,9 @@ const DropdownContent: FC<DropdownContentProps> = ({
   }, [isOpen]);
 
   return (
-    <animated.div style={contentAnimation}>
+    <animated.div
+      style={contentAnimation}
+      className={isOpen && !isAnimating ? 'scrollbar-y overflow-y-scroll' : ''}>
       {isOpen && (
         <div ref={contentRef} className={`flex flex-col ${className || ''}`}>
           {children}
@@ -75,12 +78,13 @@ const DropdownContent: FC<DropdownContentProps> = ({
 };
 
 export const Dropdown: FC<DropdownProps> = ({
+  isOpened = false,
   children,
   title,
   maxItems,
   className,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(isOpened);
   const [showAll, setShowAll] = useState(false);
   const [contentHeight, setContentHeight] = useState<number>(0);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -91,7 +95,6 @@ export const Dropdown: FC<DropdownProps> = ({
   };
 
   const showMore = () => {
-    setContentHeight(0);
     setShowAll(true);
   };
 
