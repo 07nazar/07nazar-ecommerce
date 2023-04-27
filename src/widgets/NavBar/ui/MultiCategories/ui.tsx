@@ -1,20 +1,19 @@
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { categoriesModel, categoriesTypes } from 'entities/Categories';
-import { useAppDispatch } from 'shared/lib';
-import { MenuItem, Select } from 'shared/ui/Select';
+import { categoriesModel } from 'entities/Categories';
+import { normalizeStringToURL, useAppDispatch } from 'shared/lib';
+import { MenuItem, MenuItemType, Select } from 'shared/ui/Select';
 
 export const MultiCategories: FC = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const [isOpenCategories, setOpenCategories] = useState<boolean>(false);
   const [selectedMenuCategory, setSelectedMenuCategory] = useState<
-    categoriesTypes.Category[]
+    MenuItemType[]
   >([]);
-  const { data, isLoading, isSuccess } =
+  const { data, isLoading, isSuccess, isError } =
     categoriesModel.useGetCategoriesQuery();
-  const dispatch = useAppDispatch();
-  const dataArray: categoriesTypes.Category[] = isSuccess ? [data] : [];
 
   useEffect(() => {
     if (data) {
@@ -31,21 +30,28 @@ export const MultiCategories: FC = () => {
       isOpen={isOpenCategories}
       setOpen={setOpenCategories}
       defaultValue={'All category'}>
-      {isLoading && <p>loader</p>}
+      {isLoading && <p>Loading...</p>}
       {isSuccess &&
-        dataArray.map(route => (
+        data.map(route => (
           <MenuItem
             key={`${route.id}-${route.text}`}
             setOpen={setOpenCategories}
             active={false}
             setSelectedItems={setSelectedMenuCategory}
             onClickOptionHandler={item => {
-              navigate(item.to?.toLowerCase() || '/catalog');
+              if (typeof item.text === 'string') {
+                navigate(
+                  `/catalog/${normalizeStringToURL(item.text)}-${item.id
+                    .toString()
+                    .substring(0, 5)}` || '/catalog'
+                );
+              }
             }}
             item={route}>
             {route.text}
           </MenuItem>
         ))}
+      {isError && <p>Error...</p>}
     </Select>
   );
 };
