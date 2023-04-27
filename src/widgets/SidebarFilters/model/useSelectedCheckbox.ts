@@ -1,22 +1,42 @@
 import { ChangeEventHandler, useState } from 'react';
 
+import { generateStringURL } from '../lib';
+
+import { useSortParams } from './useSortParams';
+
+type SelectedObject = {
+  [name: string]: string[];
+};
+
 type UseSelectedCheckboxReturnType = [
   string[],
   ChangeEventHandler<HTMLInputElement>
 ];
 
-export const useSelectedCheckbox = (): UseSelectedCheckboxReturnType => {
-  const [selected, setSelected] = useState<string[]>([]);
+export const useSelectedCheckbox = (
+  name: string
+): UseSelectedCheckboxReturnType => {
+  const [selected, setSelected] = useState<SelectedObject>({ [name]: [] });
 
-  const handleCheckboxChange: ChangeEventHandler<HTMLInputElement> = e => {
-    const { value, checked } = e.target;
+  useSortParams(name, selected[name]);
 
-    if (checked) {
-      setSelected([...selected, value]);
-    } else {
-      setSelected(selected.filter(val => val !== value));
-    }
+  // TODO при перезагрузке не отмечает чекбоксы которые записаны в строке url
+
+  const handleCheckboxChange: ChangeEventHandler<HTMLInputElement> = event => {
+    const { value, checked } = event.target;
+    const generatedValue = generateStringURL(value);
+    setSelected(previousState => {
+      const previousSelected = previousState[name];
+      let newSelected;
+      if (checked) {
+        newSelected = [...previousSelected, generatedValue];
+      } else {
+        newSelected = previousSelected.filter(val => val !== generatedValue);
+      }
+
+      return { [name]: newSelected };
+    });
   };
 
-  return [selected, handleCheckboxChange];
+  return [selected[name], handleCheckboxChange];
 };
