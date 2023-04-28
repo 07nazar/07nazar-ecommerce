@@ -1,22 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
 
-import { cartModel } from 'entities/Cart';
-import { categoriesModel } from 'entities/Categories';
-import { productModel } from 'entities/Product';
-import { userModel } from 'entities/User';
+import { baseApi } from 'shared/api/baseApi';
 import { isDevEnv } from 'shared/config';
 
+import { rootReducer } from './rootReducer';
+
 export const store = configureStore({
-  reducer: {
-    products: productModel.reducer,
-    cart: cartModel.reducer,
-    user: userModel.reducer,
-    [categoriesModel.categoriesApi.reducerPath]:
-      categoriesModel.categoriesApi.reducer,
-  },
+  reducer: rootReducer,
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(categoriesModel.categoriesApi.middleware),
+    getDefaultMiddleware().concat(baseApi.middleware),
   devTools: isDevEnv,
 });
 
