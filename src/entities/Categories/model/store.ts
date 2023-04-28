@@ -1,34 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createApi } from '@reduxjs/toolkit/query/react';
 
-import { baseQueryFactory } from 'shared/api';
+import { baseApi, TAGS } from 'shared/api';
 
-import type { Category } from '../types';
+import type { Category, CategoryDto } from '../types';
 
-const CATEGORIES_KEY = 'categories';
+import { mapCategory } from '../lib';
 
 const initialState: Category[] = [];
 
 // query actions ( async )
 
-export const categoriesApi = createApi({
-  reducerPath: CATEGORIES_KEY,
-  baseQuery: baseQueryFactory('/category'),
+export const categoriesApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     getCategories: builder.query<Category[], void>({
-      query: () => '/all',
+      query: () => '/category/all',
+      transformResponse: (response: CategoryDto[]) => response.map(mapCategory),
+      providesTags: [TAGS.CATEGORIES],
     }),
     deleteCategory: builder.mutation<void, number>({
       query: id => ({
-        url: `/${id}`,
+        url: `/category/${id}`,
         method: 'DELETE',
       }),
     }),
   }),
 });
-// TODO данные все равно записываются в стор, хотя нигде не указывал этого
-const categoriesSlice = createSlice({
-  name: CATEGORIES_KEY,
+
+export const categoriesSlice = createSlice({
+  name: 'categories',
   initialState,
   reducers: {
     setCategories: (state, { payload }) => payload,

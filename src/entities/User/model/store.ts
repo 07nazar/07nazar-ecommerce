@@ -1,11 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createApi } from '@reduxjs/toolkit/query/react';
 
-import { baseQueryFactory } from 'shared/api';
+import { baseApi } from 'shared/api';
 
 import type { User } from '../types';
-
-const USER_KEY = 'user';
 
 type UserType = Pick<User, 'id' | 'name' | 'photo' | 'address' | 'contacts'>;
 
@@ -21,33 +18,31 @@ const initialState: UserState = {
 
 // query actions ( async )
 
-const userApi = createApi({
-  reducerPath: 'userApi',
-  baseQuery: baseQueryFactory('/user'),
+const userApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     getUserById: builder.query<User, number>({
-      query: id => `user/${id}`,
+      query: id => `/user/${id}`,
     }),
     getUsers: builder.query<User, { count: number }>({
-      query: ({ count }) => `/count=${count}`,
+      query: ({ count }) => `/user/count=${count}`,
     }),
     registerUser: builder.mutation<User, User>({
       query: newUser => ({
-        url: '/',
+        url: '/user',
         method: 'POST',
         body: newUser,
       }),
     }),
     loginUser: builder.mutation<User, { username: string; password: string }>({
       query: credentials => ({
-        url: '/login',
+        url: '/user/login',
         method: 'POST',
         body: credentials,
       }),
     }),
     deleteUser: builder.mutation<void, number>({
       query: id => ({
-        url: '/',
+        url: '/user',
         method: 'DELETE',
         body: id,
       }),
@@ -55,8 +50,8 @@ const userApi = createApi({
   }),
 });
 
-const userSlice = createSlice({
-  name: USER_KEY,
+export const userSlice = createSlice({
+  name: 'user',
   initialState,
   reducers: {},
 });
