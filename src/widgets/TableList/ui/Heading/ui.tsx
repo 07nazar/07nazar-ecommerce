@@ -41,7 +41,7 @@ export const TableHeading: FC<TableHeadingProps> = ({
                 className={width}
                 title={name}
                 onClick={handleSortChange}
-                isActive={activeSort.name === name.toString()}
+                isActive={activeSort.name === name.toString().toLowerCase()}
                 activeSort={activeSort}
               />
             );

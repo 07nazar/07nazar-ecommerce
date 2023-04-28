@@ -26,7 +26,7 @@ export const SortButton: FC<SortButtonProps> = ({
   }, [isActive]);
 
   const handleSortClick = () => {
-    const name = title.toLowerCase() as 'none' | 'name' | 'cost' | 'seller';
+    const name = title.toLowerCase();
     let type: SortActiveType['type'] = 'asc';
 
     if (!disabled) {
