@@ -16,7 +16,7 @@ export const useSliceSelector = <T extends SliceNames, U>(
   useSelector((state: RootState) => {
     if (!(sliceName in state)) {
       throw new Error(
-        `Reducer ${sliceName} is not registered for the given slice`
+        `Reducer ${String(sliceName)} is not registered for the given slice`
       );
     }
 
