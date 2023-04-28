@@ -79,7 +79,7 @@ export const productsFromServer = [
     deliveryCost: '0',
     orders: 14,
     rating: 0.7,
-    sellerId: 'Shop name',
+    sellerId: 'Catalog name',
   },
   {
     id: 'g1daczs517',
@@ -89,7 +89,7 @@ export const productsFromServer = [
     deliveryCost: '0',
     orders: 14,
     rating: 4,
-    sellerId: 'Shop name',
+    sellerId: 'Catalog name',
   },
   {
     id: 'azxdaczs518',
@@ -99,7 +99,7 @@ export const productsFromServer = [
     deliveryCost: '0',
     orders: 14,
     rating: 4,
-    sellerId: 'Shop name',
+    sellerId: 'Catalog name',
   },
   {
     id: '1sdaczs519',
@@ -109,6 +109,6 @@ export const productsFromServer = [
     deliveryCost: '0',
     orders: 14,
     rating: 4,
-    sellerId: 'Shop name',
+    sellerId: 'Catalog name',
   },
 ];

@@ -10,7 +10,7 @@ import { ActiveCategories } from './ActiveCategories';
 import { ControlPanel } from './ControlPanel';
 import { Products } from './Products';
 
-export const Shop = () => {
+export const Catalog = () => {
   const [showMode, setShowMode] = useState<'column' | 'row'>('row');
   const activeCategory = 'Mobile accessory';
   const itemsCategory = 99999;

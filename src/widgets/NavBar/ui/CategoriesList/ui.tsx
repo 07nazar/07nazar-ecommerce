@@ -5,7 +5,7 @@ import { AppLink } from 'shared/ui/AppLink';
 
 const categoriesLinks = [
   {
-    to: 'shop',
+    to: 'catalog',
     text: 'Shop',
   },
   {

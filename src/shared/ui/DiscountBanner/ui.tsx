@@ -20,7 +20,7 @@ export const DiscountBanner: FC = () => (
       </p>
     </div>
     <AppLink
-      to={'/shop'}
+      to={'/catalog'}
       className={
         'text-white bg-orange px-4 whitespace-nowrap py-2.5 rounded-md hover:opacity-95 duration-300'
       }>
