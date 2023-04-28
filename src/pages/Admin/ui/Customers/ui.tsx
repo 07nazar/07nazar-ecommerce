@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { AiOutlineEdit, AiOutlineEye } from 'react-icons/ai';
 
-import { normalizeStringToURL } from 'pages/Admin/lib';
 import { SortActiveType, TableList } from 'widgets/TableList';
 import { DeleteProduct } from 'features/DeleteProduct';
+import { normalizeStringToURL } from 'shared/lib';
 import { AppLink } from 'shared/ui/AppLink';
 import { Search } from 'shared/ui/Search';
 
