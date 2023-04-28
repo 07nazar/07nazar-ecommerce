@@ -1,7 +1,9 @@
+import { rootReducer } from './rootReducer';
+
 import { store } from './index';
 
-declare type RootState = ReturnType<typeof store.getState>;
-
-declare type SliceNames = keyof RootState;
-
-declare type AppDispatch = typeof store.dispatch;
+declare global {
+  type RootState = ReturnType<typeof rootReducer>;
+  type SliceNames = keyof RootState;
+  type AppDispatch = typeof store.dispatch;
+}

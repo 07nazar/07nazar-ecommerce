@@ -1,1 +1,2 @@
-export * from './apiInstance';
+export * from './baseApi';
+export * from './tags';

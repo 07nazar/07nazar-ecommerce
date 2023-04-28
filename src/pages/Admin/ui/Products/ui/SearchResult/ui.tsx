@@ -4,11 +4,11 @@ import { AiOutlineEdit, AiOutlineEye } from 'react-icons/ai';
 import { TableList } from 'widgets/TableList';
 import { DeleteProduct } from 'features/DeleteProduct';
 import { productTypes } from 'entities/Product';
+import { normalizeStringToURL } from 'shared/lib';
 import { AppLink } from 'shared/ui/AppLink';
 
 import type { SortActiveType } from 'widgets/TableList';
 
-import { normalizeStringToURL } from '../../../../lib';
 import { productsFromServer } from '../../model';
 
 type SearchResultProps = {

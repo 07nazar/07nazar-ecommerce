@@ -1,34 +1,34 @@
 import {
-  FC,
-  ReactNode,
   Dispatch,
-  SetStateAction,
+  FC,
   MouseEvent,
-  useState,
+  ReactNode,
+  SetStateAction,
   useCallback,
+  useState,
 } from 'react';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
 import Menu from './Menu';
 
-interface IItem {
+export type MenuItemType = {
   id: number;
   text: string | JSX.Element;
   subTitle?: string;
   to?: string;
-  children?: IItem[];
-}
+  children?: MenuItemType[];
+};
 
-interface MenuItemProps {
+type MenuItemProps = {
   children: ReactNode;
-  item: IItem;
+  item: MenuItemType;
   disabled?: boolean;
   active: boolean;
   isMulti?: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
-  onClickOptionHandler?: (item: IItem) => void;
-  setSelectedItems?: Dispatch<SetStateAction<IItem[]>>;
-}
+  onClickOptionHandler?: (item: MenuItemType) => void;
+  setSelectedItems?: Dispatch<SetStateAction<MenuItemType[]>>;
+};
 
 const MenuButton: FC<MenuItemProps> = ({
   children,

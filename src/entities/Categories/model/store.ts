@@ -1,47 +1,40 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createApi } from '@reduxjs/toolkit/query/react';
 
-import { baseQueryFactory } from 'shared/api';
+import { baseApi, TAGS } from 'shared/api';
 
-import type { Category } from '../types';
+import type { Category, CategoryDto } from '../types';
 
-const CATEGORIES_KEY = 'categories';
+import { mapCategory } from '../lib';
 
 const initialState: Category[] = [];
 
 // query actions ( async )
 
-const categoriesApi = createApi({
-  reducerPath: 'categoriesApi',
-  baseQuery: baseQueryFactory('/categories'),
+export const categoriesApi = baseApi.injectEndpoints({
   endpoints: builder => ({
-    getCategories: builder.query({
-      query: () => '/',
-      extraOptions: {},
+    getCategories: builder.query<Category[], void>({
+      query: () => '/category/all',
+      transformResponse: (response: CategoryDto[]) => response.map(mapCategory),
+      providesTags: [TAGS.CATEGORIES],
     }),
-
     deleteCategory: builder.mutation<void, number>({
       query: id => ({
-        url: `/${id}`,
+        url: `/category/${id}`,
         method: 'DELETE',
       }),
     }),
   }),
 });
 
-const categoriesSlice = createSlice({
-  name: CATEGORIES_KEY,
+export const categoriesSlice = createSlice({
+  name: 'categories',
   initialState,
-  reducers: {},
-  extraReducers: builder => {
-    builder.addMatcher(
-      categoriesApi.endpoints.getCategories.matchFulfilled,
-      (state, { payload }) => payload
-    );
+  reducers: {
+    setCategories: (state, { payload }) => payload,
   },
 });
 
-// export const {} = categoriesSlice.actions;
+export const { setCategories } = categoriesSlice.actions;
 
 export const { useGetCategoriesQuery, useDeleteCategoryMutation } =
   categoriesApi;

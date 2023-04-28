@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createApi } from '@reduxjs/toolkit/query/react';
 
-import { baseQueryFactory } from 'shared/api';
+import { baseApi } from 'shared/api';
 
 import { Product } from '../types';
 
@@ -21,17 +20,15 @@ const initialState: ProductStateType = {
 
 // query actions ( async )
 
-const productsApi = createApi({
-  reducerPath: 'productsApi',
-  baseQuery: baseQueryFactory('/product'),
+export const productsApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     getProductById: builder.query<Product, string>({
-      query: id => `/${id}`,
+      query: id => ({ url: `/product/${id}` }),
     }),
   }),
 });
 
-const productsSlice = createSlice({
+export const productsSlice = createSlice({
   name: PRODUCTS_KEY,
   initialState,
   reducers: {},

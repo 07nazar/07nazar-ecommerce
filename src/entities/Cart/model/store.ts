@@ -1,8 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { Coupon, CartItem, Cart } from '../types';
-
-const CART_KEY = 'cart';
+import type { Cart, CartItem, Coupon } from '../types';
 
 const initialState: Cart = {
   items: [],
@@ -11,14 +9,14 @@ const initialState: Cart = {
   discount: 0,
   tax: 0,
   total: 0,
-  createdDate: new Date(),
-  updatedDate: new Date(),
+  createdDate: new Date().toISOString(),
+  updatedDate: new Date().toISOString(),
 };
 
 // query actions ( async )
 
-const cartSlice = createSlice({
-  name: CART_KEY,
+export const cartSlice = createSlice({
+  name: 'cart',
   initialState,
   reducers: {
     addToCart: (state, { payload }: PayloadAction<CartItem>) => {
