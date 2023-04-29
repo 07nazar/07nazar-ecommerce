@@ -1,28 +1,18 @@
+import { RegionSuppliers } from 'pages/Home/ui/RegionSuppliers';
 import { Hero } from 'widgets/Hero';
 import { SubscribeNews } from 'widgets/SubscribeNews';
-
-import { categoriesHome } from '../lib';
 
 import { Categories } from './Categories';
 import { DealsAndOffers } from './DealsAndOffers';
 import { ExtraServices } from './ExtraServices';
 import { RecommendedItems } from './Recommendation';
-import { RegionSuppliers } from './RegionSuppliers';
 import { SendSuppliers } from './SendSuppliers';
 
 export const Home = () => (
   <>
     <Hero />
     <DealsAndOffers />
-    {categoriesHome.map(category => (
-      <Categories
-        key={category.title}
-        title={category.title}
-        link={category.link}
-        image={category.image}>
-        {category.items}
-      </Categories>
-    ))}
+    <Categories />
     <SendSuppliers />
     <RecommendedItems />
     <ExtraServices />

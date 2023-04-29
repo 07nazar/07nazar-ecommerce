@@ -2,9 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { baseApi, TAGS } from 'shared/api';
 
-import type { Category, CategoryDto } from '../types';
+import type {
+  Category,
+  CategoryDto,
+  CategoryWithAdditionalInfo,
+} from '../types';
 
-import { mapCategory } from '../lib';
+import { mapCategory, mapCategoryWithAdditionalInfo } from '../lib';
 
 const initialState: Category[] = [];
 
@@ -15,6 +19,12 @@ export const categoriesApi = baseApi.injectEndpoints({
     getCategories: builder.query<Category[], void>({
       query: () => '/category/all',
       transformResponse: (response: CategoryDto[]) => response.map(mapCategory),
+      providesTags: [TAGS.CATEGORIES],
+    }),
+    getFeaturedCategories: builder.query<CategoryWithAdditionalInfo[], void>({
+      query: () => '/category/featured',
+      transformResponse: (response: CategoryDto[]) =>
+        response.map(mapCategoryWithAdditionalInfo),
       providesTags: [TAGS.CATEGORIES],
     }),
     deleteCategory: builder.mutation<void, number>({
@@ -36,7 +46,10 @@ export const categoriesSlice = createSlice({
 
 export const { setCategories } = categoriesSlice.actions;
 
-export const { useGetCategoriesQuery, useDeleteCategoryMutation } =
-  categoriesApi;
+export const {
+  useGetCategoriesQuery,
+  useGetFeaturedCategoriesQuery,
+  useDeleteCategoryMutation,
+} = categoriesApi;
 
 export const { reducer } = categoriesSlice;
