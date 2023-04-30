@@ -1,16 +1,21 @@
 import { FC, useEffect, useState } from 'react';
 
-import { helper } from '../../lib';
+import { convertTimeDeadline } from '../../../../lib';
 
 interface ITimer {
   deadline: string;
 }
 
 export const Timer: FC<ITimer> = ({ deadline }) => {
-  const [{ days, hours, min, sec }, setTime] = useState(() => helper(deadline));
+  const [{ days, hours, min, sec }, setTime] = useState(() =>
+    convertTimeDeadline(deadline)
+  );
 
   useEffect(() => {
-    const timerId = setInterval(() => setTime(helper(deadline)), 1000);
+    const timerId = setInterval(
+      () => setTime(convertTimeDeadline(deadline)),
+      1000
+    );
 
     return () => clearInterval(timerId);
   }, [days, hours, min, sec]);

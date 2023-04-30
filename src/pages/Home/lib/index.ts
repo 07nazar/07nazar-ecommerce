@@ -1,2 +1,2 @@
-export * from './timer';
-export * from './data';
+export * from './convertTimeDeadline';
+export * from './getAllChildrens';

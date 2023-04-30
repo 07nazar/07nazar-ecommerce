@@ -5,3 +5,4 @@ export * from './ProductRelated';
 export * from './ProductRow';
 export * from './ProductSaved';
 export * from './ProductCart';
+export * from './ProductDeals';

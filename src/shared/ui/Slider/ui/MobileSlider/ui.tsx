@@ -12,7 +12,7 @@ export const MobileSlider: FC<SliderProps> = ({ children }) => {
   const { isMobile } = useMatchMedia();
 
   if (!isMobile) return <>{children}</>;
-
+  // TODO объединить с LaptopSlider, по пропу передавать когда делать слайдер
   return (
     <Swiper
       modules={[FreeMode]}

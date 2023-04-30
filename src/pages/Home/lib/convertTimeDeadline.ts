@@ -1,4 +1,4 @@
-export const helper = (deadline: string) => {
+export const convertTimeDeadline = (deadline: string) => {
   const date = +new Date();
   const timeStamp = +new Date(deadline) - date;
   return {
