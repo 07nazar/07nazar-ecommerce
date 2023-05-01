@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
 import { useMatchMedia } from 'shared/lib';
-import { MobileSlider } from 'shared/ui/Slider';
+import { Slider } from 'shared/ui/slider';
 
-import { CategoriesList } from './CategoriesList';
-import { ChangeCountry } from './ChangeCountry';
-import { ChangeLanguage } from './ChangeLanguage';
-import { MultiCategories } from './MultiCategories';
+import { CategoriesList } from './categories-list';
+import { ChangeCountry } from './change-country';
+import { ChangeLanguage } from './change-language';
+import { MultiCategories } from './multi-categories';
 
 export const NavBar: FC = () => {
   const { isTablet, isMobile } = useMatchMedia();
@@ -16,7 +16,7 @@ export const NavBar: FC = () => {
   return (
     <div className={'container-fluid bg-white'}>
       <div className={'beforeLine sm:before:hidden  afterLine'}>
-        <MobileSlider>
+        <Slider activateOn={'isMobile'} spaceBetween={7}>
           <div className={'container flex gap-7 lg:gap-2 py-5 lg:py-4'}>
             {notMobile && <MultiCategories />}
             <CategoriesList />
@@ -27,7 +27,7 @@ export const NavBar: FC = () => {
               </div>
             )}
           </div>
-        </MobileSlider>
+        </Slider>
       </div>
     </div>
   );

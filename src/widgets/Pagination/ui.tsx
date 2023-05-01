@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef, useState } from 'react';
 
-import { Pagination } from 'shared/ui/Pagination';
-import { ISelectedValue, MenuItem, Select } from 'shared/ui/Select';
+import { Pagination } from 'shared/ui/pagination';
+import { ISelectedValue, MenuItem, Select } from 'shared/ui/select';
 
 const items: ISelectedValue[] = [
   { id: 1, text: 'Show 10' },

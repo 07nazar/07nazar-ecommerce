@@ -1,16 +1,15 @@
 import { useState } from 'react';
 
-import { UserCard } from 'entities/User';
-import { AppLink } from 'shared/ui/AppLink';
-import { Button } from 'shared/ui/Button';
-import { Tabs, TabBtn } from 'shared/ui/Tabs';
-
-import decore from './assets/sliderImg.jpg';
+import sliderImg from 'assets/sliderImg.jpg';
+import { AppLink } from 'shared/ui/appLink';
+import { Button } from 'shared/ui/button';
+import { Tabs, TabBtn } from 'shared/ui/tabs';
+import { UserCard } from 'entities/user';
 
 const btnItems = [
   { text: 'Automobiles' },
   { text: 'Clothes and wear' },
-  { text: 'Home interiors' },
+  { text: 'home interiors' },
   { text: 'Computer and tech' },
   { text: 'Tools, equipments' },
   { text: 'Sports and outdoor' },
@@ -40,7 +39,7 @@ export const Hero = () => {
           </TabBtn>
         ))}>
         <div
-          style={{ backgroundImage: `url("${decore}")` }}
+          style={{ backgroundImage: `url("${sliderImg}")` }}
           className={
             'max-w-[664px] max-h-[363px] w-full h-full bg-no-repeat bg-cover bg-center pt-[53px] pl-11 lg:max-h-[300px] md:max-w-full md:w-full md:h-[182px] md:pt-[23px] md:pl-7 '
           }>

@@ -1,3 +1,3 @@
 export * from './colors';
 export * from './hooks';
-export * from './normalizeStringToURL';
+export * from './normalize-string-to-url';

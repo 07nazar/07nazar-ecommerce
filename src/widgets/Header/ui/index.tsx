@@ -1,13 +1,13 @@
 import { createElement, FC } from 'react';
 
-import { HeaderSearch } from 'features/HeaderSearch';
 import { useMatchMedia } from 'shared/lib';
-import { AppLink } from 'shared/ui/AppLink';
-import { Logo } from 'shared/ui/Logo';
+import { AppLink } from 'shared/ui/appLink';
+import { Logo } from 'shared/ui/logo';
+import { HeaderSearch } from 'features/product/header-search';
 
 import { appLinks, appLinksMobile } from '../lib';
 
-import { BurgerMenu } from './BurgerMenu';
+import { BurgerMenu } from './burger-menu';
 
 export const Header: FC = () => {
   const { isDesktop, isMobile } = useMatchMedia();
