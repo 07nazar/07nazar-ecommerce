@@ -1,3 +1,1 @@
-import {CategoriesBase} from './categories-base';
-
-export const Categories = () => <CategoriesBase />;
+export const Categories = () => <div>categories</div>;

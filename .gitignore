@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .env
+
+# файл с аналитикой
+analyst.html
