@@ -1,7 +1,7 @@
-import { ComponentType } from 'react';
+import {ComponentType} from 'react';
 
-import { withRouter } from './withRouter';
-import { withStore } from './withStore';
+import {withRouter} from './with-router';
+import {withStore} from './with-store';
 
 export const withProviders = (Component: ComponentType) =>
   withRouter(withStore(Component));

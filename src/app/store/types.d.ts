@@ -1,6 +1,6 @@
-import { rootReducer } from './rootReducer';
+import {rootReducer} from './root-reducer';
 
-import { store } from './index';
+import {store} from './index';
 
 declare global {
   type RootState = ReturnType<typeof rootReducer>;

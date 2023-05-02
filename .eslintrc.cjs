@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2021: true,
@@ -6,7 +7,8 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'airbnb-base',
+    'airbnb',
+    'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
     'plugin:jsx-a11y/recommended',
@@ -54,6 +56,11 @@ module.exports = {
       'error',
       { props: 'always', children: 'never' },
     ],
-    "no-param-reassign": ["error", { "props": false }]
+    "no-param-reassign": ["error", { "props": false }],
+    "react/function-component-definition": [2, {
+      "namedComponents": "arrow-function",
+      "unnamedComponents": "arrow-function"
+    }],
+    "react/require-default-props": "off"
   },
 };

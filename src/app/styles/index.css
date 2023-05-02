@@ -198,6 +198,10 @@
   .scrollbar::-webkit-scrollbar-thumb:hover {
     @apply bg-blue/50 duration-300;
   }
+  
+  .swiper-active-slide .swiper-slide-thumb-active {
+    opacity: 1;
+  }
 }
 
 .slide-center {
@@ -215,7 +219,7 @@
 
 @media screen and (max-width: 480px) {
   .container {
-    /* padding: 0; */
+    padding: 0;
   }
 
   .swiper {
