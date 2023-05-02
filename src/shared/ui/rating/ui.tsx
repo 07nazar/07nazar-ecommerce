@@ -1,24 +1,23 @@
-import {FC} from 'react';
-import {GoStar} from 'react-icons/go';
+import { FC } from 'react';
+import { GoStar } from 'react-icons/go';
 
-interface RatingProps {
+type RatingProps = {
   value: number;
+  ratingKey: string;
   showValue?: boolean;
-}
+};
 
-export const Rating: FC<RatingProps> = ({ value, showValue }) => {
-  const filledStars = Math.round(value);
-  const emptyStars = 5 - filledStars;
+export const Rating: FC<RatingProps> = ({ value, showValue, ratingKey }) => {
+  const array = [...Array(5)].map((e, i) => i + 1);
 
   return (
-    <div className={'inline-flex items-center '}>
-      {[...Array(filledStars)].map(() => (
-        <GoStar key={`checked-star-${value}`} className={'text-orange'} />
-      ))}
-      {[...Array(emptyStars)].map(() => (
+    <div className={'inline-flex items-center'}>
+      {array.map(index => (
         <GoStar
-          key={`unchecked-star-${value}`}
-          className={'text-gray-medium'}
+          key={`star-${index}-${ratingKey}`}
+          className={
+            index <= Math.round(value) ? 'text-orange' : 'text-gray-medium'
+          }
         />
       ))}
       {showValue && (

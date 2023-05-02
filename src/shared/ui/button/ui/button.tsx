@@ -1,4 +1,4 @@
-import {FC, ReactNode, SyntheticEvent} from 'react';
+import { FC, ReactNode, SyntheticEvent } from 'react';
 
 export interface ButtonProps {
   children: ReactNode;

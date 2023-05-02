@@ -31,7 +31,7 @@ const Content: FC<ContentProps> = ({
         className={
           'flex items-center md:items-start md:flex-wrap gap-2 md:gap-1.5 sm:gap-1 leading-[19px]'
         }>
-        <Rating value={rating} showValue />
+        <Rating value={rating} showValue ratingKey={`product-row-${id}`} />
         <p
           className={
             'text-gray-hot sm:text-xs sm:ml-1 dots sm:after:hidden p-3 md:py-0 sm:p-0 sm:pl-2.5'
@@ -76,7 +76,7 @@ export const ProductRow: FC<productTypes.ProductRow> = ({
       product={{ id, mainPhoto, price, name }}
       before={
         !isMobile && (
-          <AddFavourite isAuth id={1} classNames={'absolute top-0 right-0'} />
+          <AddFavourite isAuth id={id} classNames={'absolute top-0 right-0'} />
         )
       }
       className={{

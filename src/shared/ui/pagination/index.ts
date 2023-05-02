@@ -1,1 +1,1 @@
-export * from './ui';
+export { PaginationBox } from './ui';

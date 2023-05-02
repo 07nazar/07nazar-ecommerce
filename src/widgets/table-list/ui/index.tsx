@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
-import type { SortActiveType } from './sort-button';
+import { PaginationBox } from 'shared/ui/pagination';
 
-import { PaginationBox } from '../../Pagination';
-
+import { SortActiveType } from './sort-button';
 import { TableHeading } from './table-heading';
 import { TableItem, TableItemLinkType } from './table-item';
 
@@ -13,6 +12,8 @@ type TableListProps = {
   onSortChange: (active: SortActiveType) => void;
   actions: (name: string, id: string) => JSX.Element;
 };
+
+export type { TableItemLinkType, SortActiveType };
 
 export const TableList = ({
   items,

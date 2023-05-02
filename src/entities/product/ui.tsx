@@ -1,8 +1,8 @@
-import {FC, ReactNode} from 'react';
+import { FC, ReactNode } from 'react';
 
-import {AppLink} from 'shared/ui/appLink';
+import { AppLink } from 'shared/ui/links';
 
-import type {Product, ProductMin} from './types';
+import type { Product, ProductMin } from './types';
 
 interface IProductCardClassNames {
   title?: string;

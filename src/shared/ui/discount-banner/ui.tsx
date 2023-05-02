@@ -1,6 +1,6 @@
-import {FC} from 'react';
+import { FC } from 'react';
 
-import {AppLink} from '../appLink';
+import { AppLink } from '../links';
 
 export const DiscountBanner: FC = () => (
   <div

@@ -1,1 +1,1 @@
-export * from './ui';
+export { Tabs, TabBtn } from './ui';

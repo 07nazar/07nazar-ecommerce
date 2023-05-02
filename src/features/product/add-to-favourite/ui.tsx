@@ -1,13 +1,13 @@
-import {FC} from 'react';
-import {AiOutlineHeart} from 'react-icons/ai';
-import {redirect} from 'react-router-dom';
+import { FC } from 'react';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { redirect } from 'react-router-dom';
 
-import {Button} from 'shared/ui/button';
+import { Button } from 'shared/ui/button';
 
 interface AddFavouriteProps {
   classNames?: string;
   isAuth: boolean;
-  id: number;
+  id: string;
 }
 
 export const AddFavourite: FC<AddFavouriteProps> = ({
@@ -19,9 +19,12 @@ export const AddFavourite: FC<AddFavouriteProps> = ({
     redirect('/login');
   }
 
-  const clickHandler = () => {
+  const clickHandler =
+    () =>
     // logic for add to favourite
-  };
+    // productId to cart
+    () =>
+      id === 'dasd';
 
   return (
     <Button

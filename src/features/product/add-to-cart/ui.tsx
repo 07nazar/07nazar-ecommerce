@@ -1,16 +1,18 @@
-import {FC} from 'react';
-import {IoMdCart} from 'react-icons/io';
+import { FC } from 'react';
+import { IoMdCart } from 'react-icons/io';
 
-import {Button} from 'shared/ui/button';
+import { Button } from 'shared/ui/button';
 
 interface AddToCartProps {
-  productId: number;
+  productId: string;
 }
 
 export const AddToCart: FC<AddToCartProps> = ({ productId }) => {
-  const clickHandler = () => {
-    // productId to cart
-  };
+  const clickHandler =
+    () =>
+    // удалится (нужно для заглушки eslint)
+    () =>
+      productId === '1';
 
   return (
     <Button onClick={clickHandler} className={'bg-light pl-3 text-blue'}>

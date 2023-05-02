@@ -1,14 +1,14 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
-import {useMatchMedia} from 'shared/lib';
-import {Breadcrumbs} from 'shared/ui/breadcrumbs';
-import {PaginationBox} from 'widgets/Pagination';
-import {SidebarFilters} from 'widgets/sidebar-filters';
-import {SubscribeNews} from 'widgets/subscribe-news';
+import { useMatchMedia } from 'shared/lib';
+import { Breadcrumbs } from 'shared/ui/breadcrumbs';
+import { PaginationBox } from 'shared/ui/pagination';
+import { SidebarFilters } from 'widgets/sidebar-filters';
+import { SubscribeNews } from 'widgets/subscribe-news';
 
-import {ActiveCategories} from './active-categories';
-import {ControlPanel} from './control-panel';
-import {Products} from './products';
+import { ActiveCategories } from './active-categories';
+import { ControlPanel } from './control-panel';
+import { Products } from './products';
 
 export const Catalog = () => {
   const [showMode, setShowMode] = useState<'column' | 'row'>('row');

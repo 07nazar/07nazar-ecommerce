@@ -1,4 +1,4 @@
-import type {reviewTypes} from 'entities/review';
+import type { reviewTypes } from 'entities/review';
 
 type SocialMedia = {
   facebook: string;
@@ -45,4 +45,9 @@ export type Seller = User & {
   brands: string[]; // Массив брендов товаров
   rating: number;
   reviews: reviewTypes.SellerReview[]; // Массив отзывов покупателей
+};
+
+export type AdminUser = Pick<Seller, 'id' | 'name' | 'photo'> & {
+  issuedDate: string;
+  supplierCompany: null | string;
 };

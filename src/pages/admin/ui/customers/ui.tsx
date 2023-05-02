@@ -1,13 +1,12 @@
-import {useEffect, useState} from 'react';
-import {AiOutlineEdit, AiOutlineEye} from 'react-icons/ai';
+import { useEffect, useState } from 'react';
+import { AiOutlineEdit, AiOutlineEye } from 'react-icons/ai';
 
-import {normalizeStringToURL} from 'shared/lib';
-import {AppLink} from 'shared/ui/appLink';
-import {Search} from 'shared/ui/search';
-import {DeleteProduct} from 'features/product/delete-product';
-import {SortActiveType, TableList} from 'widgets/table-list';
-
-import {AdminUser, usersFromServer} from './model';
+import { normalizeStringToURL } from 'shared/lib';
+import { AppLink } from 'shared/ui/links';
+import { Search } from 'shared/ui/search';
+import { userApi, userTypes } from 'entities/user';
+import { DeleteProduct } from 'features/product/delete-product';
+import { SortActiveType, TableList } from 'widgets/table-list';
 
 type UserResult = {
   id: {
@@ -66,8 +65,10 @@ export const Customers = () => {
     </div>
   );
 
+  const { usersFromServer } = userApi;
+
   useEffect(() => {
-    const users: AdminUser[] = usersFromServer;
+    const users: userTypes.AdminUser[] = usersFromServer;
     const result: UserResult[] = users.map(user => ({
       id: {
         className: 'text-blue/70 mr-1',

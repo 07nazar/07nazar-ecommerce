@@ -1,22 +1,24 @@
-import {FC} from 'react';
+import { FC } from 'react';
 
-import {useMatchMedia} from 'shared/lib';
-import {Breadcrumbs} from 'shared/ui/breadcrumbs';
-import {DiscountBanner} from 'shared/ui/discount-banner';
+import { useMatchMedia } from 'shared/lib';
+import { Breadcrumbs } from 'shared/ui/breadcrumbs';
+import { DiscountBanner } from 'shared/ui/discount-banner';
+import { productApi } from 'entities/product';
+import { userApi } from 'entities/user';
 
-import {productFromServer, sellerFromServer} from '../model';
-
-import {AsideLikeItems} from './aside-like-items';
-import {ProductContent} from './product-content';
-import {RelatedItems} from './related-items';
-import {SellerCard} from './seller-card';
+import { AsideLikeItems } from './aside-like-items';
+import { ProductContent } from './product-content';
+import { ProductHero, SellerCard } from './product-hero';
+import { RelatedItems } from './related-items';
 
 export const Product: FC = () => {
   const { isDesktop, isLaptop } = useMatchMedia();
+
+  const { sellerFromServer } = userApi;
   return (
     <>
       <Breadcrumbs />
-      <Product />
+      <ProductHero />
 
       {!isDesktop && !isLaptop && (
         <div className={'mb-5'}>
@@ -33,7 +35,10 @@ export const Product: FC = () => {
       )}
 
       <div className={'flex items-start gap-5 mb-5 md:flex-col'}>
-        <ProductContent product={productFromServer} seller={sellerFromServer} />
+        <ProductContent
+          product={productApi.productFromServer}
+          seller={sellerFromServer}
+        />
         <AsideLikeItems />
       </div>
 

@@ -1,1 +1,1 @@
-export * from './ui';
+export { NotFound } from './ui';

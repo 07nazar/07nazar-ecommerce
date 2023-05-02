@@ -1,1 +1,1 @@
-export * from './ui'
+export { SidebarFilters } from './ui';

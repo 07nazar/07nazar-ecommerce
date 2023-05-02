@@ -1,8 +1,8 @@
-import {FC, useState} from 'react';
-import {AiOutlineDelete} from 'react-icons/ai';
+import { FC, useState } from 'react';
+import { AiOutlineDelete } from 'react-icons/ai';
 
-import {Button} from 'shared/ui/button';
-import {Modal} from 'shared/ui/modal';
+import { Button } from 'shared/ui/button';
+import { Modal } from 'shared/ui/modal';
 
 interface DeleteProductProps {
   productId: string;
@@ -13,8 +13,10 @@ export const DeleteProduct: FC<DeleteProductProps> = ({ productId }) => {
 
   const handleClick = () => {
     // dispatch delete item from db
-    console.log('item deleted: ', productId);
     setModalOpen(false);
+
+    // удалится (нужно для заглушки eslint)
+    return () => productId === '1';
   };
 
   return (

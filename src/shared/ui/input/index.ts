@@ -1,1 +1,1 @@
-export * from './ui';
+export { Input, InputGroup } from './ui';

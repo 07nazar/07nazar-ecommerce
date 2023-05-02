@@ -1,10 +1,16 @@
-import {FC} from 'react';
-import {AiFillFacebook, AiFillInstagram, AiFillLinkedin, AiFillTwitterSquare, AiFillYoutube,} from 'react-icons/all';
+import { FC } from 'react';
+import {
+  AiFillFacebook,
+  AiFillInstagram,
+  AiFillLinkedin,
+  AiFillTwitterSquare,
+  AiFillYoutube,
+} from 'react-icons/all';
 
-import {ReactComponent as AppStore} from 'assets/appStore.svg';
-import {ReactComponent as GooglePlay} from 'assets/googlePlay.svg';
-import {AppLink} from 'shared/ui/appLink';
-import {Logo} from 'shared/ui/logo';
+import { ReactComponent as AppStore } from 'assets/appStore.svg';
+import { ReactComponent as GooglePlay } from 'assets/googlePlay.svg';
+import { AppLink } from 'shared/ui/links';
+import { Logo } from 'shared/ui/logo';
 
 const footerLinks = [
   {

@@ -1,20 +1,20 @@
-import {AiOutlineCreditCard, AiOutlineShoppingCart} from 'react-icons/ai';
-import {BsGrid} from 'react-icons/bs';
-import {FiLogOut, FiSettings, FiUsers} from 'react-icons/fi';
-import {MdOutlineLocalShipping} from 'react-icons/md';
+import { AiOutlineCreditCard, AiOutlineShoppingCart } from 'react-icons/ai';
+import { BsGrid } from 'react-icons/bs';
+import { FiLogOut, FiSettings, FiUsers } from 'react-icons/fi';
+import { MdOutlineLocalShipping } from 'react-icons/md';
 
-import {useQueryTabs} from 'shared/lib';
-import {TabBtn, Tabs} from 'shared/ui/tabs';
+import { useQueryTabs } from 'shared/lib';
+import { TabBtn, Tabs } from 'shared/ui/tabs';
 
-import {Categories} from './categories';
-import {Customers} from './customers';
-import {Dashboard} from './dashboard';
-import {Logout} from './logout';
-import {Orders} from './orders';
-import {Products} from './products';
-import {Settings} from './settings';
-import {Shipments} from './shipments';
-import {Transactions} from './transactions';
+import { Categories } from './categories';
+import { Customers } from './customers';
+import { Dashboard } from './dashboard';
+import { Logout } from './logout';
+import { Orders } from './orders';
+import { Products } from './products';
+import { Settings } from './settings';
+import { Shipments } from './shipments';
+import { Transactions } from './transactions';
 
 const AdminData = [
   {

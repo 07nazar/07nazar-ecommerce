@@ -1,1 +1,1 @@
-export * from './ui';
+export { Checkbox } from './ui';

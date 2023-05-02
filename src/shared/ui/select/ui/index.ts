@@ -1,2 +1,2 @@
-export { Select } from './select';
-export { MenuItem } from './menu-item';
+export * from './select';
+export * from './menu-item';

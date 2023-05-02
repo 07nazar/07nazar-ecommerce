@@ -20,12 +20,12 @@ export const ProductCol: FC<productTypes.ProductMin> = ({
         !isMobile && (
           <AddFavourite
             isAuth
-            id={1}
+            id={id}
             classNames={'absolute top-2 right-2 lg:-top-8 lg:bg-white'}
           />
         )
       }
-      between={<Rating value={4} showValue />}
+      between={<Rating value={4} showValue ratingKey={`product-col-${id}`} />}
       className={{
         image: 'w-[230px]',
         title: 'max-w-[215px] text-gray-dark sm:text-xs w-full',

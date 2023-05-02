@@ -1,10 +1,8 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   data: [],
 };
-
-// query actions ( async )
 
 export const reviewSlice = createSlice({
   name: 'review',

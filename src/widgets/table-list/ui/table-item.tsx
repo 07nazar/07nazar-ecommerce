@@ -1,7 +1,7 @@
 import { FC, ReactNode, useState } from 'react';
 
-import { AppLink } from 'shared/ui/appLink';
 import { Checkbox } from 'shared/ui/checkbox';
+import { AppLink } from 'shared/ui/links';
 
 export type TableItemLinkType = {
   name: string;

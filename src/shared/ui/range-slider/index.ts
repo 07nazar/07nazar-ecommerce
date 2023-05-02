@@ -1,1 +1,1 @@
-export * from './ui';
+export { RangeSlider } from './ui';

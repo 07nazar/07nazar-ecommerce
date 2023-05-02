@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { Button } from 'shared/ui/button';
-import { DivLink } from 'shared/ui/div-link';
+import { DivLink } from 'shared/ui/links';
 import { productTypes } from 'entities/product';
 
 type IDealsItem = Pick<productTypes.ProductMin, 'mainPhoto' | 'name' | 'id'> & {
