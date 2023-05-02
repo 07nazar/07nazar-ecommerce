@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Slider } from 'shared/ui/slider/ui';
+import { Slider } from 'shared/ui/slider';
 import { productApi } from 'entities/product';
 import { ProductLiked } from 'widgets/product-card';
 

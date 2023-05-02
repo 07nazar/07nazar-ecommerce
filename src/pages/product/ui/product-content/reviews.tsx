@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { GoStar } from 'react-icons/go';
 
 import { Button } from 'shared/ui/button';
-import { Slider } from 'shared/ui/slider/ui';
+import { Slider } from 'shared/ui/slider';
 import { Review, reviewLib, reviewTypes } from 'entities/review';
 
 interface RatingProps {
