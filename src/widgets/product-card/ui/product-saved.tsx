@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { useMatchMedia } from 'shared/lib';
-import { ProductCard, productTypes } from 'entities/product';
 import { RemoveProduct } from 'features/cart/remove-product';
 import { MoveToCart } from 'features/product/move-to-cart';
+import { ProductCard, productTypes } from 'entities/product';
+import { useMatchMedia } from 'shared/lib';
 
 export const ProductSaved: FC<productTypes.ProductMin> = ({
   id,

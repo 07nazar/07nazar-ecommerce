@@ -1,7 +1,7 @@
 import {FC} from 'react';
 
-import {Input, InputGroup} from 'shared/ui/input';
 import {ApplyCoupon} from 'features/cart/apply-coupon';
+import {Input, InputGroup} from 'shared/ui/input';
 
 export const CouponField: FC = () => (
   <div className={'base-border-gray sm:border-none'}>

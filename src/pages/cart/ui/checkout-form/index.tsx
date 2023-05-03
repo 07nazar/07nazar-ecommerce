@@ -1,13 +1,13 @@
-import {FC} from 'react';
+import { FC } from 'react';
 
 import payment1 from 'assets/payment-1.png';
 import payment2 from 'assets/payment-2.png';
 import payment3 from 'assets/payment-3.png';
 import payment4 from 'assets/payment-4.png';
 import payment from 'assets/payment.png';
-import {useMatchMedia} from 'shared/lib';
-import {Button} from 'shared/ui/button';
-import {cartTypes} from 'entities/cart';
+import { cartTypes } from 'entities/cart';
+import { useMatchMedia } from 'shared/lib';
+import { Button } from 'shared/ui/button';
 
 type CheckoutProps = Pick<
   cartTypes.Cart,

@@ -3,12 +3,12 @@ import { BiFilterAlt } from 'react-icons/all';
 import { HiViewGrid } from 'react-icons/hi';
 import { MdTableRows } from 'react-icons/md';
 
+import { SidebarFilters } from 'widgets/sidebar-filters';
 import { useMatchMedia } from 'shared/lib';
 import { Button, ButtonGroup } from 'shared/ui/button';
 import { Checkbox } from 'shared/ui/checkbox';
 import { Modal } from 'shared/ui/modal';
 import { ISelectedValue, MenuItem, Select } from 'shared/ui/select';
-import { SidebarFilters } from 'widgets/sidebar-filters';
 
 import { formatNumber } from '../../lib';
 

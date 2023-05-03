@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 import sliderImg from 'assets/sliderImg.jpg';
+import { UserCard } from 'entities/user';
 import { Button } from 'shared/ui/button';
 import { AppLink } from 'shared/ui/links';
 import { TabBtn, Tabs } from 'shared/ui/tabs';
-import { UserCard } from 'entities/user';
 
 const btnItems = [
   { text: 'Automobiles' },

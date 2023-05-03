@@ -1,17 +1,17 @@
-import {FC} from 'react';
-import {HiOutlineArrowLeft} from 'react-icons/hi';
-import {useNavigate} from 'react-router-dom';
+import { FC } from 'react';
+import { HiOutlineArrowLeft } from 'react-icons/hi';
+import { useNavigate } from 'react-router-dom';
 
-import {useMatchMedia} from 'shared/lib';
-import {Button} from 'shared/ui/button';
-import {DiscountBanner} from 'shared/ui/discount-banner';
-import {RemoveAllFromCart} from 'features/cart/remove-all-products';
-import {ProductCart} from 'widgets/product-card';
+import { ProductCart } from 'widgets/product-card';
+import { RemoveAllFromCart } from 'features/cart/remove-all-products';
+import { useMatchMedia } from 'shared/lib';
+import { Button } from 'shared/ui/button';
+import { DiscountBanner } from 'shared/ui/discount-banner';
 
-import {CheckoutForm} from './checkout-form';
-import {CouponField} from './coupon-field';
-import {FeaturesShop} from './features-shop';
-import {SavedProducts} from './saved-products';
+import { CheckoutForm } from './checkout-form';
+import { CouponField } from './coupon-field';
+import { FeaturesShop } from './features-shop';
+import { SavedProducts } from './saved-products';
 
 export const Cart: FC = () => {
   const navigate = useNavigate();

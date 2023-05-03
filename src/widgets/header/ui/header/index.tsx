@@ -1,9 +1,9 @@
 import { createElement, FC } from 'react';
 
+import { HeaderSearch } from 'features/product/header-search';
 import { useMatchMedia } from 'shared/lib';
 import { AppLink } from 'shared/ui/links';
 import { Logo } from 'shared/ui/logo';
-import { HeaderSearch } from 'features/product/header-search';
 
 import { appLinks, appLinksMobile } from '../../lib';
 import { BurgerMenu } from '../burger-menu';

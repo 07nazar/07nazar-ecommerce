@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { categoriesApi, categoriesModel } from 'entities/categories';
 import { normalizeStringToURL, useAppDispatch } from 'shared/lib';
 import { MenuItem, MenuItemType, Select } from 'shared/ui/select';
-import { categoriesApi, categoriesModel } from 'entities/categories';
 
 export const MultiCategories: FC = () => {
   const navigate = useNavigate();

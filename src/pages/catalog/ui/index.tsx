@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
+import { SidebarFilters } from 'widgets/sidebar-filters';
+import { SubscribeNews } from 'widgets/subscribe-news';
 import { useMatchMedia } from 'shared/lib';
 import { Breadcrumbs } from 'shared/ui/breadcrumbs';
 import { PaginationBox } from 'shared/ui/pagination';
-import { SidebarFilters } from 'widgets/sidebar-filters';
-import { SubscribeNews } from 'widgets/subscribe-news';
 
 import { ActiveCategories } from './active-categories';
 import { ControlPanel } from './control-panel';
