@@ -62,7 +62,7 @@ export const SearchResult: FC<SearchResultProps> = () => {
         id: product.id,
         name: `#${product.id.substring(0, 5)}`,
         sortable: false,
-        to: `products/${normalizeStringToURL(product.name)}`,
+        to: `product/${normalizeStringToURL(product.name)}`,
         className: 'text-blue/70 mr-1',
         width: 'w-1/12',
       },
