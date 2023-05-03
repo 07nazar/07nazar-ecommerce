@@ -6,9 +6,6 @@ import svgr from 'vite-plugin-svgr';
 import tailwindcss from 'tailwindcss';
 import react from '@vitejs/plugin-react';
 
-import path from 'path';
-import * as fs from 'fs';
-
 const mainDeps = {
   main: [
     'react',
@@ -20,20 +17,7 @@ const mainDeps = {
   swiper: ['swiper', 'swiper/react'],
   reactSpring: ['@react-spring/web'],
 };
-function renderChunks() {
-  const chunks: Record<string, string[]> = {};
 
-  const pagesDir = path.resolve(__dirname, 'src/pages');
-  const pages = fs
-    .readdirSync(pagesDir)
-    .filter(p => fs.statSync(path.join(pagesDir, p)).isDirectory());
-
-  pages.forEach(page => {
-    chunks[page] = [path.join(pagesDir, page)];
-  });
-
-  return chunks;
-}
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -82,7 +66,6 @@ export default defineConfig({
       output: {
         manualChunks: {
           ...mainDeps,
-          ...renderChunks(),
         },
       },
     },
