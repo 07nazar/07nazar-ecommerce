@@ -1,1 +1,3 @@
-export * from './ui';
+import { Settings } from './ui';
+
+export default Settings;

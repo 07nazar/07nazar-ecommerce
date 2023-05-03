@@ -4,7 +4,7 @@ import { Search } from 'shared/ui/search';
 
 import { SearchResult } from './search-result';
 
-export const Products = () => {
+const Products = () => {
   const [searchValue, setSearchValue] = useState<string>('');
 
   return (
@@ -21,3 +21,5 @@ export const Products = () => {
     </div>
   );
 };
+
+export default Products;

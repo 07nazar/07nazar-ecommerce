@@ -18,7 +18,7 @@ export const Routing = () => (
       <Route index element={withLazy(<Home />)} />
       <Route path={'catalog'} element={withLazy(<Catalog />)} />
       <Route path={'product/:id'} element={withLazy(<Product />)} />
-      <Route path={'admin'} element={withLazy(<Admin />)} />
+      <Route path={'admin/*'} element={withLazy(<Admin />)} />
       <Route path={'cart'} element={withLazy(<Cart />)} />
       <Route path={'*'} element={withLazy(<NotFound />)} />
     </Route>

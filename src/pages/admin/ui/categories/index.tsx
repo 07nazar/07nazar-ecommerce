@@ -1,1 +1,3 @@
-export const Categories = () => <div>categories</div>;
+const Categories = () => <div>categories</div>;
+
+export default Categories;
