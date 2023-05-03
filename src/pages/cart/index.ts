@@ -1,1 +1,3 @@
-export { Cart } from './ui';
+import { Cart } from './ui';
+
+export default Cart;

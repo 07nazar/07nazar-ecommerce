@@ -1,9 +1,4 @@
-/* eslint-disable radix */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable @typescript-eslint/no-shadow */
-/* eslint-disable import/no-extraneous-dependencies */
+/*
 
 import { FC, useState } from 'react';
 import {
@@ -131,3 +126,5 @@ export const CategoriesBase = () => {
     </div>
   );
 };
+*/
+export default {};

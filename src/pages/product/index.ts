@@ -1,1 +1,3 @@
-export { Product } from './ui';
+import { Product } from './ui';
+
+export default Product;

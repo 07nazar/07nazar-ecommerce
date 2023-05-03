@@ -202,6 +202,23 @@
   .swiper-active-slide .swiper-slide-thumb-active {
     opacity: 1;
   }
+  
+  .loader {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background:
+        radial-gradient(farthest-side,#0D6EFD 94%,#0000) top/16px 16px no-repeat,
+        conic-gradient(#0000 30%,#0D6EFD);
+    mask: radial-gradient(farthest-side,#0000 calc(100% - 16px),#000 0);
+    animation:spinner-rotation 1s infinite linear;
+  }
+}
+
+@keyframes spinner-rotation {
+  100% {
+    transform: rotate(1turn)
+  }
 }
 
 .slide-center {

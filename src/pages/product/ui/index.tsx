@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import { useMatchMedia } from 'shared/lib';
 import { Breadcrumbs } from 'shared/ui/breadcrumbs';
 import { DiscountBanner } from 'shared/ui/discount-banner';
@@ -11,7 +9,7 @@ import { ProductContent } from './product-content';
 import { ProductHero, SellerCard } from './product-hero';
 import { RelatedItems } from './related-items';
 
-export const Product: FC = () => {
+export const Product = () => {
   const { isDesktop, isLaptop } = useMatchMedia();
 
   const { sellerFromServer } = userApi;
