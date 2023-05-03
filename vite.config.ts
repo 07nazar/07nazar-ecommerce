@@ -1,10 +1,10 @@
 import { defineConfig, PluginOption } from 'vite';
+import { visualizer } from 'rollup-plugin-visualizer';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import viteImagemin from 'vite-plugin-imagemin';
 import svgr from 'vite-plugin-svgr';
 import tailwindcss from 'tailwindcss';
 import react from '@vitejs/plugin-react';
-import { visualizer } from 'rollup-plugin-visualizer';
 
 import path from 'path';
 import * as fs from 'fs';
@@ -17,7 +17,8 @@ const mainDeps = {
     '@reduxjs/toolkit',
     '@reduxjs/toolkit/query/react',
   ],
-  common: ['swiper', 'swiper/react', '@react-spring/web'],
+  swiper: ['swiper', 'swiper/react'],
+  reactSpring: ['@react-spring/web'],
 };
 function renderChunks() {
   const chunks: Record<string, string[]> = {};
