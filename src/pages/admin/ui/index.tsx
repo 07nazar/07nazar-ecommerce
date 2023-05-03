@@ -60,32 +60,33 @@ const AdminData = [
   },
 ];
 
+const Navigation = () => (
+  <div className={'flex w-full justify-between'}>
+    {AdminData.map(el => (
+      <NavLink
+        key={el.buttonText}
+        to={el.to}
+        className={({ isActive }) =>
+          `${
+            isActive ? 'bg-blue' : 'bg-lightblue'
+          } p-4 flex flex-row h-12 items-center gap-1 text-black rounded-md`
+        }>
+        <el.icon size={20} />
+        {el.buttonText}
+      </NavLink>
+    ))}
+    <Button className={'h-12 items-center bg-lightblue text-black rounded-md '}>
+      <FiLogOut />
+      Logout
+    </Button>
+  </div>
+);
+
 export const Admin = () => (
   <>
     <div className={'flex my-5'}>
-      <div className={'flex w-full justify-between'}>
-        {AdminData.map(el => (
-          <NavLink
-            key={el.buttonText}
-            to={el.to}
-            className={({ isActive }) =>
-              `${
-                isActive ? 'bg-blue' : 'bg-lightblue'
-              } p-4 flex flex-row h-12 items-center gap-1 text-black rounded-md`
-            }>
-            <el.icon size={20} />
-            {el.buttonText}
-          </NavLink>
-        ))}
-        <Button
-          className={'h-12 items-center bg-lightblue text-black rounded-md '}>
-          <FiLogOut />
-          Logout
-        </Button>
-      </div>
-      <div>
-        <Outlet />
-      </div>
+      <Navigation />
+      <Outlet />
     </div>
     <Routes>
       <Route path={'dashboard'} element={withLazy(<Dashboard />)} />
