@@ -48,7 +48,7 @@ export const TableList = ({
         {currentProducts.map(item => (
           <TableItem
             item={item}
-            key={`table-item-${item.toString().length}`}
+            key={`table-item-${item.toString().length}-${item.id.id || ''}`}
             actions={actions(item.name.name, item.id.id || '')}
           />
         ))}
