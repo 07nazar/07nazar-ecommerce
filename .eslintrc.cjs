@@ -16,7 +16,6 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:promise/recommended',
     'plugin:react-hooks/recommended',
-    'airbnb-typescript',
     'plugin:react/jsx-runtime',
     'plugin:conarti-fsd/recommended',
     'prettier',
