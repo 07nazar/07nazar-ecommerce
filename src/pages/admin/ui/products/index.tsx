@@ -17,7 +17,7 @@ const Products = () => {
           'mb-2 w-full bg-white border border-lightblue h-10 rounded-md'
         }
       />
-      <SearchResult value={searchValue} />
+      <SearchResult search={searchValue} />
     </div>
   );
 };
