@@ -1,8 +1,9 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Auth } from './Auth';
+
 import { withLazy } from 'shared/lib';
 
+import { Auth } from './Auth';
 import { Layout } from './layout';
 
 const Home = lazy(() => import('./home'));

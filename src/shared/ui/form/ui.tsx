@@ -1,10 +1,10 @@
 import { Field, Form, Formik } from 'formik';
 import { FC } from 'react';
 import * as yup from 'yup';
+import { Button } from '../button';
 
-import { AppLink } from 'shared/ui/AppLink';
-import { Button } from 'shared/ui/Button';
-import { Checkbox } from 'shared/ui/Checkbox';
+import { Checkbox } from '../checkbox';
+import { AppLink } from '../links';
 
 export type TypeInputItem = {
   name: string;

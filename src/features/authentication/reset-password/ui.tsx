@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { BaseAuthForm, TypeInputItem } from 'shared/ui/form';
 
-import { resetPasswordSchema } from './model/reset-password-form-scheme';
+import { resetPasswordSchema } from './model';
 
 type TypeFormProps = {
   inputsData: TypeInputItem[];

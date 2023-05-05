@@ -1,3 +1,4 @@
+export const obj = {};
 // import {
 //   createListenerMiddleware,
 //   type TypedStartListening,

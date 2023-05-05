@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { BaseAuthForm, TypeInputItem } from 'shared/ui/form';
 
-import { registerSchema } from './model/register-form-schema';
+import { registerSchema } from './model';
 
 type TypeFormProps = {
   inputsData: TypeInputItem[];

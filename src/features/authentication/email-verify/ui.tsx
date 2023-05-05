@@ -1,4 +1,5 @@
 import { Field, Form, Formik } from 'formik';
+
 import {
   useRef,
   FC,
@@ -8,16 +9,16 @@ import {
   ClipboardEvent,
 } from 'react';
 
-import { AppLink } from 'shared/ui/AppLink';
-import { Button } from 'shared/ui/Button';
+import { Button } from 'shared/ui/button';
 import { TypeInputItem } from 'shared/ui/form';
+import { AppLink } from 'shared/ui/links';
 
-import { emailVerifySchema } from './model/verify-email-form-schema';
 import {
+  emailVerifySchema,
   onPasteInput,
   setNextInput,
   setPrevInput,
-} from './model/verify-email-handlers';
+} from './model';
 
 type TypeFormProps = {
   inputsData: TypeInputItem[];

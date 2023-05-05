@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
 
-import { invalidateAccessTokenListener } from 'features/authentication/InvalidateAccessToken';
+import { invalidateAccessTokenListener } from 'features/authentication/invalidate-access-token';
 import { baseApi } from 'shared/api/baseApi';
 import { isDevEnv } from 'shared/config';
 
