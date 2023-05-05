@@ -1,90 +1,102 @@
+import { lazy } from 'react';
 import { AiOutlineCreditCard, AiOutlineShoppingCart } from 'react-icons/ai';
 import { BsGrid } from 'react-icons/bs';
 import { FiLogOut, FiSettings, FiUsers } from 'react-icons/fi';
 import { MdOutlineLocalShipping } from 'react-icons/md';
+import { NavLink, Outlet, Route, Routes } from 'react-router-dom';
 
-import { useQueryTabs } from 'shared/lib';
-import { TabBtn, Tabs } from 'shared/ui/tabs';
+import { withLazy } from 'shared/lib';
+import { Button } from 'shared/ui/button';
 
-import { Categories } from './categories';
-import { Customers } from './customers';
-import { Dashboard } from './dashboard';
-import { Logout } from './logout';
-import { Orders } from './orders';
-import { Products } from './products';
-import { Settings } from './settings';
-import { Shipments } from './shipments';
-import { Transactions } from './transactions';
+const Dashboard = lazy(() => import('./dashboard'));
+const Categories = lazy(() => import('./categories'));
+const Products = lazy(() => import('./products'));
+const Customers = lazy(() => import('./customers'));
+const Orders = lazy(() => import('./orders'));
+const Shipments = lazy(() => import('./shipments'));
+const Transactions = lazy(() => import('./transactions'));
+const Settings = lazy(() => import('./settings'));
 
 const AdminData = [
   {
     icon: BsGrid,
     buttonText: 'Dashboard',
-    content: <Dashboard />,
+    to: 'dashboard',
   },
   {
     icon: BsGrid,
     buttonText: 'Categories',
-    content: <Categories />,
+    to: 'categories',
   },
   {
     icon: BsGrid,
     buttonText: 'Products',
-    content: <Products />,
+    to: 'products',
   },
   {
     icon: FiUsers,
     buttonText: 'Customers',
-    content: <Customers />,
+    to: 'customers',
   },
   {
     icon: AiOutlineShoppingCart,
     buttonText: 'Orders',
-    content: <Orders />,
+    to: 'orders',
   },
   {
     icon: MdOutlineLocalShipping,
     buttonText: 'Shipments',
-    content: <Shipments />,
+    to: 'shipments',
   },
   {
     icon: AiOutlineCreditCard,
     buttonText: 'Transactions',
-    content: <Transactions />,
+    to: 'transactions',
   },
   {
     icon: FiSettings,
     buttonText: 'Settings',
-    content: <Settings />,
-  },
-  {
-    icon: FiLogOut,
-    buttonText: 'Logout',
-    content: <Logout />,
+    to: 'settings',
   },
 ];
 
-export const Admin = () => {
-  const { activeTab, handleTabClick } = useQueryTabs(AdminData);
+const Navigation = () => (
+  <div className={'flex w-full justify-between'}>
+    {AdminData.map(el => (
+      <NavLink
+        key={el.buttonText}
+        to={el.to}
+        className={({ isActive }) =>
+          `${
+            isActive ? 'bg-blue' : 'bg-lightblue'
+          } p-4 flex flex-row h-12 items-center gap-1 text-black rounded-md`
+        }>
+        <el.icon size={20} />
+        {el.buttonText}
+      </NavLink>
+    ))}
+    <Button className={'h-12 items-center bg-lightblue text-black rounded-md '}>
+      <FiLogOut />
+      Logout
+    </Button>
+  </div>
+);
 
-  return (
-    <div className={'h-full mt-3 '}>
-      <Tabs
-        className={'gap-3'}
-        orientation={'vertical'}
-        buttons={AdminData.map((detail, i) => (
-          <TabBtn
-            key={detail.buttonText}
-            className={'pt-4 pb-4 items-center  gap-2'}
-            activeTab={activeTab}
-            index={i}
-            setActiveTab={handleTabClick}>
-            <detail.icon size={20} />
-            {detail.buttonText}
-          </TabBtn>
-        ))}>
-        <div className={'flex w-full'}>{AdminData[activeTab].content}</div>
-      </Tabs>
+export const Admin = () => (
+  <>
+    <div className={'flex my-5'}>
+      <Navigation />
+      <Outlet />
     </div>
-  );
-};
+    <Routes>
+      <Route path={'dashboard'} element={withLazy(<Dashboard />)} />
+      <Route path={'categories'} element={withLazy(<Categories />)} />
+      <Route path={'products'} element={withLazy(<Products />)} />
+      <Route path={'customers'} element={withLazy(<Customers />)} />
+      <Route path={'orders'} element={withLazy(<Orders />)} />
+      <Route path={'shipments'} element={withLazy(<Shipments />)} />
+      <Route path={'transactions'} element={withLazy(<Transactions />)} />
+      <Route path={'settings'} element={withLazy(<Settings />)} />
+    </Routes>
+  </>
+);

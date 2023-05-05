@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
+import { categoriesTypes } from 'entities/categories';
 import { normalizeStringToURL } from 'shared/lib';
 import { DivLink } from 'shared/ui/links';
-import { categoriesTypes } from 'entities/categories';
 
 type CategoryItemProps = Pick<
   categoriesTypes.CategoryWithAdditionalInfo,

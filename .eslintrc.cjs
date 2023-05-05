@@ -1,3 +1,5 @@
+const FS_LAYERS = ['app', 'processes', 'pages', 'widgets', 'features', 'entities', 'shared']
+
 module.exports = {
   root: true,
   env: {
@@ -14,7 +16,6 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:promise/recommended',
     'plugin:react-hooks/recommended',
-    'airbnb-typescript',
     'plugin:react/jsx-runtime',
     'plugin:conarti-fsd/recommended',
     'prettier',
@@ -42,6 +43,26 @@ module.exports = {
     ],
     'conarti-fsd/absolute-relative': 'error',
     'conarti-fsd/public-api': 'error',
+    'import/order': [
+      2,
+      {
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+        'newlines-between': 'always',
+        pathGroups: FS_LAYERS.map(
+          (layer) => ({
+            pattern: `**/?(*)${layer}{,/**}`,
+            group: 'internal',
+            position: 'after',
+          }),
+        ),
+        distinctGroup: false,
+        pathGroupsExcludedImportTypes: ['builtin', 'type'],
+        groups: ['builtin', 'external', 'internal', 'type', 'parent', 'sibling', 'index'],
+      },
+    ],
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
     'react-hooks/exhaustive-deps': 'off',

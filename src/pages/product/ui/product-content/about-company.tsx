@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { Rating } from 'shared/ui/rating';
 import { userTypes } from 'entities/user';
+import { Rating } from 'shared/ui/rating';
 
 type AboutCompanyProps = Pick<
   userTypes.Seller,

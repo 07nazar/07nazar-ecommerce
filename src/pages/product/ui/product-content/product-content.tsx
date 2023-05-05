@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { useQueryTabs } from 'shared/lib';
-import { TabBtn, Tabs } from 'shared/ui/tabs';
 import { productTypes } from 'entities/product';
 import { userTypes } from 'entities/user';
+import { useQueryTabs } from 'shared/lib';
+import { TabBtn, Tabs } from 'shared/ui/tabs';
 
 import { AboutCompany } from './about-company';
 import { Description } from './description';

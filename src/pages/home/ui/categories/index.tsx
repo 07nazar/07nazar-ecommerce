@@ -2,10 +2,10 @@ import { BsArrowRight } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 
+import { categoriesApi } from 'entities/categories';
 import { normalizeStringToURL, useMatchMedia } from 'shared/lib';
 import { Button } from 'shared/ui/button';
 import { Slider } from 'shared/ui/slider';
-import { categoriesApi } from 'entities/categories';
 
 import { getAllChildren } from '../../lib';
 

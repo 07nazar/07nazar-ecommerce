@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 
 import { Checkbox } from 'shared/ui/checkbox';
 
-import { SortActiveType, SortButton } from './sort-button';
+import { SortButton } from './sort-button';
 
 type HeadingKey = {
   name: string;
@@ -12,16 +12,21 @@ type HeadingKey = {
 
 type TableHeadingProps = {
   headingKeys: HeadingKey[];
-  activeSort: SortActiveType;
-  handleSortChange: (active: SortActiveType) => void;
+  activeSort: string;
+  setActiveSort: (newEl: string) => void;
 };
 
 export const TableHeading: FC<TableHeadingProps> = ({
   headingKeys,
   activeSort,
-  handleSortChange,
+  setActiveSort,
 }) => {
   const [isActive, setActive] = useState<boolean>(false);
+  const sortSplitted = activeSort.split('-');
+
+  const handleSortChange = (active: string) => {
+    setActiveSort(active);
+  };
 
   return (
     <div
@@ -37,7 +42,7 @@ export const TableHeading: FC<TableHeadingProps> = ({
                 className={width}
                 title={name}
                 onClick={handleSortChange}
-                isActive={activeSort.name === name.toString().toLowerCase()}
+                isActive={sortSplitted[0] === name.toString().toLowerCase()}
                 activeSort={activeSort}
               />
             );

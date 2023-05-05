@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { productApi } from 'entities/product';
 import { ProductCol, ProductRow } from 'widgets/product-card';
+import { productApi } from 'entities/product';
 
 type ProductsProps = {
   showMode: 'row' | 'column';
