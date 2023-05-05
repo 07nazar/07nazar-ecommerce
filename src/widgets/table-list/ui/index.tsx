@@ -1,26 +1,23 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 
 import { PaginationBox } from 'shared/ui/pagination';
 
-import { SortActiveType } from './sort-button';
 import { TableHeading } from './table-heading';
 import { TableItem, TableItemLinkType } from './table-item';
 
-type TableListProps = {
-  items: { [key: string]: TableItemLinkType }[];
-  activeSort: SortActiveType;
-  onSortChange: (active: SortActiveType) => void;
+type TableListProps<T> = {
+  items: T[];
+  activeSort: string;
+  setActiveSort: Dispatch<SetStateAction<string>>;
   actions: (name: string, id: string) => JSX.Element;
 };
 
-export type { TableItemLinkType, SortActiveType };
-
-export const TableList = ({
+export const TableList = <T extends Record<string, TableItemLinkType>>({
   items,
-  onSortChange,
+  setActiveSort,
   activeSort,
   actions,
-}: TableListProps) => {
+}: TableListProps<T>) => {
   const [productPerPage, setProductsPerPage] = useState<number>(10);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -42,7 +39,7 @@ export const TableList = ({
         <TableHeading
           headingKeys={headingKeys}
           activeSort={activeSort}
-          handleSortChange={onSortChange}
+          setActiveSort={setActiveSort}
         />
 
         {currentProducts.map(item => (
