@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { withLazy } from 'shared/lib';
 
 import { Admin } from './admin';
+import { Auth } from './Auth';
 import { Layout } from './layout';
 
 const Home = lazy(() => import('./home'));
@@ -20,6 +21,7 @@ export const Routing = () => (
       <Route path={'product/:id'} element={withLazy(<Product />)} />
       <Route path={'admin/*'} element={<Admin />} />
       <Route path={'cart'} element={withLazy(<Cart />)} />
+      <Route path={'auth/*'} element={<Auth />} />
       <Route path={'*'} element={withLazy(<NotFound />)} />
     </Route>
   </Routes>
