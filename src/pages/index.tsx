@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 
 import { Admin } from './Admin';
+import { Auth } from './Auth';
 import { Cart } from './Cart';
 import { Home } from './Home';
 import { Layout } from './Layout';
@@ -16,6 +17,7 @@ export const Routing = () => (
       <Route path={'shop'} element={<Shop />} />
       <Route path={'product/:id'} element={<Product />} />
       <Route path={'admin'} element={<Admin />} />
+      <Route path={'auth/*'} element={<Auth />} />
       <Route path={'*'} element={<NotFound />} />
     </Route>
   </Routes>
