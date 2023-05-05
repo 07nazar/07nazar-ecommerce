@@ -5,7 +5,7 @@ import { invalidateAccessTokenListener } from 'features/authentication/Invalidat
 import { baseApi } from 'shared/api/baseApi';
 import { isDevEnv } from 'shared/config';
 
-import { rootReducer } from './rootReducer';
+import { rootReducer } from './root-reducer';
 
 export const store = configureStore({
   reducer: rootReducer,

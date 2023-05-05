@@ -1,24 +1,27 @@
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-
-import { Admin } from './Admin';
 import { Auth } from './Auth';
-import { Cart } from './Cart';
-import { Home } from './Home';
-import { Layout } from './Layout';
-import { NotFound } from './NotFound';
-import { Product } from './Product';
-import { Shop } from './Shop';
+import { withLazy } from 'shared/lib';
+
+import { Layout } from './layout';
+
+const Home = lazy(() => import('./home'));
+const Catalog = lazy(() => import('./catalog'));
+const Product = lazy(() => import('./product'));
+const Admin = lazy(() => import('./admin'));
+const Cart = lazy(() => import('./cart'));
+const NotFound = lazy(() => import('./not-found'));
 
 export const Routing = () => (
   <Routes>
     <Route path={'/'} element={<Layout />}>
-      <Route index element={<Home />} />
-      <Route path={'cart'} element={<Cart />} />
-      <Route path={'shop'} element={<Shop />} />
-      <Route path={'product/:id'} element={<Product />} />
-      <Route path={'admin'} element={<Admin />} />
+      <Route index element={withLazy(<Home />)} />
+      <Route path={'catalog'} element={withLazy(<Catalog />)} />
+      <Route path={'product/:id'} element={withLazy(<Product />)} />
+      <Route path={'admin'} element={withLazy(<Admin />)} />
+      <Route path={'cart'} element={withLazy(<Cart />)} />
       <Route path={'auth/*'} element={<Auth />} />
-      <Route path={'*'} element={<NotFound />} />
+      <Route path={'*'} element={withLazy(<NotFound />)} />
     </Route>
   </Routes>
 );

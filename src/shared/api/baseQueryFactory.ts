@@ -21,7 +21,7 @@ export const baseQueryFactory: BaseQueryFn<
 
   prepareHeaders: headers => {
     // get token from HTTPOnly Cookie
-    const token = true;
+    const token = false;
 
     if (token) {
       headers.set('authorization', `Bearer ${token}`);

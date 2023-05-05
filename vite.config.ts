@@ -1,9 +1,22 @@
-import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
-import viteImagemin from "vite-plugin-imagemin";
-import svgr from "vite-plugin-svgr";
-import tailwindcss from "tailwindcss";
-import react from "@vitejs/plugin-react";
+import { defineConfig, PluginOption } from 'vite';
+import { visualizer } from 'rollup-plugin-visualizer';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import viteImagemin from 'vite-plugin-imagemin';
+import svgr from 'vite-plugin-svgr';
+import tailwindcss from 'tailwindcss';
+import react from '@vitejs/plugin-react';
+
+const mainDeps = {
+  main: [
+    'react',
+    'react-router-dom',
+    'react-dom',
+    '@reduxjs/toolkit',
+    '@reduxjs/toolkit/query/react',
+  ],
+  swiper: ['swiper', 'swiper/react'],
+  reactSpring: ['@react-spring/web'],
+};
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -30,14 +43,31 @@ export default defineConfig({
       svgo: {
         plugins: [
           {
-            name: "removeViewBox",
+            name: 'removeViewBox',
           },
           {
-            name: "removeEmptyAttrs",
+            name: 'removeEmptyAttrs',
             active: false,
           },
         ],
       },
     }),
+    visualizer({
+      template: 'treemap',
+      open: false,
+      gzipSize: true,
+      brotliSize: true,
+      filename: 'analyst.html',
+    }) as PluginOption,
   ],
+  build: {
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          ...mainDeps,
+        },
+      },
+    },
+  },
 });
