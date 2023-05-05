@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { baseApi, TAGS } from 'shared/api';
+
 import { SessionUserId } from '../types';
 
 type SessionSliceState =
@@ -19,6 +21,17 @@ const initialState: SessionSliceState = {
 };
 
 // query actions ( async )
+
+export const sessionApi = baseApi.injectEndpoints({
+  endpoints: builder => ({
+    refreshToken: builder.mutation({
+      query: tokens => ({
+        url: 'auth/refresh',
+        body: tokens,
+      }),
+    }),
+  }),
+});
 
 export const sessionSlice = createSlice({
   name: 'session',
