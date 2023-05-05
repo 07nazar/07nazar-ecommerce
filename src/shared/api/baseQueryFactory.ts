@@ -1,10 +1,24 @@
-import {BaseQueryFn, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import {
+  BaseQueryFn,
+  FetchArgs,
+  fetchBaseQuery,
+  FetchBaseQueryError,
+  FetchBaseQueryMeta,
+} from '@reduxjs/toolkit/query/react';
 
-import {API_URL} from '../config';
+import { API_URL } from '../config';
 
-export const baseQueryFactory: BaseQueryFn = fetchBaseQuery({
+export const baseQueryFactory: BaseQueryFn<
+  string | FetchArgs,
+  unknown,
+  FetchBaseQueryError,
+  Record<string, unknown>,
+  FetchBaseQueryMeta
+> = fetchBaseQuery({
   baseUrl: API_URL,
   mode: 'cors',
+  credentials: 'include',
+
   prepareHeaders: headers => {
     // get token from HTTPOnly Cookie
     const token = false;

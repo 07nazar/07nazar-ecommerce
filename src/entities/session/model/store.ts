@@ -1,6 +1,6 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-import {SessionUserId} from '../types';
+import { SessionUserId } from '../types';
 
 type SessionSliceState =
   | {
