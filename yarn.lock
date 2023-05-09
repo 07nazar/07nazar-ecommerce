@@ -2234,10 +2234,10 @@ eslint-plugin-boundaries@3.1.0:
     is-core-module "2.11.0"
     micromatch "4.0.5"
 
-eslint-plugin-conarti-fsd@0.0.36:
-  version "0.0.36"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-conarti-fsd/-/eslint-plugin-conarti-fsd-0.0.36.tgz#1aa8f2ed98f22db1ea8b0384007d56f3179d4939"
-  integrity sha512-JyteTaJWrlWb+QqOTYgBscK1Fy848AKoscgdtb922jwUJxv8F4HjF7Kaqu0Td3AfVnETOrmK4sIvIdkHujS4Ag==
+eslint-plugin-conarti-fsd@0.0.37:
+  version "0.0.37"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-conarti-fsd/-/eslint-plugin-conarti-fsd-0.0.37.tgz#0c7a2fd6f28383e5da3a7e6ff853260865689ef0"
+  integrity sha512-JJPwlKZtiv8rGgvINveiVp9tFiQSHeR/wLdi/Ior+mlhipBRLU/4S2FN/LeaWrWkY9WHfBFSCkXOPixE32LL3Q==
   dependencies:
     micromatch "^4.0.5"
     requireindex "^1.2.0"
