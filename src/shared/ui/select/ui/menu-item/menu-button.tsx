@@ -9,7 +9,7 @@ import {
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
 export type MenuItemType = {
-  id: number;
+  id: number | string;
   text: string | JSX.Element;
   subTitle?: string;
   to?: string;
