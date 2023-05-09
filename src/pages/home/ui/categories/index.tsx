@@ -19,9 +19,9 @@ export const Categories = (): JSX.Element => {
   const { data, isLoading, isError } =
     categoriesApi.useGetFeaturedCategoriesQuery();
 
-  const clickHandler = (id: number, text: string) => {
+  const clickHandler = (id: string, text: string) => {
     navigate(
-      `/catalog/${normalizeStringToURL(text)}-${String(id).substring(0, 5)}`
+      `/catalog/${normalizeStringToURL(text)}-${String(id).substring(0, 9)}`
     );
   };
 
@@ -50,7 +50,7 @@ export const Categories = (): JSX.Element => {
 
   return (
     <div>
-      {data.map(({ id, image, children, text }) => (
+      {data.map(({ id, image, children, name }) => (
         <div
           key={`category-${id}`}
           className={
@@ -75,11 +75,11 @@ export const Categories = (): JSX.Element => {
                 className={
                   'text-black sm:w-full text-xl sm:text-lg leading-6.5 font-semibold mb-5 sm:mb-0'
                 }>
-                {text}
+                {name}
               </h5>
               {!isMobile && (
                 <Button
-                  onClick={() => clickHandler(id, text)}
+                  onClick={() => clickHandler(id, name)}
                   className={'bg-white text-black'}>
                   Source now
                 </Button>
@@ -106,9 +106,9 @@ export const Categories = (): JSX.Element => {
 
                   return (
                     <CategoryItem
-                      key={`category-item-${item.text}-${item.id}`}
+                      key={`category-item-${item.name}-${item.id}`}
                       id={item.id}
-                      text={item.text}
+                      name={item.name}
                       image={item.image}
                       minPrice={item.minPrice}
                       className={`${itemClassNames} lg:border-x`}
@@ -119,7 +119,7 @@ export const Categories = (): JSX.Element => {
           </div>
           {isMobile && (
             <Button
-              onClick={() => clickHandler(id, text)}
+              onClick={() => clickHandler(id, name)}
               className={
                 'p-5 bg-white font-medium text-blue flex items-center gap-1.5 border-b border-gray-medium'
               }>
