@@ -22,7 +22,7 @@ const styles = {
     right: 'rounded-r-lg',
   },
 };
-
+// TODO Math.random() вызывет все равно ререндер, нужно как-то задать уникальные ключи
 export const ButtonGroup: FC<ButtonGroupProps> = ({
   children,
   className,
@@ -39,7 +39,7 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({
           child.props.className || ''
         }`,
         size,
-        key: `btn-${children.length}-${className?.length}`,
+        key: `btn-${children.length}-${className?.length}-${Math.random()}`,
       });
     })}
   </div>

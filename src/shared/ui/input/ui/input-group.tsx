@@ -10,7 +10,7 @@ interface InputGroupProps {
   children: ReactNode[];
   className?: string;
 }
-
+// TODO Math.random() вызывет все равно ререндер, нужно как-то задать уникальные ключи
 export const InputGroup: FC<InputGroupProps> = ({
   children,
   className = '',
@@ -25,7 +25,9 @@ export const InputGroup: FC<InputGroupProps> = ({
           className: `${borderLeft} ${borderRight} ${
             child.props.className || ''
           }`,
-          key: `input-group-${children.length}-${className?.length}`,
+          key: `input-group-${children.length}-${
+            className?.length
+          }-${Math.random()}`,
         });
       }
       return child;
