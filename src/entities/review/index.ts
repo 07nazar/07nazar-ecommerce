@@ -1,5 +1,19 @@
+import * as reviewApiImpl from './api';
+import * as reviewLibImpl from './lib';
+import * as reviewModelImpl from './model';
+
 export * from './ui';
-export * as reviewLib from './lib';
 export * as reviewTypes from './types';
-export * as reviewModel from './model';
-export * as reviewApi from './api';
+
+export const reviewLib = {
+  calculateRating: reviewLibImpl.calculateRating,
+};
+
+export const reviewModel = {
+  reviewSlice: reviewModelImpl.reviewSlice,
+  reducer: reviewModelImpl.reducer,
+};
+
+export const reviewApi = {
+  reviewApi: reviewApiImpl.reviewApi,
+};
