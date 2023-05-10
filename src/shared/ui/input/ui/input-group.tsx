@@ -1,4 +1,10 @@
-import {cloneElement, FC, isValidElement, ReactElement, ReactNode,} from 'react';
+import {
+  cloneElement,
+  FC,
+  isValidElement,
+  ReactElement,
+  ReactNode,
+} from 'react';
 
 interface InputGroupProps {
   children: ReactNode[];
@@ -19,7 +25,7 @@ export const InputGroup: FC<InputGroupProps> = ({
           className: `${borderLeft} ${borderRight} ${
             child.props.className || ''
           }`,
-          key: index,
+          key: `input-group-${children.length}-${className?.length}`,
         });
       }
       return child;

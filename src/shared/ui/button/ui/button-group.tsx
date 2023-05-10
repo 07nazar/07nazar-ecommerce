@@ -1,6 +1,6 @@
-import {cloneElement, FC, ReactElement} from 'react';
+import { cloneElement, FC, ReactElement } from 'react';
 
-import {ButtonProps} from './button';
+import { ButtonProps } from './button';
 
 interface ButtonGroupProps {
   children: ReactElement<ButtonProps>[];
@@ -39,7 +39,7 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({
           child.props.className || ''
         }`,
         size,
-        key: index,
+        key: `btn-${children.length}-${className?.length}`,
       });
     })}
   </div>
