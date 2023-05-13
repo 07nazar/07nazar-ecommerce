@@ -59,7 +59,7 @@ export const Cart: FC = () => {
         </div>
         <div
           className={
-            'min-w-[200px] sm:w-full flex flex-col gap-3 lg:gap-1 sm:gap-0 mb-10 md:mb-5'
+            'min-w-[200px] sm:w-full  flex flex-col gap-3 lg:gap-1 sm:gap-0 mb-10 md:mb-5'
           }>
           <CouponField />
           <CheckoutForm
@@ -79,7 +79,7 @@ export const Cart: FC = () => {
       <div className={'mb-5'}>
         <SavedProducts />
       </div>
-      <div className={'mb-10'}>
+      <div className={'mb-10 md:mb-6 sm:mb-0'}>
         <DiscountBanner />
       </div>
     </>
