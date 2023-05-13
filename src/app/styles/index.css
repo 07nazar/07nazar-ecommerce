@@ -130,10 +130,6 @@
     @apply bg-[#FFE3E3] rounded-[29px]  duration-500 hover:saturate-200;
   }
 
-  .beforeLine {
-    @apply before:block before:bg-gray-medium before:h-[1px];
-  }
-
   .afterLine {
     @apply after:block after:bg-gray-medium after:h-[1px];
   }
