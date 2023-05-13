@@ -1,11 +1,11 @@
-import {FC, useState} from 'react';
+import { FC, useState } from 'react';
 
 import formBg from 'assets/formBg.jpg';
-import {RequestsForm} from 'widgets/request-form';
-import {SendInquiry} from 'features/user/send-inquiry';
-import {useMatchMedia} from 'shared/lib';
-import {Button} from 'shared/ui/button';
-import {Modal} from 'shared/ui/modal';
+import { RequestsForm } from 'widgets/request-form';
+import { SendInquiry } from 'features/user/send-inquiry';
+import { useMatchMedia } from 'shared/lib';
+import { Button } from 'shared/ui/button';
+import { Modal } from 'shared/ui/modal';
 
 export const SendSuppliers: FC = () => {
   const { isMobile, isDesktop } = useMatchMedia();
@@ -41,7 +41,7 @@ export const SendSuppliers: FC = () => {
         <>
           <Button
             onClick={() => setShowFormModal(true)}
-            className={'bg-primary'}>
+            className={'bg-primary leading-7 h-12'}>
             Send inquiry
           </Button>
           <Modal
