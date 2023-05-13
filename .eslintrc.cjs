@@ -31,7 +31,7 @@ module.exports = {
       },
     },
   },
-  plugins: ['react', '@typescript-eslint', 'conarti-fsd', 'import', 'prettier'],
+  plugins: ['react', '@typescript-eslint', 'conarti-fsd', 'import', "check-file", 'prettier'],
   rules: {
     'conarti-fsd/layers-slices': [
       'error',
@@ -60,6 +60,7 @@ module.exports = {
       "namedComponents": "arrow-function",
       "unnamedComponents": "arrow-function"
     }],
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    'check-file/folder-naming-convention': ['error', { 'src/**/': 'KEBAB_CASE' }],
   },
 };

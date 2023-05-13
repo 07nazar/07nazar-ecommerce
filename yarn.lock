@@ -2148,6 +2148,15 @@ eslint-plugin-boundaries@3.1.1:
     is-core-module "2.11.0"
     micromatch "4.0.5"
 
+eslint-plugin-check-file@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-check-file/-/eslint-plugin-check-file-2.3.0.tgz#2efd46c89e45367593c589ac5d69544e8c4c6993"
+  integrity sha512-oTaKN2bdBJO8YpiuixhRgQwIPI3gXKHrgYWhO3POsXuwcXimPXUTqhgbPZpdndpgdD9GJn61y1F2s4S4Z0/xxA==
+  dependencies:
+    is-glob "^4.0.3"
+    micromatch "^4.0.5"
+    requireindex "^1.2.0"
+
 eslint-plugin-conarti-fsd@0.0.37:
   version "0.0.37"
   resolved "https://registry.yarnpkg.com/eslint-plugin-conarti-fsd/-/eslint-plugin-conarti-fsd-0.0.37.tgz#0c7a2fd6f28383e5da3a7e6ff853260865689ef0"
