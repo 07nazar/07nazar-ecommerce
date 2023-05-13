@@ -1,7 +1,7 @@
-import {animated, useSpring} from '@react-spring/web';
-import {FC, KeyboardEventHandler, ReactNode, useEffect, useRef} from 'react';
-import {createPortal} from 'react-dom';
-import {AiOutlineClose} from 'react-icons/ai';
+import { animated, useSpring } from '@react-spring/web';
+import { FC, KeyboardEventHandler, ReactNode, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
+import { AiOutlineClose } from 'react-icons/ai';
 
 interface ModalProps {
   children: ReactNode;
@@ -13,7 +13,7 @@ interface ModalProps {
 }
 
 const modalRoot = document.querySelector('#modal');
-
+// TODO небольшой скролл на мобильной версии
 export const Modal: FC<ModalProps> = ({
   children,
   isOpen,
@@ -58,7 +58,7 @@ export const Modal: FC<ModalProps> = ({
       setClose(false);
     }
   };
-  // TODO убрать синее выделение при клике не в области/закрытии
+
   return createPortal(
     <>
       <animated.div
