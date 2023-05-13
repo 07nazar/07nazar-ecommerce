@@ -1,5 +1,5 @@
 import type { Category } from '../types';
-// TODO какая та фигня с тем что показывает Category и categoriesTypes.Category как разные типы, не знаю как фиксить
+
 export const findObjectInArray = (
   arr: Category[],
   id: string
