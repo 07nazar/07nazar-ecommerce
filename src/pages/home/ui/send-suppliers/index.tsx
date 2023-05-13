@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import formBg from 'assets/formBg.jpg';
 import { RequestsForm } from 'widgets/request-form';
@@ -10,6 +10,13 @@ import { Modal } from 'shared/ui/modal';
 export const SendSuppliers: FC = () => {
   const { isMobile, isDesktop } = useMatchMedia();
   const [showFormModal, setShowFormModal] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (isDesktop) {
+      setShowFormModal(false);
+    }
+  }, [isDesktop]);
+
   return (
     <div
       style={{

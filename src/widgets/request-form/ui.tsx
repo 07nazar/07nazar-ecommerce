@@ -8,8 +8,8 @@ const selectItems: ISelectedValue[] = [
     id: 1,
     text: 'kilograms',
   },
-  { id: 2124, text: 'tons', subTitle: 'title2' },
-  { id: 312412, text: 'centners', subTitle: 'title3' },
+  { id: 2, text: 'tons' },
+  { id: 3, text: 'centners' },
 ];
 
 type RequestFormProps = {
@@ -32,7 +32,7 @@ export const RequestsForm: FC<RequestFormProps> = ({ button }) => {
   return (
     <form
       className={
-        'max-w-[491px] w-full h-[346px] flex flex-col gap-5 justify-between p-5 bg-white rounded-md'
+        'flex flex-col gap-5 justify-between p-5 sm:p-0 bg-white rounded-md'
       }>
       <h3 className={'font-medium text-xl text-black'}>
         Send quote to suppliers
@@ -53,6 +53,7 @@ export const RequestsForm: FC<RequestFormProps> = ({ button }) => {
 
       <div className={'flex items-start gap-2'}>
         <Input
+          type={'number'}
           value={quantity}
           onChange={e => onInputChange('quantity', e.target.value)}
           className={'formInput max-w-[206px] '}
