@@ -3,15 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 
 import { categoriesApi } from 'entities/categories';
+import { HOME_MAX_VISIBLE_FEATURED } from 'shared/config';
 import { normalizeStringToURL, useMatchMedia } from 'shared/lib';
 import { Button } from 'shared/ui/button';
 import { Slider } from 'shared/ui/slider';
 
-import { getAllChildren } from '../../lib';
+import { generateItemBorder, getAllChildren } from '../../lib';
 
 import { CategoryItem } from './category-item';
-
-const MAX_VISIBLE_CATEGORIES = 8;
 
 export const Categories = (): JSX.Element => {
   const navigate = useNavigate();
@@ -25,28 +24,13 @@ export const Categories = (): JSX.Element => {
     );
   };
 
-  const itemsBorders = (i: number): string => {
-    const rightBorder =
-      i !== Math.floor(MAX_VISIBLE_CATEGORIES / 2) - 1 &&
-      i !== MAX_VISIBLE_CATEGORIES - 1
-        ? 'border-r'
-        : '';
-
-    const bottomBorder =
-      i < Math.floor(MAX_VISIBLE_CATEGORIES / 2) ? 'border-b' : '';
-
-    return `border-gray-pale ${rightBorder} ${bottomBorder}`;
-  };
-
   if (isError || data === undefined) {
-    return <p>Error...</p>;
+    return <div />;
   }
 
   if (isLoading) {
     return <p>Please wait...</p>;
   }
-
-  // TODO разбить на более мелкие блоки
 
   return (
     <div>
@@ -98,11 +82,11 @@ export const Categories = (): JSX.Element => {
               }>
               {children &&
                 getAllChildren(children).map((item, i) => {
-                  if (i === MAX_VISIBLE_CATEGORIES) {
+                  if (i === HOME_MAX_VISIBLE_FEATURED) {
                     return null;
                   }
 
-                  const itemClassNames = itemsBorders(i);
+                  const itemClassNames = generateItemBorder(i);
 
                   return (
                     <CategoryItem
