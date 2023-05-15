@@ -25,8 +25,6 @@ export const CheckoutForm: FC<CheckoutProps> = ({
 }) => {
   const { isMobile } = useMatchMedia();
 
-  // TODO +- должны замениться на $
-
   return (
     <div className={'base-border-gray sm:border-y sm:rounded-none'}>
       <div className={'flex flex-col gap-1 text-gray-dark px-1 mb-4 md:mb-2'}>
@@ -37,13 +35,15 @@ export const CheckoutForm: FC<CheckoutProps> = ({
         <p className={'flex justify-between'}>
           Discount
           <span className={'text-red sm:font-medium sm:text-black'}>
-            - ${discount.toFixed(2)}
+            {isMobile ? '$' : '- '}
+            {discount.toFixed(2)}
           </span>
         </p>
         <p className={'flex justify-between'}>
           Tax
           <span className={'text-green sm:font-medium sm:text-black'}>
-            + ${tax.toFixed(2)}
+            {isMobile ? '$' : '+ '}
+            {tax.toFixed(2)}
           </span>
         </p>
       </div>
