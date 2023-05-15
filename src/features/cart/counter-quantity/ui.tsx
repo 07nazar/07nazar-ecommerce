@@ -31,7 +31,6 @@ export const Counter: FC<CounterProps> = ({ value, setValue }) => {
 
   return (
     <InputGroup
-      key={'counter-quantity'}
       className={
         'max-w-[150px] border border-gray-medium rounded-md items-center mt-10'
       }>

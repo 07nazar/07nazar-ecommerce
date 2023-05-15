@@ -5,32 +5,36 @@ import {
   ReactElement,
   ReactNode,
 } from 'react';
+import { useUIDSeed } from 'react-uid';
 
 interface InputGroupProps {
-  key: string;
   children: ReactNode[];
   className?: string;
 }
 
 export const InputGroup: FC<InputGroupProps> = ({
-  key,
   children,
   className = '',
-}) => (
-  <div className={`inline-flex h-10 ${className}`}>
-    {children.map((child, index) => {
-      if (isValidElement(child)) {
-        const borderLeft = index === 0 ? 'rounded-l-md' : '';
-        const borderRight = index === children.length - 1 ? 'rounded-r-md' : '';
+}) => {
+  const uid = useUIDSeed();
 
-        return cloneElement(child as ReactElement, {
-          className: `${borderLeft} ${borderRight} ${
-            child.props.className || ''
-          }`,
-          key: `input-group-${children.length}-${className?.length}-${key}`,
-        });
-      }
-      return child;
-    })}
-  </div>
-);
+  return (
+    <div className={`inline-flex h-10 ${className}`}>
+      {children.map((child, index) => {
+        if (isValidElement(child)) {
+          const borderLeft = index === 0 ? 'rounded-l-md' : '';
+          const borderRight =
+            index === children.length - 1 ? 'rounded-r-md' : '';
+
+          return cloneElement(child as ReactElement, {
+            className: `${borderLeft} ${borderRight} ${
+              child.props.className || ''
+            }`,
+            key: `input-group-${uid(child)}`,
+          });
+        }
+        return child;
+      })}
+    </div>
+  );
+};

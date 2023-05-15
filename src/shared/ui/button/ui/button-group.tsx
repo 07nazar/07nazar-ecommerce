@@ -1,4 +1,5 @@
 import { cloneElement, FC, ReactElement } from 'react';
+import { useUIDSeed } from 'react-uid';
 
 import { ButtonProps } from './button';
 
@@ -22,25 +23,28 @@ const styles = {
     right: 'rounded-r-lg',
   },
 };
-// TODO Math.random() вызывет все равно ререндер, нужно как-то задать уникальные ключи
 export const ButtonGroup: FC<ButtonGroupProps> = ({
   children,
   className,
   size = 'md',
-}) => (
-  <div className={`flex ${className}`}>
-    {children.map((child, index) => {
-      const borderLeft = index === 0 && size ? styles[size].left : '';
-      const borderRight =
-        index === children.length - 1 && size ? styles[size].right : '';
+}) => {
+  const uid = useUIDSeed();
 
-      return cloneElement(child, {
-        className: `${borderLeft} ${borderRight} ${
-          child.props.className || ''
-        }`,
-        size,
-        key: `btn-${children.length}-${className?.length}-${Math.random()}`,
-      });
-    })}
-  </div>
-);
+  return (
+    <div className={`flex ${className}`}>
+      {children.map((child, index) => {
+        const borderLeft = index === 0 && size ? styles[size].left : '';
+        const borderRight =
+          index === children.length - 1 && size ? styles[size].right : '';
+
+        return cloneElement(child, {
+          className: `${borderLeft} ${borderRight} ${
+            child.props.className || ''
+          }`,
+          size,
+          key: `btn-${uid(child)}`,
+        });
+      })}
+    </div>
+  );
+};

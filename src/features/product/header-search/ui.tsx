@@ -28,7 +28,7 @@ export const HeaderSearch: FC = () => {
   }
 
   return (
-    <InputGroup key={'header-search'} className={'max-w-[650px] w-full'}>
+    <InputGroup className={'max-w-[650px] w-full'}>
       <Search className={'border border-blue border-r-0 grow'} />
       {isDesktop && (
         <Select
