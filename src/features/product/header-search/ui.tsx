@@ -1,10 +1,10 @@
-import {FC, useState} from 'react';
+import { FC, useState } from 'react';
 
-import {useMatchMedia} from 'shared/lib';
-import {Button} from 'shared/ui/button';
-import {InputGroup} from 'shared/ui/input';
-import {Search} from 'shared/ui/search';
-import {ISelectedValue, MenuItem, Select} from 'shared/ui/select';
+import { useMatchMedia } from 'shared/lib';
+import { Button } from 'shared/ui/button';
+import { InputGroup } from 'shared/ui/input';
+import { Search } from 'shared/ui/search';
+import { ISelectedValue, MenuItem, Select } from 'shared/ui/select';
 
 const items: ISelectedValue[] = [
   { id: 1, text: 'text', subTitle: 'title' },
@@ -28,7 +28,7 @@ export const HeaderSearch: FC = () => {
   }
 
   return (
-    <InputGroup className={'max-w-[650px] w-full'}>
+    <InputGroup key={'header-search'} className={'max-w-[650px] w-full'}>
       <Search className={'border border-blue border-r-0 grow'} />
       {isDesktop && (
         <Select

@@ -1,8 +1,8 @@
-import {ChangeEvent, FC, useEffect, useState} from 'react';
-import {AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai';
+import { ChangeEvent, FC, useEffect, useState } from 'react';
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
-import {Button} from 'shared/ui/button';
-import {Input, InputGroup} from 'shared/ui/input';
+import { Button } from 'shared/ui/button';
+import { Input, InputGroup } from 'shared/ui/input';
 
 type CounterProps = {
   value: number;
@@ -31,6 +31,7 @@ export const Counter: FC<CounterProps> = ({ value, setValue }) => {
 
   return (
     <InputGroup
+      key={'counter-quantity'}
       className={
         'max-w-[150px] border border-gray-medium rounded-md items-center mt-10'
       }>
