@@ -72,17 +72,77 @@ const externalLinks = [
   },
 ];
 
+const ApplicationLinks = () => (
+  <div className={'lg:flex md:items-center lg:flex-col md:col-span-2'}>
+    <h6 className={'mb-4 sm:mb-2 text-black font-medium lg:text-center'}>
+      Get app
+    </h6>
+    <div className={'flex flex-col md:flex-row gap-2'}>
+      <AppLink to={'/download'}>
+        <AppStore className={'rect-hover'} />
+      </AppLink>
+      <AppLink to={'/download'}>
+        <GooglePlay className={'rect-hover'} />
+      </AppLink>
+    </div>
+  </div>
+);
+
+const CopyrightBlock = () => (
+  <div className={'bg-gray-pale border-t border-gray-medium'}>
+    <div
+      className={
+        'container py-5 flex md:flex-col justify-between md:items-center'
+      }>
+      <p className={'text-gray-dark sm:text-xs'}>© 2023 Ecommerce.</p>
+      <p className={'flex gap-1 text-gray-dark sm:text-xs'}>
+        <span className={'select-none'}>Creators: </span>
+        <a
+          className={'hover:text-blue duration-200'}
+          target={'_blank'}
+          href={'https://github.com/07nazar'}
+          rel={'noreferrer'}>
+          07nazar
+        </a>
+        <span className={'select-none'}>/</span>
+        <a
+          className={'hover:text-blue duration-200'}
+          target={'_blank'}
+          href={'https://github.com/ImpossiblePlayer'}
+          rel={'noreferrer'}>
+          ImpossiblePlayer
+        </a>
+        <span className={'select-none'}>/</span>
+        <a
+          className={'hover:text-blue duration-200'}
+          target={'_blank'}
+          href={'https://github.com/Hym1ack'}
+          rel={'noreferrer'}>
+          Hym1ack
+        </a>
+      </p>
+    </div>
+  </div>
+);
+
 export const Footer: FC = () => (
   <footer className={'container-fluid bg-white'}>
-    <div className={'container pt-10 pb-14'}>
-      <div className={'flex gap-14 lg:flex-col lg:items-start'}>
+    <div
+      className={
+        'container pt-10 lg:pt-8 md:pt-4 pb-14 lg:pb-10 md:pb-6 sm:pb-2'
+      }>
+      <div
+        className={
+          'flex gap-14 md:gap-10 sm:gap-4 lg:flex-col lg:items-start my-4'
+        }>
         <div
           className={
             'w-1/4 lg:w-full lg:items-center lg:justify-center lg:flex lg:flex-col'
           }>
-          <Logo className={'mb-4'} />
-          <p className={'text-gray-dark lg:text-center'}>
-            Best information about the company gies here but now lorem ipsum is
+          <Logo className={'mb-4 lg:mb-2'} />
+          <p className={'text-gray-dark lg:text-center px-4'}>
+            Quality products at affordable prices! Fast delivery and easy
+            returns. A satisfied customer is our top priority.
           </p>
           <div className={'mt-4 flex gap-2.5'}>
             {externalLinks.map(link => (
@@ -94,10 +154,12 @@ export const Footer: FC = () => (
         </div>
         <div
           className={
-            'flex gap-16 lg:justify-between  lg:items-start lg:w-full md:flex-wrap md:justify-center md:items-start md:w-full'
+            'grid grid-cols-5 md:grid-cols-3 sm:grid-cols-2 lg:w-full gap-10 md:gap-4 lg:p-2'
           }>
           {footerLinks.map(linkGroup => (
-            <div className={'flex flex-col gap-1 w-1/3'} key={linkGroup.title}>
+            <div
+              className={'flex flex-col items-start md:items-center gap-1'}
+              key={linkGroup.title}>
               <h6
                 className={
                   'mb-1.5 font-medium text-black lg:text-center md:text-center whitespace-nowrap'
@@ -108,32 +170,16 @@ export const Footer: FC = () => (
                 <AppLink
                   key={link.to}
                   to={link.to}
-                  className={
-                    'items-start lg:items-center lg:whitespace-nowrap'
-                  }>
+                  className={'lg:whitespace-nowrap'}>
                   {link.text}
                 </AppLink>
               ))}
             </div>
           ))}
-        </div>
-        <div className={'ml-auto lg:m-auto'}>
-          <h6 className={'mb-4 text-black font-medium lg:text-center'}>
-            Get app
-          </h6>
-          <AppLink className={'mb-2'} to={'/download'}>
-            <AppStore className={'rect-hover'} />
-          </AppLink>
-          <AppLink to={'/download'}>
-            <GooglePlay className={'rect-hover'} />
-          </AppLink>
+          <ApplicationLinks />
         </div>
       </div>
     </div>
-    <div className={'bg-gray-pale border-t border-gray-medium'}>
-      <div className={'container pt-5 pb-5 '}>
-        <p className={'text-gray-dark'}>© 2023 Ecommerce.</p>
-      </div>
-    </div>
+    <CopyrightBlock />
   </footer>
 );

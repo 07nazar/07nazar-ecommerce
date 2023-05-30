@@ -7,12 +7,12 @@ import { productsFromServer } from './products-from-server';
 
 export const productsList = productsFromServer.map(mapProductsData);
 
-export * from './product-page-example';
-export * from './likes-items';
-export * from './related-items';
-export * from './min-products';
-export * from './deals-items';
-export * from './products-row';
+export { productFromServer } from './product-page-example';
+export { productsLikes } from './likes-items';
+export { productsRelated } from './related-items';
+export { productsMin } from './min-products';
+export { dealsItemsFromFakeApi } from './deals-items';
+export { productsRowFromServer } from './products-row';
 
 type GetProductsPayload = {
   count: number;

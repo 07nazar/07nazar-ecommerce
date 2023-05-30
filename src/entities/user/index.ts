@@ -1,4 +1,8 @@
-export * from './ui';
+import * as userApiImpl from './api';
+import * as userModelImpl from './model';
+
 export * as userTypes from './types';
-export * as userModel from './model';
-export * as userApi from './api';
+export * from './ui';
+
+export const userApi = userApiImpl;
+export const userModel = userModelImpl;

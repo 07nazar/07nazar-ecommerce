@@ -10,6 +10,10 @@
     @apply bg-gray-light;
   }
 
+  *:focus, *:active {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  }
+
   #root {
     @apply flex flex-col h-screen;
   }
@@ -128,10 +132,6 @@
 
   .bg-light-red {
     @apply bg-[#FFE3E3] rounded-[29px]  duration-500 hover:saturate-200;
-  }
-
-  .beforeLine {
-    @apply before:block before:bg-gray-medium before:h-[1px];
   }
 
   .afterLine {

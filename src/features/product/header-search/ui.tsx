@@ -1,10 +1,10 @@
-import {FC, useState} from 'react';
+import { FC, useState } from 'react';
 
-import {useMatchMedia} from 'shared/lib';
-import {Button} from 'shared/ui/button';
-import {InputGroup} from 'shared/ui/input';
-import {Search} from 'shared/ui/search';
-import {ISelectedValue, MenuItem, Select} from 'shared/ui/select';
+import { useMatchMedia } from 'shared/lib';
+import { Button } from 'shared/ui/button';
+import { InputGroup } from 'shared/ui/input';
+import { Search } from 'shared/ui/search';
+import { ISelectedValue, MenuItem, Select } from 'shared/ui/select';
 
 const items: ISelectedValue[] = [
   { id: 1, text: 'text', subTitle: 'title' },

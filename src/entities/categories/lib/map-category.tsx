@@ -1,7 +1,8 @@
-import {Category, CategoryDto} from '../types';
+import { Category, CategoryDto } from '../types';
 
 export const mapCategory = (dto: CategoryDto): Category => ({
   id: dto.id,
-  text: dto.text,
+  name: dto.name,
+  parentId: dto.parentId,
   children: dto.children,
 });

@@ -1,5 +1,3 @@
-const FS_LAYERS = ['app', 'processes', 'pages', 'widgets', 'features', 'entities', 'shared']
-
 module.exports = {
   root: true,
   env: {
@@ -33,7 +31,7 @@ module.exports = {
       },
     },
   },
-  plugins: ['react', '@typescript-eslint', 'conarti-fsd', 'import', 'prettier'],
+  plugins: ['react', '@typescript-eslint', 'conarti-fsd', 'import', "check-file", 'prettier'],
   rules: {
     'conarti-fsd/layers-slices': [
       'error',
@@ -43,26 +41,6 @@ module.exports = {
     ],
     'conarti-fsd/absolute-relative': 'error',
     'conarti-fsd/public-api': 'error',
-    'import/order': [
-      2,
-      {
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: true,
-        },
-        'newlines-between': 'always',
-        pathGroups: FS_LAYERS.map(
-          (layer) => ({
-            pattern: `**/?(*)${layer}{,/**}`,
-            group: 'internal',
-            position: 'after',
-          }),
-        ),
-        distinctGroup: false,
-        pathGroupsExcludedImportTypes: ['builtin', 'type'],
-        groups: ['builtin', 'external', 'internal', 'type', 'parent', 'sibling', 'index'],
-      },
-    ],
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
     'react-hooks/exhaustive-deps': 'off',
@@ -82,6 +60,7 @@ module.exports = {
       "namedComponents": "arrow-function",
       "unnamedComponents": "arrow-function"
     }],
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    'check-file/folder-naming-convention': ['error', { 'src/**/': 'KEBAB_CASE' }],
   },
 };

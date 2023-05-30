@@ -3,8 +3,8 @@ import { baseApi } from 'shared/api';
 import { mapUsersData, UserTableList } from '../lib';
 import { User } from '../types';
 
-export * from './users-from-server';
-export * from './seller-product';
+export { usersFromServer } from './users-from-server';
+export { sellerFromServer } from './seller-product';
 
 type GetUsersPayload = {
   count: number;

@@ -42,7 +42,7 @@ export const Product = () => {
 
       <RelatedItems />
 
-      <div className={'mb-16'}>
+      <div className={'mb-16 lg:mb-12 md:mb-8 sm:mb-0'}>
         <DiscountBanner />
       </div>
     </>

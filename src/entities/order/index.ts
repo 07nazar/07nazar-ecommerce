@@ -1,2 +1,5 @@
+import * as orderModelImpl from './model';
+
 export * as orderTypes from './types';
-export * as orderModel from './model';
+
+export const orderModel = orderModelImpl;

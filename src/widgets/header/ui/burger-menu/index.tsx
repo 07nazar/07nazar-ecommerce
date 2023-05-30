@@ -23,7 +23,7 @@ export const BurgerMenu: FC = () => {
         className={'top-0 left-0 h-full rounded-none p-0'}
         isOpen={showModal}
         setClose={() => setShowModal(false)}
-        backgroundColor={'rgba(99, 99, 99, 1)'}>
+        backgroundColor={'rgba(99, 99, 99, 0.5)'}>
         <MobileMenu />
       </Modal>
     </>

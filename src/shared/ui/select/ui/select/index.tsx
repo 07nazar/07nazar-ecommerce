@@ -7,7 +7,7 @@ import SelectButton from './select-button';
 type Timeout = ReturnType<typeof setTimeout>;
 
 export type ISelectedValue = {
-  id: number;
+  id: number | string;
   text: string | JSX.Element;
   subTitle?: string;
   to?: string;
