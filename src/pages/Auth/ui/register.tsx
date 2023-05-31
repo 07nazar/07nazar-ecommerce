@@ -2,8 +2,8 @@ import { RegisterForm } from 'features/authentication/register';
 
 const inputsData = [
   {
-    name: 'userName',
-    type: 'userName',
+    name: 'name',
+    type: 'name',
     placeholder: 'Username',
     className:
       'w-full py-4 pl-3 rounded-md outline-none border-gray-deep border',
