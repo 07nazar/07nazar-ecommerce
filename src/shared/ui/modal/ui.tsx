@@ -3,6 +3,8 @@ import { FC, ReactNode, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 
+import { disableScrollingPage, enableScrollingPage } from './lib';
+
 interface ModalProps {
   children: ReactNode;
   isOpen: boolean;
@@ -13,7 +15,6 @@ interface ModalProps {
 }
 
 const modalRoot = document.querySelector('#modal');
-// TODO небольшой скролл на мобильной версии
 export const Modal: FC<ModalProps> = ({
   children,
   isOpen,
@@ -38,21 +39,12 @@ export const Modal: FC<ModalProps> = ({
       }
     };
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      const { scrollY } = window;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-
+      disableScrollingPage();
       document.addEventListener('mousedown', handleOutsideClick);
     }
 
     return () => {
-      document.body.style.overflow = '';
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
-
+      enableScrollingPage();
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, [isOpen, setClose]);
@@ -73,10 +65,10 @@ export const Modal: FC<ModalProps> = ({
         }}
         className={`fixed inset-0 z-40 overflow-x-hidden 
       ${isOpen ? 'visible' : 'invisible'} `}>
-        <div className={`absolute modal z-50 ${className} `}>
+        <div className={`modal absolute z-50 ${className} `}>
           <button
             type={'button'}
-            className={'cursor-pointer absolute top-2 right-2'}
+            className={'absolute right-2 top-2 cursor-pointer'}
             onClick={handleClose}>
             <AiOutlineClose size={24} />
           </button>
