@@ -1,13 +1,13 @@
-import {animated, useTransition} from '@react-spring/web';
-import {FC, useEffect} from 'react';
+import { animated, useTransition } from '@react-spring/web';
+import { FC, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 
-import {alertColors} from './lib';
+import { alertColors } from './lib';
 
 interface AlertProps {
   type: 'error' | 'success' | 'warning';
-  showAlert: boolean;
-  onClose: () => void;
   message?: string;
+  id: string;
 }
 
 interface AlertIconProps {
@@ -40,44 +40,57 @@ const CloseButton = ({ onClick }: { onClick: () => void }) => (
   </button>
 );
 
-export const Alert: FC<AlertProps> = ({
-  type,
-  message,
-  onClose,
-  showAlert,
-}) => {
+const alertRoot = document.querySelector('#modal');
+
+export const Alert: FC<AlertProps> = ({ type, message, id }) => {
+  const [show, setShow] = useState(true);
+
   const { bgColor, textColor, icon } = alertColors[type];
 
-  const transition = useTransition(showAlert, {
+  const transition = useTransition(show, {
     from: { opacity: 0, top: '-2.5rem' },
     enter: { opacity: 1, top: '2.5rem' },
     leave: { opacity: 0, top: '-2.5rem' },
   });
 
   useEffect(() => {
+    setShow(true);
+  }, [id]);
+
+  useEffect(() => {
     let timerId: ReturnType<typeof setTimeout>;
-    if (showAlert) {
-      timerId = setTimeout(onClose, 1500);
+
+    if (show) {
+      timerId = setTimeout(() => {
+        setShow(false);
+        clearTimeout(timerId);
+      }, 1500);
     }
+
     return () => {
       clearTimeout(timerId);
     };
-  }, [showAlert, onClose]);
+  }, [show]);
 
-  return transition(
-    (style, item) =>
-      item && (
-        <animated.div style={style} className={'fixed-block select-none'}>
-          <div
-            className={`flex items-center ${bgColor} rounded-md py-2 px-2.5`}>
-            {icon && <AlertIcon d={icon.d} fill={icon.fill} />}
-            <div className={`mx-2 w-42 ${textColor}`}>
-              <h6 className={'capitalize leading-lg font-medium'}>{type}</h6>
-              {message && <p className={'text-sm leading-4'}>{message}</p>}
+  if (!alertRoot || !show) return null;
+
+  return createPortal(
+    transition(
+      (style, item) =>
+        item && (
+          <animated.div style={style} className={'fixed-block select-none'}>
+            <div
+              className={`flex items-center ${bgColor} rounded-md py-2 px-2.5`}>
+              {icon && <AlertIcon d={icon.d} fill={icon.fill} />}
+              <div className={`mx-2 w-42 ${textColor}`}>
+                <h6 className={'capitalize leading-lg font-medium'}>{type}</h6>
+                {message && <p className={'text-sm leading-4'}>{message}</p>}
+              </div>
+              <CloseButton onClick={() => setShow(false)} />
             </div>
-            <CloseButton onClick={onClose} />
-          </div>
-        </animated.div>
-      )
+          </animated.div>
+        )
+    ),
+    alertRoot
   );
 };

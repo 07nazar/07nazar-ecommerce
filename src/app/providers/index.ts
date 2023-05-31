@@ -1,7 +1,8 @@
-import {ComponentType} from 'react';
+import { ComponentType } from 'react';
 
-import {withRouter} from './with-router';
-import {withStore} from './with-store';
+import { withAlert } from './with-alert';
+import { withRouter } from './with-router';
+import { withStore } from './with-store';
 
 export const withProviders = (Component: ComponentType) =>
-  withRouter(withStore(Component));
+  withAlert(withRouter(withStore(Component)));
