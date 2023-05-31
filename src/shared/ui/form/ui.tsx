@@ -1,8 +1,7 @@
-import { Field, Form, Formik } from 'formik';
-import { FC } from 'react';
+import { Field, Form, Formik, FormikValues } from 'formik';
 import * as yup from 'yup';
-import { Button } from '../button';
 
+import { Button } from '../button';
 import { Checkbox } from '../checkbox';
 import { AppLink } from '../links';
 
@@ -13,11 +12,11 @@ export type TypeInputItem = {
   className?: string;
 };
 
-type TypeBaseAuthFormProps = {
+type TypeBaseAuthFormProps<T> = {
   inputItems: TypeInputItem[];
   inputBoxClassNames?: string;
-  initialValues: Record<string, string>;
-  onSubmitHandler: () => void;
+  initialValues: FormikValues & T;
+  onSubmitHandler?: (values: T) => Promise<void>;
   formHeader: {
     title: string;
     subTitle: string;
@@ -26,7 +25,10 @@ type TypeBaseAuthFormProps = {
   formFooter: {
     footerBoxClassNames?: string;
     footerText?: string;
-    footerLink?: string;
+    footerLink?: {
+      text: string;
+      to: string;
+    };
   };
   checkBoxAndLink?: {
     classNames?: string;
@@ -41,7 +43,7 @@ type TypeBaseAuthFormProps = {
   validationSchema?: yup.AnyObjectSchema;
 };
 
-export const BaseAuthForm: FC<TypeBaseAuthFormProps> = ({
+export const BaseAuthForm = <T,>({
   inputItems,
   initialValues,
   onSubmitHandler,
@@ -51,7 +53,7 @@ export const BaseAuthForm: FC<TypeBaseAuthFormProps> = ({
   formFooter,
   checkBoxAndLink,
   validationSchema,
-}) => {
+}: TypeBaseAuthFormProps<T>) => {
   const formClassNames =
     'flex flex-col max-w-[450px] w-full bg-white py-8 px-8 pb-7 shadow-sm rounded-md';
 
@@ -59,7 +61,7 @@ export const BaseAuthForm: FC<TypeBaseAuthFormProps> = ({
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={onSubmitHandler}>
+      onSubmit={onSubmitHandler || (() => {})}>
       {({ handleSubmit, errors, touched, handleChange, values }) => (
         <Form onSubmit={handleSubmit} className={formClassNames}>
           <div>
@@ -103,7 +105,7 @@ export const BaseAuthForm: FC<TypeBaseAuthFormProps> = ({
             </div>
           )}
 
-          <Button className={'bg-blue mb-5 justify-center '}>
+          <Button type={'submit'} className={'bg-blue mb-5 justify-center '}>
             {buttonValue}
           </Button>
 
@@ -113,8 +115,8 @@ export const BaseAuthForm: FC<TypeBaseAuthFormProps> = ({
             } flex items-center justify-center gap-5`}>
             {formFooter.footerText && <p>{formFooter.footerText}</p>}
             {formFooter.footerLink && (
-              <AppLink to={'/'} className={'text-blue'}>
-                Back to login
+              <AppLink to={formFooter.footerLink.to} className={'text-blue'}>
+                {formFooter.footerLink.text}
               </AppLink>
             )}
           </div>
