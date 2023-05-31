@@ -29,18 +29,14 @@ const userApi = baseApi.injectEndpoints({
         transformResponse: (response: unknown[]) => response.map(mapUsersData),
       }),
     }),
-    registerUser: builder.mutation<User, User>({
+    registerUser: builder.mutation<
+      User,
+      { name: string; email: string; password: string }
+    >({
       query: newUser => ({
         url: '/user',
         method: 'POST',
         body: newUser,
-      }),
-    }),
-    loginUser: builder.mutation<User, { username: string; password: string }>({
-      query: credentials => ({
-        url: '/user/login',
-        method: 'POST',
-        body: credentials,
       }),
     }),
     deleteUser: builder.mutation<void, number>({
@@ -54,9 +50,9 @@ const userApi = baseApi.injectEndpoints({
 });
 
 export const {
+  endpoints,
   useGetUserByIdQuery,
   useGetUsersQuery,
-  useLoginUserMutation,
   useRegisterUserMutation,
   useDeleteUserMutation,
 } = userApi;

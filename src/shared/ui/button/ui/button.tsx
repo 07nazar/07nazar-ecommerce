@@ -2,6 +2,7 @@ import { FC, ReactNode, SyntheticEvent } from 'react';
 
 export interface ButtonProps {
   children: ReactNode;
+  type?: 'button' | 'submit';
   onClick?: (e: SyntheticEvent) => void;
   disabled?: boolean;
   size?: 'sm' | 'md' | 'lg';
@@ -14,6 +15,7 @@ export const Button: FC<ButtonProps> = ({
   disabled = false,
   size = 'md',
   className = '',
+  type = 'button',
 }) => {
   const disabledStyles = disabled
     ? 'disabled:bg-gray-light disabled:hover:cursor-not-allowed'
@@ -21,7 +23,7 @@ export const Button: FC<ButtonProps> = ({
 
   return (
     <button
-      type={'button'}
+      type={type === 'button' ? 'button' : 'submit'}
       disabled={disabled}
       className={`base-button ${className} ${size} ${disabledStyles}`}
       onClick={onClick}>
