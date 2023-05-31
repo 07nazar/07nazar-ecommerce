@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import { withLazy } from 'shared/lib';
 
-import { Auth } from './Auth';
+import { Auth } from './auth';
 import { Layout } from './layout';
 
 const Home = lazy(() => import('./home'));
