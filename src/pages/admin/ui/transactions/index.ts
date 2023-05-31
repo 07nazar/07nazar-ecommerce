@@ -1,1 +1,3 @@
-export * from './ui';
+import { Transactions } from './ui';
+
+export default Transactions;

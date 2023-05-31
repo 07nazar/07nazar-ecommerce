@@ -3,11 +3,11 @@ import { FcCheckmark } from 'react-icons/fc';
 import { IoBagCheckOutline } from 'react-icons/io5';
 import { MdOutlineMessage } from 'react-icons/md';
 
-import { colors, useMatchMedia } from 'shared/lib';
-import { Rating } from 'shared/ui/rating';
-import { productTypes } from 'entities/product';
 import { MoveToCart } from 'features/product/move-to-cart';
 import { SaveForLater } from 'features/product/save-for-later';
+import { productTypes } from 'entities/product';
+import { colors, useMatchMedia } from 'shared/lib';
+import { Rating } from 'shared/ui/rating';
 
 type ProductInfoType = Pick<
   productTypes.Product,

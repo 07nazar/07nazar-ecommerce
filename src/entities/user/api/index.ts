@@ -1,17 +1,33 @@
 import { baseApi } from 'shared/api';
 
+import { mapUsersData, UserTableList } from '../lib';
 import { User } from '../types';
 
-export * from './users-from-server';
-export * from './seller-product';
+export { usersFromServer } from './users-from-server';
+export { sellerFromServer } from './seller-product';
+
+type GetUsersPayload = {
+  count: number;
+  search: string;
+  sortBy: string;
+};
 
 const userApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     getUserById: builder.query<User, number>({
       query: id => `/user/${id}`,
     }),
-    getUsers: builder.query<User, { count: number }>({
-      query: ({ count }) => `/user/count=${count}`,
+    getUsers: builder.query<UserTableList[], GetUsersPayload>({
+      query: ({ count, search, sortBy }) => ({
+        url: '/users',
+        method: 'GET',
+        params: {
+          count,
+          search,
+          sortBy,
+        },
+        transformResponse: (response: unknown[]) => response.map(mapUsersData),
+      }),
     }),
     registerUser: builder.mutation<
       User,

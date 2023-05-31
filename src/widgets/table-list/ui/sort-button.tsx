@@ -1,14 +1,12 @@
 import { FC, useEffect, useState } from 'react';
 import { FaSortDown } from 'react-icons/fa';
 
-export type SortActiveType = { name: string; type: string };
-
 type SortButtonProps = {
   className: string;
   title: string;
-  activeSort: SortActiveType;
+  activeSort: string;
   isActive: boolean;
-  onClick: (newEl: SortActiveType) => void;
+  onClick: (newEl: string) => void;
 };
 
 export const SortButton: FC<SortButtonProps> = ({
@@ -19,27 +17,28 @@ export const SortButton: FC<SortButtonProps> = ({
   onClick,
 }) => {
   const [disabled, setDisabled] = useState<boolean>(!isActive);
-  const { name: activeName, type: activeType } = activeSort;
+  const [name, type] = activeSort.split('-');
 
   useEffect(() => {
     setDisabled(!isActive);
   }, [isActive]);
 
   const handleSortClick = () => {
-    const name = title.toLowerCase();
-    let type: SortActiveType['type'] = 'asc';
+    const newName = title.toLowerCase();
+    let newType = 'asc';
 
     if (!disabled) {
-      if (activeType === 'asc') {
-        type = 'desc';
-      } else if (activeType === 'desc') {
-        type = 'none';
+      if (type === 'asc') {
+        newType = 'desc';
+      } else if (type === 'desc') {
+        newType = 'none';
         setDisabled(true);
       }
     } else {
       setDisabled(false);
     }
-    onClick({ name, type });
+
+    onClick(`${newName}-${newType}`);
   };
 
   return (
@@ -52,12 +51,12 @@ export const SortButton: FC<SortButtonProps> = ({
         className={`ml-1 opacity-0 h-full group-hover:opacity-100 ${
           !disabled ? 'opacity-100' : ''
         } group-hover:text-gray-hot duration-200`}>
-        {activeName && (
+        {name && (
           <FaSortDown
             className={`h-5 w-5 mt-1 ${
               disabled ? 'text-gray-medium' : 'text-black'
             }  ${
-              activeType === 'desc' ? 'rotate-0 mt-1.5' : 'rotate-180 mt-3'
+              type === 'desc' ? 'rotate-0 mt-1.5' : 'rotate-180 mt-3'
             } duration-200`}
           />
         )}

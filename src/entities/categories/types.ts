@@ -1,21 +1,23 @@
 // Тип, который приходит с сервера
 export type CategoryDto = {
-  id: number;
-  text: string;
+  id: string;
+  name: string;
   image: string;
+  parentId: string;
   minPrice: number;
   children?: CategoryDto[];
 };
 
 export type Category = {
-  id: number;
-  text: string;
+  id: string;
+  name: string;
+  parentId: string;
   children?: Category[];
 };
 
 export type CategoryWithAdditionalInfo = {
-  id: number;
-  text: string;
+  id: string;
+  name: string;
   image: string;
   minPrice: number;
   children?: CategoryWithAdditionalInfo[];

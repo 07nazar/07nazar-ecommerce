@@ -1,26 +1,26 @@
 import { FC } from 'react';
 
+import { categoriesTypes } from 'entities/categories';
 import { normalizeStringToURL } from 'shared/lib';
 import { DivLink } from 'shared/ui/links';
-import { categoriesTypes } from 'entities/categories';
 
 type CategoryItemProps = Pick<
   categoriesTypes.CategoryWithAdditionalInfo,
-  'id' | 'text' | 'image' | 'minPrice'
+  'id' | 'name' | 'image' | 'minPrice'
 > & { className: string };
 
 export const CategoryItem: FC<CategoryItemProps> = ({
   id,
-  text,
+  name,
   image,
   minPrice,
   className,
 }) => (
   <DivLink
-    ariaLabel={`Go to ${text} catalog`}
-    to={`/catalog/${normalizeStringToURL(text)}-${String(id).substring(0, 5)}`}
+    ariaLabel={`Go to ${name} catalog`}
+    to={`/catalog/${normalizeStringToURL(name)}-${String(id).substring(0, 5)}`}
     className={`flex flex-col sm:flex-col-reverse max-w-[225px] py-5 md:py-3 px-4 ${className}`}>
-    <h6 className={'leading-5 sm:text-center'}>{text}</h6>
+    <h6 className={'leading-5 sm:text-center'}>{name}</h6>
     <div className={'flex sm:flex-col-reverse  justify-between'}>
       <p className={'w-full mt-2 text-xs text-gray-hot sm:text-center'}>
         <span className={'block sm:inline-block '}>From</span> USD {minPrice}

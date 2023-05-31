@@ -1,4 +1,8 @@
+import * as productApiImpl from './api';
+import * as productModelImpl from './model';
+
 export * from './ui';
-export * as productModel from './model';
 export * as productTypes from './types';
-export * as productApi from './api';
+
+export const productApi = productApiImpl;
+export const productModel = productModelImpl;

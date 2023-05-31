@@ -1,1 +1,3 @@
-export * from './ui';
+import { Dashboard } from './ui';
+
+export default Dashboard;

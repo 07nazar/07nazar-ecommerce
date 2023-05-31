@@ -1,10 +1,24 @@
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import {
+  categoriesApi,
+  categoriesModel,
+  categoriesTypes,
+} from 'entities/categories';
 import { normalizeStringToURL, useAppDispatch } from 'shared/lib';
 import { MenuItem, MenuItemType, Select } from 'shared/ui/select';
-import { categoriesApi, categoriesModel } from 'entities/categories';
 
+const mapCategoryToMulti = (
+  category: categoriesTypes.Category
+): MenuItemType => ({
+  id: category.id,
+  text: category.name,
+  children: category.children
+    ? category.children.map(mapCategoryToMulti)
+    : undefined,
+});
+// TODO вынести эту функцию в lib, отрефакторить компоненту
 export const MultiCategories: FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -21,6 +35,8 @@ export const MultiCategories: FC = () => {
     }
   }, [data]);
 
+  const categoriesMulti = isSuccess && data.map(mapCategoryToMulti);
+
   // TODO слишком большая запись выходит для получения и записи
   return (
     <Select
@@ -31,8 +47,8 @@ export const MultiCategories: FC = () => {
       setOpen={setOpenCategories}
       defaultValue={'All category'}>
       {isLoading && <p>Loading...</p>}
-      {isSuccess &&
-        data.map(route => (
+      {categoriesMulti &&
+        categoriesMulti.map(route => (
           <MenuItem
             key={`${route.id}-${route.text}`}
             setOpen={setOpenCategories}

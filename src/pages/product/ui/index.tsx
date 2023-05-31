@@ -1,8 +1,8 @@
+import { productApi } from 'entities/product';
+import { userApi } from 'entities/user';
 import { useMatchMedia } from 'shared/lib';
 import { Breadcrumbs } from 'shared/ui/breadcrumbs';
 import { DiscountBanner } from 'shared/ui/discount-banner';
-import { productApi } from 'entities/product';
-import { userApi } from 'entities/user';
 
 import { AsideLikeItems } from './aside-like-items';
 import { ProductContent } from './product-content';
@@ -42,7 +42,7 @@ export const Product = () => {
 
       <RelatedItems />
 
-      <div className={'mb-16'}>
+      <div className={'mb-16 lg:mb-12 md:mb-8 sm:mb-0'}>
         <DiscountBanner />
       </div>
     </>

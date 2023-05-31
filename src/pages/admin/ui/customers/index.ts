@@ -1,1 +1,3 @@
-export * from './ui';
+import { Customers } from './ui';
+
+export default Customers;

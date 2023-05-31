@@ -1,1 +1,3 @@
-export * from './ui';
+import { Shipments } from './ui';
+
+export default Shipments;

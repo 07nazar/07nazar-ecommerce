@@ -1,4 +1,4 @@
-import {FC, InputHTMLAttributes, ReactNode} from 'react';
+import { FC, InputHTMLAttributes, ReactNode } from 'react';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: ReactNode;
@@ -7,6 +7,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 export const Input: FC<InputProps> = ({
   value,
   onChange,
+  onClick,
   placeholder,
   type = 'text',
   className = '',
@@ -25,6 +26,7 @@ export const Input: FC<InputProps> = ({
       className={`base-input ${className} ${icon ? 'pl-9' : ''}`}
       type={type}
       onChange={onChange}
+      onClick={onClick}
       value={value}
       placeholder={placeholder}
       min={min}
