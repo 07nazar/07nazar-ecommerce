@@ -15,22 +15,22 @@ export const Header: FC = () => {
   return (
     <header
       className={
-        'container-fluid bg-white flex sm:px-2.5 pb-2 border-b border-gray-medium'
+        'container-fluid flex border-b border-gray-medium bg-white pb-2 pt-2 sm:px-2.5'
       }>
-      <div className={'container flex items-center pt-5 pb-6 sm:flex-wrap'}>
+      <div className={'container flex items-center pb-6 pt-5 sm:flex-wrap'}>
         {isMobile && <BurgerMenu />}
         <AppLink to={'/'} className={'mr-auto'}>
           <Logo className={'min-w-[116px]'} />
         </AppLink>
         <HeaderSearch />
         <nav
-          className={'flex items-center gap-5 lg:gap-2 sm:gap-4 ml-4 max-h-10'}>
+          className={'ml-4 flex max-h-10 items-center gap-5 lg:gap-2 sm:gap-4'}>
           {items.map(link => (
             <AppLink
               key={link.to}
               to={link.to}
               className={
-                'text-xs leading-[15px] items-center text-gray-hot whitespace-nowrap'
+                'items-center whitespace-nowrap text-xs leading-[15px] text-gray-hot'
               }>
               {createElement(link.icon, {
                 size:
