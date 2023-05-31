@@ -14,7 +14,6 @@ export const ResetPasswordForm: FC<TypeFormProps> = ({ inputsData }) => (
       validationSchema={resetPasswordSchema}
       initialValues={{ newPasswoard: '', confirmPasswoard: '' }}
       inputItems={inputsData}
-      onSubmitHandler={() => 1}
       buttonValue={'Reset'}
       formHeader={{
         title: 'Reset Passwoard 🔒',
@@ -22,7 +21,10 @@ export const ResetPasswordForm: FC<TypeFormProps> = ({ inputsData }) => (
           'Your new password must be different from previously used passwords',
       }}
       formFooter={{
-        footerLink: 'Back to login',
+        footerLink: {
+          text: 'Back to login',
+          to: '/',
+        },
       }}
     />
   </div>

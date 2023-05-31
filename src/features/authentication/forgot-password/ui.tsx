@@ -14,7 +14,6 @@ export const ForgotPasswordForm: FC<TypeFormProps> = ({ inputsData }) => (
       validationSchema={forgotPasswordSchema}
       initialValues={{ email: '' }}
       inputItems={inputsData}
-      onSubmitHandler={() => 1}
       buttonValue={'Forgot'}
       formHeader={{
         title: 'Forgot Passwoard 🔒',
@@ -22,7 +21,10 @@ export const ForgotPasswordForm: FC<TypeFormProps> = ({ inputsData }) => (
           "Enter your email and we'll send you instructions to reset your password",
       }}
       formFooter={{
-        footerLink: 'Back to login',
+        footerLink: {
+          text: 'Back to login',
+          to: '/',
+        },
       }}
     />
   </div>
