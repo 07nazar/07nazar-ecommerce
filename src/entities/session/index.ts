@@ -1,3 +1,7 @@
+import * as sessionApiImpl from './api';
+import * as sessionModelImpl from './model';
+
 export * as sessionTypes from './types';
-export * as sessionModel from './model';
-export * as sessionApi from './api';
+
+export const sessionModel = sessionModelImpl;
+export const sessionApi = sessionApiImpl;

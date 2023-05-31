@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { AddFavourite } from 'features/product/add-to-favourite';
+import { ProductCard, productTypes } from 'entities/product';
 import { useMatchMedia } from 'shared/lib';
 import { Rating } from 'shared/ui/rating';
-import { ProductCard, productTypes } from 'entities/product';
-import { AddFavourite } from 'features/product/add-to-favourite';
 
 type ContentProps = Pick<
   productTypes.Product,

@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { APP_TAX } from 'shared/config';
+
 import type { Cart, CartItem, Coupon } from '../types';
 
 const initialState: Cart = {
@@ -35,13 +37,11 @@ export const cartSlice = createSlice({
         0
       );
       const discount = state.coupon?.discount || 0;
-      // TODO вынести tax в конфиг shared
-      const tax = subtotal * 0.1;
-      const total = subtotal - discount + tax;
+      const total = subtotal - discount + APP_TAX * subtotal;
 
       state.subtotal = subtotal;
       state.discount = discount;
-      state.tax = tax;
+      state.tax = APP_TAX * subtotal;
       state.total = total;
     },
     clearCart: state => {

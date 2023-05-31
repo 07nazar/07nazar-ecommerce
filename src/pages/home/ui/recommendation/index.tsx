@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { useMatchMedia } from 'shared/lib';
-import { productApi } from 'entities/product';
 import { ProductRecommended } from 'widgets/product-card';
+import { productApi } from 'entities/product';
+import { useMatchMedia } from 'shared/lib';
 
 export const RecommendedItems: FC = () => {
   const { isTablet } = useMatchMedia();

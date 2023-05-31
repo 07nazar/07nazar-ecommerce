@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { Slider } from 'shared/ui/slider';
-import { productApi } from 'entities/product';
 import { DealsItem } from 'widgets/product-card';
+import { productApi } from 'entities/product';
+import { Slider } from 'shared/ui/slider';
 
 import { Timer } from './timer';
 

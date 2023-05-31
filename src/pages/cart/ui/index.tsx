@@ -1,17 +1,17 @@
-import {FC} from 'react';
-import {HiOutlineArrowLeft} from 'react-icons/hi';
-import {useNavigate} from 'react-router-dom';
+import { FC } from 'react';
+import { HiOutlineArrowLeft } from 'react-icons/hi';
+import { useNavigate } from 'react-router-dom';
 
-import {useMatchMedia} from 'shared/lib';
-import {Button} from 'shared/ui/button';
-import {DiscountBanner} from 'shared/ui/discount-banner';
-import {RemoveAllFromCart} from 'features/cart/remove-all-products';
-import {ProductCart} from 'widgets/product-card';
+import { ProductCart } from 'widgets/product-card';
+import { RemoveAllFromCart } from 'features/cart/remove-all-products';
+import { useMatchMedia } from 'shared/lib';
+import { Button } from 'shared/ui/button';
+import { DiscountBanner } from 'shared/ui/discount-banner';
 
-import {CheckoutForm} from './checkout-form';
-import {CouponField} from './coupon-field';
-import {FeaturesShop} from './features-shop';
-import {SavedProducts} from './saved-products';
+import { CheckoutForm } from './checkout-form';
+import { CouponField } from './coupon-field';
+import { FeaturesShop } from './features-shop';
+import { SavedProducts } from './saved-products';
 
 export const Cart: FC = () => {
   const navigate = useNavigate();
@@ -59,7 +59,7 @@ export const Cart: FC = () => {
         </div>
         <div
           className={
-            'min-w-[200px] sm:w-full flex flex-col gap-3 lg:gap-1 sm:gap-0 mb-10 md:mb-5'
+            'min-w-[200px] sm:w-full  flex flex-col gap-3 lg:gap-1 sm:gap-0 mb-10 md:mb-5'
           }>
           <CouponField />
           <CheckoutForm
@@ -79,7 +79,7 @@ export const Cart: FC = () => {
       <div className={'mb-5'}>
         <SavedProducts />
       </div>
-      <div className={'mb-10'}>
+      <div className={'mb-10 md:mb-6 sm:mb-0'}>
         <DiscountBanner />
       </div>
     </>

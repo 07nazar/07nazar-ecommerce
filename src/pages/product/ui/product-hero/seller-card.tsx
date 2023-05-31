@@ -1,9 +1,9 @@
 import {FC} from 'react';
 
+import {SendInquiry} from 'features/user/send-inquiry';
+import {userTypes} from 'entities/user';
 import {useMatchMedia} from 'shared/lib';
 import {Button} from 'shared/ui/button';
-import {userTypes} from 'entities/user';
-import {SendInquiry} from 'features/user/send-inquiry';
 
 type SellerProps = Pick<
   userTypes.Seller,

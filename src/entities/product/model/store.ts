@@ -2,8 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { Product } from '../types';
 
-const PRODUCTS_KEY = 'products';
-
 type ProductStateType = {
   products: Product[];
   page: number;
@@ -17,7 +15,7 @@ const initialState: ProductStateType = {
 };
 
 export const productsSlice = createSlice({
-  name: PRODUCTS_KEY,
+  name: 'products',
   initialState,
   reducers: {},
 });

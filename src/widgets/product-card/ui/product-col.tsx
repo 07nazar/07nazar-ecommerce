@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
+import { AddFavourite } from 'features/product/add-to-favourite';
+import { ProductCard, productTypes } from 'entities/product';
 import { useMatchMedia } from 'shared/lib';
 import { Rating } from 'shared/ui/rating';
-import { ProductCard, productTypes } from 'entities/product';
-import { AddFavourite } from 'features/product/add-to-favourite';
 
 export const ProductCol: FC<productTypes.ProductMin> = ({
   id,

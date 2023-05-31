@@ -2,16 +2,15 @@ import { BsArrowRight } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 
+import { categoriesApi } from 'entities/categories';
+import { HOME_MAX_VISIBLE_FEATURED } from 'shared/config';
 import { normalizeStringToURL, useMatchMedia } from 'shared/lib';
 import { Button } from 'shared/ui/button';
 import { Slider } from 'shared/ui/slider';
-import { categoriesApi } from 'entities/categories';
 
-import { getAllChildren } from '../../lib';
+import { generateItemBorder, getAllChildren } from '../../lib';
 
 import { CategoryItem } from './category-item';
-
-const MAX_VISIBLE_CATEGORIES = 8;
 
 export const Categories = (): JSX.Element => {
   const navigate = useNavigate();
@@ -19,38 +18,23 @@ export const Categories = (): JSX.Element => {
   const { data, isLoading, isError } =
     categoriesApi.useGetFeaturedCategoriesQuery();
 
-  const clickHandler = (id: number, text: string) => {
+  const clickHandler = (id: string, text: string) => {
     navigate(
-      `/catalog/${normalizeStringToURL(text)}-${String(id).substring(0, 5)}`
+      `/catalog/${normalizeStringToURL(text)}-${String(id).substring(0, 9)}`
     );
   };
 
-  const itemsBorders = (i: number): string => {
-    const rightBorder =
-      i !== Math.floor(MAX_VISIBLE_CATEGORIES / 2) - 1 &&
-      i !== MAX_VISIBLE_CATEGORIES - 1
-        ? 'border-r'
-        : '';
-
-    const bottomBorder =
-      i < Math.floor(MAX_VISIBLE_CATEGORIES / 2) ? 'border-b' : '';
-
-    return `border-gray-pale ${rightBorder} ${bottomBorder}`;
-  };
-
   if (isError || data === undefined) {
-    return <p>Error...</p>;
+    return <div />;
   }
 
   if (isLoading) {
     return <p>Please wait...</p>;
   }
 
-  // TODO разбить на более мелкие блоки
-
   return (
     <div>
-      {data.map(({ id, image, children, text }) => (
+      {data.map(({ id, image, children, name }) => (
         <div
           key={`category-${id}`}
           className={
@@ -75,11 +59,11 @@ export const Categories = (): JSX.Element => {
                 className={
                   'text-black sm:w-full text-xl sm:text-lg leading-6.5 font-semibold mb-5 sm:mb-0'
                 }>
-                {text}
+                {name}
               </h5>
               {!isMobile && (
                 <Button
-                  onClick={() => clickHandler(id, text)}
+                  onClick={() => clickHandler(id, name)}
                   className={'bg-white text-black'}>
                   Source now
                 </Button>
@@ -98,17 +82,17 @@ export const Categories = (): JSX.Element => {
               }>
               {children &&
                 getAllChildren(children).map((item, i) => {
-                  if (i === MAX_VISIBLE_CATEGORIES) {
+                  if (i === HOME_MAX_VISIBLE_FEATURED) {
                     return null;
                   }
 
-                  const itemClassNames = itemsBorders(i);
+                  const itemClassNames = generateItemBorder(i);
 
                   return (
                     <CategoryItem
-                      key={`category-item-${item.text}-${item.id}`}
+                      key={`category-item-${item.name}-${item.id}`}
                       id={item.id}
-                      text={item.text}
+                      name={item.name}
                       image={item.image}
                       minPrice={item.minPrice}
                       className={`${itemClassNames} lg:border-x`}
@@ -119,7 +103,7 @@ export const Categories = (): JSX.Element => {
           </div>
           {isMobile && (
             <Button
-              onClick={() => clickHandler(id, text)}
+              onClick={() => clickHandler(id, name)}
               className={
                 'p-5 bg-white font-medium text-blue flex items-center gap-1.5 border-b border-gray-medium'
               }>

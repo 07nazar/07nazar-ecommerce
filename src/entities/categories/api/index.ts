@@ -1,13 +1,12 @@
 import { baseApi, TAGS } from 'shared/api';
 
-import { mapCategory, mapCategoryWithInfo } from '../lib';
+import { mapCategoryWithInfo } from '../lib';
 import { Category, CategoryDto, CategoryWithAdditionalInfo } from '../types';
 
 export const categoriesApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     getCategories: builder.query<Category[], void>({
       query: () => '/category/all',
-      transformResponse: (response: CategoryDto[]) => response.map(mapCategory),
       providesTags: [TAGS.CATEGORIES],
     }),
     getFeaturedCategories: builder.query<CategoryWithAdditionalInfo[], void>({
@@ -16,11 +15,35 @@ export const categoriesApi = baseApi.injectEndpoints({
         response.map(mapCategoryWithInfo),
       providesTags: [TAGS.CATEGORIES],
     }),
-    deleteCategory: builder.mutation<void, number>({
-      query: id => ({
+    createCategory: builder.mutation<
+      Category,
+      { name: string; parentId: string | null }
+    >({
+      query: ({ name, parentId }) => ({
+        url: '/category/create',
+        method: 'POST',
+        body: { name, parentId },
+      }),
+      invalidatesTags: [TAGS.CATEGORIES],
+    }),
+    UpdateCategory: builder.mutation<
+      void,
+      { id: string; name?: string; parentName?: string }
+    >({
+      query: ({ id, name, parentName }) => ({
+        url: '/category/update',
+        method: 'PUT',
+        body: { id, name, parentName },
+      }),
+      invalidatesTags: [TAGS.CATEGORIES],
+    }),
+    deleteCategory: builder.mutation<void, { id: string }>({
+      query: ({ id }) => ({
         url: `/category/${id}`,
         method: 'DELETE',
+        body: { id },
       }),
+      invalidatesTags: [TAGS.CATEGORIES],
     }),
   }),
 });
@@ -28,5 +51,7 @@ export const categoriesApi = baseApi.injectEndpoints({
 export const {
   useGetCategoriesQuery,
   useGetFeaturedCategoriesQuery,
+  useUpdateCategoryMutation,
   useDeleteCategoryMutation,
+  useCreateCategoryMutation,
 } = categoriesApi;

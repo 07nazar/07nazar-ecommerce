@@ -1,6 +1,6 @@
-import { useMatchMedia } from 'shared/lib';
 import { productApi } from 'entities/product';
 import { userApi } from 'entities/user';
+import { useMatchMedia } from 'shared/lib';
 
 import { ProductInfo } from './product-info';
 import { SellerCard } from './seller-card';

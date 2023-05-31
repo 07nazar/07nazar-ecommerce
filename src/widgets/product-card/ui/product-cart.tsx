@@ -1,13 +1,13 @@
 import { FC, useEffect, useMemo, useState } from 'react';
 
 import img from 'assets/image22.png';
-import { useMatchMedia } from 'shared/lib';
-import { MenuItem, Select } from 'shared/ui/select';
-import { cartTypes } from 'entities/cart';
-import { ProductCard, productTypes } from 'entities/product';
 import { Counter } from 'features/cart/counter-quantity';
 import { RemoveProduct } from 'features/cart/remove-product';
 import { SaveForLater } from 'features/product/save-for-later';
+import { cartTypes } from 'entities/cart';
+import { ProductCard, productTypes } from 'entities/product';
+import { useMatchMedia } from 'shared/lib';
+import { MenuItem, Select } from 'shared/ui/select';
 
 import type { ISelectedValue } from 'shared/ui/select';
 

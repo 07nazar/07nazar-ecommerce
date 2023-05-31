@@ -1,12 +1,12 @@
 import {combineReducers} from '@reduxjs/toolkit';
 
-import {baseApi} from 'shared/api';
 import {cartModel} from 'entities/cart';
 import {categoriesModel} from 'entities/categories';
 import {orderModel} from 'entities/order';
 import {productModel} from 'entities/product';
 import {sessionModel} from 'entities/session';
 import {userModel} from 'entities/user';
+import {baseApi} from 'shared/api';
 
 export const rootReducer = combineReducers({
   [cartModel.cartSlice.name]: cartModel.cartSlice.reducer,

@@ -15,7 +15,7 @@ export const NavBar: FC = () => {
 
   return (
     <div className={'container-fluid bg-white'}>
-      <div className={'beforeLine sm:before:hidden  afterLine'}>
+      <div className={'afterLine'}>
         <Slider activateOn={'isMobile'} spaceBetween={7}>
           <div className={'container flex gap-7 lg:gap-2 py-5 lg:py-4'}>
             {notMobile && <MultiCategories />}
