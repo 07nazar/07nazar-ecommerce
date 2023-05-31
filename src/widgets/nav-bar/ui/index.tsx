@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
 import { useMatchMedia } from 'shared/lib';
-import { Slider } from 'shared/ui/slider';
 
 import { CategoriesList } from './categories-list';
 import { ChangeCountry } from './change-country';
@@ -16,18 +15,16 @@ export const NavBar: FC = () => {
   return (
     <div className={'container-fluid bg-white'}>
       <div className={'afterLine'}>
-        <Slider activateOn={'isMobile'} spaceBetween={7}>
-          <div className={'container flex gap-7 lg:gap-2 py-5 lg:py-4'}>
-            {notMobile && <MultiCategories />}
-            <CategoriesList />
-            {notMobile && (
-              <div className={'flex ml-auto items-center gap-4 lg:gap-0'}>
-                <ChangeCountry />
-                <ChangeLanguage />
-              </div>
-            )}
-          </div>
-        </Slider>
+        <div className={'container flex gap-7 py-5 lg:gap-2 lg:py-4'}>
+          {notMobile && <MultiCategories />}
+          <CategoriesList />
+          {notMobile && (
+            <div className={'ml-auto flex items-center gap-4 lg:gap-0'}>
+              <ChangeCountry />
+              <ChangeLanguage />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

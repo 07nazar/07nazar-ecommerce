@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import { useMatchMedia } from 'shared/lib';
 import { AppLink } from 'shared/ui/links';
+import { Slider } from 'shared/ui/slider';
 
 const categoriesLinks = [
   {
@@ -24,13 +25,17 @@ const categoriesLinks = [
 
 export const CategoriesList: FC = () => {
   const { isMobile, isTablet } = useMatchMedia();
+
   return (
-    <nav className={'flex items-center gap-7 lg:gap-2'}>
+    <Slider
+      activateOn={'isMobile'}
+      spaceBetween={8}
+      className={'flex  items-center gap-7 lg:gap-2'}>
       {(isMobile || isTablet) && (
         <AppLink
           to={'/categories'}
           className={
-            'text-black whitespace-nowrap font-medium md:font-normal md:leading-[19px] md:text-blue md:p-2 md:bg-gray-pale md:rounded-md'
+            'whitespace-nowrap font-medium text-black md:rounded-md md:bg-gray-pale md:p-2 md:font-normal md:leading-[19px] md:text-blue'
           }>
           All category
         </AppLink>
@@ -41,11 +46,11 @@ export const CategoriesList: FC = () => {
           key={link.to}
           to={link.to}
           className={
-            'text-black whitespace-nowrap font-medium md:font-normal md:leading-[19px] md:text-blue md:p-2 md:bg-gray-pale md:rounded-md'
+            'whitespace-nowrap font-medium text-black md:rounded-md md:bg-gray-pale md:p-2 md:font-normal md:leading-[19px] md:text-blue'
           }>
           {link.text}
         </AppLink>
       ))}
-    </nav>
+    </Slider>
   );
 };
