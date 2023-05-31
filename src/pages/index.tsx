@@ -6,7 +6,7 @@ import { withLazy } from 'shared/lib';
 import { Auth } from './auth';
 
 import { Admin } from './admin';
-
+import { Auth } from './auth';
 import { Layout } from './layout';
 
 const Home = lazy(() => import('./home'));
