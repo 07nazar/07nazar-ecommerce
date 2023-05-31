@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 
-import { baseQueryWithRetry } from './baseQueryWithRetry';
+import { baseQueryWithRetry } from './query-with-retry';
 import { TAGS } from './tags';
 
 export const baseApi = createApi({
