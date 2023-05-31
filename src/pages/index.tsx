@@ -3,10 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 
 import { withLazy } from 'shared/lib';
 
-import { Auth } from './auth';
-
 import { Admin } from './admin';
 
+import { Auth } from './Auth';
 import { Layout } from './layout';
 
 const Home = lazy(() => import('./home'));
