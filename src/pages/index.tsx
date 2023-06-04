@@ -9,6 +9,7 @@ import { Layout } from './layout';
 
 const Home = lazy(() => import('./home'));
 const Catalog = lazy(() => import('./catalog'));
+const AllCatalog = lazy(() => import('./all-catalog'));
 const Product = lazy(() => import('./product'));
 const Cart = lazy(() => import('./cart'));
 const NotFound = lazy(() => import('./not-found'));
@@ -17,7 +18,8 @@ export const Routing = () => (
   <Routes>
     <Route path={'/'} element={<Layout />}>
       <Route index element={withLazy(<Home />)} />
-      <Route path={'catalog'} element={withLazy(<Catalog />)} />
+      <Route path={'catalog'} element={withLazy(<AllCatalog />)} />
+      <Route path={'catalog/:category'} element={withLazy(<Catalog />)} />
       <Route path={'product/:id'} element={withLazy(<Product />)} />
       <Route path={'admin/*'} element={<Admin />} />
       <Route path={'cart'} element={withLazy(<Cart />)} />

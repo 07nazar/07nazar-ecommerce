@@ -20,7 +20,7 @@ export const BurgerMenu: FC = () => {
       </Button>
       <Modal
         position={'left'}
-        className={'top-0 left-0 h-full rounded-none p-0'}
+        className={'top-0 left-0 min-h-full rounded-none p-0'}
         isOpen={showModal}
         setClose={() => setShowModal(false)}
         backgroundColor={'rgba(99, 99, 99, 0.5)'}>

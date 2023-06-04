@@ -7,30 +7,37 @@ import { Breadcrumbs } from 'shared/ui/breadcrumbs';
 import { PaginationBox } from 'shared/ui/pagination';
 
 import { ActiveCategories } from './active-categories';
-import { ControlPanel } from './control-panel';
+import { MobileFilters } from './mobile-filters';
 import { Products } from './products';
+import { ProductsToggle } from './products-toggle';
+import { SelectedCategory } from './selected-category';
+import { ShowOnlyVerified } from './show-only-verifed';
+import { SortSelect } from './sort-select';
 
 export const Catalog = () => {
-  const [showMode, setShowMode] = useState<'column' | 'row'>('row');
-  const activeCategory = 'Mobile accessory';
-  const itemsCategory = 99999;
   const { isMobile, isDesktop, isLaptop } = useMatchMedia();
+  const [showMode, setShowMode] = useState<'column' | 'row'>('row');
+
   return (
     <>
       {!isMobile && <Breadcrumbs />}
       <div className={'flex gap-5'}>
         {(isDesktop || isLaptop) && (
-          <div className={'max-w-[240px] lg:max-w-[160px] w-full'}>
+          <div className={'w-full max-w-[240px] lg:max-w-[160px]'}>
             <SidebarFilters />
           </div>
         )}
-        <div className={'w-full flex flex-col'}>
-          <ControlPanel
-            showMode={showMode}
-            setShowMode={setShowMode}
-            category={activeCategory}
-            itemsCount={itemsCategory}
-          />
+        <div className={'flex w-full flex-col'}>
+          <div
+            className={
+              'mb-5 flex items-center gap-3 rounded-md border border-gray-medium bg-white p-2.5 md:mb-2.5 sm:gap-1 sm:rounded-none'
+            }>
+            <SelectedCategory />
+            <ShowOnlyVerified />
+            <SortSelect />
+            <MobileFilters />
+            <ProductsToggle showMode={showMode} setShowMode={setShowMode} />
+          </div>
           <ActiveCategories />
           <Products showMode={showMode} />
           <PaginationBox

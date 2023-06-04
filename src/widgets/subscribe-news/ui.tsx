@@ -13,15 +13,15 @@ export const SubscribeNews = () => {
   };
 
   return (
-    <div className={'relative py-10 md:py-5'}>
+    <div className={'relative py-10 md:py-5 sm:px-4'}>
       <span
-        className={'-z-10 absolute inset-0 full-screen w-screen bg-gray-pale'}
+        className={'full-screen absolute inset-0 -z-10 w-screen bg-gray-pale'}
       />
       <div className={'flex flex-col items-center'}>
-        <h3 className={'text-black text-xl font-semibold text-center'}>
+        <h3 className={'text-center text-xl font-semibold text-black'}>
           Subscribe on our newsletter
         </h3>
-        <h5 className={'mb-5 sm:mb-2 text-gray-hot text-center'}>
+        <h5 className={'mb-5 text-center text-gray-hot sm:mb-2'}>
           Get daily news on upcoming offers from many suppliers all over the
           world
         </h5>
@@ -32,7 +32,7 @@ export const SubscribeNews = () => {
             placeholder={`Email`}
             type={'email'}
             icon={<AiOutlineMail fill={`${colors.gray.hot}`} />}
-            className={'pt-2.5 pb-2.5 border border-gray-medium rounded-md'}
+            className={'rounded-md border border-gray-medium pb-2.5 pt-2.5'}
           />
           <Button className={'bg-primary'} onClick={sendHandler}>
             Subscribe

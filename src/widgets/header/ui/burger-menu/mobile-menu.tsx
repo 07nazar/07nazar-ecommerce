@@ -9,7 +9,7 @@ import { AppLink } from 'shared/ui/links';
 import { mobileLinks, MobileMenuLinkType } from '../../lib';
 
 export const MobileMenu: FC = () => (
-  <div className={'w-60 h-full'}>
+  <div className={'w-60'}>
     <div className={'bg-gray-pale p-5'}>
       <AppLink to={'/profile'} className={'max-w-[44px] mb-2.5'}>
         <img src={avatar} alt={'user avatar'} />

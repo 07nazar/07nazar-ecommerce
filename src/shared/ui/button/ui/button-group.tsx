@@ -1,5 +1,5 @@
+import { nanoid } from '@reduxjs/toolkit';
 import { cloneElement, FC, ReactElement } from 'react';
-import { useUIDSeed } from 'react-uid';
 
 import { ButtonProps } from './button';
 
@@ -27,24 +27,20 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({
   children,
   className,
   size = 'md',
-}) => {
-  const uid = useUIDSeed();
+}) => (
+  <div className={`flex ${className}`}>
+    {children.map((child, index) => {
+      const borderLeft = index === 0 && size ? styles[size].left : '';
+      const borderRight =
+        index === children.length - 1 && size ? styles[size].right : '';
 
-  return (
-    <div className={`flex ${className}`}>
-      {children.map((child, index) => {
-        const borderLeft = index === 0 && size ? styles[size].left : '';
-        const borderRight =
-          index === children.length - 1 && size ? styles[size].right : '';
-
-        return cloneElement(child, {
-          className: `${borderLeft} ${borderRight} ${
-            child.props.className || ''
-          }`,
-          size,
-          key: `btn-${uid(child)}`,
-        });
-      })}
-    </div>
-  );
-};
+      return cloneElement(child, {
+        className: `${borderLeft} ${borderRight} ${
+          child.props.className || ''
+        }`,
+        size,
+        key: `btn-${nanoid()}`,
+      });
+    })}
+  </div>
+);

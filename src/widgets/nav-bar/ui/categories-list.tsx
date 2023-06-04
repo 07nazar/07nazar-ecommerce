@@ -1,51 +1,43 @@
 import { FC } from 'react';
 
-import { useMatchMedia } from 'shared/lib';
+import {
+  normalizeStringToURL,
+  useMatchMedia,
+  useSliceSelector,
+} from 'shared/lib';
 import { AppLink } from 'shared/ui/links';
-
-const categoriesLinks = [
-  {
-    to: 'catalog',
-    text: 'Shop',
-  },
-  {
-    to: 'gifts',
-    text: 'Gift boxes',
-  },
-  {
-    to: 'mobiles',
-    text: 'Mobiles',
-  },
-  {
-    to: 'pc',
-    text: 'Laptops & PC',
-  },
-];
+import { Slider } from 'shared/ui/slider';
 
 export const CategoriesList: FC = () => {
   const { isMobile, isTablet } = useMatchMedia();
+  const { categories } = useSliceSelector('categories', state => state);
+
   return (
-    <nav className={'flex items-center gap-7 lg:gap-2'}>
+    <Slider
+      activateOn={'isMobile'}
+      spaceBetween={8}
+      className={'flex  items-center gap-7 lg:gap-2'}>
       {(isMobile || isTablet) && (
         <AppLink
-          to={'/categories'}
+          to={'/catalog'}
           className={
-            'text-black whitespace-nowrap font-medium md:font-normal md:leading-[19px] md:text-blue md:p-2 md:bg-gray-pale md:rounded-md'
+            'whitespace-nowrap font-medium text-black md:rounded-md md:bg-gray-pale md:p-2 md:font-normal md:leading-[19px] md:text-blue'
           }>
           All category
         </AppLink>
       )}
 
-      {categoriesLinks.map(link => (
+      {categories.map(link => (
         <AppLink
-          key={link.to}
-          to={link.to}
+          key={link.id}
+          state={{ category: link.name, id: link.id }}
+          to={`/catalog/${normalizeStringToURL(link.name)}-${link.id}`}
           className={
-            'text-black whitespace-nowrap font-medium md:font-normal md:leading-[19px] md:text-blue md:p-2 md:bg-gray-pale md:rounded-md'
+            'whitespace-nowrap font-medium text-black md:rounded-md md:bg-gray-pale md:p-2 md:font-normal md:leading-[19px] md:text-blue'
           }>
-          {link.text}
+          {link.name}
         </AppLink>
       ))}
-    </nav>
+    </Slider>
   );
 };

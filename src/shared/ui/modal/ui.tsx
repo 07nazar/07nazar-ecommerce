@@ -1,7 +1,9 @@
 import { animated, useSpring } from '@react-spring/web';
-import { FC, KeyboardEventHandler, ReactNode, useEffect, useRef } from 'react';
+import { FC, ReactNode, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { AiOutlineClose } from 'react-icons/ai';
+
+import { disableScrollingPage, enableScrollingPage } from './lib';
 
 interface ModalProps {
   children: ReactNode;
@@ -13,7 +15,6 @@ interface ModalProps {
 }
 
 const modalRoot = document.querySelector('#modal');
-// TODO небольшой скролл на мобильной версии
 export const Modal: FC<ModalProps> = ({
   children,
   isOpen,
@@ -33,14 +34,17 @@ export const Modal: FC<ModalProps> = ({
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
-      if (modalRef.current && modalRef.current.contains(event.target as Node)) {
+      if (!modalRef.current?.contains(event.target as Node)) {
         setClose(false);
       }
     };
     if (isOpen) {
+      disableScrollingPage();
       document.addEventListener('mousedown', handleOutsideClick);
     }
+
     return () => {
+      enableScrollingPage();
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, [isOpen, setClose]);
@@ -53,37 +57,24 @@ export const Modal: FC<ModalProps> = ({
     setClose(false);
   };
 
-  const clickClose: KeyboardEventHandler<HTMLDivElement> = e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      setClose(false);
-    }
-  };
-
   return createPortal(
-    <>
+    <div>
       <animated.div
         style={{
           transform,
         }}
-        className={`fixed inset-0 z-40 overflow-x-hidden overflow-y-auto
+        className={`fixed inset-0 z-40 overflow-x-hidden 
       ${isOpen ? 'visible' : 'invisible'} `}>
-        <div
-          className={'fixed inset-0'}
-          ref={modalRef}
-          onClick={e => e.stopPropagation()}
-          onKeyDown={clickClose}
-          role={'button'}
-          tabIndex={-1}
-          aria-label={'Close modal'}
-        />
-        <div className={`absolute modal ${className || ''}`}>
+        <div className={`modal absolute z-50 ${className} `}>
           <button
             type={'button'}
-            className={'cursor-pointer absolute top-2 right-2'}
+            className={'absolute right-2 top-2 cursor-pointer'}
             onClick={handleClose}>
             <AiOutlineClose size={24} />
           </button>
-          {children}
+          <div ref={modalRef} className={'z-[60]'}>
+            {children}
+          </div>
         </div>
       </animated.div>
       <animated.div
@@ -91,7 +82,7 @@ export const Modal: FC<ModalProps> = ({
         className={`fixed inset-0 ${isOpen ? 'visible' : 'invisible'} z-30`}>
         <div className={`h-full w-full`} style={{ backgroundColor }} />
       </animated.div>
-    </>,
+    </div>,
     modalRoot
   );
 };

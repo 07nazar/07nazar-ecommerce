@@ -4,6 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useMatchMedia } from '../../lib';
 
+import 'swiper/css';
+import 'swiper/css/free-mode';
+
 type SliderProps = {
   children: ReactNode;
   spaceBetween?: number;
@@ -53,9 +56,7 @@ export const Slider: FC<SliderProps> = ({
       freeMode
       className={'w-full overflow-hidden'}>
       {Children.map(children, child => (
-        <SwiperSlide className={'slide-w-auto'}>
-          <div className={className}>{child}</div>
-        </SwiperSlide>
+        <SwiperSlide className={`slide-w-auto`}>{child}</SwiperSlide>
       ))}
     </Swiper>
   );
