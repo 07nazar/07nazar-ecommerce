@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
 type LoaderProps = {
-  type: 'skeleton' | 'spinner';
   className?: string;
+  type?: 'skeleton' | 'spinner';
 };
 
 export const Loader: FC<LoaderProps> = ({
