@@ -188,15 +188,19 @@
   .scrollbar::-webkit-scrollbar {
     @apply h-1 duration-300;
   }
-  
-  .scrollbar-y::-webkit-scrollbar-thumb,
-  .scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-lightblue duration-300;
+
+  .scrollbar-y::-webkit-scrollbar-track {
+    @apply bg-gray-deep;
   }
   
   .scrollbar-y::-webkit-scrollbar-thumb,
-  .scrollbar::-webkit-scrollbar-thumb:hover {
-    @apply bg-blue/50 duration-300;
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-light duration-300;
+  }
+  
+  .scrollbar-y:hover::-webkit-scrollbar-thumb,
+  .scrollbar:hover::-webkit-scrollbar-thumb {
+    @apply bg-gray-light duration-300;
   }
   
   .swiper-active-slide .swiper-slide-thumb-active {
