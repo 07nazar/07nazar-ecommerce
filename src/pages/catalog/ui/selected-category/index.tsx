@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom';
 
 import { categoriesModel } from 'entities/categories';
 import { useAppDispatch, useMatchMedia, useSliceSelector } from 'shared/lib';
+import { Loader } from 'shared/ui/loader';
 
-import { Loader } from '../../../../shared/ui/loader';
 import { formatNumber } from '../../lib';
 
 const withCategoryDispatch = (WrappedComponent: ComponentType) => () => {
@@ -13,9 +13,9 @@ const withCategoryDispatch = (WrappedComponent: ComponentType) => () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const regex = /[^/]*-([^/]+)$/;
+    const regex = /\d+[a-fA-F0-9]+/;
     const match = pathname.match(regex);
-    const [, curId] = (match && match[0].split('-')) || [];
+    const curId = (match && match[0]) || '';
 
     if (curId && categories.length !== 0) {
       dispatch(categoriesModel.setCurrentCategory(curId));
