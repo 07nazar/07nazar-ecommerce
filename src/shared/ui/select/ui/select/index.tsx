@@ -36,11 +36,14 @@ export const Select: FC<ISelect> = ({
   menuClassName = '',
   openOnHover = false,
 }) => {
+  const selectRef = useRef<HTMLDivElement>(null);
   let timeout: Timeout;
   const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setOpen(!isOpen);
   };
+
+  useOutsideClick(selectRef, () => setOpen(false));
 
   useEffect(() => () => clearTimeout(timeout), []);
 
@@ -61,7 +64,8 @@ export const Select: FC<ISelect> = ({
 
   return (
     <div
-      className={`relative ${className} flex flex-col`}
+      ref={selectRef}
+      className={`relative ${className} flex h-full flex-col`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}>
       <SelectButton
