@@ -22,12 +22,12 @@
     @apply relative font-medium inline-flex overflow-hidden;
   }
 
-  input[type=number].appearance-none::-webkit-inner-spin-button,
-  input[type=number].appearance-none::-webkit-outer-spin-button {
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-  input[type=number].appearance-none {
+  input[type=number] {
     -moz-appearance:textfield;
   }
 }
@@ -124,6 +124,10 @@
   .modal {
     @apply bg-white p-6 rounded-lg shadow-lg;
   }
+
+  .select-btn {
+    @apply w-full max-h-10 flex gap-1 items-center rounded-md border-0 cursor-pointer whitespace-nowrap transition-all duration-500;
+  }
 }
 
 @layer utilities {
@@ -197,19 +201,15 @@
   .scrollbar::-webkit-scrollbar {
     @apply h-1 duration-300;
   }
-
-  .scrollbar-y::-webkit-scrollbar-track {
-    @apply bg-gray-deep;
-  }
   
   .scrollbar-y::-webkit-scrollbar-thumb,
   .scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-gray-light duration-300;
+    @apply bg-blue rounded-md duration-300;
   }
   
   .scrollbar-y:hover::-webkit-scrollbar-thumb,
   .scrollbar:hover::-webkit-scrollbar-thumb {
-    @apply bg-gray-light duration-300;
+    @apply bg-blue duration-300;
   }
   
   .swiper-active-slide .swiper-slide-thumb-active {
