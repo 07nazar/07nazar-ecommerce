@@ -22,6 +22,11 @@
     @apply relative font-medium inline-flex overflow-hidden;
   }
 
+  textarea,
+  input {
+    @apply outline-none;
+  }
+
   input[type=number]::-webkit-inner-spin-button,
   input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -106,7 +111,7 @@
   }
 
   .base-input {
-    @apply w-full px-4 leading-5 text-black placeholder:text-gray-hot outline-none;
+    @apply w-full px-4 leading-5 text-black placeholder:text-gray-hot;
   }
 
   .base-button {
