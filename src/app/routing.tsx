@@ -10,6 +10,8 @@ const Home = lazy(() => import('pages/home'));
 const Catalog = lazy(() => import('pages/catalog'));
 const AllCatalog = lazy(() => import('pages/all-catalog'));
 const Product = lazy(() => import('pages/product'));
+const ProductEdit = lazy(() => import('pages/product-edit'));
+const ProductCreate = lazy(() => import('pages/product-create'));
 const Cart = lazy(() => import('pages/cart'));
 const NotFound = lazy(() => import('pages/not-found'));
 
@@ -20,6 +22,8 @@ export const Routing = () => (
       <Route path={'catalog'} element={withLazy(<AllCatalog />)} />
       <Route path={'catalog/:category'} element={withLazy(<Catalog />)} />
       <Route path={'product/:id'} element={withLazy(<Product />)} />
+      <Route path={'product-edit/:id'} element={withLazy(<ProductEdit />)} />
+      <Route path={'product/create'} element={withLazy(<ProductCreate />)} />
       <Route path={'admin/*'} element={<Admin />} />
       <Route path={'cart'} element={withLazy(<Cart />)} />
       <Route path={'auth/*'} element={<Auth />} />
