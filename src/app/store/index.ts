@@ -1,8 +1,9 @@
+/* eslint-disable import/order */
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
 
 import { invalidateAccessTokenListener } from 'features/authentication/invalidate-access-token';
-import { baseApi } from 'shared/api/baseApi';
+import { baseApi } from 'shared/api/base-api';
 import { isDevEnv } from 'shared/config';
 
 import { rootReducer } from './root-reducer';

@@ -2,7 +2,7 @@ import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { Admin } from 'pages/admin';
-import { Auth } from 'pages/Auth';
+import { Auth } from 'pages/auth';
 import { Layout } from 'pages/layout';
 import { withLazy } from 'shared/lib';
 

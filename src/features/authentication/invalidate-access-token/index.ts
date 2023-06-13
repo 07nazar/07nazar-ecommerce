@@ -3,7 +3,7 @@ import {
   type TypedStartListening,
 } from '@reduxjs/toolkit';
 
-import { invalidateAccessToken } from 'shared/api/invalidateTokenEvent';
+import { invalidateAccessToken } from 'shared/api/invalidate-token-event';
 
 export const invalidateAccessTokenListener = createListenerMiddleware();
 
@@ -16,7 +16,7 @@ export const startInvalidateAccessTokenListener =
 startInvalidateAccessTokenListener({
   actionCreator: invalidateAccessToken,
   effect: async (_, api) => {
-    console.log('hello');
+    console.log('hello', _, api);
 
     // In the future here may be logic with refresh access token
     // @see https://redux-toolkit.js.org/rtk-query/usage/customizing-queries#preventing-multiple-unauthorized-errors

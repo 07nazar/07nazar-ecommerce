@@ -1,7 +1,7 @@
 import { retry } from '@reduxjs/toolkit/query/react';
 
-import { baseQueryFactory } from './baseQueryFactory';
-import { invalidateAccessToken } from './invalidateTokenEvent';
+import { invalidateAccessToken } from './invalidate-token-event';
+import { baseQueryFactory } from './query-factory';
 
 // export const baseQueryWithRetry = retry(baseQueryFactory, { maxRetries: 3 });
 export const baseQueryWithRetry = retry(
@@ -14,5 +14,5 @@ export const baseQueryWithRetry = retry(
 
     return result;
   },
-  { maxRetries: 3 }
+  { maxRetries: 2 }
 );

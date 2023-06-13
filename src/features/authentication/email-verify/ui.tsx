@@ -1,5 +1,4 @@
 import { Field, Form, Formik } from 'formik';
-
 import {
   useRef,
   FC,
@@ -111,7 +110,9 @@ export const EmailVerifyForm: FC<TypeFormProps> = ({ inputsData }) => {
               ))}
             </div>
 
-            <Button className={'bg-blue mb-5'}>Submit</Button>
+            <Button className={'bg-blue mb-5 flex justify-center'}>
+              Submit
+            </Button>
 
             <div className={'flex items-center justify-center gap-5'}>
               <p>Didn&apos;t get the mail?</p>

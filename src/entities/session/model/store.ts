@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { sessionApi } from '../api';
 import { SessionUserId } from '../types';
 
 type SessionSliceState =
@@ -9,9 +10,9 @@ type SessionSliceState =
       isAuth: true;
     }
   | {
+      isAuth: false;
       accessToken?: string;
       userId?: SessionUserId;
-      isAuth: false;
     };
 
 const initialState: SessionSliceState = {
@@ -24,6 +25,18 @@ export const sessionSlice = createSlice({
   name: 'session',
   initialState,
   reducers: {},
+  extraReducers(builder) {
+    builder.addMatcher(
+      sessionApi.endpoints.loginUser.matchFulfilled,
+      (state: SessionSliceState, { payload }) => {
+        state.isAuth = true;
+
+        if (state.isAuth) {
+          state.accessToken = payload.accessToken;
+        }
+      }
+    );
+  },
 });
 
 // export const {} = sessionSlice.actions;
