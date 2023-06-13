@@ -1,5 +1,6 @@
-import { FC, MouseEvent, ReactNode, useEffect } from 'react';
+import { FC, MouseEvent, ReactNode, useEffect, useRef } from 'react';
 
+import { useOutsideClick } from '../../../../lib';
 import Menu from '../menu-item/menu';
 
 import SelectButton from './select-button';
@@ -22,6 +23,7 @@ type ISelect = {
   selectedValue: ISelectedValue[] | ISelectedValue;
   defaultValue?: ReactNode;
   menuClassName?: string;
+  buttonClassName?: string;
   openOnHover?: boolean;
 };
 
@@ -34,6 +36,7 @@ export const Select: FC<ISelect> = ({
   setOpen,
   defaultValue,
   menuClassName = '',
+  buttonClassName = '',
   openOnHover = false,
 }) => {
   const selectRef = useRef<HTMLDivElement>(null);
@@ -69,6 +72,7 @@ export const Select: FC<ISelect> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}>
       <SelectButton
+        className={buttonClassName}
         onClickHandler={(e: MouseEvent<HTMLButtonElement>) => onClickHandler(e)}
         isOpen={isOpen}
         selectedValue={selectedValue}
