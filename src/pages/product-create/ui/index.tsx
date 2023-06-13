@@ -1,7 +1,5 @@
 import { Form, Formik, FormikValues } from 'formik';
 
-import { productTypes } from 'entities/product';
-
 import { productCreateSchema } from '../lib';
 
 import { AdvantagesList } from './advantages-list';
@@ -12,8 +10,23 @@ import { PriceBlock } from './price-block';
 import { QuantityCategoryBlock } from './quantity-category-block';
 import { SubmitButton } from './submit-button';
 
+type NewProductType = {
+  name: string;
+  description: string;
+  quantity: string;
+  price: {
+    old: string;
+    current: string;
+  };
+  advantages: string[];
+  category: string;
+  deliveryCost: string;
+  additionalPhotos: FileList[];
+  mainPhoto: File | null;
+};
+
 export const ProductCreate = () => {
-  const initialValues: productTypes.NewProductType = {
+  const initialValues: NewProductType = {
     name: '',
     description: '',
     quantity: '',
@@ -25,7 +38,7 @@ export const ProductCreate = () => {
     category: '',
     deliveryCost: '',
     additionalPhotos: [],
-    mainPhoto: '',
+    mainPhoto: null,
   };
   const onSubmit = (values: FormikValues) => {
     console.log('submit');
