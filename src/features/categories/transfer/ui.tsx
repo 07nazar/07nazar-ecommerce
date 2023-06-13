@@ -3,14 +3,12 @@ import { BiTransfer } from 'react-icons/bi';
 
 import {
   categoriesTypes,
-  categoriesLib,
   categoriesApi,
+  categoriesLib,
 } from 'entities/categories';
 import { Button } from 'shared/ui/button';
 import { Modal } from 'shared/ui/modal';
 import { ISelectedValue, MenuItem, Select } from 'shared/ui/select';
-
-import { flattenCategories } from './lib';
 
 type TransferCategoryProps = {
   id: string;
@@ -27,7 +25,7 @@ export const TransferCategory = ({ id, data }: TransferCategoryProps) => {
   const [selectedValue, setSelectedValue] = useState<ISelectedValue[]>([]);
 
   const selectArray =
-    chosenCategory && flattenCategories(data, chosenCategory.id);
+    chosenCategory && categoriesLib.flattenCategories(data, chosenCategory.id);
 
   const transferHandler = (categoryId: string) => {
     const categoryToTransfer = categoriesLib.findObjectInArray(
@@ -80,20 +78,23 @@ export const TransferCategory = ({ id, data }: TransferCategoryProps) => {
           setChosenCategory(null);
           setShowModal(false);
         }}
-        className={`top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`}
+        className={`left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2`}
         position={'right'}>
-        <div className={'p-2 flex flex-col gap-2'}>
-          <h6 className={'font-medium text-lg'}>
+        <div className={'flex flex-col gap-2 p-2'}>
+          <h6 className={'text-lg font-medium'}>
             Select the name of the category where you want to record it.
           </h6>
           <Select
             selectedValue={selectedValue}
             isOpen={showSelect}
             setOpen={setShowSelect}
-            menuClassName={'absolute top-[40px] left-0'}>
+            menuClassName={
+              'absolute top-[40px] left-0 max-h-56 border border-gray-medium overflow-y-scroll'
+            }>
             {selectArray &&
               selectArray.map(category => (
                 <MenuItem
+                  key={category.id}
                   item={category}
                   setOpen={setShowSelect}
                   setSelectedItems={setSelectedValue}
@@ -103,7 +104,7 @@ export const TransferCategory = ({ id, data }: TransferCategoryProps) => {
               ))}
           </Select>
 
-          <div className={'flex gap-1.5 mt-4 self-end'}>
+          <div className={'mt-4 flex gap-1.5 self-end'}>
             <Button onClick={undoChangesHandler} className={'bg-red'}>
               Undo
             </Button>
