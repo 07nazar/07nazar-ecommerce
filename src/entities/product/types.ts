@@ -46,3 +46,18 @@ export type ProductRow = Pick<
 >;
 
 export type ProductMin = Pick<Product, 'id' | 'name' | 'mainPhoto' | 'price'>;
+
+export type NewProductType = {
+  name: string;
+  description: string;
+  quantity: string;
+  price: {
+    old: string;
+    current: string;
+  };
+  advantages: string[];
+  category: string;
+  deliveryCost: string;
+  additionalPhotos: FileList[];
+  mainPhoto: File | null;
+};
