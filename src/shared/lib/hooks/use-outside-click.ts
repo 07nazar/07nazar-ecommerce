@@ -4,7 +4,8 @@ export const useOutsideClick = (
   ref: RefObject<HTMLElement>,
   callback: () => void,
   onMount?: () => void,
-  onUnmount?: () => void
+  onUnmount?: () => void,
+  isOpen?: boolean
 ) => {
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -13,14 +14,14 @@ export const useOutsideClick = (
       }
     };
 
-    if (onMount) {
+    if (isOpen && onMount) {
       onMount();
     }
 
     document.addEventListener('mousedown', handleOutsideClick);
 
     return () => {
-      if (onUnmount) {
+      if (isOpen && onUnmount) {
         onUnmount();
       }
 
