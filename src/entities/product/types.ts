@@ -46,8 +46,3 @@ export type ProductRow = Pick<
 >;
 
 export type ProductMin = Pick<Product, 'id' | 'name' | 'mainPhoto' | 'price'>;
-
-export type ProductTableAdmin = Pick<
-  Product,
-  'id' | 'name' | 'mainPhoto' | 'price' | 'sellerId'
->;
