@@ -58,6 +58,6 @@ export type NewProductType = {
   advantages: string[];
   category: string;
   deliveryCost: string;
-  additionalPhotos: FileList[];
+  additionalPhotos: FileList | null;
   mainPhoto: File | null;
 };

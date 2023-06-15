@@ -1,7 +1,7 @@
 import { baseApi, TAGS } from 'shared/api';
 
 import { mapProductsData, ProductTableList } from '../lib';
-import { Product } from '../types';
+import { NewProductType, Product } from '../types';
 
 import { productsFromServer } from './products-from-server';
 
@@ -39,6 +39,40 @@ export const productsApi = baseApi.injectEndpoints({
         providesTags: [TAGS.PRODUCT],
       }),
     }),
+    createProduct: builder.mutation<Product, NewProductType>({
+      query: data => {
+        const formData = new FormData();
+
+        if (data.mainPhoto !== null) {
+          formData.append('mainPhoto', data.mainPhoto);
+        }
+
+        if (data.additionalPhotos) {
+          const additionalPhotoFiles = Array.from(data.additionalPhotos);
+          additionalPhotoFiles.forEach((file, index) => {
+            formData.append(`additionalPhotos[${index}]`, file);
+          });
+        }
+
+        formData.append('name', data.name);
+        formData.append('advantages', JSON.stringify(data.advantages));
+        formData.append('category', data.category);
+        formData.append('deliveryCost', data.deliveryCost);
+        formData.append('description', data.description);
+        formData.append('price', JSON.stringify(data.price));
+        formData.append('quantity', data.quantity);
+        console.log(data);
+        return {
+          url: '/product',
+          method: 'POST',
+          body: data,
+        };
+      },
+    }),
   }),
 });
-export const { useGetProductByIdQuery, useGetProductsListQuery } = productsApi;
+export const {
+  useGetProductByIdQuery,
+  useGetProductsListQuery,
+  useCreateProductMutation,
+} = productsApi;
