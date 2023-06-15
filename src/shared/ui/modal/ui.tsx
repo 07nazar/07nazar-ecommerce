@@ -3,6 +3,8 @@ import { FC, ReactNode, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 
+import { useOutsideClick } from '../../lib';
+
 import { disableScrollingPage, enableScrollingPage } from './lib';
 
 interface ModalProps {
@@ -15,6 +17,7 @@ interface ModalProps {
 }
 
 const modalRoot = document.querySelector('#modal');
+
 export const Modal: FC<ModalProps> = ({
   children,
   isOpen,
@@ -32,22 +35,13 @@ export const Modal: FC<ModalProps> = ({
     opacity: isOpen ? 1 : 0,
   });
 
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      if (!modalRef.current?.contains(event.target as Node)) {
-        setClose(false);
-      }
-    };
-    if (isOpen) {
-      disableScrollingPage();
-      document.addEventListener('mousedown', handleOutsideClick);
-    }
-
-    return () => {
-      enableScrollingPage();
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
-  }, [isOpen, setClose]);
+  useOutsideClick(
+    modalRef,
+    () => setClose(false),
+    disableScrollingPage,
+    enableScrollingPage,
+    isOpen
+  );
 
   if (!modalRoot) {
     return null;

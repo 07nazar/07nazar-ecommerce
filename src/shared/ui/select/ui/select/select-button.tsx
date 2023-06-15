@@ -10,9 +10,11 @@ type ISelectButton = {
   selectedValue: ISelectedValue[] | ISelectedValue;
   isPill: boolean;
   defaultValue?: ReactNode;
+  className?: string;
 };
 
 const SelectButton: FC<ISelectButton> = ({
+  className = '',
   onClickHandler,
   isOpen,
   selectedValue,
@@ -21,7 +23,6 @@ const SelectButton: FC<ISelectButton> = ({
 }) => {
   const paddingClass = Array.isArray(selectedValue) ? 'p-2.5' : '';
   const textClass = isPill ? 'p-1.5 leading-[14px]' : '';
-  const containerClass = `w-full max-h-10 flex gap-1 items-center rounded-md border-0 cursor-pointer whitespace-nowrap transition-all duration-500 ${paddingClass} ${textClass}`;
 
   const getSelectedItemsPills = () => {
     let selectedItems: JSX.Element[] = [];
@@ -31,7 +32,7 @@ const SelectButton: FC<ISelectButton> = ({
         <span
           key={item.id}
           className={`flex items-center gap-3 p-1.5 ${
-            isPill ? 'bg-gray-pale rounded-md text-xs' : 'text-base'
+            isPill ? 'rounded-md bg-gray-pale text-xs' : 'text-base'
           }`}>
           {item.text}
           {isPill && <MdClose size={10} />}
@@ -59,7 +60,10 @@ const SelectButton: FC<ISelectButton> = ({
   const selectItem = isPill ? getSelectedItemsPills() : getSelectedItems();
 
   return (
-    <button type={'button'} onClick={onClickHandler} className={containerClass}>
+    <button
+      type={'button'}
+      onClick={onClickHandler}
+      className={`select-btn ${textClass} ${paddingClass} ${className}`}>
       {Array.isArray(selectedValue) && selectedValue.length > 0
         ? selectItem
         : defaultValue}

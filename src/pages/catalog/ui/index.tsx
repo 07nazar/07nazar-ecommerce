@@ -17,7 +17,7 @@ import { SortSelect } from './sort-select';
 export const Catalog = () => {
   const { isMobile, isDesktop, isLaptop } = useMatchMedia();
   const [showMode, setShowMode] = useState<'column' | 'row'>('row');
-
+  // TODO Баг при выборе фильтров слева, внизу на 150-200px перекрывается фон, и появляется ещё один скролл
   return (
     <>
       {!isMobile && <Breadcrumbs />}

@@ -1,1 +1,1 @@
-export { Input, InputGroup } from './ui';
+export { Input, InputGroup, UploadImage } from './ui';

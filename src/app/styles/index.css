@@ -21,6 +21,20 @@
   button {
     @apply relative font-medium inline-flex overflow-hidden;
   }
+
+  textarea,
+  input {
+    @apply outline-none;
+  }
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance:textfield;
+  }
 }
 
 @layer components {
@@ -97,7 +111,7 @@
   }
 
   .base-input {
-    @apply w-full px-4 leading-5 text-black placeholder:text-gray-hot outline-none;
+    @apply w-full px-4 leading-5 text-black placeholder:text-gray-hot;
   }
 
   .base-button {
@@ -114,6 +128,10 @@
 
   .modal {
     @apply bg-white p-6 rounded-lg shadow-lg;
+  }
+
+  .select-btn {
+    @apply w-full max-h-10 flex gap-1 items-center rounded-md border-0 cursor-pointer whitespace-nowrap transition-all duration-500;
   }
 }
 
@@ -191,12 +209,12 @@
   
   .scrollbar-y::-webkit-scrollbar-thumb,
   .scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-lightblue duration-300;
+    @apply bg-blue rounded-md duration-300;
   }
   
-  .scrollbar-y::-webkit-scrollbar-thumb,
-  .scrollbar::-webkit-scrollbar-thumb:hover {
-    @apply bg-blue/50 duration-300;
+  .scrollbar-y:hover::-webkit-scrollbar-thumb,
+  .scrollbar:hover::-webkit-scrollbar-thumb {
+    @apply bg-blue duration-300;
   }
   
   .swiper-active-slide .swiper-slide-thumb-active {
