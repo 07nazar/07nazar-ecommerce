@@ -6,9 +6,11 @@ export type TypeNotification = {
 };
 
 type TypeAlertValue = {
-  showAlert?: ({ message, type }: TypeNotification) => void;
+  showAlert: ({ message, type }: TypeNotification) => void;
 };
 
-export const AlertContext = createContext<TypeAlertValue>({});
+export const AlertContext = createContext<TypeAlertValue>({
+  showAlert: () => {},
+});
 
 export const useAlert = () => useContext(AlertContext);
