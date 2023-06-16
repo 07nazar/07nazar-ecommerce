@@ -7,10 +7,7 @@ type QueryParams = {
   [key: string]: string;
 };
 
-export const useSortParams = (
-  sortName: string,
-  sortValues: string[] | string
-) => {
+export const useSortParams = (sortName: string, sortValues: string[]) => {
   const navigate = useNavigate();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -36,5 +33,5 @@ export const useSortParams = (
     navigate(`?${searchParams.toString()}`, {
       replace: true,
     });
-  }, [navigate, location.search, sortName, sortValues]);
+  }, [location.search, sortName, sortValues]);
 };
