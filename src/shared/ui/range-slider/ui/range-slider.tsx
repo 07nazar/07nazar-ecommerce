@@ -1,7 +1,7 @@
-import {FC, SetStateAction, useCallback, useEffect, useState} from 'react';
+import { FC, SetStateAction, useCallback, useEffect, useState } from 'react';
 
-import {SliderTrack} from './slider-track';
-import {Thumb} from './thumb';
+import { SliderTrack } from './slider-track';
+import { Thumb } from './thumb';
 
 type RangeSliderProps = {
   min: number;
@@ -41,7 +41,7 @@ export const RangeSlider: FC<RangeSliderProps> = ({
   }, [userPrice]);
 
   return (
-    <div className={'flex items-center justify-center'}>
+    <div className={'relative flex items-center justify-center'}>
       <Thumb
         value={minVal}
         min={min}

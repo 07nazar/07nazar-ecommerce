@@ -14,7 +14,7 @@ export const BaseFilter: FC<BaseFilterProps> = ({ title, items }) => {
   );
 
   return (
-    <Dropdown maxItems={5} title={title} className={'gap-2'}>
+    <Dropdown maxItems={5} title={title} className={'gap-2'} isScrollable>
       {items.map(option => (
         <Checkbox
           key={option}
