@@ -4,7 +4,7 @@ import { AiOutlineEdit, AiOutlineEye } from 'react-icons/ai';
 import { TableList } from 'widgets/table-list';
 import { DeleteProduct } from 'features/product/delete-product';
 import { productApi } from 'entities/product';
-import { normalizeStringToURL } from 'shared/lib';
+import { generateStringURL } from 'shared/lib';
 import { AppLink } from 'shared/ui/links';
 
 type SearchResultProps = {
@@ -24,15 +24,15 @@ export const SearchResult: FC<SearchResultProps> = ({ search }) => {
   const products = productApi.productsList;
 
   const handleActions = (name: string, id: string) => (
-    <div className={'w-1/12 flex'}>
+    <div className={'flex w-1/12'}>
       <AppLink
-        to={`/products/${normalizeStringToURL(name)}`}
-        className={'text-black p-1.5 hover:text-blue '}>
+        to={`/products/${generateStringURL(name)}`}
+        className={'p-1.5 text-black hover:text-blue '}>
         <AiOutlineEye />
       </AppLink>
       <AppLink
-        to={`/edit/${normalizeStringToURL(name)}`}
-        className={'text-black p-1.5 hover:text-green '}>
+        to={`/edit/${generateStringURL(name)}`}
+        className={'p-1.5 text-black hover:text-green '}>
         <AiOutlineEdit />
       </AppLink>
       <DeleteProduct productId={id} />

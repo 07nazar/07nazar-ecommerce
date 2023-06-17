@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { normalizeStringToURL, useMatchMedia } from 'shared/lib';
+import { generateStringURL, useMatchMedia } from 'shared/lib';
 import { MenuItem, MenuItemType, Select } from 'shared/ui/select';
 
 type MultiCategoriesProps = {
@@ -37,7 +37,7 @@ export const MultiCategories: FC<MultiCategoriesProps> = ({ data }) => {
           onClickOptionHandler={item => {
             if (typeof item.text === 'string') {
               navigate(
-                `/catalog/${normalizeStringToURL(item.text)}-${item.id}` ||
+                `/catalog/${generateStringURL(item.text)}-${item.id}` ||
                   '/catalog'
               );
             }

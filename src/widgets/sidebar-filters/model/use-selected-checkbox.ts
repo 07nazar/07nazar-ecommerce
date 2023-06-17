@@ -1,6 +1,7 @@
-import { ChangeEventHandler, useState } from 'react';
+import { ChangeEventHandler, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import { generateStringURL } from '../lib';
+import { generateStringURL } from 'shared/lib';
 
 import { useSortParams } from './use-sort-params';
 
@@ -16,11 +17,20 @@ type UseSelectedCheckboxReturnType = [
 export const useSelectedCheckbox = (
   name: string
 ): UseSelectedCheckboxReturnType => {
+  const { search } = useLocation();
   const [selected, setSelected] = useState<SelectedObject>({ [name]: [] });
+  const [sortValues, setSortValues] = useState<string[]>([]);
 
-  useSortParams(name, selected[name]);
+  useSortParams(name, sortValues);
 
-  // TODO при перезагрузке не отмечает чекбоксы которые записаны в строке url
+  const searchParams = new URLSearchParams(search);
+  const valuesFromURL = searchParams.getAll(name);
+  const resultArray = valuesFromURL.flatMap(item => item.split('_'));
+
+  useEffect(() => {
+    setSelected(() => ({ [name]: resultArray }));
+    setSortValues(() => resultArray);
+  }, [search]);
 
   const handleCheckboxChange: ChangeEventHandler<HTMLInputElement> = event => {
     const { value, checked } = event.target;
@@ -35,6 +45,13 @@ export const useSelectedCheckbox = (
       }
 
       return { [name]: newSelected };
+    });
+
+    setSortValues(prevSortValues => {
+      if (checked) {
+        return [...prevSortValues, generatedValue];
+      }
+      return prevSortValues.filter(val => val !== generatedValue);
     });
   };
 

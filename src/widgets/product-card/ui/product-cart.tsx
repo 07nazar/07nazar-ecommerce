@@ -6,12 +6,10 @@ import { RemoveProduct } from 'features/cart/remove-product';
 import { SaveForLater } from 'features/product/save-for-later';
 import { cartTypes } from 'entities/cart';
 import { ProductCard, productTypes } from 'entities/product';
-import { useMatchMedia } from 'shared/lib';
+import { useMatchMedia, capitalize } from 'shared/lib';
 import { MenuItem, Select } from 'shared/ui/select';
 
 import type { ISelectedValue } from 'shared/ui/select';
-
-import { capitalize } from '../lib';
 
 interface IContentProps {
   params: productTypes.ProductParams[];
@@ -36,7 +34,7 @@ const Content: FC<IContentProps> = ({ params, sellerId }) => {
   const paramsElements = useMemo(
     () =>
       params.map(({ name, value }: productTypes.ProductParams, index) => (
-        <span className={'inline-block mr-0.5'} key={name}>
+        <span className={'mr-0.5 inline-block'} key={name}>
           {index === 0 ? capitalize(name) : name}: {value.toLowerCase()}
           {index !== params.length - 1 && ', '}
         </span>
@@ -45,21 +43,21 @@ const Content: FC<IContentProps> = ({ params, sellerId }) => {
   );
 
   return (
-    <div className={'flex grow justify-between items-center mb-2.5'}>
+    <div className={'mb-2.5 flex grow items-center justify-between'}>
       <div
         className={'flex flex-col text-gray-hot sm:text-xs sm:leading-[19px]'}>
-        <p className={'max-w-[429px] w-full'}>{paramsElements}</p>
+        <p className={'w-full max-w-[429px]'}>{paramsElements}</p>
         <p>Seller: {sellerId}</p>
       </div>
       {!isDesktop && (
-        <div className={'absolute top-0 right-0'}>
+        <div className={'absolute right-0 top-0'}>
           {/* mobile 3 dots select */}
         </div>
       )}
       {isDesktop && (
         <Select
           className={
-            'max-w-[123px] w-full justify-center border rounded-md border-gray-deep px-2.5'
+            'w-full max-w-[123px] justify-center rounded-md border border-gray-deep px-2.5'
           }
           menuClassName={'absolute top-11 left-0'}
           isOpen={isOpen}
@@ -167,18 +165,18 @@ export const ProductCart: FC = () => {
         <ProductCard
           key={product.id}
           className={{
-            box: 'relative flex pb-5 mb-5 lg:pb-16 sm:mb-4 last:border-none last:mb-0 border-b border-b-gray-medium',
+            box: 'relative mb-5 flex border-b border-b-gray-medium pb-5 last:mb-0 last:border-none lg:pb-16 sm:mb-4',
             price: 'hidden',
-            content: 'flex flex-col justify-between grow',
+            content: 'flex grow flex-col justify-between',
             boxImage:
-              'border border-gray-deep bg-white p-2 rounded-md w-[80px] h-[80px] mr-2.5 lg:mr-1.5',
+              'mr-2.5 h-[80px] w-[80px] rounded-md border border-gray-deep bg-white p-2 lg:mr-1.5',
             title:
-              'max-w-fit mb-1.5 font-medium sm:font-normal leading-[19px] text-black',
+              'mb-1.5 max-w-fit font-medium leading-[19px] text-black sm:font-normal',
           }}
           before={
             <p
               className={
-                'text-black font-medium absolute top-0 md:top-auto md:bottom-6 right-0'
+                'absolute right-0 top-0 font-medium text-black md:bottom-6 md:top-auto'
               }>
               ${(product.price.current * quantity).toFixed(2)}
             </p>
@@ -194,11 +192,11 @@ export const ProductCart: FC = () => {
             <div className={'flex gap-2'}>
               <RemoveProduct productId={product.id} />
               <SaveForLater
-                className={'text-blue bg-light hover:bg-blue hover:text-white'}
+                className={'bg-light text-blue hover:bg-blue hover:text-white'}
               />
             </div>
           ) : (
-            <div className={'absolute left-0 bottom-4'}>
+            <div className={'absolute bottom-4 left-0'}>
               <Counter
                 value={quantity}
                 setValue={newQuantity =>

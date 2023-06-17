@@ -1,4 +1,4 @@
-import { normalizeStringToURL } from 'shared/lib';
+import { generateStringURL } from 'shared/lib';
 
 export type ProductTableList = {
   id: {
@@ -57,7 +57,7 @@ export const mapProductsData = (product: unknown): ProductTableList => {
       id,
       name: `#${id.substring(0, 5)}`,
       sortable: false,
-      to: `product/${normalizeStringToURL(name)}`,
+      to: `product/${generateStringURL(name)}`,
       className: 'text-blue/70 mr-1',
       width: 'w-1/12',
     },
@@ -76,7 +76,7 @@ export const mapProductsData = (product: unknown): ProductTableList => {
     seller: {
       name: sellerId,
       sortable: true,
-      to: `sellers/${normalizeStringToURL(sellerId)}`,
+      to: `sellers/${generateStringURL(sellerId)}`,
       className: 'hover:text-blue duration-200',
       width: 'w-4/12',
     },

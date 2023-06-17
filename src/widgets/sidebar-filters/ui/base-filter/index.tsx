@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
+import { generateStringURL } from 'shared/lib';
 import { Checkbox } from 'shared/ui/checkbox';
 import { Dropdown } from 'shared/ui/dropdown';
 
-import { generateStringURL } from '../../lib';
 import { useSelectedCheckbox } from '../../model';
 
 type BaseFilterProps = { title: string; items: string[] };
@@ -14,7 +14,7 @@ export const BaseFilter: FC<BaseFilterProps> = ({ title, items }) => {
   );
 
   return (
-    <Dropdown maxItems={5} title={title} className={'gap-2'}>
+    <Dropdown maxItems={5} title={title} className={'gap-2'} isScrollable>
       {items.map(option => (
         <Checkbox
           key={option}

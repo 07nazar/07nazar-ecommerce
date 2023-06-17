@@ -1,6 +1,7 @@
-import { Form, Formik, FormikValues } from 'formik';
+import { Form, Formik } from 'formik';
 
-import { productTypes } from 'entities/product';
+import { productTypes, productApi } from 'entities/product';
+import { useAlert } from 'shared/lib/hooks';
 
 import { productCreateSchema } from '../lib';
 
@@ -12,24 +13,37 @@ import { PriceBlock } from './price-block';
 import { QuantityCategoryBlock } from './quantity-category-block';
 import { SubmitButton } from './submit-button';
 
+const initialValues: productTypes.NewProductType = {
+  name: 'dasdawdaw',
+  description:
+    'dasdawdawdasdawdawdasdawdawdasdawdadasdasdasdasdawdasdawdawdasdawdawdasdawdawdasdawdawdasdawdawdasdawdaw',
+  quantity: '312',
+  price: {
+    old: '523',
+    current: '634',
+  },
+  advantages: ['dasdawdawdasdawdawdasdawdawdasdawdawdasdawdaw'],
+  category: '',
+  deliveryCost: '11',
+  additionalPhotos: null,
+  mainPhoto: null,
+};
+
 export const ProductCreate = () => {
-  const initialValues: productTypes.NewProductType = {
-    name: '',
-    description: '',
-    quantity: '',
-    price: {
-      old: '',
-      current: '',
-    },
-    advantages: [''],
-    category: '',
-    deliveryCost: '',
-    additionalPhotos: [],
-    mainPhoto: null,
-  };
-  const onSubmit = (values: FormikValues) => {
-    console.log('submit');
+  const [createProduct, { isLoading, isError, isSuccess }] =
+    productApi.useCreateProductMutation();
+  const { showAlert } = useAlert();
+  const onSubmit = (values: productTypes.NewProductType) => {
     console.log(values);
+    createProduct(values);
+
+    if (isSuccess) {
+      showAlert({ message: 'Product successful created', type: 'success' });
+    }
+
+    if (isError) {
+      showAlert({ message: 'Error, please try again', type: 'error' });
+    }
   };
 
   return (
@@ -44,7 +58,7 @@ export const ProductCreate = () => {
         <PriceBlock />
         <AdvantagesList />
         <ImagesUpload />
-        <SubmitButton />
+        <SubmitButton isLoading={isLoading} />
       </Form>
     </Formik>
   );
