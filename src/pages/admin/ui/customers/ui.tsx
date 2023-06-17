@@ -4,7 +4,7 @@ import { AiOutlineEdit, AiOutlineEye } from 'react-icons/ai';
 import { TableList } from 'widgets/table-list';
 import { DeleteProduct } from 'features/product/delete-product';
 import { userApi } from 'entities/user';
-import { normalizeStringToURL } from 'shared/lib';
+import { generateStringURL } from 'shared/lib';
 import { AppLink } from 'shared/ui/links';
 import { Search } from 'shared/ui/search';
 
@@ -19,15 +19,15 @@ export const Customers = () => {
   });
 
   const handleActions = (name: string, id: string) => (
-    <div className={'w-1/12 flex'}>
+    <div className={'flex w-1/12'}>
       <AppLink
-        to={`/user/${normalizeStringToURL(id)}`}
-        className={'text-black p-1.5 hover:text-blue '}>
+        to={`/user/${generateStringURL(id)}`}
+        className={'p-1.5 text-black hover:text-blue '}>
         <AiOutlineEye />
       </AppLink>
       <AppLink
-        to={`/edit/profile/${normalizeStringToURL(id)}`}
-        className={'text-black p-1.5 hover:text-green '}>
+        to={`/edit/profile/${generateStringURL(id)}`}
+        className={'p-1.5 text-black hover:text-green '}>
         <AiOutlineEdit />
       </AppLink>
       <DeleteProduct productId={id} />
@@ -41,7 +41,7 @@ export const Customers = () => {
           setSearchValue(value);
         }}
         className={
-          'mb-2 w-full bg-white border border-lightblue h-10 rounded-md'
+          'mb-2 h-10 w-full rounded-md border border-lightblue bg-white'
         }
       />
       {data && (

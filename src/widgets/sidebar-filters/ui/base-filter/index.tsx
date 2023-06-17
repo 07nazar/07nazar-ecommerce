@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
+import { generateStringURL } from 'shared/lib';
 import { Checkbox } from 'shared/ui/checkbox';
 import { Dropdown } from 'shared/ui/dropdown';
 
-import { generateStringURL } from '../../lib';
 import { useSelectedCheckbox } from '../../model';
 
 type BaseFilterProps = { title: string; items: string[] };

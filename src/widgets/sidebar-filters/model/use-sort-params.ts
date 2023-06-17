@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { generateStringURL } from '../lib';
+import { generateStringURL } from 'shared/lib';
 
 type QueryParams = {
   [key: string]: string;

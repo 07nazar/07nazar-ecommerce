@@ -1,7 +1,7 @@
 import { ChangeEventHandler, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { generateStringURL } from '../lib';
+import { generateStringURL } from 'shared/lib';
 
 import { useSortParams } from './use-sort-params';
 
@@ -25,11 +25,12 @@ export const useSelectedCheckbox = (
 
   const searchParams = new URLSearchParams(search);
   const valuesFromURL = searchParams.getAll(name);
-  const resultArray = valuesFromURL.flatMap(item => item.split(' '));
+  const resultArray = valuesFromURL.flatMap(item => item.split('_'));
 
   useEffect(() => {
-    setSelected(() => ({ [name]: [...selected[name], ...resultArray] }));
-  }, []);
+    setSelected(() => ({ [name]: resultArray }));
+    setSortValues(() => resultArray);
+  }, [search]);
 
   const handleCheckboxChange: ChangeEventHandler<HTMLInputElement> = event => {
     const { value, checked } = event.target;

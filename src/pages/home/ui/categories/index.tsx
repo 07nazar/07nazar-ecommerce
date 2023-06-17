@@ -4,7 +4,7 @@ import 'swiper/css';
 
 import { categoriesApi } from 'entities/categories';
 import { HOME_MAX_VISIBLE_FEATURED } from 'shared/config';
-import { normalizeStringToURL, useMatchMedia } from 'shared/lib';
+import { generateStringURL, useMatchMedia } from 'shared/lib';
 import { Button } from 'shared/ui/button';
 import { Slider } from 'shared/ui/slider';
 
@@ -20,7 +20,7 @@ export const Categories = (): JSX.Element => {
 
   const clickHandler = (id: string, text: string) => {
     navigate(
-      `/catalog/${normalizeStringToURL(text)}-${String(id).substring(0, 9)}`
+      `/catalog/${generateStringURL(text)}-${String(id).substring(0, 9)}`
     );
   };
 
@@ -38,14 +38,14 @@ export const Categories = (): JSX.Element => {
         <div
           key={`category-${id}`}
           className={
-            'flex lg:flex-col lg:max-h-auto lg:h-auto max-h-[257px] h-full mt-5'
+            'lg:max-h-auto mt-5 flex h-full max-h-[257px] lg:h-auto lg:flex-col'
           }>
           <div
             className={
-              'relative w-[23%] lg:w-full lg:border lg:border-b-0 lg:rounded-t-md rounded-l-md lg:rounded-bl-none border-gray-pale overflow-hidden'
+              'relative w-[23%] overflow-hidden rounded-l-md border-gray-pale lg:w-full lg:rounded-t-md lg:rounded-bl-none lg:border lg:border-b-0'
             }>
             <div
-              className={'absolute w-full h-full lg:blur-sm '}
+              className={'absolute h-full w-full lg:blur-sm '}
               style={{
                 backgroundImage: `url(${image})`,
                 backgroundRepeat: 'no-repeat',
@@ -54,10 +54,10 @@ export const Categories = (): JSX.Element => {
               }}
             />
             <div
-              className={`relative sm:bg-white sm:border-t sm:border-gray-medium h-full  p-5 sm:p-4`}>
+              className={`relative h-full p-5 sm:border-t sm:border-gray-medium  sm:bg-white sm:p-4`}>
               <h5
                 className={
-                  'text-black sm:w-full text-xl sm:text-lg leading-6.5 font-semibold mb-5 sm:mb-0'
+                  'mb-5 text-xl font-semibold leading-6.5 text-black sm:mb-0 sm:w-full sm:text-lg'
                 }>
                 {name}
               </h5>
@@ -73,12 +73,12 @@ export const Categories = (): JSX.Element => {
 
           <div
             className={
-              'w-3/4 bg-white lg:w-full grow rounded-r-md lg:rounded-b-md lg:rounded-tr-none border border-gray-pale overflow-hidden'
+              'w-3/4 grow overflow-hidden rounded-r-md border border-gray-pale bg-white lg:w-full lg:rounded-b-md lg:rounded-tr-none'
             }>
             <Slider
               activateOn={'isLaptop'}
               className={
-                'w-full grid grid-cols-4 lg:block bg-white rounded-b-md border border-gray-pale overflow-hidden'
+                'grid w-full grid-cols-4 overflow-hidden rounded-b-md border border-gray-pale bg-white lg:block'
               }>
               {children &&
                 getAllChildren(children).map((item, i) => {
@@ -105,7 +105,7 @@ export const Categories = (): JSX.Element => {
             <Button
               onClick={() => clickHandler(id, name)}
               className={
-                'p-5 bg-white font-medium text-blue flex items-center gap-1.5 border-b border-gray-medium'
+                'flex items-center gap-1.5 border-b border-gray-medium bg-white p-5 font-medium text-blue'
               }>
               <span>Source now</span>
               <BsArrowRight />

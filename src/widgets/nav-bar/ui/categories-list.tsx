@@ -1,10 +1,6 @@
 import { FC } from 'react';
 
-import {
-  normalizeStringToURL,
-  useMatchMedia,
-  useSliceSelector,
-} from 'shared/lib';
+import { generateStringURL, useMatchMedia, useSliceSelector } from 'shared/lib';
 import { AppLink } from 'shared/ui/links';
 import { Slider } from 'shared/ui/slider';
 
@@ -31,7 +27,7 @@ export const CategoriesList: FC = () => {
         <AppLink
           key={link.id}
           state={{ category: link.name, id: link.id }}
-          to={`/catalog/${normalizeStringToURL(link.name)}-${link.id}`}
+          to={`/catalog/${generateStringURL(link.name)}-${link.id}`}
           className={
             'whitespace-nowrap font-medium text-black md:rounded-md md:bg-gray-pale md:p-2 md:font-normal md:leading-[19px] md:text-blue'
           }>

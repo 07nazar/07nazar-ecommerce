@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { categoriesTypes } from 'entities/categories';
-import { normalizeStringToURL } from 'shared/lib';
+import { generateStringURL } from 'shared/lib';
 import { DivLink } from 'shared/ui/links';
 
 type CategoryItemProps = Pick<
@@ -18,15 +18,15 @@ export const CategoryItem: FC<CategoryItemProps> = ({
 }) => (
   <DivLink
     ariaLabel={`Go to ${name} catalog`}
-    to={`/catalog/${normalizeStringToURL(name)}-${String(id).substring(0, 5)}`}
-    className={`flex flex-col sm:flex-col-reverse max-w-[225px] py-5 md:py-3 px-4 ${className}`}>
+    to={`/catalog/${generateStringURL(name)}-${String(id).substring(0, 5)}`}
+    className={`flex max-w-[225px] flex-col px-4 py-5 md:py-3 sm:flex-col-reverse ${className}`}>
     <h6 className={'leading-5 sm:text-center'}>{name}</h6>
-    <div className={'flex sm:flex-col-reverse  justify-between'}>
-      <p className={'w-full mt-2 text-xs text-gray-hot sm:text-center'}>
+    <div className={'flex justify-between  sm:flex-col-reverse'}>
+      <p className={'mt-2 w-full text-xs text-gray-hot sm:text-center'}>
         <span className={'block sm:inline-block '}>From</span> USD {minPrice}
       </p>
       <img
-        className={'sm:mx-auto max-w-[75px] max-h-[75px] object-contain'}
+        className={'max-h-[75px] max-w-[75px] object-contain sm:mx-auto'}
         src={image}
         alt={'category'}
       />
