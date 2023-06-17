@@ -6,7 +6,7 @@ import { useMatchMedia } from 'shared/lib';
 import { Breadcrumbs } from 'shared/ui/breadcrumbs';
 import { PaginationBox } from 'shared/ui/pagination';
 
-import { ActiveCategories } from './active-categories';
+import { ActiveFilters } from './active-filters';
 import { MobileFilters } from './mobile-filters';
 import { Products } from './products';
 import { ProductsToggle } from './products-toggle';
@@ -38,7 +38,7 @@ export const Catalog = () => {
             <MobileFilters />
             <ProductsToggle showMode={showMode} setShowMode={setShowMode} />
           </div>
-          <ActiveCategories />
+          <ActiveFilters />
           <Products showMode={showMode} />
           <PaginationBox
             changePageHandler={() => 1}
