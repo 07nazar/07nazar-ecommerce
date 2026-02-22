@@ -8,7 +8,7 @@ import { Register } from './register';
 import { ResetPassword } from './reset-password';
 
 export const Auth = () => {
-  const isAuth = true;
+  const isAuth = false;
   const navigate = useNavigate();
 
   useEffect(() => {
